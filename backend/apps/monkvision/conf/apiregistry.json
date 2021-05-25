@@ -1,22 +1,19 @@
 {
     "/apps/monkvision/login" : "/apis/login.js?needsToken=false&addsToken=sub:access",
     "/apps/monkvision/register" : "/apis/register.js?needsToken=false",
+
+    
     "/apps/monkvision/changepassword" : "/apis/changepassword.js?key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true",
     
-    "/apps/monkvision/alerts" : "/apis/alerts.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true",
+    "/apps/monkvision/monbossAlerts" : "/apis/monbossAlerts.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true",
     
-    "/apps/monkvision/loggraph" : "/apis/loggraph.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true",
+    "/apps/monkvision/loggraphAllNodesData" : "/apis/loggraphAllNodesData.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true",
+    "/apps/monkvision/loggraphAllNodesDataMultiProp" : "/apis/loggraphAllNodesDataMultiProp.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true",
+    "/apps/monkvision/statusbannerquery_max_data_multiprop_node" : "/apis/statusbannerquery_max_data_multiprop_node.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true",
 
-    "/apps/monkvision/statusaggregator" : "/apis/statusaggregator.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true",
-
-    "/apps/monkvision/statusbanner" : "/apis/statusbanner.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true",
-
-    "/apps/monkvision/randomgraph" : "/apis/randomgraph.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true",
-    "/apps/monkvision/randomaggregator" : "/apis/randomaggregator.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true",
-
-    "/apps/monkvision/loggraphquery" : "/apis/loggraphquery.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true",
+    "/apps/monkvision/statusbanner_activeNodes" : "/apis/statusbanner_activeNodes.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true",   
+    "/apps/monkvision/statusbannerquery_genericRawData" : "/apis/statusbannerquery_genericRawData.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true",
+    "/apps/monkvision/statusbannerquery_max_data_node" : "/apis/statusbannerquery_max_data_node.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true",
     
-    "/apps/monkvision/statusbannerquery" : "/apis/statusbannerquery.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true",
-
-    "/apps/monkvision/statusaggregatorquery" : "/apis/statusaggregatorquery.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true"
+    "/apps/monkvision/nodeListGenerator" : "/apis/nodeListGenerator.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true"
 }

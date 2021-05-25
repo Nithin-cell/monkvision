@@ -2,8 +2,11 @@
  * (C) 2015 TekMonks. All rights reserved.
  * License: MIT - see enclosed license.txt file.
  */
-const FRONTEND = "http://localhost:8080";
-const BACKEND = "http://localhost:9090";
+//const FRONTEND = "https://wfhuat-link.takaful-malaysia.com.my:1280";
+//const BACKEND = "https://wfhuat-link.takaful-malaysia.com.my:1290";
+const FRONTEND = `https://${location.hostname}:1280`;
+const BACKEND = `https://${location.hostname}:1290`;
+
 const APP_NAME = "monkvision";
 const APP_PATH = `${FRONTEND}/apps/${APP_NAME}`;
 const API_PATH = `${BACKEND}/apps/${APP_NAME}`;
@@ -27,7 +30,7 @@ export const APP_CONSTANTS = {
     USERID: "userid",
     PWPH: "pwph",
     MIN_PW_LENGTH: 10,
-    TIMEOUT: 600000,
+    TIMEOUT: 1800000,
     USERNAME: "username",
     USERORG: "userorg",
     USER_ROLE: "user",

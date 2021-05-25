@@ -1,0 +1,537 @@
+SCHEMA
+======
+{
+    "monbossAlerts": {
+        "html":"chart-box", 
+        "id":"alerts", 
+        "title":"{{i18n.CriticalAlerts}}", 
+        "api":"monbossAlerts", 
+        "type":"text",
+        "styleBody":"div#container{height: calc(100vh - 50px) !important; font-size: large} div#content{height: calc(50% - 10px) !important;} div#content > div#textcontent > span#text > p {padding:5px;margin:4px;} div#content > div#textcontent > span#text > p:hover {border-radius: 3px; background-color: #bebebef2;}"
+    },
+    "total_active_nodes": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "Total active nodes",
+        "api": "statusbanner_activeNodes",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: 3vw; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "type": "metrictext",
+        "params": "id=JSONMAXDataCalc&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_service_portcheck_dashboard_sh__sshport_&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=All nodes ONLINE&elseExplanation=One or more nodes OFFLINE&elseTitle=Total Nodes Online"
+    },
+    "max_cpu_node": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "NODE USING MAX CPU IN CLUSTER.",
+        "api": "statusbannerquery_max_data_node",
+        "styleBody": "div#content > div#metrictextcontainer{cursor: pointer !important;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: 3vw; margin: 5px; padding: 10px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small; padding: 2px; margin: 2px;}",
+        "type": "metrictext",
+        "params": "clusterName=Primary&threshold={{i18n.max_cpu_node_thresh}}&id=JSONMAXDataCalc&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_cpu_max_node_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&elseExplanation=Node using too much CPU&elseTitle=NODE USING MAX CPU IN CLUSTER"
+    },
+    "max_disk_node": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "NODE USING MAX SPACE IN CLUSTER.",
+        "api": "statusbannerquery_max_data_node",
+        "styleBody": "div#content > div#metrictextcontainer{cursor: pointer !important;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: 3vw; margin: 5px; padding: 10px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small; padding: 2px; margin: 2px;}",
+        "type": "metrictext",
+        "params": "clusterName=Primary&threshold={{i18n.max_disk_node_thresh}}&id=JSONMAXDataCalc&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_max_disk_used_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&elseExplanation=Node using too much Disk space&elseTitle=NODE USING MAX SPACE IN CLUSTER"
+    },
+    "max_ram_node": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "NODE USING MAX RAM IN CLUSTER.",
+        "api": "statusbannerquery_max_data_node",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer{cursor: pointer !important;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: 3vw; margin: 5px; padding: 10px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small; padding: 2px; margin: 2px;}",
+        "params": "clusterName=Primary&threshold={{i18n.max_ram_node_thresh}}&id=JSONMAXDataCalc&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_max_ram_node_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&elseExplanation=Node using too much RAM&elseTitle=NODE USING MAX RAM IN CLUSTER&add_symbol=%"
+    },
+    "max_node_rx": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "NODE USING MAX NETWORK IN CLUSTER-RX Rate",
+        "api": "statusbannerquery_max_data_multiprop_node",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer{cursor: pointer !important;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: 2.6vw; margin: 5px; padding: 10px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small; padding: 2px; margin: 2px;}",
+        "params": "clusterName=Primary&threshold={{i18n.max_net_thrpt_node_thresh_rx}}&id=JSONMAXDataCalc&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_max_network_throughput_dashboard_sh&propertyToShow=rx_rate_kb&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&elseExplanation=Node having most net-throughput&elseTitle=NODE USING MAX NETWORK IN CLUSTER-RX Rate&add_symbol=Kb/s&toKBits=true"
+    },
+    "max_node_tx": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "NODE USING MAX NETWORK IN CLUSTER-TX Rate",
+        "api": "statusbannerquery_max_data_multiprop_node",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer{cursor: pointer !important;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: 2.6vw; margin: 5px; padding: 10px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small; padding: 2px; margin: 2px;}",
+        "params": "clusterName=Primary&threshold={{i18n.max_net_thrpt_node_thresh_tx}}&id=JSONMAXDataCalc&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_max_network_throughput_dashboard_sh&propertyToShow=tx_rate_kb&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&elseExplanation=Node having most net-throughput&elseTitle=NODE USING MAX NETWORK IN CLUSTER-TX Rate&add_symbol=Kb/s&toKBits=true"
+    },
+    "max_node_wps": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "NODE HAVING MAX DISK Writes/sec IN CLUSTER",
+        "api": "statusbannerquery_max_data_multiprop_node",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer{cursor: pointer !important;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: 2.6vw; margin: 5px; padding: 10px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small; padding: 2px; margin: 2px;}",
+        "params": "clusterName=Primary&threshold={{i18n.max_disk_wps}}&id=JSONMAXDataCalc&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_max_disk_throughput_dashboard_sh&propertyToShow=wr_persec&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&elseExplanation=Node having most Disk-throughput&elseTitle=NODE HAVING MAX DISK Writes/sec IN CLUSTER&add_symbol=wr/s&toKBits=false"
+    },
+    "max_node_rps": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "NODE HAVING MAX DISK Reads/sec IN CLUSTER",
+        "api": "statusbannerquery_max_data_multiprop_node",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer{cursor: pointer !important;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: 2.6vw; margin: 5px; padding: 10px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small; padding: 2px; margin: 2px;}",
+        "params": "clusterName=Primary&threshold={{i18n.max_disk_rps}}&id=JSONMAXDataCalc&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_max_disk_throughput_dashboard_sh&propertyToShow=rd_persec&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&elseExplanation=Node having most Disk-throughput&elseTitle=NODE HAVING MAX DISK Reads/sec IN CLUSTER&add_symbol=rd/s&toKBits=false"
+    },
+    "prod_portal_01_ram": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_portal_01_ram}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "threshold={{i18n.prod_portal_01_ram_thresh}}&id=JSONDataCalc&$qp_nodeID=$.PROD-Portal01.ram_percentage&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_pagefault_ramcommit_swapusedstat_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=RAM Usage is under threshold ({{i18n.prod_portal_01_ram_thresh}})&elseExplanation=RAM is being overused&elseTitle={{i18n.prod_portal_01_ram}}"
+    },
+    "prod_portal_01_disk": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_portal_01_disk}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "threshold={{i18n.prod_portal_01_disk_thresh}}&id=JSONDataCalc&$qp_nodeID=$.PROD-Portal01.total_space_percentage&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_disk_util_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=Disk Usage is under threshold ({{i18n.prod_portal_01_disk_thresh}})&elseExplanation=Disk is being overused&elseTitle={{i18n.prod_portal_01_disk}}."
+    },
+    "prod_portal_01_cpu": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_portal_01_cpu}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "threshold={{i18n.prod_portal_01_cpu_thresh}}&id=JSONDataCalc&$qp_nodeID=$.PROD-Portal01.cpu_used&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_cpu_stat_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=CPU Usage is under threshold ({{i18n.prod_portal_01_cpu_thresh}})&elseExplanation=CPU is being overused&elseTitle={{i18n.prod_portal_01_cpu}}"
+    },
+    "prod_portal_01_net_tx": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_portal_01_net_tx}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "add_symbol=Kb/s&multiplicationFactor=8&threshold={{i18n.prod_portal_01_net_tx_thresh}}&id=JSONDataCalc&$qp_nodeID=$.total_info.PROD-Portal01.tx_rate&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_network_throughput_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=Network outbound rate is under threshold ({{i18n.prod_portal_01_net_tx_thresh}})&elseExplanation=Network TX rate has crossed threshold&elseTitle={{i18n.prod_portal_01_net_tx}}"
+    },
+    "prod_portal_01_net_rx": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_portal_01_net_rx}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "add_symbol=Kb/s&multiplicationFactor=8&threshold=25.0000&id=JSONDataCalc&$qp_nodeID=$.total_info.PROD-Portal01.rx_rate&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_network_throughput_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=Network inbound rate is under threshold ({{i18n.prod_portal_01_net_rx_thresh}})&elseExplanation=Network RX rate has crossed threshold&elseTitle={{i18n.prod_portal_01_net_rx}}"
+    },
+
+    "prod_portal_02_ram": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_portal_02_ram}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "threshold={{i18n.prod_portal_02_ram_thresh}}&id=JSONDataCalc&$qp_nodeID=$.PROD-Portal02.ram_percentage&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_pagefault_ramcommit_swapusedstat_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=RAM Usage is under threshold ({{i18n.prod_portal_02_ram_thresh}})&elseExplanation=RAM is being overused&elseTitle={{i18n.prod_portal_02_ram}}"
+    },
+    "prod_portal_02_disk": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_portal_02_disk}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "threshold={{i18n.prod_portal_02_disk_thresh}}&id=JSONDataCalc&$qp_nodeID=$.PROD-Portal02.total_space_percentage&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_disk_util_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=Disk Usage is under threshold ({{i18n.prod_portal_02_disk_thresh}})&elseExplanation=Disk is being overused&elseTitle={{i18n.prod_portal_02_disk}}."
+    },
+    "prod_portal_02_cpu": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_portal_02_cpu}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "threshold={{i18n.prod_portal_02_cpu_thresh}}&id=JSONDataCalc&$qp_nodeID=$.PROD-Portal02.cpu_used&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_cpu_stat_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=CPU Usage is under threshold ({{i18n.prod_portal_02_cpu_thresh}})&elseExplanation=CPU is being overused&elseTitle={{i18n.prod_portal_02_cpu}}"
+    },
+    "prod_portal_02_net_tx": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_portal_02_net_tx}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "add_symbol=Kb/s&multiplicationFactor=8&threshold={{i18n.prod_portal_02_net_tx_thresh}}&id=JSONDataCalc&$qp_nodeID=$.total_info.PROD-Portal02.tx_rate&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_network_throughput_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=Network outbound rate is under threshold ({{i18n.prod_portal_02_net_tx_thresh}})&elseExplanation=Network TX rate has crossed threshold&elseTitle={{i18n.prod_portal_02_net_tx}}"
+    },
+    "prod_portal_02_net_rx": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_portal_02_net_rx}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "add_symbol=Kb/s&multiplicationFactor=8&threshold=25.0000&id=JSONDataCalc&$qp_nodeID=$.total_info.PROD-Portal02.rx_rate&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_network_throughput_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=Network inbound rate is under threshold ({{i18n.prod_portal_02_net_rx_thresh}})&elseExplanation=Network RX rate has crossed threshold&elseTitle={{i18n.prod_portal_02_net_rx}}"
+    },
+
+    "prod_mirror_01_ram": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_mirror_01_ram}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "threshold={{i18n.prod_mirror_01_ram_thresh}}&id=JSONDataCalc&$qp_nodeID=$.PROD-Mirror01.ram_percentage&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_pagefault_ramcommit_swapusedstat_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=RAM Usage is under threshold ({{i18n.prod_mirror_01_ram_thresh}})&elseExplanation=RAM is being overused&elseTitle={{i18n.prod_mirror_01_ram}}"
+    },
+    "prod_mirror_01_disk": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_mirror_01_disk}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "threshold={{i18n.prod_mirror_01_disk_thresh}}&id=JSONDataCalc&$qp_nodeID=$.PROD-Mirror01.total_space_percentage&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_disk_util_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=Disk Usage is under threshold ({{i18n.prod_mirror_01_disk_thresh}})&elseExplanation=Disk is being overused&elseTitle={{i18n.prod_mirror_01_disk}}."
+    },
+    "prod_mirror_01_cpu": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_mirror_01_cpu}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "threshold={{i18n.prod_mirror_01_cpu_thresh}}&id=JSONDataCalc&$qp_nodeID=$.PROD-Mirror01.cpu_used&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_cpu_stat_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=CPU Usage is under threshold ({{i18n.prod_mirror_01_cpu_thresh}})&elseExplanation=CPU is being overused&elseTitle={{i18n.prod_mirror_01_cpu}}"
+    },
+    "prod_mirror_01_net_tx": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_mirror_01_net_tx}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "add_symbol=Kb/s&multiplicationFactor=8&threshold={{i18n.prod_mirror_01_net_tx_thresh}}&id=JSONDataCalc&$qp_nodeID=$.total_info.PROD-Mirror01.tx_rate&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_network_throughput_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=Network outbound rate is under threshold ({{i18n.prod_mirror_01_net_tx_thresh}})&elseExplanation=Network TX rate has crossed threshold&elseTitle={{i18n.prod_mirror_01_net_tx}}"
+    },
+    "prod_mirror_01_net_rx": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_mirror_01_net_rx}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "add_symbol=Kb/s&multiplicationFactor=8&threshold={{i18n.prod_mirror_01_net_rx_thresh}}&id=JSONDataCalc&$qp_nodeID=$.total_info.PROD-Mirror01.rx_rate&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_network_throughput_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=Network inbound rate is under threshold ({{i18n.prod_mirror_01_net_rx_thresh}})&elseExplanation=Network RX rate has crossed threshold&elseTitle={{i18n.prod_mirror_01_net_rx}}"
+    },
+
+    "prod_mirror_02_ram": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_mirror_02_ram}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "threshold={{i18n.prod_mirror_02_ram_thresh}}&id=JSONDataCalc&$qp_nodeID=$.PROD-Mirror02.ram_percentage&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_pagefault_ramcommit_swapusedstat_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=RAM Usage is under threshold ({{i18n.prod_mirror_02_ram_thresh}})&elseExplanation=RAM is being overused&elseTitle={{i18n.prod_mirror_02_ram}}"
+    },
+    "prod_mirror_02_disk": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_mirror_02_disk}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "threshold={{i18n.prod_mirror_02_disk_thresh}}&id=JSONDataCalc&$qp_nodeID=$.PROD-Mirror02.total_space_percentage&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_disk_util_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=Disk Usage is under threshold ({{i18n.prod_mirror_02_disk_thresh}})&elseExplanation=Disk is being overused&elseTitle={{i18n.prod_mirror_02_disk}}."
+    },
+    "prod_mirror_02_cpu": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_mirror_02_cpu}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "threshold={{i18n.prod_mirror_02_cpu_thresh}}&id=JSONDataCalc&$qp_nodeID=$.PROD-Mirror02.cpu_used&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_cpu_stat_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=CPU Usage is under threshold ({{i18n.prod_mirror_02_cpu_thresh}})&elseExplanation=CPU is being overused&elseTitle={{i18n.prod_mirror_02_cpu}}"
+    },
+    "prod_mirror_02_net_tx": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_mirror_02_net_tx}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "add_symbol=Kb/s&multiplicationFactor=8&threshold={{i18n.prod_mirror_02_net_tx_thresh}}&id=JSONDataCalc&$qp_nodeID=$.total_info.PROD-Mirror02.tx_rate&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_network_throughput_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=Network outbound rate is under threshold ({{i18n.prod_mirror_02_net_tx_thresh}})&elseExplanation=Network TX rate has crossed threshold&elseTitle={{i18n.prod_mirror_02_net_tx}}"
+    },
+    "prod_mirror_02_net_rx": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_mirror_02_net_rx}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "add_symbol=Kb/s&multiplicationFactor=8&threshold={{i18n.prod_mirror_02_net_rx_thresh}}&id=JSONDataCalc&$qp_nodeID=$.total_info.PROD-Mirror02.rx_rate&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_network_throughput_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=Network inbound rate is under threshold ({{i18n.prod_mirror_02_net_rx_thresh}})&elseExplanation=Network RX rate has crossed threshold&elseTitle={{i18n.prod_mirror_02_net_rx}}"
+    },
+
+    "prod_reflect_01_ram": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_reflect_01_ram}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "threshold={{i18n.prod_reflect_01_ram_thresh}}&id=JSONDataCalc&$qp_nodeID=$.PROD-Reflector01.ram_percentage&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_pagefault_ramcommit_swapusedstat_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=RAM Usage is under threshold ({{i18n.prod_reflect_01_ram_thresh}})&elseExplanation=RAM is being overused&elseTitle={{i18n.prod_reflect_01_ram}}"
+    },
+    "prod_reflect_01_disk": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_reflect_01_disk}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "threshold={{i18n.prod_reflect_01_disk_thresh}}&id=JSONDataCalc&$qp_nodeID=$.PROD-Reflector01.total_space_percentage&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_disk_util_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=Disk Usage is under threshold ({{i18n.prod_reflect_01_disk_thresh}})&elseExplanation=Disk is being overused&elseTitle={{i18n.prod_reflect_01_disk}}."
+    },
+    "prod_reflect_01_cpu": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_reflect_01_cpu}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "threshold={{i18n.prod_reflect_01_cpu_thresh}}&id=JSONDataCalc&$qp_nodeID=$.PROD-Reflector01.cpu_used&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_cpu_stat_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=CPU Usage is under threshold ({{i18n.prod_reflect_01_cpu_thresh}})&elseExplanation=CPU is being overused&elseTitle={{i18n.prod_reflect_01_cpu}}"
+    },
+    "prod_reflect_01_net_tx": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_reflect_01_net_tx}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "add_symbol=Kb/s&multiplicationFactor=8&threshold={{i18n.prod_reflect_01_net_tx_thresh}}&id=JSONDataCalc&$qp_nodeID=$.total_info.PROD-Reflector01.tx_rate&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_network_throughput_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=Network outbound rate is under threshold ({{i18n.prod_reflect_01_net_tx_thresh}})&elseExplanation=Network TX rate has crossed threshold&elseTitle={{i18n.prod_reflect_01_net_tx}}"
+    },
+    "prod_reflect_01_net_rx": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_reflect_01_net_rx}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "add_symbol=Kb/s&multiplicationFactor=8&threshold={{i18n.prod_reflect_01_net_rx_thresh}}&id=JSONDataCalc&$qp_nodeID=$.total_info.PROD-Reflector01.rx_rate&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_network_throughput_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=Network inbound rate is under threshold ({{i18n.prod_reflect_01_net_rx_thresh}})&elseExplanation=Network RX rate has crossed threshold&elseTitle={{i18n.prod_reflect_01_net_rx}}"
+    },
+
+    "prod_reflect_02_ram": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_reflect_02_ram}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "threshold={{i18n.prod_reflect_02_ram_thresh}}&id=JSONDataCalc&$qp_nodeID=$.PROD-Reflector02.ram_percentage&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_pagefault_ramcommit_swapusedstat_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=RAM Usage is under threshold ({{i18n.prod_reflect_02_ram_thresh}})&elseExplanation=RAM is being overused&elseTitle={{i18n.prod_reflect_02_ram}}"
+    },
+    "prod_reflect_02_disk": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_reflect_02_disk}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "threshold={{i18n.prod_reflect_02_disk_thresh}}&id=JSONDataCalc&$qp_nodeID=$.PROD-Reflector02.total_space_percentage&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_disk_util_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=Disk Usage is under threshold ({{i18n.prod_reflect_02_disk_thresh}})&elseExplanation=Disk is being overused&elseTitle={{i18n.prod_reflect_02_disk}}."
+    },
+    "prod_reflect_02_cpu": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_reflect_02_cpu}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "threshold={{i18n.prod_reflect_02_cpu_thresh}}&id=JSONDataCalc&$qp_nodeID=$.PROD-Reflector02.cpu_used&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_cpu_stat_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=CPU Usage is under threshold ({{i18n.prod_reflect_02_cpu_thresh}})&elseExplanation=CPU is being overused&elseTitle={{i18n.prod_reflect_02_cpu}}"
+    },
+    "prod_reflect_02_net_tx": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_reflect_02_net_tx}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "add_symbol=Kb/s&multiplicationFactor=8&threshold={{i18n.prod_reflect_02_net_tx_thresh}}&id=JSONDataCalc&$qp_nodeID=$.total_info.PROD-Reflector02.tx_rate&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_network_throughput_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=Network outbound rate is under threshold ({{i18n.prod_reflect_02_net_tx_thresh}})&elseExplanation=Network TX rate has crossed threshold&elseTitle={{i18n.prod_reflect_02_net_tx}}"
+    },
+    "prod_reflect_02_net_rx": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "{{i18n.prod_reflect_02_net_rx}}",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "add_symbol=Kb/s&multiplicationFactor=8&threshold={{i18n.prod_reflect_02_net_rx_thresh}}&id=JSONDataCalc&$qp_nodeID=$.total_info.PROD-Reflector02.rx_rate&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_network_throughput_dashboard_sh&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#b30000&percentthresholdExplanation=Network inbound rate is under threshold ({{i18n.prod_reflect_02_net_rx_thresh}})&elseExplanation=Network RX rate has crossed threshold&elseTitle={{i18n.prod_reflect_02_net_rx}}"
+    },
+
+    "cpu_max_trend": {
+        "html": "chart-box",
+        "id": "httpBar",
+        "title": "",
+        "api": "loggraphAllNodesData",
+        "type": "linegraph",
+        "maxticks": 10,
+        "ysteps": "[10]",
+        "ylabels": "[]",
+        "ymaxs": "[]",
+        "singleAxis": true,
+        "yAtZeros": "[true]",
+        "fillColors": "[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00]",
+        "borderColors": "[#916b00],[#0013c2],[#e300ae],[#ffd11a],[#e600ac],[#0013c2],[#916b00],[#8B0256],[#9D821F],[#916b00],[#0013c2],[#FAAFAC],[#0F2ADF]",
+        "gridLines": "true",
+        "labelColor": "rgba(140,140,140)",
+        "gridColor": "rgba(70,70,70,0.50)",
+        "threshold": 45,
+        "thresholdColor": "#910000",
+        "thresholdLineWidth": 3,
+        "legendFontColor": "rgba(30,30,30,0.80)",
+        "legendPosition": "[bottom]",
+        "styleBody": "div#content{overflow-y: hidden}",
+        "params": "mon_env=PROD&title={{i18n.cpu_max_trend}}&id=shell_mon__bin_bash_c__home_monboss_monboss_scripts_cpu_stat_dashboard_sh&propertyToGather=cpu_used"
+    },
+    "disk_max_trend": {
+        "html": "chart-box",
+        "id": "httpBar",
+        "title": "",
+        "api": "loggraphAllNodesData",
+        "type": "linegraph",
+        "maxticks": 10,
+        "ysteps": "[10]",
+        "ylabels": "[]",
+        "ymaxs": "[]",
+        "singleAxis": true,
+        "yAtZeros": "[true]",
+        "fillColors": "[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00]",
+        "borderColors": "[#916b00],[#0013c2],[#e300ae],[#ffd11a],[#e600ac],[#0013c2],[#916b00],[#8B0256],[#9D821F],[#916b00],[#0013c2],[#FAAFAC],[#0F2ADF]",
+        "gridLines": "true",
+        "labelColor": "rgba(140,140,140)",
+        "gridColor": "rgba(70,70,70,0.50)",
+        "threshold": 25,
+        "thresholdColor": "#910000",
+        "thresholdLineWidth": 3,
+        "legendFontColor": "rgba(30,30,30,0.80)",
+        "legendPosition": "[bottom]",
+        "styleBody": "div#content{overflow-y: hidden}",
+        "params": "mon_env=PROD&title={{i18n.disk_max_trend}}&id=shell_mon__bin_bash_c__home_monboss_monboss_scripts_disk_util_dashboard_sh&propertyToGather=total_space_percentage"
+    },
+    "ram_max_trend": {
+        "html": "chart-box",
+        "id": "httpBar",
+        "title": "",
+        "api": "loggraphAllNodesData",
+        "type": "linegraph",
+        "maxticks": 10,
+        "ysteps": "[10]",
+        "ylabels": "[]",
+        "ymaxs": "[]",
+        "singleAxis": true,
+        "yAtZeros": "[true]",
+        "fillColors": "[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00]",
+        "borderColors": "[#916b00],[#0013c2],[#e300ae],[#ffd11a],[#e600ac],[#0013c2],[#916b00],[#8B0256],[#9D821F],[#916b00],[#0013c2],[#FAAFAC],[#0F2ADF]",
+        "gridLines": "true",
+        "labelColor": "rgba(140,140,140)",
+        "gridColor": "rgba(70,70,70,0.50)",
+        "threshold": 45,
+        "thresholdColor": "#910000",
+        "thresholdLineWidth": 3,
+        "legendFontColor": "rgba(30,30,30,0.80)",
+        "legendPosition": "[bottom]",
+        "styleBody": "div#content{overflow-y: hidden}",
+        "params": "mon_env=PROD&title={{i18n.ram_max_trend}}&id=shell_mon__bin_bash_c__home_monboss_monboss_scripts_pagefault_ramcommit_swapusedstat_dashboard_sh&propertyToGather=ram_percentage"
+    },
+    "network_max_trend_rx": {
+        "html": "chart-box",
+        "id": "httpBar",
+        "title": "",
+        "api": "loggraphAllNodesDataMultiProp",
+        "type": "linegraph",
+        "maxticks": 10,
+        "ysteps": "[10000]",
+        "ylabels": "[]",
+        "ymaxs": "[]",
+        "singleAxis": true,
+        "yAtZeros": "[true]",
+        "fillColors": "[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00]",
+        "borderColors": "[#916b00],[#0013c2],[#e300ae],[#ffd11a],[#e600ac],[#0013c2],[#916b00],[#8B0256],[#9D821F],[#916b00],[#0013c2],[#FAAFAC],[#0F2ADF]",
+        "gridLines": "true",
+        "labelColor": "rgba(140,140,140)",
+        "gridColor": "rgba(70,70,70,0.50)",
+        "legendFontColor": "rgba(30,30,30,0.80)",
+        "legendPosition": "[bottom]",
+        "styleBody": "div#content{overflow-y: hidden}",
+        "params": "mon_env=PROD&multiplicationFactor=8&title={{i18n.network_max_trend_rx}}&id=shell_mon__bin_bash_c__home_monboss_monboss_scripts_network_throughput_dashboard_sh&propertyToGather=rx_rate"
+    },
+    "network_max_trend_tx": {
+        "html": "chart-box",
+        "id": "httpBar",
+        "title": "",
+        "api": "loggraphAllNodesDataMultiProp",
+        "type": "linegraph",
+        "maxticks": 10,
+        "ysteps": "[10000]",
+        "ylabels": "[]",
+        "ymaxs": "[]",
+        "singleAxis": true,
+        "yAtZeros": "[true]",
+        "fillColors": "[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00]",
+        "borderColors": "[#916b00],[#0013c2],[#e300ae],[#ffd11a],[#e600ac],[#0013c2],[#916b00],[#8B0256],[#9D821F],[#916b00],[#0013c2],[#FAAFAC],[#0F2ADF]",
+        "gridLines": "true",
+        "labelColor": "rgba(140,140,140)",
+        "gridColor": "rgba(70,70,70,0.50)",
+        "legendFontColor": "rgba(30,30,30,0.80)",
+        "legendPosition": "[bottom]",
+        "styleBody": "div#content{overflow-y: hidden}",
+        "params": "mon_env=PROD&multiplicationFactor=8&title={{i18n.network_max_trend_tx}}&id=shell_mon__bin_bash_c__home_monboss_monboss_scripts_network_throughput_dashboard_sh&propertyToGather=tx_rate"
+    }
+}
+======
+
+
+LAYOUT
+=================
+-------------------------------------------------------------------------------------------------------------------------------
+|        prod_mirror_01_cpu |   prod_mirror_01_ram   | prod_mirror_01_disk  | prod_mirror_01_net_rx  | prod_mirror_01_net_tx  |
+|-----------------------------------------------------------------------------------------------------------------------------|
+|        prod_mirror_02_cpu |   prod_mirror_02_ram   | prod_mirror_02_disk  | prod_mirror_02_net_rx  | prod_mirror_02_net_tx  |
+|-----------------------------------------------------------------------------------------------------------------------------|
+|        prod_portal_01_cpu |   prod_portal_01_ram   | prod_portal_01_disk  | prod_portal_01_net_rx  | prod_portal_01_net_tx  |
+|-----------------------------------------------------------------------------------------------------------------------------|
+|        prod_portal_02_cpu |   prod_portal_02_ram   | prod_portal_02_disk  | prod_portal_02_net_rx  | prod_portal_02_net_tx  |
+|-----------------------------------------------------------------------------------------------------------------------------|
+|      prod_reflect_01_cpu  |   prod_reflect_01_ram  | prod_reflect_01_disk | prod_reflect_01_net_rx | prod_reflect_01_net_tx |
+|-----------------------------------------------------------------------------------------------------------------------------|
+|      prod_reflect_02_cpu  |   prod_reflect_02_ram  | prod_reflect_02_disk | prod_reflect_02_net_rx | prod_reflect_02_net_tx |
+|-----------------------------------------------------------------------------------------------------------------------------|
+|                                                       cpu_max_trend                                                         |
+|-----------------------------------------------------------------------------------------------------------------------------|
+|                                                       disk_max_trend                                                        |
+|-----------------------------------------------------------------------------------------------------------------------------|
+|                                                        ram_max_trend                                                        |
+|-----------------------------------------------------------------------------------------------------------------------------|
+|                                                       network_max_trend_rx                                                  |
+|-----------------------------------------------------------------------------------------------------------------------------|
+|                                                       network_max_trend_tx                                                  |
+-------------------------------------------------------------------------------------------------------------------------------
+=================
+Row Heights = 33%,33%,33%,33%,33%,33%,60%,60%,60%,60%,60%
+Col Widths = 20%,20%,20%,20%,20%
+=================
+
+
+CSS CLASSES
+===========
+CONTAINER CLASSES = grid-container-extension
+ITEM CLASSES = grid-item-extension
+PER ITEM CLASS = class
+===========
+
+
+CSS
+=======
+body {margin: 0; height: calc(100vh - 65px);}
+.grid-container-extension {
+    height: 100%;
+}
+.grid-item-extension {
+    box-shadow:  0 0 1px rgba(34, 25, 25, 0.4);
+    border-radius: 10px;
+    margin: 5px;
+    background-color: #ededed;
+    color: rgb(72,72,72);
+    border: 0.1px solid rgba(250,250,250,0);
+}
+
+=======
