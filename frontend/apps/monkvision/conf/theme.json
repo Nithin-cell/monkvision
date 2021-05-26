@@ -7,7 +7,7 @@
         "div.lgbox > span": "font-weight: 600; font-size: small;",
         ".langbox": "top: max(560px, calc(100vh - 40px)); right: 40px; color: white;",
         "a:link": "color:black;",
-        ".advtextbox": "top: calc(50% - 20%); left: 10%; width: 400px; color: #0c0d0e;",
+        ".advtextbox": "top: 60%; left: 10%; width: 400px; color: #0c0d0e;",
         ".advtextbox > h1": "font-weight: 250; font-family: 'Raleway';",
         ".advtextbox > h2": "font-weight: 250; font-family: 'Raleway'; font-size: medium;",
         ".advtextbox > p": "font-weight: 400; font-family: 'Raleway'; font-size: smaller; background-color: #ffffff; color: black; border-radius: 10px; padding: 10px 5px 10px 5px; width: 120px; left: calc(50% - 60px); margin-top: 30px;",
@@ -42,7 +42,7 @@
         ".advtextbox > h1": "font-weight: 250; font-family: 'Raleway';",
         ".advtextbox > h2": "font-weight: 250; font-family: 'Raleway'; font-size: medium;",
         ".advtextbox > p": "font-weight: 400; font-family: 'Raleway'; font-size: smaller; background-color: #ffffff; color: black; border-radius: 10px; padding: 10px 5px 10px 5px; width: 120px; left: calc(50% - 60px); margin-top: 30px;",
-        "img.logo": "top: 20px; left: 30px; width: 148px; height: 57px;",
+        "img.logo": "top: 40px; left: 100px; width: 148px; height: 25px;",
         "span#signin": "top: 40px; right: 100px; position: absolute; font-size: 0.8em; font-weight: 500; color: #0c0d0e;",
         "span#signin > span:last-child": "color: #bd5c00; font-weight: 700; text-transform: uppercase;",
         "span#signin > span > a":"color: inherit;"
@@ -63,44 +63,204 @@
     
     "main_css": {
         "*": "@import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap');",
-        "body": "background-color: rgb(245, 247, 250); font-family: 'Raleway';",
-        "div#container": "background-color: rgb(245, 247, 250); border-top-left-radius: 20px; left: 64px; width: calc(100% - 64px);",
+        "html": "background-color: rgb(215, 215, 215); overflow-x: auto;",
+        "body": "background-color: rgb(215, 215, 215); font-family: 'Raleway';",
+        "div#container": "background-color: rgb(215, 215, 215); border-top-left-radius: 20px; left: 64px; width: calc(100% - 64px);",
         "div#maincontent": "top: 65px; width: calc(95vw - 60px); height: calc(100vh - 65px); left: 30px;",
-        "div#leftheader": "background-color: #45d19e; padding-top: 40px;",
-        "div#leftheader > img.dashicon": "border: 0.5px solid #45d19e; height: 48px; width: 48px; left: 4px; padding: 2px;",
-        "div#leftheader > img.dashicon:hover": "left: 4px; padding: 2px; border-radius: 5px; border-width: 0.5px; border-style: outset; border-color: white;",
-        "div#leftheader > img.dashicon.selected": "left: 4px; padding: 2px; border-style: inset; border-radius: 5px; border-width: 0.5px; border-color: white;",
-        "div#leftheader > span": "color: white; padding-bottom: 30px; width: 64px; left: 0px; font-size: smaller; font-weight: 500;",
-        "span#header": "top: 15px; left: 20px; color: #41cf70; width: calc(100% - 30px); font-family: 'Raleway';",
+        "div#leftheader": "z-index: 2; align-items:center; width: 70px; background-color: #024086db; padding-top: 30px;",
+        "div#leftheader > img.dashicon": "border: 0.5px solid #45d19e0d; height: 40px; width: 40px; left: 0px; padding: 5px;margin-bottom: 2px;",
+        "div#leftheader > img.dashicon:hover": "left: 0px; padding: 5px;margin-bottom: 2px; border-radius: 5px; border-width: 0.7px; border-style: solid; border-color: white;",
+        "div#leftheader > img.dashicon.selected": "left: 0px; padding: 5px; margin-bottom: 5px; border-style: solid; border-radius: 5px; border-width: 0.7px; border-color: white;",
+        "div#leftheader > span": "color: white; padding-bottom: 30px; width: 70px; left: 0px; font-size: smaller; font-weight: 500;",
+        "span#header": "top: 15px; left: 30px; color: #41cf70; width: calc(100% - 30px); font-family: 'Raleway';",
         "span#header > img#textlogo": "height: 12px; width: 100px;",
         "span#header > span#signoff": "margin-right: 20px;",
         "span#header > span#signoff > img": "height: 30px; width: 30px;",
-        "span#header > span#title": "width: 300px; font-size: 0.85em; font-weight: bold; background-color: white; box-shadow: 0 0 1px rgba(34, 25, 25, 0.4); border-radius: 5px; padding: 5px; color: rgba(0,0,0,0.75);",
+        "span#header > span#showtimer": "font-weight: bold; background-color: gray; box-shadow: 0 0 1px #50505045; border-radius: 5px; padding: 5px; color: rgba(250,250,250,0.95);",
+        "span#header > span#title": "width: 300px; font-size: 0.85em; font-weight: bold; background-color: rgba(190,190,190,0.95); box-shadow: 0 0 1px rgba(34, 25, 25, 0.4); border-radius: 5px; padding: 5px; color: rgba(0,0,0,0.75);",
         "input#datetimepickerfrom, input#datetimepickerfrom:active, input#datetimepickerto, input#datetimepickerto:active":
             "font-size: 0.8em; font-family: sans-serif; color: rgba(0,0,0,0.75);border-radius: 4px; box-shadow: 0 0 1px rgba(34, 25, 25, 0.4); padding: 2px; border-style: none;",
         "span#header > img#playpause": "height: 30px; width: 30px;"
     },
     "main_i18n": {
         "en": {
+            "name_dash1": "Takaful - Summary",
+            "title_dash1": "Takaful - Summary of all environments.",
             "title": "Monkvision Dashboards",
-            "name_dash1": "Overview",
-            "title_dash1": "Overview of the systems",
-            "name_dash2": "Examples",
-            "title_dash2": "Example Charts",
-            "Issue": "Problem",
+            "name_dash2": "Takaful-UAT HEALTH",
+            "title_dash2": "Summary - Takaful-UAT servers",
+            "name_dash3": "Takaful-PROD HEALTH",
+            "title_dash3": "Summary - Takaful-PROD servers",
+
+            "Issue": "Issues",
             "Cancel": "Cancel",
-            "InternalError": "Internal error",
-            "CriticalAlerts": "Critical Alerts",
-            "PasswordAttacks": "Password Attacks",
-            "SQLAttacks": "SQL Injections Attacks",
-            "DDOSAttacks": "DDoS Attacks",
-            "time": "Time",
-            "status": "Status",
-            "additionalinfo": "Additional Information",
-            "none": "None",
-            "httpGooglePie":"HTTP Google Pie",
-            "httpGoogle": "HTTP Google",
-            "httpGoogleBar":"HTTP Google Bar"
+
+
+            "monbossLog": "Alerts generated by Monboss",
+            "clusterAvailSpaceSQL":"AVAILABLE DISK SPACE (for DBs, in GB)",
+            "cpu_max_trend": "CPU USAGE ACROSS CLUSTER, in %",
+            "disk_max_trend": "DISK USAGE ACROSS CLUSTER, in %",
+            "ram_max_trend": "RAM USAGE ACROSS CLUSTER, in %",
+            "network_max_trend_tx": "NETWORK USAGE FOR INBOUND CONNECTIONS, in Kb/s",
+            "network_max_trend_rx": "NETWORK USAGE FOR OUTBOUND CONNECTIONS, in Kb/s",
+
+            "max_cpu_node_thresh": "60.00",
+            "max_disk_node_thresh": "65.00",
+            "max_ram_node_thresh": "60.00",
+            "max_net_thrpt_node_thresh_rx": "10000.00",
+            "max_net_thrpt_node_thresh_tx": "10000.00",
+            "max_disk_rps": "120.00",
+            "max_disk_wps": "30.00",
+            
+            "clusterRAMInUse": "RAM in use (in %)",
+            "clusterRAMCommit": "RAM commit (in %)",
+            "clusterTableRAM": "RAM used by Tables (in GB)",
+            "clusterDBRAM": "RAM USED BY DBs (in GB)",
+            "clusterNetRXRate": "NETWORK DATA rx_rate (in Kb/s)",
+            "clusterNetTXRate": "NETWORK DATA tx_rate (in Kb/s)",
+            "clusterDiskWPSRate": "DISK THROUHPUT writes/sec",
+            "clusterDiskRPSRate": "DISK THROUHPUT reads/sec",
+
+            "uat_portal_ram": "CURRENT RAM USAGE(%) - UAT PORTAL",
+            "uat_portal_ram_thresh": 50.00,
+
+            "uat_portal_disk": "CURRENT DISK USAGE(%) - UAT PORTAL",
+            "uat_portal_disk_thresh": 50.00,
+
+            "uat_portal_cpu": "CURRENT CPU USAGE(%) - UAT PORTAL",
+            "uat_portal_cpu_thresh": 40.00,
+
+            "uat_portal_net_rx": "CURRENT TOTAL NET INBOUND(rx rate) - UAT PORTAL",
+            "uat_portal_net_rx_thresh": 1500.00,
+
+            "uat_portal_net_tx": "CURRENT TOTAL NET OUTBOUND(tx rate) - UAT PORTAL",
+            "uat_portal_net_tx_thresh": 1500.00,
+
+            "uat_mirror_ram": "CURRENT RAM USAGE(%) - UAT MIRROR",
+            "uat_mirror_ram_thresh": 50.00,
+
+            "uat_mirror_disk": "CURRENT DISK USAGE(%) - UAT MIRROR",
+            "uat_mirror_disk_thresh": 50.00,
+
+            "uat_mirror_cpu": "CURRENT CPU USAGE(%) - UAT MIRROR",
+            "uat_mirror_cpu_thresh": 40.00,
+
+            "uat_mirror_net_rx": "CURRENT TOTAL NET INBOUND(rx rate) - UAT MIRROR",
+            "uat_mirror_net_rx_thresh": 1500.00,
+
+            "uat_mirror_net_tx": "CURRENT TOTAL NET OUTBOUND(tx rate) - UAT MIRROR",
+            "uat_mirror_net_tx_thresh": 1500.00,
+
+            "uat_reflect_ram": "CURRENT RAM USAGE(%) - UAT REFLECTOR",
+            "uat_reflect_ram_thresh": 50.00,
+
+            "uat_reflect_disk": "CURRENT DISK USAGE(%) - UAT REFLECTOR",
+            "uat_reflect_disk_thresh": 50.00,
+
+            "uat_reflect_cpu": "CURRENT CPU USAGE(%) - UAT REFLECTOR",
+            "uat_reflect_cpu_thresh": 40.00,
+
+            "uat_reflect_net_rx": "CURRENT TOTAL NET INBOUND(rx rate) - UAT REFLECTOR",
+            "uat_reflect_net_rx_thresh": 1500.00,
+
+            "uat_reflect_net_tx": "CURRENT TOTAL NET OUTBOUND(tx rate) - UAT REFLECTOR",
+            "uat_reflect_net_tx_thresh": 1500.00,
+
+
+            "prod_portal_01_ram": "CURRENT RAM USAGE(%) - PROD PORTAL-01",
+            "prod_portal_01_ram_thresh": 50.00,
+
+            "prod_portal_01_disk": "CURRENT DISK USAGE(%) - PROD PORTAL-01",
+            "prod_portal_01_disk_thresh": 50.00,
+
+            "prod_portal_01_cpu": "CURRENT CPU USAGE(%) - PROD PORTAL-01",
+            "prod_portal_01_cpu_thresh": 40.00,
+
+            "prod_portal_01_net_rx": "CURRENT TOTAL NET INBOUND(rx rate) - PROD PORTAL-01",
+            "prod_portal_01_net_rx_thresh": 10000.00,
+
+            "prod_portal_01_net_tx": "CURRENT TOTAL NET OUTBOUND(tx rate) - PROD PORTAL-01",
+            "prod_portal_01_net_tx_thresh": 10000.00,
+
+            "prod_portal_02_ram": "CURRENT RAM USAGE(%) - PROD PORTAL-02",
+            "prod_portal_02_ram_thresh": 50.00,
+
+            "prod_portal_02_disk": "CURRENT DISK USAGE(%) - PROD PORTAL-02",
+            "prod_portal_02_disk_thresh": 50.00,
+
+            "prod_portal_02_cpu": "CURRENT CPU USAGE(%) - PROD PORTAL-02",
+            "prod_portal_02_cpu_thresh": 40.00,
+
+            "prod_portal_02_net_rx": "CURRENT TOTAL NET INBOUND(rx rate) - PROD PORTAL-02",
+            "prod_portal_02_net_rx_thresh": 10000.00,
+
+            "prod_portal_02_net_tx": "CURRENT TOTAL NET OUTBOUND(tx rate) - PROD PORTAL-02",
+            "prod_portal_02_net_tx_thresh": 10000.00,
+
+
+            "prod_mirror_01_ram": "CURRENT RAM USAGE(%) - PROD MIRROR-01",
+            "prod_mirror_01_ram_thresh": 50.00,
+
+            "prod_mirror_01_disk": "CURRENT DISK USAGE(%) - PROD MIRROR-01",
+            "prod_mirror_01_disk_thresh": 50.00,
+
+            "prod_mirror_01_cpu": "CURRENT CPU USAGE(%) - PROD MIRROR-01",
+            "prod_mirror_01_cpu_thresh": 40.00,
+
+            "prod_mirror_01_net_rx": "CURRENT TOTAL NET INBOUND(rx rate) - PROD MIRROR-01",
+            "prod_mirror_01_net_rx_thresh": 5000.00,
+
+            "prod_mirror_01_net_tx": "CURRENT TOTAL NET OUTBOUND(tx rate) - PROD MIRROR-01",
+            "prod_mirror_01_net_tx_thresh": 5000.00,
+
+
+            "prod_mirror_02_ram": "CURRENT RAM USAGE(%) - PROD MIRROR-02",
+            "prod_mirror_02_ram_thresh": 50.00,
+
+            "prod_mirror_02_disk": "CURRENT DISK USAGE(%) - PROD MIRROR-02",
+            "prod_mirror_02_disk_thresh": 50.00,
+
+            "prod_mirror_02_cpu": "CURRENT CPU USAGE(%) - PROD MIRROR-02",
+            "prod_mirror_02_cpu_thresh": 40.00,
+
+            "prod_mirror_02_net_rx": "CURRENT TOTAL NET INBOUND(rx rate) - PROD MIRROR-02",
+            "prod_mirror_02_net_rx_thresh": 5000.00,
+
+            "prod_mirror_02_net_tx": "CURRENT TOTAL NET OUTBOUND(tx rate) - PROD MIRROR-02",
+            "prod_mirror_02_net_tx_thresh": 5000.00,
+
+
+
+            "prod_reflect_01_ram": "CURRENT RAM USAGE(%) - PROD REFLECTOR-01",
+            "prod_reflect_01_ram_thresh": 50.00,
+
+            "prod_reflect_01_disk": "CURRENT DISK USAGE(%) - PROD REFLECTOR - 01",
+            "prod_reflect_01_disk_thresh": 50.00,
+
+            "prod_reflect_01_cpu": "CURRENT CPU USAGE(%) - PROD REFLECTOR - 01",
+            "prod_reflect_01_cpu_thresh": 40.00,
+
+            "prod_reflect_01_net_rx": "CURRENT TOTAL NET INBOUND(rx rate) - PROD REFLECTOR - 01",
+            "prod_reflect_01_net_rx_thresh": 10000.00,
+            
+            "prod_reflect_01_net_tx": "CURRENT TOTAL NET OUTBOUND(tx rate) - PROD REFLECTOR - 01",
+            "prod_reflect_01_net_tx_thresh": 10000.00,
+
+            "prod_reflect_02_ram": "CURRENT RAM USAGE(%) - PROD REFLECTOR-02",
+            "prod_reflect_02_ram_thresh": 50.00,
+
+            "prod_reflect_02_disk": "CURRENT DISK USAGE(%) - PROD REFLECTOR - 02",
+            "prod_reflect_02_disk_thresh": 50.00,
+
+            "prod_reflect_02_cpu": "CURRENT CPU USAGE(%) - PROD REFLECTOR - 02",
+            "prod_reflect_02_cpu_thresh": 40.00,
+
+            "prod_reflect_02_net_rx": "CURRENT TOTAL NET INBOUND(rx rate) - PROD REFLECTOR - 02",
+            "prod_reflect_02_net_rx_thresh": 10000.00,
+
+            "prod_reflect_02_net_tx": "CURRENT TOTAL NET OUTBOUND(tx rate) - PROD REFLECTOR - 02",
+            "prod_reflect_02_net_tx_thresh": 10000.00
+
         }
     },
     "main_html_data": {
