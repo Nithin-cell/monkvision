@@ -6,7 +6,10 @@
  * See enclosed license.txt file.
  */
 
-const _init = async _ => await $$.require(`${APP_CONSTANTS.COMPONENTS_PATH}/chart-box/3p/chartjs2.9.3.min.js`);
+const _init = async _ => {
+    await $$.require(`${APP_CONSTANTS.COMPONENTS_PATH}/chart-box/3p/chartjs2.9.3.min.js`);
+    await $$.require(`${APP_CONSTANTS.COMPONENTS_PATH}/chart-box/3p/chartjs-plugin-annotation.min.js`);
+}
 
 /**
  * Renders given data as a bar graph. 
@@ -26,8 +29,8 @@ const _init = async _ => await $$.require(`${APP_CONSTANTS.COMPONENTS_PATH}/char
  * @param gridColor The grid color
  * @param singleAxis Use single Y axis?
  */
-async function drawBargraph(canvas, contents, maxXTicks, gridLines, xAtZero, yAtZeros, ysteps, ylabels, ymaxs, bgColors, brColors, labelColor, gridColor, singleAxis) {
-    return await _drawLineOrBarGraph(canvas, contents, maxXTicks, gridLines, xAtZero, yAtZeros, ysteps, ylabels, ymaxs, bgColors, brColors, labelColor, gridColor, singleAxis, "bar", 0, 1);
+async function drawBargraph(canvas, contents, maxXTicks, gridLines, xAtZero, yAtZeros, ysteps, ylabels, ymaxs, bgColors, brColors, labelColor, gridColor, singleAxis, annotation, legend, animation) {
+    return await _drawLineOrBarGraph(canvas, contents, maxXTicks, gridLines, xAtZero, yAtZeros, ysteps, ylabels, ymaxs, bgColors, brColors, labelColor, gridColor, singleAxis, "bar", 0, 1, annotation, legend, animation);
 }
 
 /**
@@ -49,14 +52,14 @@ async function drawBargraph(canvas, contents, maxXTicks, gridLines, xAtZero, yAt
  * @param gridColor The grid color
  * @param singleAxis Use single Y axis?
  */
-async function drawLinegraph(canvas, contents, maxXTicks, gridLines, xAtZero, yAtZeros, ysteps, ylabels, ymaxs, bgColors, brColors, labelColor, gridColor, singleAxis) {
-    return await _drawLineOrBarGraph(canvas, contents, maxXTicks, gridLines, xAtZero, yAtZeros, ysteps, ylabels, ymaxs, bgColors, brColors, labelColor, gridColor, singleAxis, "line", 0.5, 2);
+async function drawLinegraph(canvas, contents, maxXTicks, gridLines, xAtZero, yAtZeros, ysteps, ylabels, ymaxs, bgColors, brColors, labelColor, gridColor, singleAxis, annotation, legend, animation) {
+    return await _drawLineOrBarGraph(canvas, contents, maxXTicks, gridLines, xAtZero, yAtZeros, ysteps, ylabels, ymaxs, bgColors, brColors, labelColor, gridColor, singleAxis, "line", 0.8, 1, annotation, legend, animation);
 }
 
-async function _drawLineOrBarGraph(canvas, contents, maxXTicks, gridLines, xAtZero, yAtZeros, ysteps, ylabels, ymaxs, bgColors, brColors, labelColor, gridColor, singleAxis, type, pointWidth, lineWidth) {
+async function _drawLineOrBarGraph(canvas, contents, maxXTicks, gridLines, xAtZero, yAtZeros, ysteps, ylabels, ymaxs, bgColors, brColors, labelColor, gridColor, singleAxis, type, pointWidth, lineWidth, annotation, legend, animation) {
     await _init(); const ctx = canvas.getContext("2d"); 
 
-    const datasets = []; for (const [i,ys] of contents.ys.entries()) datasets.push({ data: ys, 
+    const datasets = []; for (const [i,ys] of contents.ys.entries()) datasets.push({ data: ys, ...contents.legend && { label: contents.legend[i] },
         backgroundColor: bgColors[i], borderColor: brColors[i], borderWidth: lineWidth, pointRadius: pointWidth,
         yAxisID: singleAxis?"yaxis0":`yaxis${i}` });
 
@@ -70,15 +73,14 @@ async function _drawLineOrBarGraph(canvas, contents, maxXTicks, gridLines, xAtZe
 
     const options = {
         maintainAspectRatio: false, 
-        responsive: true, 
-        legend: {display: false},
-        tooltips: {callbacks: {label: item => contents.infos[item.datasetIndex][item.index].split("\n")}, displayColors:false},
-        animation: {animateScale:true},
+        responsive: true, legend: legend,
+        tooltips: {callbacks: {label: item => contents.infos[item.datasetIndex][item.index]}, displayColors:false}, animation: animation,
         scales: { xAxes: [{ gridLines: {drawOnChartArea: gridLines, drawTicks: false, color: gridColor}, 
                 ticks: {padding:5, beginAtZero: xAtZero?xAtZero.toLowerCase() == "true":false, autoSkip: true,
-                maxTicksLimit: maxXTicks, maxRotation: 0, fontColor: labelColor} }], yAxes }
+                maxTicksLimit: maxXTicks, maxRotation: 0, fontColor: labelColor} }], yAxes },
+        annotation: annotation,
+        hover: { animationDuration: 0 }
     }
-
     return new Chart(ctx, {type, data, options});
 }
 

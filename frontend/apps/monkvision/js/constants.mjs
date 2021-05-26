@@ -2,8 +2,9 @@
  * (C) 2015 TekMonks. All rights reserved.
  * License: MIT - see enclosed license.txt file.
  */
-const FRONTEND = "http://localhost:8080";
-const BACKEND = "http://localhost:9090";
+const FRONTEND = "http://monboss-demo.memsqlclient.com:8080";
+const BACKEND = "http://monboss-demo.memsqlclient.com:9090";
+
 const APP_NAME = "monkvision";
 const APP_PATH = `${FRONTEND}/apps/${APP_NAME}`;
 const API_PATH = `${BACKEND}/apps/${APP_NAME}`;
@@ -27,7 +28,7 @@ export const APP_CONSTANTS = {
     USERID: "userid",
     PWPH: "pwph",
     MIN_PW_LENGTH: 10,
-    TIMEOUT: 600000,
+    TIMEOUT: 1800000,
     USERNAME: "username",
     USERORG: "userorg",
     USER_ROLE: "user",

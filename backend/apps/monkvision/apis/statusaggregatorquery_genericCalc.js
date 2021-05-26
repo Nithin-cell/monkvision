@@ -28,10 +28,10 @@ exports.doService = async jsonReq => {
     const contents = {infos:{}}; 
     for (const key of Object.keys(rows[0])) {
         if (key.endsWith(jsonReq.info_suffix)) { 
-            if (rows[0][key]) contents.infos[
-                key.substring(0, key.length - jsonReq.info_suffix.length)] = rows[0][key].split(",").join("\n"); 
+            if (rows[0][key]) contents.infos["Primary"] = "RAM Commit"; 
         } else contents[key] = rows[0][key];
     }
+    LOG.info(`CONTENT: ${JSON.stringify(contents)}`);
 
     const result = {result: true, type: "piegraph", contents}; 
     if (jsonReq.title) result.contents.title = jsonReq.title; return result;
