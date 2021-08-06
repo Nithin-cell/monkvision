@@ -1,5 +1,11 @@
 {
-    "dash1":"dashboard_summary.page,refresh:300000,nodelist:false",
-    "dash2":"dashboard_ktymsqlitcrv.page,refresh:300000,nodelist:true",
-    "dash3":"dashboard_summary_query.page,refresh:360000,nodelist:false"
+    "dash1":"dashboard_staging_summary.page,refresh:300000,nodelist:false",
+    "dash2":"dashboard_staging.page,refresh:300000,nodelist:true",
+    "dash3":"dashboard_staging_query.page,refresh:360000,nodelist:false",
+    "dash4":"dashboard_primary_prod_summary.page,refresh:300000,nodelist:false",
+    "dash5":"dashboard_primary_prod.page,refresh:300000,nodelist:true",
+    "dash6":"dashboard_primary_prod_query.page,refresh:360000,nodelist:false",
+    "dash7":"dashboard_secondary_prod_summary.page,refresh:300000,nodelist:false",
+    "dash8":"dashboard_secondary_prod.page,refresh:300000,nodelist:true",
+    "dash9":"dashboard_secondary_prod_query.page,refresh:360000,nodelist:false"
 }
