@@ -76,16 +76,6 @@ async function interceptPageLoadData() {
             data.dateTimeWeekAgo = session.get(SELECTED_DATES).from;
         }
         const allDashIcons = document.querySelectorAll("div#leftheader > img.dashicon");
-
-        //To handle selected dashicon
-        let selectedCounter=-1;
-        for (const dashIcon of allDashIcons){
-            selectedCounter++;
-             if (data.dash.endsWith(dashboardsRaw[dashIcon.id].split(",")[0])){
-            data.dashboards[selectedCounter].selected="selected";
-            }
-             else dashIcon.classList.remove("selected");
-        }
     }
 
     const pageload_func = async data => {
