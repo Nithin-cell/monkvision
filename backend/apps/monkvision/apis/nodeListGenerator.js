@@ -17,8 +17,8 @@ exports.doService = async jsonReq => {
         LOG.error("Validation failure.");
         return CONSTANTS.FALSE_RESULT;
     }
-    const clusterName=(jsonReq.clusterName).toLowerCase().split("-")[0];
-    const nodeList_logID="shell_mon__bin_bash_c__home_memsql_monboss_scripts_nodes_list_generator_dashboard_sh__"+clusterName+"_";
+    const clusterName=(jsonReq.clusterName).toLowerCase().split("-")[0].replace(/\s/g, '_');
+    const nodeList_logID="shell_mon__bin_bash_c__home_monboss_monboss_scripts_nodes_list_generator_dashboard_sh__"+clusterName+"_";
     const rowsNodeList = await db.getLogs(nodeList_logID, utils.getTimeRangeForSQLite(JSON.parse(jsonReq.timeRange)));
     let list=[];
     if (!rowsNodeList) {
