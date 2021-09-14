@@ -61,7 +61,7 @@ exports.doService = async jsonReq => {
             }
         }
     }
-    for (let i = 0; i < initLength; i++) legendArray.push(infoArrays[i][infoArrays.length-1].split('-')[0].trim().toUpperCase());
+    for (let i = 0; i < initLength; i++) legendArray.push(infoArrays[i][0].split('-')[0].trim().toUpperCase());
 
     const result = {
         result: true,
