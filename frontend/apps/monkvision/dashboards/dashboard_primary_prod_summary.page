@@ -16,7 +16,7 @@ SCHEMA
         "api": "statusbanner_activeNodes",
         "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: 3vw; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
         "type": "metrictext",
-        "params": "id=shell_mon__bin_bash_c__home_monboss_monboss_scripts_monboss_portcheck_dashboard_sh__primary_prod_&percent_total_nodes_Colors=#ffffff,#0063002a&elseColors=#ffffff,#b30000&percent_total_nodes_Explanation=All nodes ONLINE&elseExplanation=One or more nodes OFFLINE&elseTitle=Total Nodes Online"
+        "params": "id=shell_mon__bin_bash_c__home_monboss_monboss_scripts_memsql_portcheck_dashboard_sh__primary_prod_&percent_total_nodes_Colors=#ffffff,#0063002a&elseColors=#ffffff,#b30000&percent_total_nodes_Explanation=All nodes ONLINE&elseExplanation=One or more nodes OFFLINE&elseTitle=Total Nodes Online"
     },
     "max_cpu_node": {
         "html": "chart-box",
