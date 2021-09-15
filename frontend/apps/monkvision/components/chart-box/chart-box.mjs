@@ -81,16 +81,16 @@ async function _refreshData(element, force) {
 		if (!content || !content.contents) return;
 		const metrictext = {}; data.metrictext = metrictext;
 
-		const clusterName=content.contents.clusterName;
-		if(clusterName){
+		const clusternameRegex= new RegExp(`_${content.contents.clusterName}\\.`);
+		if(content.contents.clusterName){
 			const dashboardsRaw = await $$.requireJSON(`${APP_CONSTANTS.APP_PATH}/conf/dashboards.json`);
 			for (const key of Object.keys(dashboardsRaw)) {
 				const dashboardName = dashboardsRaw[key].split(",")[0];
-				if(dashboardName.includes(clusterName)){
-					metrictext.dashboardName=dashboardName;
-					metrictext.clusterName=clusterName;
-					metrictext.refresh = parseInt(dashboardsRaw[key].split(",")[1].split(":")[1]),
-					metrictext.nodelist = JSON.parse(dashboardsRaw[key].split(",")[2].split(":")[1]),
+				if(dashboardName.match(clusternameRegex)){
+					metrictext.dashboardName = dashboardName;
+					metrictext.clusterName = content.contents.clusterName;
+					metrictext.refresh = parseInt(dashboardsRaw[key].split(",")[1].split(":")[1]);
+					metrictext.nodelist = JSON.parse(dashboardsRaw[key].split(",")[2].split(":")[1]);
 					metrictext.pageTitle = await i18n.get(`title_${key}`, session.get($$.MONKSHU_CONSTANTS.LANG_ID));
 				}
 			}
