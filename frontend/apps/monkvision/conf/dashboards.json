@@ -1,7 +1,4 @@
 {
-    "dash1":"dashboard_staging_summary.page,refresh:300000,nodelist:false",
-    "dash2":"dashboard_staging.page,refresh:300000,nodelist:true",
-    "dash3":"dashboard_staging_query.page,refresh:360000,nodelist:false",
     "dash4":"dashboard_primary_prod_summary.page,refresh:300000,nodelist:false",
     "dash5":"dashboard_primary_prod.page,refresh:300000,nodelist:true",
     "dash6":"dashboard_primary_prod_query.page,refresh:360000,nodelist:false",

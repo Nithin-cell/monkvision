@@ -301,6 +301,28 @@ SCHEMA
         "legendPosition": "[bottom]",
         "styleBody": "div#content{overflow-y: hidden}",
         "params": "multiplicationFactor=8&title={{i18n.network_max_rx_trend}}&id=shell_mon__bin_bash_c__home_monboss_monboss_scripts_network_throughput_dashboard_sh__staging_&propertyToGather=tx_rate"
+    },
+    "ram_swap_max_trend": {
+        "html": "chart-box",
+        "id": "httpBar",
+        "title": "",
+        "api": "loggraphAllNodesData",
+        "type": "linegraph",
+        "maxticks": 10,
+        "ysteps": "[5]",
+        "ylabels": "[]",
+        "ymaxs": "[]",
+        "singleAxis": true,
+        "yAtZeros": "[true]",
+        "fillColors": "[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00]",
+        "borderColors": "[#52d600],[#ffd11a],[#e600ac],[#66ffff],[#80FC35],[#8B0256],[#9D821F],[#9726F8],[#4C8AC0],[#FAAFAC],[#0F2ADF],[#6604E8],[#FEC175],[#D9BCA6],[#C12F2F],[#228B50],[#D9B422],[#88563F],[#C457D3],[#EAEABD],[#10897B],[#C23390],[#5E1069],[#B3C9AC],[#37AFF4],[#8C7D03],[#CB7959],[#0A614C],[#E8694A],[#CB093E],[#65105E],[#4B7A2C],[#0A8DFE],[#B11CBB],[#97A5CF],[#38FBFB],[#6D06E6],[#F14A7A],[#4436E1],[#0CA979],[#61EE53],[#1B563C],[#28464A],[#6604E8],[#FEC175],[#D9BCA6],[#C12F2F],[#228B50],[#D9B422],[#88563F],[#C457D3],[#EAEABD],[#10897B],[#C23390],[#5E1069],[#B3C9AC],[#37AFF4],[#8C7D03],[#CB7959],[#0A614C],[#E8694A],[#CB093E],[#65105E],[#4B7A2C],[#0A8DFE],[#B11CBB],[#97A5CF],[#38FBFB],[#6D06E6],[#F14A7A],[#4436E1],[#0CA979],[#61EE53],[#1B563C],[#28464A],[#6604E8],[#FEC175],[#D9BCA6],[#C12F2F],[#228B50],[#D9B422],[#88563F],[#C457D3],[#EAEABD],[#10897B],[#C23390],[#5E1069],[#B3C9AC],[#37AFF4],[#8C7D03],[#CB7959],[#0A614C],[#E8694A],[#CB093E],[#65105E],[#4B7A2C],[#0A8DFE],[#B11CBB],[#97A5CF],[#38FBFB],[#6D06E6],[#F14A7A],[#4436E1],[#0CA979],[#61EE53],[#1B563C],[#28464A]",
+        "gridLines": "true",
+        "labelColor": "rgba(120,120,120)",
+        "gridColor": "rgba(210,210,210,0.30)",
+        "legendFontColor": "rgba(255,255,255,0.80)",
+        "legendPosition": "[bottom]",
+        "styleBody": "div#content{overflow-y: hidden}",
+        "params": "title={{i18n.ram_swap_max_trend}}&id=shell_mon__bin_bash_c__home_monboss_monboss_scripts_pagefault_ramcommit_swapusedstat_dashboard_sh__staging_&propertyToGather=swap_status"
     }
 }
 ======
@@ -321,6 +343,8 @@ LAYOUT
 |------------------------------------------------------------------------------------|
 |                                      ram_max_trend                                 |
 |------------------------------------------------------------------------------------|
+|                                   ram_swap_max_trend                               |
+|------------------------------------------------------------------------------------|
 |                                  network_max_rx_trend                              |
 |------------------------------------------------------------------------------------|
 |                                  network_max_tx_trend                              |
@@ -330,7 +354,7 @@ LAYOUT
 | skew_table                                         | var_table                     |
 --------------------------------------------------------------------------------------
 =================
-Row Heights = 30%,30%,30%,70%,70%,70%,70%,70%,45%,45%
+Row Heights = 30%,30%,30%,70%,70%,70%,70%,70%,70%,45%,45%
 Col Widths = 40%,20%,20%,20%
 =================
 
