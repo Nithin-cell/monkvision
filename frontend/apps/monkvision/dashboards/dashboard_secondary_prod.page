@@ -63,6 +63,15 @@ SCHEMA
         "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
         "params": "threshold=85.0000&id=JSONDataCalc&$qp_nodeID=$.{{url.nodeID}}.cpu_used&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_cpu_stat_dashboard_sh__secondary_prod_&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#cc2900&&percentthresholdExplanation=CPU Usage is under threshold (85%)&elseExplanation=CPU is being overused&elseTitle=Current CPU usage, in %."
     },
+    "disk_usage_current": {
+        "html": "chart-box",
+        "id": "httpBanner",
+        "title": "Current DISK Used(in %).",
+        "api": "statusbannerquery_genericRawData",
+        "type": "metrictext",
+        "styleBody": "div#content > div#metrictextcontainer > div#metrictext > span#metrictextmain {font-size: -webkit-xxx-large; padding: 15px;} div#content > div#metrictextcontainer > div#metrictext > span#metrictextexplanation {font-size: small;}",
+        "params": "threshold=75.0000&id=JSONDataCalc&$qp_nodeID=$.{{url.nodeID}}.total_space_percentage&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_disk_util_dashboard_sh__secondary_prod_&raw_data=true&percentthresholdColors=#ffffff,#006300&elseColors=#ffffff,#cc2900&&percentthresholdExplanation=DISK Usage is under threshold (75%)&elseExplanation=DISK is being overused&elseTitle=Current DISK usage, in %."
+    },
     "cpu_usage": {
         "html": "chart-box",
         "id": "httpBar",
@@ -263,7 +272,7 @@ SCHEMA
         "api": "loggraphGeneric",
         "type": "linegraph",
         "maxticks": 6,
-        "ysteps": "[100]",
+        "ysteps": "[20]",
         "ylabels": "[]",
         "ymaxs": "[]",
         "singleAxis": true,
@@ -295,6 +304,26 @@ SCHEMA
         "gridColor": "rgba(125,125,125,0.65)",
         "styleBody": "div#content{overflow-y: hidden}",
         "params": "title={{i18n.clusterAvailSpaceSQL}}&id=shell_mon__bin_bash_c__home_monboss_monboss_scripts_sql_nodes_performance_stat_dashboard_sh__secondary_prod_&statusAsBoolean=false&statusFalseValue=0.1&statusTrueValue=1&nullValue={{i18n.none}}&property=avail_disk_space&nodeID={{url.nodeID}}"
+    },
+    "ram_swap_usage": {
+        "html": "chart-box",
+        "id": "httpBar",
+        "title": "",
+        "api": "loggraphGeneric",
+        "type": "linegraph",
+        "maxticks": 10,
+        "ysteps": "[10]",
+        "ylabels": "[]",
+        "ymaxs": "[]",
+        "singleAxis": true,
+        "yAtZeros": "[true]", 
+        "fillColors": "[#0052d696],[#0052d6],[#ffff00],[#66ccff]",
+        "borderColors": "[#0e8f7e],[#af3234],[#ffff99],[#0000ff]",
+        "gridLines": "true",
+        "labelColor": "rgba(72,72,72,0.98)",
+        "gridColor": "rgba(125,125,125,0.65)",
+        "styleBody": "div#content{overflow-y: hidden}",
+        "params": "title={{i18n.clusterRamSwapUsage}}&id=shell_mon__bin_bash_c__home_monboss_monboss_scripts_pagefault_ramcommit_swapusedstat_dashboard_sh__secondary_prod_&statusAsBoolean=false&statusFalseValue=0.1&statusTrueValue=1&nullValue={{i18n.none}}&property=swap_status&nodeID={{url.nodeID}}"
     }
 }
 ======
@@ -302,23 +331,25 @@ SCHEMA
 
 LAYOUT
 =================
-----------------------------------------------------------------------------------------------------------------
-| ram_usage_growth | db_ram_growth | disk_usage_growth | cpu_idle_growth  | cpu_usage_current | db_ram_current |
-|--------------------------------------------------------------------------------------------------------------|
-|                                                  cpu_usage                                                   |
-|--------------------------------------------------------------------------------------------------------------|
-|                                avail_disk_space_SQL  |  disk_usage                                           |
-|--------------------------------------------------------------------------------------------------------------|
-|                                net_rx_rate           |  net_tx_rate                                          |
-|--------------------------------------------------------------------------------------------------------------|
-|                             disk_throughput_wps_rate |  disk_throughput_rps_rate                             |
-|--------------------------------------------------------------------------------------------------------------|
-|                                ram_in_use            |  ram_commit                                           |
-|--------------------------------------------------------------------------------------------------------------|
-|                                table_ram_in_use      |  db_ram_in_use                                        |
-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+| ram_usage_growth | db_ram_growth | disk_usage_current | cpu_idle_growth  | cpu_usage_current | db_ram_current |
+|---------------------------------------------------------------------------------------------------------------|
+|                                                  cpu_usage                                                    |
+|---------------------------------------------------------------------------------------------------------------|
+|                                avail_disk_space_SQL   |  disk_usage                                           |
+|---------------------------------------------------------------------------------------------------------------|
+|                                net_rx_rate            |  net_tx_rate                                          |
+|---------------------------------------------------------------------------------------------------------------|
+|                             disk_throughput_wps_rate  |  disk_throughput_rps_rate                             |
+|---------------------------------------------------------------------------------------------------------------|
+|                                ram_in_use             |  ram_commit                                           |
+|---------------------------------------------------------------------------------------------------------------|
+|                                table_ram_in_use       |  db_ram_in_use                                        |
+-----------------------------------------------------------------------------------------------------------------
+|                                                 ram_swap_usage                                                |
+-----------------------------------------------------------------------------------------------------------------
 =================
-Row Heights = 29%,60%,70%,70%,70%,70%,70%
+Row Heights = 29%,60%,70%,70%,70%,70%,70%,70%
 Col Widths = 16.6%,16.6%,16.6%,16.6%,16.6%,16.6%
 =================
 

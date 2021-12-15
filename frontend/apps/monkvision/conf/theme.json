@@ -135,6 +135,7 @@
             "barGraphCpuStat":"CPU Stat",
             "clusterCpuUsage":"CPU UTILIZATION (in %)",
             "clusterDiskUtil":"DISK SPACE UTILIZATION (in %)",
+            "clusterRamSwapUsage":"RAM SWAP UTILIZATION (in %)",
             "table":"Sql Performance Table",
 
             "sql_table":"SQL QUERIES PERFORMANCE - TABLE",
