@@ -145,7 +145,7 @@
         {{#metrictext}}                 <!-- Handles metric text content -->
         {{{styleMetric}}}
         {{#clusterName}}
-            <div id="metrictextcontainer" onclick="router.loadPage('./main.html?dash=./dashboards/{{dashboardName}}&title={{pageTitle}}&refresh={{refresh}}&name={{clusterName}}&nodeID={{nodeName}}&nodelist={{nodelist}}');"><div id="metrictext">
+            <div id="metrictextcontainer" onclick="router.loadPage('./main.html?dash=./dashboards/{{dashboardName}}&title={{pageTitle}}&refresh={{refresh}}&name={{clusterName}}&nodeID={{nodeName}}&nodelist={{nodelist}}&nodeInfo={{nodeInfo}}');"><div id="metrictext">
         {{/clusterName}}
         {{^clusterName}}
             <div id="metrictextcontainer"><div id="metrictext">

@@ -38,7 +38,7 @@ exports.doService = async jsonReq => {
     const variation = ((max_num - min_num)/max_num)*100
     //
 
-    const truePercent = Math.fround(variation).toFixed(4);
+    const truePercent = Math.fround(variation).toFixed(2);
     const threshold = jsonReq["threshold"] || 5.0000;
 
     // calculate issue percentage
@@ -76,7 +76,7 @@ exports.doService = async jsonReq => {
     let add_symbol;
     if (!jsonReq.add_symbol){add_symbol="%"}
     else {add_symbol=jsonReq.add_symbol}
-    const result = {result: true, type: "metrictext", contents: {textmain:`${parseFloat(truePercent).toFixed(4)} ${add_symbol}`, fgcolor, bgcolor, textexplanation}}; 
+    const result = {result: true, type: "metrictext", contents: {textmain:`${parseFloat(truePercent).toFixed(2)} ${add_symbol}`, fgcolor, bgcolor, textexplanation}}; 
     if (title) result.contents.title = title; if (icon) result.contents.icon = icon; return result;
 }
 

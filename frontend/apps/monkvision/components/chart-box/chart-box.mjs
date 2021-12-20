@@ -97,6 +97,8 @@ async function _refreshData(element, force) {
 		}
 
 		metrictext.nodeName = content.contents.textexplanation ? (((content.contents.textexplanation).indexOf("-") != -1) ? content.contents.textexplanation.split("-")[0].trim() : null): null;
+		metrictext.nodeInfo = content.contents.textexplanation ? (((content.contents.textexplanation).indexOf(":") != -1) ? content.contents.textexplanation.split(":")[0].trim() : null): null;
+	
 		metrictext.textmain = content.contents.textmain; metrictext.textexplanation = content.contents.textexplanation;
 		
 		if (content.contents.icon) metrictext.icon = content.contents.icon;

@@ -16,7 +16,7 @@ async function populateDropdown(clusterTitle, refresh, clusterName) {
                     dropdown.appendChild(options); 
                 });
         dropdown.addEventListener("change", function(){
-            router.loadPage('./main.html?dash=./dashboards/dashboard_'+clusterName.toLowerCase().split("-")[0].replace(/\s/g, '_')+'.page&title='+clusterTitle+'&refresh='+refresh+'&name='+clusterName+'&nodeID='+dropdown.options[dropdown.selectedIndex].text+'&nodelist=true');
+            router.loadPage('./main.html?dash=./dashboards/dashboard_'+clusterName.toLowerCase().split("-")[0].replace(/\s/g, '_')+'.page&title='+clusterTitle+'&refresh='+refresh+'&name='+clusterName+'&nodeID='+dropdown.options[dropdown.selectedIndex].text.split("-")[0].trim()+'&nodelist=true'+'&nodeInfo='+dropdown.options[dropdown.selectedIndex].text);
         });
 }	
 

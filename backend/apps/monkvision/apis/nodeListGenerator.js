@@ -26,8 +26,10 @@ exports.doService = async jsonReq => {
         return CONSTANTS.FALSE_RESULT;
     }
 
-    for(let key of Object.keys(JSON.parse(rowsNodeList[rowsNodeList.length-1].additional_status).node_id)){
-        list.push(key);
+    const currentNodeList = JSON.parse(rowsNodeList[rowsNodeList.length-1].additional_status);
+    for (let key of Object.keys(currentNodeList["node_id"])){
+        if (currentNodeList["node_info"].hasOwnProperty(key)) list.push(`${key} - ${currentNodeList["node_info"][key].hostname}`);
+        else list.push(key);
     }
 
     const result = {

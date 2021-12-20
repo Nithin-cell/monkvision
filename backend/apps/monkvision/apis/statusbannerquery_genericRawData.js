@@ -31,7 +31,7 @@ exports.doService = async jsonReq => {
     // Standard deviation
     // const mean = (data_array.reduce((a, b) => a + b)) / data_array.length
     // const stand_dev=Math.sqrt(data_array.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / data_array.length)
-    const truePercent = Math.fround(rows[0].raw_data).toFixed(4);
+    const truePercent = Math.fround(rows[0].raw_data).toFixed(2);
     // calculate issue percentage
     const threshold = jsonReq["threshold"] || 5.0000;
 
@@ -70,7 +70,7 @@ exports.doService = async jsonReq => {
     let add_symbol;
     if (!jsonReq.add_symbol){add_symbol="%"}
     else {add_symbol=jsonReq.add_symbol}
-    const result = {result: true, type: "metrictext", contents: {textmain:`${parseFloat(truePercent).toFixed(4)} ${add_symbol}`, fgcolor, bgcolor, textexplanation}}; 
+    const result = {result: true, type: "metrictext", contents: {textmain:`${parseFloat(truePercent).toFixed(2)} ${add_symbol}`, fgcolor, bgcolor, textexplanation}}; 
     if (title) result.contents.title = title; if (icon) result.contents.icon = icon; return result;
 }
 

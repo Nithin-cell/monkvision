@@ -272,7 +272,7 @@ SCHEMA
         "api": "loggraphGeneric",
         "type": "linegraph",
         "maxticks": 6,
-        "ysteps": "[20]",
+        "ysteps": "[5]",
         "ylabels": "[]",
         "ymaxs": "[]",
         "singleAxis": true,

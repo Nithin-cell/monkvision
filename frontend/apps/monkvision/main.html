@@ -156,7 +156,7 @@ div#leftheader {
 		<span id="title">{{title}}</span>
 		{{#nodelist}}
 				<label id="clusterLabel">Node:</label>
-				<select selectedNode="{{url.nodeID}}" id="nodeDropdown"></select>
+				<select selectedNode="{{url.nodeInfo}}" id="nodeDropdown"></select>
 				<script type="module">
 					import {dropdown} from "./js/dropdown.mjs";
 					dropdown.populateDropdown("{{title}}","{{refresh}}","{{name}}");
