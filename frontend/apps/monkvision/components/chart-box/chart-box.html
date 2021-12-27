@@ -130,12 +130,21 @@
         display: none;
         max-height: inherit;
     }
+    
+    div#container > p {
+        margin: unset;
+    }
+    @media print {
+        div#content{
+            overflow-y: hidden;
+        }
+    }
     </style>
     
     {{{styleBody}}}
     
     <div id="container">
-        {{{title}}}
+        <p id=title>{{{title}}}</p>
     <div id="content">
         {{#textcontent}}                <!-- Handles simple text content -->
         <div id="textcontent">

@@ -94,6 +94,8 @@ async function interceptPageLoadData() {
     router.addOnLoadPage(`${APP_CONSTANTS.APP_PATH}/main.html`, pageload_func);
 }
 
+const loadPDFReport = async _ => window.open(await router.encodeURL("pdf_report.html?dash=./dashboards/dashboard_pdf_report.page&name=PDF Report"), "_blank");
+
 async function changePassword(_element) {
     monkshu_env.components['dialog-box'].showDialog(`${APP_CONSTANTS.DIALOGS_PATH}/changepass.html`, true, true, {}, "dialog", ["p1","p2"], async result=>{
         const done = await loginmanager.changepassword(session.get(APP_CONSTANTS.USERID), result.p1);
@@ -127,4 +129,4 @@ function _startRefresh() {
         return(minutes + ":" + seconds);
 }
 
-export const main = {changePassword, interceptPageLoadData, timeRangeUpdated, playPauseCharts};
+export const main = {changePassword, interceptPageLoadData, timeRangeUpdated, playPauseCharts, loadPDFReport};
