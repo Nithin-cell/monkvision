@@ -140,6 +140,7 @@
 
             "sql_table":"SQL QUERIES PERFORMANCE - TABLE",
             "long_running_table":"TOP 10 COSTLIEST QUERIES",
+            "capacity_logs_db_size":"DATA MARTIX - DATABASE SIZE",
             "skew_table":"ROW AND MEMORY SKEW - TABLE",
             "dbCount_table":"DB INFORMATION - TABLE",
             "vars_table":"DB VARIABLES - TABLE",
@@ -217,8 +218,12 @@
             "ys5_dbCount":"Recovering",
 
             "ys0_nodes":"NODE NAME",
-            "ys1_nodes":"NODE DB ID"
+            "ys1_nodes":"NODE DB ID",
 
+            "ys0_capacity_logs_db_size":"DATABASE NAME",
+            "ys1_capacity_logs_db_size":"TIMESTAMP",
+            "ys2_capacity_logs_db_size":"ROWSTORE IN GB",
+            "ys3_capacity_logs_db_size":"COLUMNSTORE IN GB"
         }
     },
     "main_html_data": {
