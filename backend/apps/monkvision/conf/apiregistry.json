@@ -35,5 +35,6 @@
     "/apps/monkvision/statusbannerquery_dbCount" : "/apis/statusbannerquery_dbCount.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true",
     
     "/apps/monkvision/nodeListGenerator" : "/apis/nodeListGenerator.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true",
-    "/apps/monkvision/dataMatrixDBSize" : "/apis/dataMatrixDBSize.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true"
+    "/apps/monkvision/dataMatrixDBSize" : "/apis/dataMatrixDBSize.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true",
+    "/apps/monkvision/dataMatrixCapacityLogs" : "/apis/dataMatrixCapacityLogs.js?get=true&key=fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389&needsToken=true"
 }

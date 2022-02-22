@@ -141,6 +141,7 @@
             "sql_table":"SQL QUERIES PERFORMANCE - TABLE",
             "long_running_table":"TOP 10 COSTLIEST QUERIES",
             "capacity_logs_db_size":"DATA MARTIX - DATABASE SIZE",
+            "capacity_logs":"DATA MARTIX - CAPACITY_LOGS",
             "skew_table":"ROW AND MEMORY SKEW - TABLE",
             "dbCount_table":"DB INFORMATION - TABLE",
             "vars_table":"DB VARIABLES - TABLE",
@@ -223,7 +224,21 @@
             "ys0_capacity_logs_db_size":"DATABASE NAME",
             "ys1_capacity_logs_db_size":"TIMESTAMP",
             "ys2_capacity_logs_db_size":"ROWSTORE IN GB",
-            "ys3_capacity_logs_db_size":"COLUMNSTORE IN GB"
+            "ys3_capacity_logs_db_size":"COLUMNSTORE IN GB",
+
+            "ys0_capacity_logs":"HOST",
+            "ys1_capacity_logs":"PORT",
+            "ys2_capacity_logs":"TYPE",
+            "ys3_capacity_logs":"TIMESTAMP",
+            "ys4_capacity_logs":"MAX MEMORY (GB)",
+            "ys5_capacity_logs":"MEMORY USED (GB)",
+            "ys6_capacity_logs":"MAX TABLE MEMORY (GB)",
+            "ys7_capacity_logs":"TABLE MEMORY USED (GB)",
+            "ys8_capacity_logs":"TOTAL DISK (GB)",
+            "ys9_capacity_logs":"AVAILABLE DISK (GB)",
+            "ys10_capacity_logs":"MEMORY USED (%)",
+            "ys11_capacity_logs":"TABLE MEMORY USED (%)",
+            "ys12_capacity_logs":"DISK USED (%)"
         }
     },
     "main_html_data": {
