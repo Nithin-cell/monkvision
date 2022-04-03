@@ -1,0 +1,86 @@
+[
+    {
+        "text": "ram",
+        "intent": "ram"
+    },
+    {
+        "text": "disk",
+        "intent": "disk"
+    },
+    {
+        "text": "cpu",
+        "intent": "cpu"
+    },
+    {
+        "text": "random access memory",
+        "intent": "ram"
+    },
+    {
+        "text": "storage",
+        "intent": "disk"
+    },
+    {
+        "text": "central processing unit",
+        "intent": "cpu"
+    },
+    {
+        "text": "ram utilization",
+        "intent": "ram"
+    },
+    {
+        "text": "disk utilization",
+        "intent": "disk"
+    },
+    {
+        "text": "cpu utilization",
+        "intent": "cpu"
+    },
+    {
+        "text": "ram usage",
+        "intent": "ram"
+    },
+    {
+        "text": "disk usage",
+        "intent": "disk"
+    },
+    {
+        "text": "cpu usage",
+        "intent": "cpu"
+    },
+    {
+        "text": "Show me the cpu utilization for past 2 hours",
+        "intent": "cpu" 
+    },
+    {
+        "text": "Show me the ram utilization for past 2 hours",
+        "intent": "ram" 
+    },
+    {
+        "text": "Show me the disk utilization for past 2 hours",
+        "intent": "disk" 
+    },
+    {
+        "text": "Show me the cpu usage for past 3 weeks",
+        "intent": "cpu" 
+    },
+    {
+        "text": "Show me the ram usage for past 3 weeks",
+        "intent": "ram" 
+    },
+    {
+        "text": "Show me the disk usage for past 3 weeks",
+        "intent": "disk" 
+    },
+    {
+        "text": "Show me the central processing unit usage for last hour",
+        "intent": "cpu"
+    },
+    {
+        "text": "Show me the random access memory usage for last hour",
+        "intent": "ram" 
+    },
+    {
+        "text": "Show me the storage usage for last hour",
+        "intent": "disk" 
+    }
+]

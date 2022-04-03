@@ -7,6 +7,8 @@ const BACKEND = "http://localhost:9090";
 const APP_NAME = "monkvision";
 const APP_PATH = `${FRONTEND}/apps/${APP_NAME}`;
 const API_PATH = `${BACKEND}/apps/${APP_NAME}`;
+// const ROLES = await (await fetch(`${APP_PATH}/conf/dashboard_roles.json`, {mode:"no-cors", cache: "no-cache"})).json();
+const ROLES = await $$.requireJSON(`${APP_PATH}/conf/dashboard_roles.json`, true);
 
 export const APP_CONSTANTS = {
     FRONTEND, BACKEND, APP_PATH, APP_NAME, API_PATH,
@@ -27,16 +29,16 @@ export const APP_CONSTANTS = {
     USERID: "userid",
     PWPH: "pwph",
     MIN_PW_LENGTH: 10,
-    TIMEOUT: 600000,
+    TIMEOUT: 3600000,
     USERNAME: "username",
     USERORG: "userorg",
     USER_ROLE: "user",
     GUEST_ROLE: "guest",
     PERMISSIONS_MAP: {
-        user:[APP_PATH+"/main.html", APP_PATH+"/register.html", APP_PATH+"/login.html", APP_PATH+"/pdf_report.html", $$.MONKSHU_CONSTANTS.ERROR_THTML],
+        user:[APP_PATH+"/main.html", APP_PATH+"/register.html", APP_PATH+"/login.html", APP_PATH+"/pdf_report.html", APP_PATH+"/nlp_search_preview.html", $$.MONKSHU_CONSTANTS.ERROR_THTML],
         guest:[APP_PATH+"/register.html", APP_PATH+"/login.html", $$.MONKSHU_CONSTANTS.ERROR_THTML],
-        admin:[APP_PATH+"/main.html", APP_PATH+"/register.html", APP_PATH+"/login.html", APP_PATH+"/pdf_report.html", $$.MONKSHU_CONSTANTS.ERROR_THTML, "dash1", "dash2", "dash3"],
-        dba:[APP_PATH+"/main.html", APP_PATH+"/register.html", APP_PATH+"/login.html", APP_PATH+"/pdf_report.html", $$.MONKSHU_CONSTANTS.ERROR_THTML, "dash2"]
+        admin:[APP_PATH+"/main.html", APP_PATH+"/register.html", APP_PATH+"/login.html", APP_PATH+"/pdf_report.html", APP_PATH+"/nlp_search_preview.html", $$.MONKSHU_CONSTANTS.ERROR_THTML, ...ROLES.admin],
+        dba:[APP_PATH+"/main.html", APP_PATH+"/register.html", APP_PATH+"/login.html", APP_PATH+"/pdf_report.html", APP_PATH+"/nlp_search_preview.html", $$.MONKSHU_CONSTANTS.ERROR_THTML, ...ROLES.dba]
     },
     API_KEYS: {"*":"fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389"},
     KEY_HEADER: "X-API-Key"

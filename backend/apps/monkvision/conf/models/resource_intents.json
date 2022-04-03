@@ -1,0 +1,186 @@
+[
+    {
+        "text": "primary",
+        "intent": "primary_prod"
+    },
+    {
+        "text": "secondary",
+        "intent": "secondary_prod"
+    },
+    {
+        "text": "staging",
+        "intent": "staging"
+    },
+    {
+        "text": "dev",
+        "intent": "dev"
+    },
+    {
+        "text": "Primary Prod",
+        "intent": "primary_prod"
+    },
+    {
+        "text": "Secondary Prod",
+        "intent": "secondary_prod"
+    },
+    {
+        "text": "stage",
+        "intent": "staging"
+    },
+    {
+        "text": "development",
+        "intent": "dev"
+    },
+    {
+        "text": "primary cluster",
+        "intent": "primary_prod"
+    },
+    {
+        "text": "secondary cluster",
+        "intent": "secondary_prod"
+    },
+    {
+        "text": "staging cluster",
+        "intent": "staging"
+    },
+    {
+        "text": "dev cluster",
+        "intent": "dev"
+    },
+    {
+        "text": "Primary Prod cluster",
+        "intent": "primary_prod"
+    },
+    {
+        "text": "Secondary Prod cluster",
+        "intent": "secondary_prod"
+    },
+    {
+        "text": "stage cluster",
+        "intent": "staging"
+    },
+    {
+        "text": "development cluster",
+        "intent": "dev"
+    },
+    {
+        "text": "Show me the cpu usage for past 3 minutes for cluster primary prod",
+        "intent": "primary_prod"
+    },
+    {
+        "text": "Show me the cpu usage for past 3 minutes for cluster secondary prod",
+        "intent": "secondary_prod"
+    },
+    {
+        "text": "Show me the cpu usage for past 3 minutes for cluster staging",
+        "intent": "staging"
+    },
+    {
+        "text": "Show me the cpu usage for past 3 minutes for cluster dev",
+        "intent": "dev"
+    },
+    {
+        "text": "Show me the ram usage for past five hours for cluster primary prod",
+        "intent": "primary_prod"
+    },
+    {
+        "text": "Show me the ram usage for past five hours for cluster secondary prod",
+        "intent": "secondary_prod"
+    },
+    {
+        "text": "Show me the ram usage for past five hours for cluster staging",
+        "intent": "staging"
+    },
+    {
+        "text": "Show me the ram usage for past five hours for cluster dev",
+        "intent": "dev"
+    },
+    {
+        "text": "Show me the disk usage for past 1 week for cluster primary prod",
+        "intent": "primary_prod"
+    },
+    {
+        "text": "Show me the disk usage for past 1 week for cluster secondary prod",
+        "intent": "secondary_prod"
+    },
+    {
+        "text": "Show me the disk usage for past 1 week for cluster staging",
+        "intent": "staging"
+    },
+    {
+        "text": "Show me the disk usage for past 1 week for cluster dev",
+        "intent": "dev"
+    },
+    {
+        "text": "Show me the disk usage for past two months for cluster primary production ",
+        "intent": "primary_prod"
+    },
+    {
+        "text": "Show me the disk usage for past two months for cluster secondary production ",
+        "intent": "secondary_prod"
+    },
+    {
+        "text": "Show me the disk usage for past two months for cluster stage ",
+        "intent": "staging"
+    },
+    {
+        "text": "Show me the disk usage for past two months for cluster deveploment ",
+        "intent": "dev"
+    },
+    {
+        "text": "Show me the disk usage for past 17 days for cluster primary prod ",
+        "intent": "primary_prod"
+    },
+    {
+        "text": "Show me the disk usage for past 17 days for cluster secondary prod ",
+        "intent": "secondary_prod"
+    },
+    {
+        "text": "Show me the disk usage for past 17 days for cluster stage ",
+        "intent": "staging"
+    },
+    {
+        "text": "Show me the disk usage for past 17 days for cluster deveploment ",
+        "intent": "dev"
+    },
+    {
+        "text": "Show me the disk usage for past three years for cluster primary prod ",
+        "intent": "primary_prod"
+    },
+    {
+        "text": "Show me the disk usage for past three years for cluster secondary prod ",
+        "intent": "secondary_prod"
+    },
+    {
+        "text": "Show me the disk usage for past three years for cluster stage ",
+        "intent": "staging"
+    },
+    {
+        "text": "Show me the disk usage for past three years for cluster deveploment ",
+        "intent": "dev"
+    },
+    {
+        "text": "Show me the disk usage for past 300 seconds for cluster primary prod ",
+        "intent": "primary_prod"
+    },
+    {
+        "text": "Show me the disk usage for past 300 seconds for cluster secondary prod ",
+        "intent": "secondary_prod"
+    },
+    {
+        "text": "Show me the disk usage for past 300 seconds for cluster stage ",
+        "intent": "staging"
+    },
+    {
+        "text": "Show me the disk usage for past 300 seconds for cluster deveploment ",
+        "intent": "dev"
+    },
+    {
+        "text": "Show me the disk usage for past two days for cluster primary production ",
+        "intent": "primary_prod"
+    },
+    {
+        "text": "Show me the disk usage for past two days for cluster secondary production ",
+        "intent": "secondary_prod"
+    }
+]

@@ -1,0 +1,5 @@
+{
+    "cpu": "ssh_mon_ddos",
+    "ram": "ssh_mon_too_many_connections_attack",
+    "disk": "ssh_mon_login_attack"
+}
