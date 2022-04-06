@@ -50,18 +50,18 @@ span#nlp-search-preview-header>span#title {
     text-align: center;
 }
 
-input#dashboards-dropdown, input#save-btn {
+input#dashboardname, input#save-btn {
     box-shadow: 0 0 1px rgb(34 25 25 / 40%);
     border-radius: 5px;
     color: rgba(0,0,0,0.75);
     border-style: none;
 }
 
-input#dashboards-dropdown:focus{
+input#dashboardname:focus{
     outline: none;
 }
 
-input#dashboards-dropdown{
+input#dashboardname{
     padding-left: 10px;
 }
 
@@ -86,9 +86,7 @@ input::-webkit-calendar-picker-indicator {
     <link href="./img/favicon.png" rel="icon" type="image/x-icon">
 
     <script type="module">
-        import { nlp } from "./js/nlp_search.mjs"; window.nlp = nlp;
         import { page_generator } from "/framework/components/page-generator/page-generator.mjs";
-        import {router} from "/framework/js/router.mjs"; window.router = router;
     </script>
 
     <title>MonkVision - NLP Preview Page</title>
@@ -98,12 +96,13 @@ input::-webkit-calendar-picker-indicator {
 <body>
     <div id="nlp-search-preview-container">
         <span id="nlp-search-preview-header">
-            <datalist id="dashboard-pages">
+            <datalist id="dashboardlist">
             {{#dashboards}}
-                <option data-filepath="{{file}}">{{name}}</option>
+                <option data-filepath="{{file}}" name="{{name}}">{{name}}</option>
             {{/dashboards}}
             </datalist>
-            <input list="dashboard-pages" id="dashboards-dropdown" type="search">
+            <input type="hidden" id="dashboardpath">
+            <input list="dashboardlist" id="dashboardname" type="search">
             <input id="save-btn" type="button" value="Save" onclick="createOrUpdateDashboard(this)">
         </span>
     </div>
@@ -115,7 +114,9 @@ input::-webkit-calendar-picker-indicator {
 <script>
 async function createOrUpdateDashboard(element) {
     const shadowRoot = monkshu_env.components["dialog-box"].getShadowRootByContainedElement(element);
-    const filename = shadowRoot.querySelector("input#dashboards-dropdown").value;
+    const dashboardname = shadowRoot.querySelector("input#dashboardname").value;
+    const dashboardPath = shadowRoot.querySelector("#dashboardlist").options.namedItem(dashboardname);
+    shadowRoot.querySelector("input#dashboardpath").value = dashboardPath ? dashboardPath.getAttribute("data-filepath") : "";
     monkshu_env.components["dialog-box"].submit(element);
 }
 </script>

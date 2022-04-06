@@ -5,34 +5,16 @@
  * License: See enclosed license.txt file.
  */
 
-// import * as tf from '@tensorflow/tfjs';
-// import '@tensorflow/tfjs-node';
-// import * as use from '@tensorflow-models/universal-sentence-encoder';
-
 const tf = require("@tensorflow/tfjs");
 const use = require("@tensorflow-models/universal-sentence-encoder");
 require('@tensorflow/tfjs-node');
 
 // Train Model (JSON)
-const metricIntents = require(`/home/sridharan/dlt-workspace/rohit-monkvision/monkvision/backend/apps/monkvision/conf/models/metric_intents.json`)
-const durationIntents = require(`/home/sridharan/dlt-workspace/rohit-monkvision/monkvision/backend/apps/monkvision/conf/models/duration_intents.json`)
-const resourceIntents = require(`/home/sridharan/dlt-workspace/rohit-monkvision/monkvision/backend/apps/monkvision/conf/models/resource_intents.json`)
-
-// import metricIntents from '../../conf/models/metric-intents-model.json';
-// import durationIntents from '.../../conf/models/duration-training.json';
-// import resourceIntents from '.../../conf/models/resource-intents-model.json';
-
-// const _init = async _ => {
-//     await $$.require(`${APP_CONSTANTS.APP_PATH}/js/3p/tf.min.js`)
-//     await $$.require(`${APP_CONSTANTS.APP_PATH}/js/3p/tf-universal-sentence-encode.js`)
-// }
+const metricIntents = require(`${APP_CONSTANTS.CONF_DIR}/models/metric_intents.json`);
+const durationIntents = require(`${APP_CONSTANTS.CONF_DIR}/models/duration_intents.json`);
+const resourceIntents = require(`${APP_CONSTANTS.CONF_DIR}/models/resource_intents.json`);
 
 exports.init = async () => {
-    // await _init();
-
-    // const metricIntents = await $$.requireJSON(`${APP_CONSTANTS.APP_PATH}/models/metric_intents.json`);
-    // const durationIntents = await $$.requireJSON(`${APP_CONSTANTS.APP_PATH}/models/duration_intents.json`);
-    // const resourceIntents = await $$.requireJSON(`${APP_CONSTANTS.APP_PATH}/models/resource_intents.json`);
 
     MODELS["encoder"] = use.load();
 
@@ -252,10 +234,6 @@ async function getResourceIntent(query, resources=[]) {
     const matchedResource = RESOURCES[resourcePredictions[0].indexOf(Math.max(...resourcePredictions[0]))];
 
     return matchedResource;
-    // if (!query.includes(matchedResource)) return resources;
-    // query = query.replace(matchedResource, "");
-    // resources.push(matchedResource);
-    // return await getResourceIntent(query, resources);
 }
 
 exports.model = MODELS;

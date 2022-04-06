@@ -19,7 +19,7 @@ exports.doService = async jsonReq => {
     if (jsonReq.duration && jsonReq.metric) dashboardParams = { duration: jsonReq.duration, metric: jsonReq.metric, title: jsonReq.title };
     
     const source = `${DASHBOARD_DIR}/dashboard_nlp_search_preview.page`,
-            destination = `${DASHBOARD_DIR}/dashboard_${jsonReq["filename"]}.page`;
+            destination = jsonReq["filepath"] ? `${DASHBOARD_DIR}/${jsonReq["filepath"]}` : `${DASHBOARD_DIR}/dashboard_${jsonReq["filename"]}.page`;
     
     if (fs.existsSync(destination)){
         updateDashboard(source, destination, dashboardParams, (err) => { if (err) LOG.error("Error while updating dashboard file"); });
@@ -27,7 +27,7 @@ exports.doService = async jsonReq => {
         createDashboard(source, destination, dashboardParams, (err) => { if (err) LOG.error("Error while creating dashboard file"); });
         const dashboards = await require(DASHBOARDS_PATH);
         const key = `dash${Object.keys(dashboards).length+1}`;
-        dashboards[key] = `dashboard_${jsonReq["filename"]}.page,refresh:5000,name:${jsonReq["filename"]},title:NLP Queries`;
+        dashboards[key] = `dashboard_${jsonReq["filename"]}.page,refresh:300000,name:${jsonReq["filename"]},title:NLP Queries`;
         writeJSON(DASHBOARDS_PATH, dashboards);
 
         const roles = await require(ROLES_PATH);
@@ -65,34 +65,34 @@ function updateDashboard(source, destination, dashboardParams={}, callback) {
 
     const readable = fs.createReadStream(source);
 
-    const content = getFileContent(destination);
-    const content1 = getFileContent(`${DASHBOARD_DIR}/dashboard_template.page`);
+    const destinationContent = getFileContentSync(destination);
+    const templateContent = getFileContentSync(`${DASHBOARD_DIR}/dashboard_template.page`);
     
     const writable = fs.createWriteStream(destination);
     
     readable.on("error", err => done(err));
     readable.on("data", (chunk) => { 
-        const pageContent = chunk.toString().replace("{{duration}}", dashboardParams.duration)
+        const sourceContent = chunk.toString().replace("{{duration}}", dashboardParams.duration)
                                             .replace("{{metric}}", dashboardParams.metric)
                                             .replace("{{title}}", dashboardParams.title);
         
-        const parsedSchema = getSchema(pageContent);
-        const parsedSchema1 = getSchema(content);
+        const sourceParsedSchema = getSchema(sourceContent);
+        const destinationParsedSchema = getSchema(destinationContent);
 
-        const length = Object.keys(parsedSchema1).length;
-        const schemaKey = Object.keys(parsedSchema)[0];
-        parsedSchema[`${schemaKey}${length+1}`] = parsedSchema[schemaKey];
-        delete parsedSchema[`${schemaKey}`];
+        const length = Object.keys(destinationParsedSchema).length;
+        const schemaKey = Object.keys(sourceParsedSchema)[0];
+        sourceParsedSchema[`${schemaKey}${length+1}`] = sourceParsedSchema[schemaKey];
+        delete sourceParsedSchema[`${schemaKey}`];
         
-        const schemaData = { ...parsedSchema1, ...parsedSchema };
+        const schemaData = { ...destinationParsedSchema, ...sourceParsedSchema };
 
         let layout = "";
-        layout += getLayout(content)+"\n";
-        layout += getLayout(pageContent).replace(new RegExp(/-*\n/, "s"), "").replace("nlpSearchMetric ", `${schemaKey}${length+1}`);
+        layout += getLayout(destinationContent).trim()+"\n";
+        layout += getLayout(sourceContent).replace(new RegExp(/-*\n/, "s"), "").replace("nlpSearchMetric ", `${schemaKey}${length+1}`);
 
         let rowHeights = "";
         rowHeights += Array(Object.keys(schemaData).length).fill("calc(45vh - 50px)").join();
-        writable.write(content1.replace("{{schema}}", JSON.stringify(schemaData).replace(/\$/g, '$$$$'))
+        writable.write(templateContent.replace("{{schema}}", JSON.stringify(schemaData).replace(/\$/g, '$$$$'))
                                 .replace("{{layout}}", layout)
                                 .replace("{{rowHeights}}", rowHeights));
         });
@@ -104,7 +104,7 @@ function updateDashboard(source, destination, dashboardParams={}, callback) {
 
 const writeJSON = (filepath, data) => { fs.writeFile(filepath, JSON.stringify(data, null, 4), (err) => { if (err) LOG.error("Error while writing JSON"); }); }
 
-const getFileContent = (srcPath) => { return fs.readFileSync(srcPath, 'utf8') }
+const getFileContentSync = (srcPath) => { return fs.readFileSync(srcPath, 'utf8') }
 
 function getSchema(pageContent) {
     const schemaArray = pageContent.match(/SCHEMA\s*\r?\n=+\r?\n(.+?)\r?\n=+[\r?\n]*/sm);

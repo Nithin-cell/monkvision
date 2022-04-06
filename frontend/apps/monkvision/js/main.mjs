@@ -123,18 +123,21 @@ async function showQueryResult(_element) {
     const {duration, metric} = content.predictedIntents;
     Object.assign(data.htmlData, {duration: duration, metric: metric, title: query});
     data.pagedata = encodeURIComponent(JSON.stringify(data.htmlData));
-    data.role = securityguard.getCurrentRole();
 
-    monkshu_env.components['dialog-box'].showDialog(`${APP_CONSTANTS.DIALOGS_PATH}/nlp_search.html`, false, false, data, "nlpsearch", ["dashboards-dropdown"], async result=>{
-        const paramObj = {filename: result["dashboards-dropdown"], metric: data.htmlData.metric[0], duration: data.htmlData.duration, role: data.role, title: data.htmlData.title };
+    const role = securityguard.getCurrentRole();
+    data.role = typeof role == "string" ? role : role.native;
+
+    monkshu_env.components['dialog-box'].showDialog(`${APP_CONSTANTS.DIALOGS_PATH}/nlp_search.html`, false, false, data, "nlpsearch", ["dashboardname", "dashboardpath"], async result=>{
+        const paramObj = {filename: result["dashboardname"], filepath: result["dashboardpath"], metric: data.htmlData.metric[0], duration: data.htmlData.duration, role: data.role, title: data.htmlData.title };
         const content = await utils.getContent("createdashboard", paramObj);
+        const redirectDashPath = result["dashboardpath"] ? result["dashboardpath"] : `dashboard_${result["dashboardname"]}.page`;
 
         if (!content) monkshu_env.components['dialog-box'].error("nlpsearch", 
             await i18n.get("dashboardError", session.get($$.MONKSHU_CONSTANTS.LANG_ID)));
         else {
             if (content.contents && content.contents.dashkey) await securityguard.addPermission(content.contents.dashkey, data.role);
             monkshu_env.components['dialog-box'].hideDialog("nlpsearch");
-            router.loadPage(`./main.html?dash=./dashboards/dashboard_${result["dashboards-dropdown"]}.page&title=NLP Queries&refresh=5000&name=${result["dashboards-dropdown"]}&themeMode=light`)
+            router.loadPage(`./main.html?dash=./dashboards/${redirectDashPath}&title=NLP Queries&refresh=300000&name=${result["dashboardname"]}&themeMode=light`)
         }
     });
 }

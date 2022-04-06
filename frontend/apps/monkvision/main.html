@@ -172,7 +172,7 @@ dialog-box#nlpsearch{
 
 	<span id="searchbar">
 		<img id="searchicon" src="./img/search_icon.svg" alt="search icon" onclick="main.showQueryResult(this)">
-		<input id="searchbartext" type="text" placeholder="e.g Show me cpu usage for past 2 hours">
+		<input id="searchbartext" type="text" placeholder="e.g Show me cpu usage for past 2 hours" onkeyup="if (event.keyCode == 13) main.showQueryResult(this);">
 	</span>
 
 	<div id="maincontent">
