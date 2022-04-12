@@ -102,9 +102,7 @@ async function changePassword(_element) {
 }
 
 async function showQueryResult(_element) {
-    const data = {
-        dash: "./dashboards/dashboard_nlp_search_preview.page"
-    }
+    const data = { dash: "./dashboards/dashboard_nlp_search_preview.page"};
     await utils.addThemeDataAndCSS(data, "nlp_search");
 
     const dashboardsRaw = await $$.requireJSON(`${APP_CONSTANTS.APP_PATH}/conf/dashboards.json`, true);
@@ -112,9 +110,10 @@ async function showQueryResult(_element) {
     for (const key of Object.keys(dashboardsRaw)) {
         const file = dashboardsRaw[key].split(",")[0], refresh = parseInt(dashboardsRaw[key].split(",")[1].split(":")[1]),
         name = await i18n.get(`name_${key}`, session.get($$.MONKSHU_CONSTANTS.LANG_ID)) || dashboardsRaw[key].split(",")[2].split(":")[1], 
-        title = await i18n.get(`title_${key}`, session.get($$.MONKSHU_CONSTANTS.LANG_ID)) || dashboardsRaw[key].split(",")[3].split(":")[1];
+        title = await i18n.get(`title_${key}`, session.get($$.MONKSHU_CONSTANTS.LANG_ID)) || dashboardsRaw[key].split(",")[3].split(":")[1],
+        dashType = dashboardsRaw[key].split(",")[4] ? dashboardsRaw[key].split(",")[4].split(":")[1] : null;
 
-        if (securityguard.isAllowed(key)) data.dashboards.push({ name, file, refresh, title, id: key });
+        if (securityguard.isAllowed(key) && dashType == "AI") data.dashboards.push({ name, file, refresh, title, id: key });
     }
 
     const query = document.querySelector("input#searchbartext").value;
@@ -137,7 +136,7 @@ async function showQueryResult(_element) {
         else {
             if (content.contents && content.contents.dashkey) await securityguard.addPermission(content.contents.dashkey, data.role);
             monkshu_env.components['dialog-box'].hideDialog("nlpsearch");
-            router.loadPage(`./main.html?dash=./dashboards/${redirectDashPath}&title=NLP Queries&refresh=300000&name=${result["dashboardname"]}&themeMode=light`)
+            router.loadPage(`./main.html?dash=./dashboards/${redirectDashPath}&title=NLP Queries&refresh=300000&name=${result["dashboardname"]}&themeMode=light`);
         }
     });
 }

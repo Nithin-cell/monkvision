@@ -7,7 +7,6 @@ const BACKEND = "http://localhost:9090";
 const APP_NAME = "monkvision";
 const APP_PATH = `${FRONTEND}/apps/${APP_NAME}`;
 const API_PATH = `${BACKEND}/apps/${APP_NAME}`;
-// const ROLES = await (await fetch(`${APP_PATH}/conf/dashboard_roles.json`, {mode:"no-cors", cache: "no-cache"})).json();
 const ROLES = await $$.requireJSON(`${APP_PATH}/conf/dashboard_roles.json`, true);
 
 export const APP_CONSTANTS = {

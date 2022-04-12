@@ -36,9 +36,6 @@ span#nlp-search-preview-header {
     flex-direction: row;
     justify-content: flex-end;
     height: 23px;
-    /* justify-content: space-between; */
-    /* margin-top: 40px;
-    padding: 0px 40px; */
 }
 
 div#nlp-search-preview-maincontent {
@@ -73,6 +70,14 @@ input#save-btn{
 input::-webkit-calendar-picker-indicator {
     opacity: 100;
 }
+
+#dashboard-label{
+    color: rgba(0,0,0,0.5);
+    font-size: 0.85em;
+    font-weight: bold;
+    margin-right: 20px;
+    padding-top: 2px;
+}
 </style>
 
 <!doctype html>
@@ -96,13 +101,14 @@ input::-webkit-calendar-picker-indicator {
 <body>
     <div id="nlp-search-preview-container">
         <span id="nlp-search-preview-header">
+            <label id="dashboard-label" for="dashboard-text">Save query to new or existing dashboard: </label>
             <datalist id="dashboardlist">
             {{#dashboards}}
                 <option data-filepath="{{file}}" name="{{name}}">{{name}}</option>
             {{/dashboards}}
             </datalist>
             <input type="hidden" id="dashboardpath">
-            <input list="dashboardlist" id="dashboardname" type="search">
+            <input list="dashboardlist" id="dashboardname" type="search" placeholder="Add/Choose Dashboard">
             <input id="save-btn" type="button" value="Save" onclick="createOrUpdateDashboard(this)">
         </span>
     </div>

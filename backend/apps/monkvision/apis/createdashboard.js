@@ -27,7 +27,7 @@ exports.doService = async jsonReq => {
         createDashboard(source, destination, dashboardParams, (err) => { if (err) LOG.error("Error while creating dashboard file"); });
         const dashboards = await require(DASHBOARDS_PATH);
         const key = `dash${Object.keys(dashboards).length+1}`;
-        dashboards[key] = `dashboard_${jsonReq["filename"]}.page,refresh:300000,name:${jsonReq["filename"]},title:NLP Queries`;
+        dashboards[key] = `dashboard_${jsonReq["filename"]}.page,refresh:300000,name:${jsonReq["filename"]},title:NLP Queries,dash:AI`;
         writeJSON(DASHBOARDS_PATH, dashboards);
 
         const roles = await require(ROLES_PATH);
