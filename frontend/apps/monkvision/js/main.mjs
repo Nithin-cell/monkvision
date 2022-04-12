@@ -46,9 +46,10 @@ async function interceptPageLoadAndPageLoadData() {
         for (const key of Object.keys(dashboardsRaw)) {
             const file = dashboardsRaw[key].split(",")[0], refresh = parseInt(dashboardsRaw[key].split(",")[1].split(":")[1]),
                 name = await i18n.get(`name_${key}`, session.get($$.MONKSHU_CONSTANTS.LANG_ID)) || dashboardsRaw[key].split(",")[2].split(":")[1], 
-                title = await i18n.get(`title_${key}`, session.get($$.MONKSHU_CONSTANTS.LANG_ID)) || dashboardsRaw[key].split(",")[3].split(":")[1];
+                title = await i18n.get(`title_${key}`, session.get($$.MONKSHU_CONSTANTS.LANG_ID)) || dashboardsRaw[key].split(",")[3].split(":")[1],
+                dashType = dashboardsRaw[key].split(",")[4] ? dashboardsRaw[key].split(",")[4].split(":")[1] : null;
 
-            if (securityguard.isAllowed(key)) data.dashboards.push({ name, file, refresh, title, id: key });
+            if (securityguard.isAllowed(key)) data.dashboards.push({ name, file, refresh, title, id: key, dashType });
         }
         
         // add in dashboard path, and page title to the page data object
@@ -58,11 +59,13 @@ async function interceptPageLoadAndPageLoadData() {
             data.dash = `./dashboards/${data.dashboards[0].file}`;
             data.refresh = data.dashboards[0].refresh;
             data.pageTitle = `${await i18n.get("title", session.get($$.MONKSHU_CONSTANTS.LANG_ID))} - ${data.dashboards[0].name}`;
+            data.showDateFilter = data.dashboards[0].dashType != "AI" ? true: false;
         } else {                                                // else get dashboard path and title from the URL
             data.title = currentURL.searchParams.get("title");
             data.dash = currentURL.searchParams.get("dash");
             data.refresh = currentURL.searchParams.get("refresh");
             data.pageTitle = `${await i18n.get("title", session.get($$.MONKSHU_CONSTANTS.LANG_ID))} - ${currentURL.searchParams.get("name")}`;
+            data.showDateFilter = currentURL.searchParams.get("dashType") != "AI" ? true: false;
         }
 
         // set the dates data

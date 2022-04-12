@@ -149,15 +149,17 @@ dialog-box#nlpsearch{
 <body>
 <div id="leftheader">
 	{{#dashboards}}
-	<img id="{{id}}" class="dashicon" src="{{{htmlData.dashicon}}}" alt="{{title}}" title="{{title}}" onclick="router.loadPage('./main.html?dash=./dashboards/{{file}}&title={{title}}&refresh={{refresh}}&name={{name}}&themeMode={{themeMode}}');"><span>{{name}}</span>
+	<img id="{{id}}" class="dashicon" src="{{{htmlData.dashicon}}}" alt="{{title}}" title="{{title}}" onclick="router.loadPage('./main.html?dash=./dashboards/{{file}}&title={{title}}&refresh={{refresh}}&name={{name}}&dashType={{dashType}}&themeMode={{themeMode}}');"><span>{{name}}</span>
 	{{/dashboards}}
 </div>
 <div id="container">
 	<span id="header">
 		<img id="textlogo" src="{{{htmlData.textlogo}}}">
 		<span id="title">{{title}}</span>
+		{{#showDateFilter}}
 		<input id="datetimepickerfrom" type="datetime-local" value="{{{dateTimeWeekAgo}}}" onchange="main.timeRangeUpdated(true)">
 		<input id="datetimepickerto" type="datetime-local" value="{{{dateTimeNow}}}" onchange="main.timeRangeUpdated(true)">
+		{{/showDateFilter}}
 		<img id="playpause" src="./img/pause.svg" onclick="main.playPauseCharts(this)">
 		<span-with-menu id="toggle-theme" {{{htmlData.span-with-menu#toggle-theme}}}><img src="{{{htmlData.themeIcon}}}" {{{htmlData.span-with-menu#toggle-theme>img}}}>
 			<menu-item onclick="main.toggleTheme(this)">Dark</menu-item>
