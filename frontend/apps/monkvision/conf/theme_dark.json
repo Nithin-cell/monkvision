@@ -105,7 +105,9 @@
             "httpGooglePie":"HTTP Google Pie",
             "httpGoogle": "HTTP Google",
             "httpGoogleBar":"HTTP Google Bar",
-            "dashboardError": "Error while saving the dashboard"
+            "dashboardError": "Error while saving the dashboard",
+            "NLPSearch": "e.g Show me cpu usage for past 2 hours",
+            "SearchIcon": "./img/search_icon.svg"
         }
     },
     "main_html_data": {
@@ -134,7 +136,8 @@
         "themeIcon": "./img/theme_icon.svg",
         "GridItemBackground": "rgb(30,30,30)",
         "GridItemColor": "rgba(250,250,250,0.95)",
-        "GridItemBorder": "0.1px solid rgba(250,250,250,0.95)"
+        "GridItemBorder": "0.1px solid rgba(250,250,250,0.95)",
+        "SearchIcon": "./img/search_icon.svg"
     },
     "pdf_report_css": {
         "*": "@import url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap');",
@@ -177,6 +180,9 @@
         "textlogo": "./img/textlogo_light.png",
         "title": "Analytics Reports",
         "GridColor": "black",
-        "LabelColor": "rgba(72,72,72,0.98)"
+        "LabelColor": "rgba(72,72,72,0.98)",
+        "GridItemBackground": "rgb(30,30,30)",
+        "GridItemColor": "rgba(250,250,250,0.95)",
+        "GridItemBorder": "0.1px solid rgba(229,229,229,0.99)"
     }
 }

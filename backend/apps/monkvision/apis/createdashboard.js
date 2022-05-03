@@ -52,7 +52,8 @@ function createDashboard(source, destination, dashboardParams, callback) {
     readable.on("data", (chunk) => { 
         writable.write(chunk.toString().replace("{{duration}}", dashboardParams.duration)
                                        .replace("{{metric}}", dashboardParams.metric)
-                                       .replace("{{title}}", dashboardParams.title) ); 
+                                       .replace("{{elementTitle}}", dashboardParams.title)
+                                       .replace("{{resourceName}}", dashboardParams.resourceName)); 
         });
     readable.on("end", _ => { writable.end(); });
     
@@ -74,7 +75,8 @@ function updateDashboard(source, destination, dashboardParams={}, callback) {
     readable.on("data", (chunk) => { 
         const sourceContent = chunk.toString().replace("{{duration}}", dashboardParams.duration)
                                             .replace("{{metric}}", dashboardParams.metric)
-                                            .replace("{{title}}", dashboardParams.title);
+                                            .replace("{{elementTitle}}", dashboardParams.title)
+                                            .replace("{{resourceName}}", dashboardParams.resourceName);
         
         const sourceParsedSchema = getSchema(sourceContent);
         const destinationParsedSchema = getSchema(destinationContent);

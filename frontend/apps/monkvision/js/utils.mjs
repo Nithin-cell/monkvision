@@ -34,15 +34,15 @@ async function addThemeDataAndCSS(pageData, pageName) {
     return pageData;
 }
 
-async function getContent(api, params) {
+async function rest(api, params, method = "GET") {
 	const API_TO_CALL = `${APP_CONSTANTS.API_PATH}/${api}`;
 
     const paramObj = {}; 
     if (params && typeof(params) == "string") for (const param of params.split("&")) paramObj[param.split("=")[0]] = param.split("=")[1];
     else Object.assign(paramObj, params);
 
-	const resp = await apiman.rest(API_TO_CALL, "GET", paramObj, true, false);
+	const resp = await apiman.rest(API_TO_CALL, method, paramObj, true, false);
 	return resp;
 }
 
-export const utils = {addThemeDataAndCSS, getContent};
+export const utils = {addThemeDataAndCSS, rest};

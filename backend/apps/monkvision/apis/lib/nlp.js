@@ -106,7 +106,7 @@ exports.predictOutput = async (query) => {
     const sentence = query["text"];
     const merticsIntent = await getMetricsIntent(sentence);
     const durationIntent = await getDurationIntent(sentence);
-    const resourceIntent = await getResourceIntent(sentence);
+    const resourceIntent = resourceExists ? await getResourceIntent(sentence) : "null";
 
     const output = { 
         metric: merticsIntent, 
@@ -136,6 +136,8 @@ const durationUnits = {
     days: ["days", "day"], weeks: ["weeks", "week"], months: ["months", "month"], years: ["years", "year", "yrs"]
 }
 
+const resourceTerm = ["cluster", "server", "host", "resource"];
+
 function wordsToNumbers(sentence) {
     const words = sentence.toString().split(/[\s-]+/);
     const position = { base: 0, digits: 0 }; 
@@ -160,6 +162,8 @@ function calculateNumeral(word, position) {
 }
 
 const getdurationUnit = (query, durationIntent) => durationUnits[durationIntent].filter(unit => intentExists(query, unit)); 
+
+const resourceExists = (query) => resourceTerm.filter(unit => intentExists(query, unit)); 
 
 const intentExists = (query, unit) => query.split(" ").includes(unit);
 

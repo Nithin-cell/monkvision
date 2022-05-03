@@ -64,7 +64,10 @@ function _getValueTemplate(jsonReq, y, value) {
 function _getAdditionalQueryParams(jsonReq) {
     const additional_params = {};
 
-    if (jsonReq.metric) additional_params[`$logid`] = logIDs[jsonReq.metric];
+    // if (jsonReq.metric && (jsonReq.resourceName != "undefined")) additional_params[`$logid`] = logIDs[`${jsonReq.resourceName}_${jsonReq.metric}`];
+    // if (jsonReq.metric) additional_params[`$logid`] = logIDs[jsonReq.metric];
+    
+    additional_params[`$logid`] = (jsonReq.resourceName && jsonReq.resourceName != "undefined") ? logIDs[`${jsonReq.resourceName}_${jsonReq.metric}`] : logIDs[jsonReq.metric];
     for (const key of Object.keys(jsonReq)) if (key.startsWith("$qp_")) {
         const paramName = key.substring(4);
         additional_params[`$${paramName}`] = jsonReq[key];

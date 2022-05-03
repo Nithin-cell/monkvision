@@ -1,12 +1,12 @@
 SCHEMA
 ======
 {
-    "nlpSearchMetric": {"html":"chart-box", "id":"nlpSearchMetric", "title":"{{title}}", "api":"nlploggraphquery", 
+    "nlpSearchMetric": {"html":"chart-box", "id":"nlpSearchMetric", "title":"{{elementTitle}}", "api":"nlploggraphquery", 
         "type":"bargraph", "maxticks":5, "ysteps":"[10]", "ylabels":"[100:{{i18n.OK}},0:{{i18n.Issue}},else:]", 
         "ymaxs":"[100]", "ycolors":"[else:#D43F3F4C:#af3234,100:#40D59D4C:#0e8f7e]", "yAtZeros":"[true]", 
         "gridLines":"true", "labelColor":"{{LabelColor}}", "gridColor": "{{GridColor}}",
         "styleBody": "div#content{overflow-y: hidden}",
-        "params":"id=specificBars&$qp_zeroReplacement=5&$qp_timeStep=240&nullValue={{i18n.none}}&valueTemplate=Value: $$yvalue$$%\nAttack information follows\n$$value$$&duration={{duration}}&metric={{metric}}"}
+        "params":"id=specificBars&$qp_zeroReplacement=5&$qp_timeStep=240&nullValue={{i18n.none}}&valueTemplate=Value: $$yvalue$$%\nAttack information follows\n$$value$$&duration={{duration}}&metric={{metric}}&resourceName={{resourceName}}"}
 }
 ======
 
