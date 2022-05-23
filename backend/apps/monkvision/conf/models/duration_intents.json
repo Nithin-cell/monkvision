@@ -132,479 +132,479 @@
         "intent": "years"
     },
     {
-        "text": "Show me the ram usage for past 3 hours",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past 3 hours",
         "intent": "hours" 
     },
     {
-        "text": "Show me the ram usage for past 5 weeks",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past 5 weeks",
         "intent": "weeks" 
     },
     {
-        "text": "Show me the ram usage for past 3 months",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past 3 months",
         "intent": "months" 
     },
     {
-        "text": "Show me the ram usage for past 3 minutes",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past 3 minutes",
         "intent": "minutes" 
     },
     {
-        "text": "Show me the ram usage for past 2 years",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past 2 years",
         "intent": "years" 
     },
     {
-        "text": "Show me the ram usage for past 2 days",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past 2 days",
         "intent": "days" 
     },
     {
-        "text": "Show me the ram usage for past 90 seconds",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past 90 seconds",
         "intent": "seconds" 
     },
     {
-        "text": "Show me the cpu usage for past 3 hours",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past 3 hours",
         "intent": "hours" 
     },
     {
-        "text": "Show me the cpu usage for past 5 weeks",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past 5 weeks",
         "intent": "weeks" 
     },
     {
-        "text": "Show me the cpu usage for past 3 months",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past 3 months",
         "intent": "months" 
     },
     {
-        "text": "Show me the cpu usage for past 3 minutes",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past 3 minutes",
         "intent": "minutes" 
     },
     {
-        "text": "Show me the cpu usage for past 3 years",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past 3 years",
         "intent": "years" 
     },
     {
-        "text": "Show me the cpu usage for past 2 days",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past 2 days",
         "intent": "days" 
     },
     {
-        "text": "Show me the cpu usage for past 90 seconds",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past 90 seconds",
         "intent": "seconds" 
     },
     {
-        "text": "Show me the disk usage for past 3 hours",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past 3 hours",
         "intent": "hours" 
     },
     {
-        "text": "Show me the disk usage for past 5 weeks",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past 5 weeks",
         "intent": "weeks" 
     },
     {
-        "text": "Show me the disk usage for past 3 months",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past 3 months",
         "intent": "months" 
     },
     {
-        "text": "Show me the disk usage for past 3 minutes",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past 3 minutes",
         "intent": "minutes" 
     },
     {
-        "text": "Show me the disk usage for past 2 years",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past 2 years",
         "intent": "years" 
     },
     {
-        "text": "Show me the disk usage for past 2 days",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past 2 days",
         "intent": "days" 
     },
     {
-        "text": "Show me the disk usage for past 90 seconds",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past 90 seconds",
         "intent": "seconds" 
     },
     {
-        "text": "Show me the ram utilization for past 3 hours",
+        "text": "Show me the {{commonWords.metrics.metric2_alias2}} for past 3 hours",
         "intent": "hours" 
     },
     {
-        "text": "Show me the cpu utilization for past 5 weeks",
+        "text": "Show me the {{commonWords.metrics.metric1_alias2}} for past 5 weeks",
         "intent": "weeks" 
     },
     {
-        "text": "Show me the disk utilization for past 3 months",
+        "text": "Show me the {{commonWords.metrics.metric3_alias2}} for past 3 months",
         "intent": "months" 
     },
     {
-        "text": "Show me the cpu utilization for past 3 minutes",
+        "text": "Show me the {{commonWords.metrics.metric1_alias2}} for past 3 minutes",
         "intent": "minutes" 
     },
     {
-        "text": "Show me the disk utilization for past 3 years",
+        "text": "Show me the {{commonWords.metrics.metric3_alias2}} for past 3 years",
         "intent": "years" 
     },
     {
-        "text": "Show me the disk utilization for past 3 days",
+        "text": "Show me the {{commonWords.metrics.metric3_alias2}} for past 3 days",
         "intent": "days" 
     },
     {
-        "text": "Show me the ram utilization for past 90 seconds",
+        "text": "Show me the {{commonWords.metrics.metric2_alias2}} for past 90 seconds",
         "intent": "seconds" 
     },
     {
-        "text": "Show me the ram utilization for past three hours",
+        "text": "Show me the {{commonWords.metrics.metric2_alias2}} for past three hours",
         "intent": "hours" 
     },
     {
-        "text": "Show me the cpu utilization for past two weeks",
+        "text": "Show me the {{commonWords.metrics.metric1_alias2}} for past two weeks",
         "intent": "weeks" 
     },
     {
-        "text": "Show me the disk utilization for past three months",
+        "text": "Show me the {{commonWords.metrics.metric3_alias2}} for past three months",
         "intent": "months" 
     },
     {
-        "text": "Show me the cpu utilization for past fifty minutes",
+        "text": "Show me the {{commonWords.metrics.metric1_alias2}} for past fifty minutes",
         "intent": "minutes" 
     },
     {
-        "text": "Show me the disk utilization for past one years",
+        "text": "Show me the {{commonWords.metrics.metric3_alias2}} for past one years",
         "intent": "years" 
     },
     {
-        "text": "Show me the disk utilization for past one day",
+        "text": "Show me the {{commonWords.metrics.metric3_alias2}} for past one day",
         "intent": "days" 
     },
     {
-        "text": "Show me the ram utilization for past seventy seconds",
+        "text": "Show me the {{commonWords.metrics.metric2_alias2}} for past seventy seconds",
         "intent": "seconds" 
     },
     {
-        "text": "Show me the ram utilization for past twenty seven hours",
+        "text": "Show me the {{commonWords.metrics.metric2_alias2}} for past twenty seven hours",
         "intent": "hours" 
     },
     {
-        "text": "Show me the cpu utilization for past thirty three weeks",
+        "text": "Show me the {{commonWords.metrics.metric1_alias2}} for past thirty three weeks",
         "intent": "weeks" 
     },
     {
-        "text": "Show me the disk utilization for past forty one months",
+        "text": "Show me the {{commonWords.metrics.metric3_alias2}} for past forty one months",
         "intent": "months" 
     },
     {
-        "text": "Show me the cpu utilization for past ninty one minutes",
+        "text": "Show me the {{commonWords.metrics.metric1_alias2}} for past ninty one minutes",
         "intent": "minutes" 
     },
     {
-        "text": "Show me the disk utilization for past twenty five years",
+        "text": "Show me the {{commonWords.metrics.metric3_alias2}} for past twenty five years",
         "intent": "years" 
     },
     {
-        "text": "Show me the disk utilization for past twenty five days",
+        "text": "Show me the {{commonWords.metrics.metric3_alias2}} for past twenty five days",
         "intent": "days" 
     },
     {
-        "text": "Show me the ram utilization for past seventy one seconds",
+        "text": "Show me the {{commonWords.metrics.metric2_alias2}} for past seventy one seconds",
         "intent": "seconds" 
     },
     {
-        "text": "Show me the ram utilization for past one hundred and twenty seven hours",
+        "text": "Show me the {{commonWords.metrics.metric2_alias2}} for past one hundred and twenty seven hours",
         "intent": "hours" 
     },
     {
-        "text": "Show me the cpu utilization for past one hundred and thirty three weeks",
+        "text": "Show me the {{commonWords.metrics.metric1_alias2}} for past one hundred and thirty three weeks",
         "intent": "weeks" 
     },
     {
-        "text": "Show me the disk utilization for past one hundred and forty one months",
+        "text": "Show me the {{commonWords.metrics.metric3_alias2}} for past one hundred and forty one months",
         "intent": "months" 
     },
     {
-        "text": "Show me the cpu utilization for past one hundred and ninty one minutes",
+        "text": "Show me the {{commonWords.metrics.metric1_alias2}} for past one hundred and ninty one minutes",
         "intent": "minutes" 
     },
     {
-        "text": "Show me the disk utilization for past one hundred and twenty five years",
+        "text": "Show me the {{commonWords.metrics.metric3_alias2}} for past one hundred and twenty five years",
         "intent": "years" 
     },
     {
-        "text": "Show me the disk utilization for past one hundred and twenty five days",
+        "text": "Show me the {{commonWords.metrics.metric3_alias2}} for past one hundred and twenty five days",
         "intent": "days" 
     },
     {
-        "text": "Show me the ram utilization for past one hundred and seventy one seconds",
+        "text": "Show me the {{commonWords.metrics.metric2_alias2}} for past one hundred and seventy one seconds",
         "intent": "seconds" 
     },
     {
-        "text": "Show me the ram usage for past one hundred and twenty seven hours for cluster primary prod",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past one hundred and twenty seven hours for cluster primary prod",
         "intent": "hours" 
     },
     {
-        "text": "Show me the cpu usage for past one hundred and thirty three weeks for cluster primary prod",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past one hundred and thirty three weeks for cluster primary prod",
         "intent": "weeks" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and forty one months for cluster primary prod",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and forty one months for cluster primary prod",
         "intent": "months" 
     },
     {
-        "text": "Show me the cpu usage for past one hundred and ninty one minutes for cluster primary prod",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past one hundred and ninty one minutes for cluster primary prod",
         "intent": "minutes" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and twenty five years for cluster primary prod ",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and twenty five years for cluster primary prod ",
         "intent": "years" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and twenty five days for cluster primary prod ",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and twenty five days for cluster primary prod ",
         "intent": "days" 
     },
     {
-        "text": "Show me the ram usage for past one hundred and seventy one seconds for cluster primary prod ",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past one hundred and seventy one seconds for cluster primary prod ",
         "intent": "seconds" 
     },
     {
-        "text": "Show me the ram usage for past one hundred and twenty seven hours for cluster secondary prod",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past one hundred and twenty seven hours for cluster secondary prod",
         "intent": "hours" 
     },
     {
-        "text": "Show me the cpu usage for past one hundred and thirty three weeks for cluster secondary prod",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past one hundred and thirty three weeks for cluster secondary prod",
         "intent": "weeks" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and forty one months for cluster secondary prod",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and forty one months for cluster secondary prod",
         "intent": "months" 
     },
     {
-        "text": "Show me the cpu usage for past one hundred and ninty one minutes for cluster secondary prod",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past one hundred and ninty one minutes for cluster secondary prod",
         "intent": "minutes" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and twenty five years for cluster secondary prod ",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and twenty five years for cluster secondary prod ",
         "intent": "years" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and twenty five days for cluster secondary prod ",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and twenty five days for cluster secondary prod ",
         "intent": "days" 
     },
     {
-        "text": "Show me the ram usage for past one hundred and seventy one seconds for cluster secondary prod ",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past one hundred and seventy one seconds for cluster secondary prod ",
         "intent": "seconds" 
     },
     {
-        "text": "Show me the ram usage for past one hundred and twenty seven hours for cluster stage",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past one hundred and twenty seven hours for cluster stage",
         "intent": "hours" 
     },
     {
-        "text": "Show me the cpu usage for past one hundred and thirty three weeks for cluster stage",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past one hundred and thirty three weeks for cluster stage",
         "intent": "weeks" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and forty one months for cluster stage",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and forty one months for cluster stage",
         "intent": "months" 
     },
     {
-        "text": "Show me the cpu usage for past one hundred and ninty one minutes for cluster stage",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past one hundred and ninty one minutes for cluster stage",
         "intent": "minutes" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and twenty five years for cluster stage",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and twenty five years for cluster stage",
         "intent": "years" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and twenty five days for cluster stage",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and twenty five days for cluster stage",
         "intent": "days"
     },
     {
-        "text": "Show me the ram usage for past one hundred and seventy one seconds for cluster stage",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past one hundred and seventy one seconds for cluster stage",
         "intent": "seconds" 
     },
     {
-        "text": "Show me the ram usage for past one hundred and twenty seven hours for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past one hundred and twenty seven hours for cluster dev",
         "intent": "hours" 
     },
     {
-        "text": "Show me the cpu usage for past one hundred and thirty three weeks for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past one hundred and thirty three weeks for cluster dev",
         "intent": "weeks" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and forty one months for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and forty one months for cluster dev",
         "intent": "months" 
     },
     {
-        "text": "Show me the cpu usage for past one hundred and ninty one minutes for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past one hundred and ninty one minutes for cluster dev",
         "intent": "minutes" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and twenty five years for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and twenty five years for cluster dev",
         "intent": "years" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and twenty five days for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and twenty five days for cluster dev",
         "intent": "days" 
     },
     {
-        "text": "Show me the ram usage for past one hundred and seventy one seconds for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past one hundred and seventy one seconds for cluster dev",
         "intent": "seconds" 
     },
     {
-        "text": "Show me the ram usage for past one hundred and twenty seven hours for cluster primary prod",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past one hundred and twenty seven hours for cluster primary prod",
         "intent": "hours" 
     },
     {
-        "text": "Show me the cpu usage for past one hundred and thirty three weeks for cluster primary prod",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past one hundred and thirty three weeks for cluster primary prod",
         "intent": "weeks" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and forty one months for cluster primary prod",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and forty one months for cluster primary prod",
         "intent": "months" 
     },
     {
-        "text": "Show me the cpu usage for past one hundred and ninty one minutes for cluster primary prod",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past one hundred and ninty one minutes for cluster primary prod",
         "intent": "minutes" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and twenty five years for cluster primary prod ",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and twenty five years for cluster primary prod ",
         "intent": "years" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and twenty five days for cluster primary prod ",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and twenty five days for cluster primary prod ",
         "intent": "days" 
     },
     {
-        "text": "Show me the ram usage for past one hundred and seventy one seconds for cluster primary prod ",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past one hundred and seventy one seconds for cluster primary prod ",
         "intent": "seconds" 
     },
     {
-        "text": "Show me the ram usage for past one hundred and twenty seven hours for cluster secondary prod",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past one hundred and twenty seven hours for cluster secondary prod",
         "intent": "hours" 
     },
     {
-        "text": "Show me the cpu usage for past one hundred and thirty three weeks for cluster secondary prod",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past one hundred and thirty three weeks for cluster secondary prod",
         "intent": "weeks" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and forty one months for cluster secondary prod",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and forty one months for cluster secondary prod",
         "intent": "months" 
     },
     {
-        "text": "Show me the cpu usage for past one hundred and ninty one minutes for cluster secondary prod",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past one hundred and ninty one minutes for cluster secondary prod",
         "intent": "minutes" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and twenty five years for cluster secondary prod ",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and twenty five years for cluster secondary prod ",
         "intent": "years" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and twenty five days for cluster secondary prod ",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and twenty five days for cluster secondary prod ",
         "intent": "days" 
     },
     {
-        "text": "Show me the ram usage for past one hundred and seventy one seconds for cluster secondary prod ",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past one hundred and seventy one seconds for cluster secondary prod ",
         "intent": "seconds" 
     },
     {
-        "text": "Show me the ram usage for past one hundred and twenty seven hours for cluster stage",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past one hundred and twenty seven hours for cluster stage",
         "intent": "hours" 
     },
     {
-        "text": "Show me the cpu usage for past one hundred and thirty three weeks for cluster stage",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past one hundred and thirty three weeks for cluster stage",
         "intent": "weeks" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and forty one months for cluster stage",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and forty one months for cluster stage",
         "intent": "months" 
     },
     {
-        "text": "Show me the cpu usage for past one hundred and ninty one minutes for cluster stage",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past one hundred and ninty one minutes for cluster stage",
         "intent": "minutes" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and twenty five years for cluster stage",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and twenty five years for cluster stage",
         "intent": "years" 
     },
     {
-        "text": "Show me the disk usage for past one hundred and twenty five days for cluster stage",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past one hundred and twenty five days for cluster stage",
         "intent": "days"
     },
     {
-        "text": "Show me the ram usage for past one hundred and seventy one seconds for cluster stage",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past one hundred and seventy one seconds for cluster stage",
         "intent": "seconds" 
     },
     {
-        "text": "Show me the ram usage for past 10 hours for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past 10 hours for cluster dev",
         "intent": "hours" 
     },
     {
-        "text": "Show me the cpu usage for past 3 weeks for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past 3 weeks for cluster dev",
         "intent": "weeks" 
     },
     {
-        "text": "Show me the disk usage for past 2 months for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past 2 months for cluster dev",
         "intent": "months" 
     },
     {
-        "text": "Show me the cpu usage for past 90 minutes for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past 90 minutes for cluster dev",
         "intent": "minutes" 
     },
     {
-        "text": "Show me the disk usage for past 2 years for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past 2 years for cluster dev",
         "intent": "years" 
     },
     {
-        "text": "Show me the disk usage for past 3 days for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past 3 days for cluster dev",
         "intent": "days" 
     },
     {
-        "text": "Show me the ram usage for past 300 seconds for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past 300 seconds for cluster dev",
         "intent": "seconds" 
     },
     {
-        "text": "Show me the ram usage for past seven hours for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past seven hours for cluster dev",
         "intent": "hours" 
     },
     {
-        "text": "Show me the cpu usage for past three weeks for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past three weeks for cluster dev",
         "intent": "weeks" 
     },
     {
-        "text": "Show me the disk usage for past two months for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past two months for cluster dev",
         "intent": "months" 
     },
     {
-        "text": "Show me the cpu usage for past seventy minutes for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past seventy minutes for cluster dev",
         "intent": "minutes" 
     },
     {
-        "text": "Show me the disk usage for past two years for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past two years for cluster dev",
         "intent": "years" 
     },
     {
-        "text": "Show me the disk usage for past five days for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past five days for cluster dev",
         "intent": "days" 
     },
     {
-        "text": "Show me the ram usage for past ninty seconds for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past ninty seconds for cluster dev",
         "intent": "seconds" 
     },
     {
-        "text": "Show me the ram usage for past one hundred and twenty two hours for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past one hundred and twenty two hours for cluster dev",
         "intent": "hours" 
     },
     {
-        "text": "Show me the cpu usage for past forty two weeks for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past forty two weeks for cluster dev",
         "intent": "weeks" 
     },
     {
-        "text": "Show me the disk usage for past twenty four months for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past twenty four months for cluster dev",
         "intent": "months" 
     },
     {
-        "text": "Show me the cpu usage for past three hundred and forty minutes for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past three hundred and forty minutes for cluster dev",
         "intent": "minutes" 
     },
     {
-        "text": "Show me the disk usage for past thirty two years for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past thirty two years for cluster dev",
         "intent": "years" 
     },
     {
-        "text": "Show me the disk usage for past sixty seven days for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past sixty seven days for cluster dev",
         "intent": "days" 
     },
     {
-        "text": "Show me the ram usage for past one hundred and twenty seconds for cluster dev",
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past one hundred and twenty seconds for cluster dev",
         "intent": "seconds" 
     }
 ]

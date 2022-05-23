@@ -108,9 +108,8 @@ async function showQueryResult(_element) {
     const query = document.querySelector("input#searchbartext").value; if (!query) return;
     const processedQueryData = await _processQueryResult(query);
 
-    console.log(processedQueryData);
     monkshu_env.components['dialog-box'].showDialog(`${APP_CONSTANTS.DIALOGS_PATH}/nlp_search.html`, false, false, processedQueryData, "nlpsearch", ["dashboardname", "dashboardpath"], async result=>{
-        const paramObj = {filename: result["dashboardname"], filepath: result["dashboardpath"], metric: processedQueryData.htmlData.metric[0], duration: processedQueryData.htmlData.duration, role: processedQueryData.role, title: processedQueryData.htmlData.elementTitle, resourceName: processedQueryData.htmlData.resourceName };
+        const paramObj = { filename: result["dashboardname"], filepath: result["dashboardpath"], metric: processedQueryData.htmlData.metric[0], duration: processedQueryData.htmlData.duration, role: processedQueryData.role, title: processedQueryData.htmlData.elementTitle, resourceName: processedQueryData.htmlData.resourceName };
         const content = await utils.rest("createdashboard", paramObj);
         const redirectDashPath = result["dashboardpath"] ? result["dashboardpath"] : `dashboard_${result["dashboardname"]}.page`;
 
@@ -140,10 +139,8 @@ function _startRefresh() {
 }
 
 async function _processQueryResult(query) {
-    const content = await utils.rest("nlpsearch", `query=${query}`);
-    const {duration, metric, resource_name} = content.predictedIntents;
-    
-    const data = {dash: "./dashboards/dashboard_nlp_search_preview.page"};
+    const content = await utils.rest("nlpsearch", `query=${query}`);    
+    const data = { dash: "./dashboards/dashboard_nlp_search_preview.page" };
     await utils.addThemeDataAndCSS(data, "nlp_search");
 
     const dashboardsRaw = await $$.requireJSON(`${APP_CONSTANTS.APP_PATH}/conf/dashboards.json`, true);
@@ -157,7 +154,7 @@ async function _processQueryResult(query) {
         if (securityguard.isAllowed(key) && dashType == "AI") data.dashboards.push({ name, file, refresh, title, id: key });
     }
 
-    Object.assign(data.htmlData, {duration: duration, metric: metric, elementTitle: query, resourceName: resource_name});
+    Object.assign(data.htmlData, { ...content.predictedIntents, elementTitle: query });
     data.pagedata = encodeURIComponent(JSON.stringify(data.htmlData));
     
     const role = securityguard.getCurrentRole();

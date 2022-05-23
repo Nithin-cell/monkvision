@@ -17,7 +17,8 @@ exports.doService = async jsonReq => {
 	
     let dashboardParams = {}, contents = {};
     if (jsonReq.duration && jsonReq.metric) dashboardParams = { duration: jsonReq.duration, metric: jsonReq.metric, title: jsonReq.title };
-    
+    if (jsonReq.resourceName) dashboardParams.resourceName = jsonReq.resourceName;
+
     const source = `${DASHBOARD_DIR}/dashboard_nlp_search_preview.page`,
             destination = jsonReq["filepath"] ? `${DASHBOARD_DIR}/${jsonReq["filepath"]}` : `${DASHBOARD_DIR}/dashboard_${jsonReq["filename"]}.page`;
     

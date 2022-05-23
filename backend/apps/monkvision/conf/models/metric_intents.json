@@ -1,86 +1,86 @@
 [
     {
-        "text": "ram",
-        "intent": "ram"
+        "text": "{{commonWords.metrics.metric1}}",
+        "intent": "{{metrics.0}}"
     },
     {
-        "text": "disk",
-        "intent": "disk"
+        "text": "{{commonWords.metrics.metric2}}",
+        "intent": "{{metrics.1}}"
     },
     {
-        "text": "cpu",
-        "intent": "cpu"
+        "text": "{{commonWords.metrics.metric3}}",
+        "intent": "{{metrics.2}}"
     },
     {
-        "text": "random access memory",
-        "intent": "ram"
+        "text": "{{commonWords.metrics.metric1_alias1}}",
+        "intent": "{{metrics.0}}"
     },
     {
-        "text": "storage",
-        "intent": "disk"
+        "text": "{{commonWords.metrics.metric2_alias1}}",
+        "intent": "{{metrics.1}}"
     },
     {
-        "text": "central processing unit",
-        "intent": "cpu"
+        "text": "{{commonWords.metrics.metric3_alias1}}",
+        "intent": "{{metrics.2}}"
     },
     {
-        "text": "ram utilization",
-        "intent": "ram"
+        "text": "{{commonWords.metrics.metric1_alias2}}",
+        "intent": "{{metrics.0}}"
     },
     {
-        "text": "disk utilization",
-        "intent": "disk"
+        "text": "{{commonWords.metrics.metric2_alias2}}",
+        "intent": "{{metrics.1}}"
     },
     {
-        "text": "cpu utilization",
-        "intent": "cpu"
+        "text": "{{commonWords.metrics.metric3_alias2}}",
+        "intent": "{{metrics.2}}"
     },
     {
-        "text": "ram usage",
-        "intent": "ram"
+        "text": "{{commonWords.metrics.metric1_alias3}}",
+        "intent": "{{metrics.0}}"
     },
     {
-        "text": "disk usage",
-        "intent": "disk"
+        "text": "{{commonWords.metrics.metric2_alias3}}",
+        "intent": "{{metrics.1}}"
     },
     {
-        "text": "cpu usage",
-        "intent": "cpu"
+        "text": "{{commonWords.metrics.metric3_alias3}}",
+        "intent": "{{metrics.2}}"
     },
     {
-        "text": "Show me the cpu utilization for past 2 hours",
-        "intent": "cpu" 
+        "text": "Show me the {{commonWords.metrics.metric1_alias2}} for past 2 hours",
+        "intent": "{{metrics.0}}" 
     },
     {
-        "text": "Show me the ram utilization for past 2 hours",
-        "intent": "ram" 
+        "text": "Show me the {{commonWords.metrics.metric2_alias2}} for past 2 hours",
+        "intent": "{{metrics.1}}" 
     },
     {
-        "text": "Show me the disk utilization for past 2 hours",
-        "intent": "disk" 
+        "text": "Show me the {{commonWords.metrics.metric3_alias2}} for past 2 hours",
+        "intent": "{{metrics.2}}" 
     },
     {
-        "text": "Show me the cpu usage for past 3 weeks",
-        "intent": "cpu" 
+        "text": "Show me the {{commonWords.metrics.metric1_alias3}} for past 3 weeks",
+        "intent": "{{metrics.0}}" 
     },
     {
-        "text": "Show me the ram usage for past 3 weeks",
-        "intent": "ram" 
+        "text": "Show me the {{commonWords.metrics.metric2_alias3}} for past 3 weeks",
+        "intent": "{{metrics.1}}" 
     },
     {
-        "text": "Show me the disk usage for past 3 weeks",
-        "intent": "disk" 
+        "text": "Show me the {{commonWords.metrics.metric3_alias3}} for past 3 weeks",
+        "intent": "{{metrics.2}}" 
     },
     {
-        "text": "Show me the central processing unit usage for last hour",
-        "intent": "cpu"
+        "text": "Show me the {{commonWords.metrics.metric1_alias1}} usage for last hour",
+        "intent": "{{metrics.0}}"
     },
     {
-        "text": "Show me the random access memory usage for last hour",
-        "intent": "ram" 
+        "text": "Show me the {{commonWords.metrics.metric2_alias1}} usage for last hour",
+        "intent": "{{metrics.1}}" 
     },
     {
-        "text": "Show me the storage usage for last hour",
-        "intent": "disk" 
+        "text": "Show me the {{commonWords.metrics.metric3_alias1}} usage for last hour",
+        "intent": "{{metrics.2}}" 
     }
 ]

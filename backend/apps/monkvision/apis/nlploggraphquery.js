@@ -11,7 +11,7 @@
  */
 const db = require(`${APP_CONSTANTS.LIB_DIR}/db.js`);
 const utils = require(`${APP_CONSTANTS.LIB_DIR}/utils.js`);
-const logIDs = require(`${APP_CONSTANTS.CONF_DIR}/log_identifier.json`);
+const logIDs = require(`${APP_CONSTANTS.CONF_DIR}/log_id.json`);
 
 /**
  * Returns the log entries from MonBoss, or MonBoss type DBs. Note this API works in UTC unless the local
@@ -63,10 +63,6 @@ function _getValueTemplate(jsonReq, y, value) {
 
 function _getAdditionalQueryParams(jsonReq) {
     const additional_params = {};
-
-    // if (jsonReq.metric && (jsonReq.resourceName != "undefined")) additional_params[`$logid`] = logIDs[`${jsonReq.resourceName}_${jsonReq.metric}`];
-    // if (jsonReq.metric) additional_params[`$logid`] = logIDs[jsonReq.metric];
-    
     additional_params[`$logid`] = (jsonReq.resourceName && jsonReq.resourceName != "undefined") ? logIDs[`${jsonReq.resourceName}_${jsonReq.metric}`] : logIDs[jsonReq.metric];
     for (const key of Object.keys(jsonReq)) if (key.startsWith("$qp_")) {
         const paramName = key.substring(4);
