@@ -142,6 +142,7 @@
             "long_running_table":"TOP 10 COSTLIEST QUERIES",
             "capacity_logs_db_size":"DATA MARTIX - DATABASE SIZE",
             "capacity_logs":"DATA MARTIX - CAPACITY_LOGS",
+            "db_size_growth":"DATABASE SIZE GROWTH",
             "skew_table":"ROW AND MEMORY SKEW - TABLE",
             "dbCount_table":"DB INFORMATION - TABLE",
             "vars_table":"DB VARIABLES - TABLE",

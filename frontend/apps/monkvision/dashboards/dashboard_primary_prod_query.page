@@ -58,7 +58,7 @@ SCHEMA
         "legendFontColor": "rgba(255,255,255,0.80)",
         "legendPosition": "[bottom]",
         "styleBody": "div#content{overflow-y: hidden}",
-        "params": "id=DBGrowthSizeFilter&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_sql_capacity_logs_db_size_dashboard_sh__primary_prod_"
+        "params": "id=DBGrowthSizeFilter&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_sql_capacity_logs_db_size_dashboard_sh__primary_prod_&title={{i18n.db_size_growth}}"
     }
 }
 ======
