@@ -36,13 +36,14 @@ exports.doService = async jsonReq => {
         yArrays = [],
         infoArrays = [],
         legendArray = [];
-    initLength = rows[rows.length - 1].additional_status.length;
+    let initLength = JSON.parse(rows[rows.length - 1].additional_status).length;
+
     for (let i = 0; i < initLength; i++) {
         yArrays.push([]);
         infoArrays.push([]);
     }
 
-    legendArray = rows[initLength].map(item => item.database_name);
+    legendArray = JSON.parse(rows[initLength - 1].additional_status).map(item => item.database_name);
 
     for (let row of rows) {
         x.push(utils.fromSQLiteToUTCOrLocalTime(row.timestamp, jsonReq.notUTC));
@@ -55,7 +56,7 @@ exports.doService = async jsonReq => {
                 infoArrays[arr].push(legendArray[arr] + " - " + data);
             }
         } else {
-            LOG.error(`Error incountered and catched in loggraphDBGrowth.js for rowstore_in_gb property at timestamp ${row.timestamp}: ${e}`);
+            LOG.error(`Error incountered and catched in loggraphDBGrowth.js for rowstore_in_gb property at timestamp ${row.timestamp}`);
             for (let arr in yArrays) {
                 yArrays[arr].push(0.1);
                 infoArrays[arr].push("NA");
