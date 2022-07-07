@@ -12,6 +12,7 @@
         "CPUDataCalc": "select 100-(json_extract(additional_status, $nodeID)) AS raw_data from logs where logid=$logID AND json_valid(additional_status) is true ORDER BY datetime(timestamp) DESC LIMIT 1",
         "SQLFilter": "select additional_status AS additional_status, timestamp as timestamp from logs where logid=$logID and timestamp > $from AND json_valid(additional_status) is true order by timestamp desc",
         "CurrentSQLFilter": "select additional_status AS additional_status, timestamp as timestamp from logs where logid=$logID AND json_valid(additional_status) is true order by timestamp desc limit 1",
-        "RawSQLData": "select additional_status AS additional_status from logs where logid=$logID AND json_valid(additional_status) is true order by timestamp desc limit 1"
+        "RawSQLData": "select additional_status AS additional_status from logs where logid=$logID AND json_valid(additional_status) is true order by timestamp desc limit 1",
+        "DBGrowthSizeFilter": "select additional_status AS additional_status, timestamp as timestamp from logs where logid=$logID AND json_valid(additional_status) is true"
     }
 }

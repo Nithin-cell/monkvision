@@ -37,6 +37,28 @@ SCHEMA
         "labels":"x:{{i18n.skew_serial_no}},ys0:{{i18n.ys0_capacity_logs}},ys1:{{i18n.ys1_capacity_logs}},ys2:{{i18n.ys2_capacity_logs}},ys3:{{i18n.ys3_capacity_logs}},ys4:{{i18n.ys4_capacity_logs}},ys5:{{i18n.ys5_capacity_logs}},ys6:{{i18n.ys6_capacity_logs}},ys7:{{i18n.ys7_capacity_logs}},ys8:{{i18n.ys8_capacity_logs}},ys9:{{i18n.ys9_capacity_logs}},ys10:{{i18n.ys10_capacity_logs}},ys11:{{i18n.ys11_capacity_logs}},ys12:{{i18n.ys12_capacity_logs}}", 
         "params":"id=CurrentSQLFilter&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_sql_capacity_logs_dashboard_sh__primary_prod_&statusAsBoolean=true&nullValue={{i18n.none}}&title={{i18n.capacity_logs}}", 
         "styleBody":"div#container{font-size:large; height: calc(97% - 10px) !important} div#content{max-height: calc(100vh - 50px) !important; color: rgb(250,250,250);} table, td, th{padding: 12px 10px 12px 10px; font-size:small;text-align:center} thead, th{box-shadow: 0px ! important;background-color: #177100; color: rgb(250,250,250);} tr td:last-child{max-width:460px;text-align:justify !important} tr:nth-child(odd) {background: #7c808524} tr:nth-child(even) {background: #e6f5ff00}"
+    },
+    "database_growth": {
+        "html": "chart-box",
+        "id": "database-growth",
+        "title": "Database Size Growth",
+        "api": "loggraphDBGrowth",
+        "type": "linegraph",
+        "maxticks": 10,
+        "ysteps": "[5]",
+        "ylabels": "[]",
+        "ymaxs": "[]",
+        "singleAxis": true,
+        "yAtZeros": "[true]",
+        "fillColors": "[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00],[#0052d600],[#0052d600],[#ffff0000],[#66ccff00]",
+        "borderColors": "[#52d600],[#ffd11a],[#e600ac],[#66ffff],[#80FC35],[#8B0256],[#9D821F],[#9726F8],[#4C8AC0],[#FAAFAC],[#0F2ADF],[#6604E8],[#FEC175],[#D9BCA6],[#C12F2F],[#228B50],[#D9B422],[#88563F],[#C457D3],[#EAEABD],[#10897B],[#C23390],[#5E1069],[#B3C9AC],[#37AFF4],[#8C7D03],[#CB7959],[#0A614C],[#E8694A],[#CB093E],[#65105E],[#4B7A2C],[#0A8DFE],[#B11CBB],[#97A5CF],[#38FBFB],[#6D06E6],[#F14A7A],[#4436E1],[#0CA979],[#61EE53],[#1B563C],[#28464A],[#6604E8],[#FEC175],[#D9BCA6],[#C12F2F],[#228B50],[#D9B422],[#88563F],[#C457D3],[#EAEABD],[#10897B],[#C23390],[#5E1069],[#B3C9AC],[#37AFF4],[#8C7D03],[#CB7959],[#0A614C],[#E8694A],[#CB093E],[#65105E],[#4B7A2C],[#0A8DFE],[#B11CBB],[#97A5CF],[#38FBFB],[#6D06E6],[#F14A7A],[#4436E1],[#0CA979],[#61EE53],[#1B563C],[#28464A],[#6604E8],[#FEC175],[#D9BCA6],[#C12F2F],[#228B50],[#D9B422],[#88563F],[#C457D3],[#EAEABD],[#10897B],[#C23390],[#5E1069],[#B3C9AC],[#37AFF4],[#8C7D03],[#CB7959],[#0A614C],[#E8694A],[#CB093E],[#65105E],[#4B7A2C],[#0A8DFE],[#B11CBB],[#97A5CF],[#38FBFB],[#6D06E6],[#F14A7A],[#4436E1],[#0CA979],[#61EE53],[#1B563C],[#28464A]",
+        "gridLines": "true",
+        "labelColor": "rgba(120,120,120)",
+        "gridColor": "rgba(210,210,210,0.30)",
+        "legendFontColor": "rgba(255,255,255,0.80)",
+        "legendPosition": "[bottom]",
+        "styleBody": "div#content{overflow-y: hidden}",
+        "params": "id=DBGrowthSizeFilter&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_sql_capacity_logs_db_size_dashboard_sh__primary_prod_"
     }
 }
 ======
@@ -48,6 +70,8 @@ LAYOUT
 |      capacity_logs    |
 |-----------------------|
 | capacity_logs_db_size |
+|-----------------------|
+|     database_growth   |
 |-----------------------|
 |   long_running_table  |
 -------------------------
