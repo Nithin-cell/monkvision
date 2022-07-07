@@ -48,19 +48,13 @@ exports.doService = async jsonReq => {
     for (let row of rows) {
         x.push(utils.fromSQLiteToUTCOrLocalTime(row.timestamp, jsonReq.notUTC));
 
-        if (Array.isArray(row.additional_status)) {
-            let record = row.reduce((obj, item) => Object.assign(obj, { [item.database_name]: item.rowstore_in_gb }), {});
-            for (let arr in yArrays) {
-                let data = record[legendArray[arr]];
-                yArrays[arr].push(data);
-                infoArrays[arr].push(legendArray[arr] + " - " + data);
-            }
-        } else {
-            LOG.error(`Error incountered and catched in loggraphDBGrowth.js for rowstore_in_gb property at timestamp ${row.timestamp}`);
-            for (let arr in yArrays) {
-                yArrays[arr].push(0.1);
-                infoArrays[arr].push("NA");
-            }
+        let parsedAddStatus = JSON.parse(row.additional_status),
+            record = parsedAddStatus.reduce((obj, item) => Object.assign(obj, { [item.database_name]: item.rowstore_in_gb }), {});
+        
+        for (let arr in yArrays) {
+            let data = record[legendArray[arr]];
+            yArrays[arr].push(data);
+            infoArrays[arr].push(legendArray[arr] + " - " + data);
         }
     }
 
