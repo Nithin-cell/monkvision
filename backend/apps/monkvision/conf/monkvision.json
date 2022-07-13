@@ -13,6 +13,6 @@
         "SQLFilter": "select additional_status AS additional_status, timestamp as timestamp from logs where logid=$logID and timestamp > $from AND json_valid(additional_status) is true order by _ROWID_ desc",
         "CurrentSQLFilter": "select additional_status AS additional_status, timestamp as timestamp from logs where logid=$logID AND json_valid(additional_status) is true order by _ROWID_ desc limit 1",
         "RawSQLData": "select additional_status AS additional_status from logs where logid=$logID AND json_valid(additional_status) is true order by _ROWID_ desc limit 1",
-        "DBGrowthSizeFilter": "select additional_status AS additional_status, timestamp as timestamp from logs where logid=$logID AND json_valid(additional_status) is true"
+        "DBGrowthSizeFilter": "select additional_status AS additional_status, timestamp as timestamp from logs where logid=$logID AND json_valid(additional_status) is true and timestamp > $from and timestamp < $to"
     }
 }

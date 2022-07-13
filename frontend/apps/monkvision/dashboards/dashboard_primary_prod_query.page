@@ -38,7 +38,7 @@ SCHEMA
         "params":"id=CurrentSQLFilter&$qp_logID=shell_mon__bin_bash_c__home_monboss_monboss_scripts_sql_capacity_logs_dashboard_sh__primary_prod_&statusAsBoolean=true&nullValue={{i18n.none}}&title={{i18n.capacity_logs}}", 
         "styleBody":"div#container{font-size:large; height: calc(97% - 10px) !important} div#content{max-height: calc(100vh - 50px) !important; color: rgb(250,250,250);} table, td, th{padding: 12px 10px 12px 10px; font-size:small;text-align:center} thead, th{box-shadow: 0px ! important;background-color: #177100; color: rgb(250,250,250);} tr td:last-child{max-width:460px;text-align:justify !important} tr:nth-child(odd) {background: #7c808524} tr:nth-child(even) {background: #e6f5ff00}"
     },
-    "database_growth": {
+    "database_growth_trend": {
         "html": "chart-box",
         "id": "database-growth",
         "title": "Database Size Growth",
@@ -71,7 +71,7 @@ LAYOUT
 |-----------------------|
 | capacity_logs_db_size |
 |-----------------------|
-|     database_growth   |
+| database_growth_trend |
 |-----------------------|
 |   long_running_table  |
 -------------------------

@@ -26,7 +26,10 @@ exports.doService = async jsonReq => {
         return CONSTANTS.FALSE_RESULT;
     }
 
-    const queryParams = _getAdditionalQueryParams(jsonReq);
+    const queryParams = _getAdditionalQueryParams(jsonReq),
+        timeRange = utils.getTimeRangeForSQLite(JSON.parse(jsonReq.timeRange));
+    queryParams.$from = timeRange.from; queryParams.$to = timeRange.to;
+
     const rows = await db.runGetQueryFromID(jsonReq.id, queryParams);
     if (!rows) {
         LOG.error("DB read issue");
@@ -83,4 +86,4 @@ function _getAdditionalQueryParams(jsonReq) {
     return additional_params;
 }
 
-const validateRequest = jsonReq => (jsonReq && jsonReq.id);
+const validateRequest = jsonReq => (jsonReq && jsonReq.id && jsonReq.timeRange);
