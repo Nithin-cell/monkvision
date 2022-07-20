@@ -6,8 +6,11 @@
  */
 
 import {chart} from "./lib/chart.mjs";
+import {utils as chartUtils} from "./lib/utils.mjs";
 import {apimanager as apiman} from "/framework/js/apimanager.mjs";
 import {monkshu_component} from "/framework/js/monkshu_component.mjs";
+import {util as frameworkUtils} from "/framework/js/util.mjs";
+
 //added
 import {i18n} from "/framework/js/i18n.mjs";
 import {session} from "/framework/js/session.mjs";
@@ -33,6 +36,12 @@ function getTimeRange() {
 function setTimeRange(timeRange) {
 	chart_box.timeRange = timeRange; 
 	for (const element of chart_box.getAllElementInstances()) _refreshData(element);
+}
+
+async function exportCSV(element) {
+	const selectedDates = getTimeRange(), hostElement = chart_box.getHostElement(element),
+		filename = `${hostElement.getAttribute("title")}-${selectedDates.from}-${selectedDates.to}.csv`;
+	await chartUtils.exportCSV(chart_box.getMemory(hostElement.id).contents, filename);
 }
 
 function _escapeHTML(text) {
@@ -103,6 +112,8 @@ async function _refreshData(element, force) {
 		
 		if (content.contents.icon) metrictext.icon = content.contents.icon;
 		metrictext.styleMetric = `<style>body{background-color: ${content.contents.bgcolor}; color: ${content.contents.fgcolor}; margin: 0px !important;} div#container{padding-top: 10px;}</style>`;
+		data.exportCSV = frameworkUtils.parseBoolean(element.getAttribute("exportCSV"));
+		if (data.exportCSV) data.exportCSVIcon = element.getAttribute("exportCSVIcon") || "./components/chart-box/img/download_icon.svg";
 		await bindData(data, id);
 		return;
 	}	
@@ -133,6 +144,8 @@ async function _refreshData(element, force) {
 	clearChart(shadowRoot);	// destroy the old chart if it exists as we will now refresh charts.
 
 	if (type == "bargraph" || type == "linegraph") {
+		data.exportCSV = frameworkUtils.parseBoolean(element.getAttribute("exportCSV"));
+		if (data.exportCSV) data.exportCSVIcon = element.getAttribute("exportCSVIcon") || "./components/chart-box/img/download_icon.svg";
 
 		await bindData(data, id); if (!content || !content.contents) return;
 		const labels = _getLabels(_makeArray(element.getAttribute("ylabels")));
@@ -251,5 +264,5 @@ async function _getContent(api, params) {
 }
 
 const _isTrue = string => string?string.toLowerCase() == "true":false;
-export const chart_box = {trueWebComponentMode: true, elementRendered, setTimeRange, getTimeRange,_getContent}
+export const chart_box = {trueWebComponentMode: true, elementRendered, setTimeRange, getTimeRange,_getContent, exportCSV}
 monkshu_component.register("chart-box", `${APP_CONSTANTS.APP_PATH}/components/chart-box/chart-box.html`, chart_box);
