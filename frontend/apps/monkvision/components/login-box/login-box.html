@@ -15,33 +15,35 @@ body{
 }
 
 input, input:-internal-autofill-previewed, input:-internal-autofill-selected {
-    width: 90%;
+    width: 70%;
     padding: 10px;
     margin: 0;
-    border-style: none;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    box-sizing: border-box;
     outline: none;
     text-align: left;
     background-color: transparent;
     transition: background-color 5000s ease-in-out 0s;
-    margin: 20px 5% 0px 5%;
+    margin: 10px 5% 0px 5%;
     border-bottom: 1px solid darkgray;
     font-family: inherit;
     font-size: smaller;
 }
 
 button {
-    width: 80%;
+    width: 70%;
     padding: 10px;
     margin: 0;
     box-sizing: border-box;
-    border-radius: 10px;
     border-style: none;
+    border-radius: 5px;
     outline: none;
     text-align: center;
-    background-color: rgb(51, 204, 102);
+    background-color: rgba(255,255,255,0.2);
     color: white;
     position: relative;
-    margin: 30px 0% 20px 0%;
+    margin: 20px 0% 20px 0%;
     font-family: inherit;
     font-size: inherit;
     text-transform: uppercase;
@@ -55,7 +57,8 @@ button:hover {
 div.container {
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
+    background-color: transparent;
+    
 }
 
 span#notifier {
@@ -67,15 +70,17 @@ span#notifier {
 
 </style>
 
-{{{styleBody}}}
 
-<div id="container"><form spellcheck="false" onsubmit="monkshu_env.components['login-box'].signin(this); return false;">
-<span id="notifier">{{i18n.BadLogin}}</span>
-<input type="text" id="userid" placeholder="{{i18n.UserID}}" 
-    oninvalid="this.setCustomValidity('{{i18n.FillField}}')"
-    required>
-<input type="password" id="pass" placeholder="{{i18n.Password}}" required minlength="8" 
-    oninvalid="this.setCustomValidity('{{i18n.FillField}}')"
-    onkeyup="if (event.keyCode == 13) monkshu_env.components['login-box'].getShadowRootByContainedElement(this).querySelector('#submit').click();">
-<button type="submit" id="submit">{{i18n.SignIn}}</button>
-</form></div>
+
+<div id="container">
+    <form spellcheck="false" onsubmit="monkshu_env.components['login-box'].signin(this); return false;">
+        <span id="notifier">{{i18n.BadLogin}}</span>
+        <input type="text" id="userid" placeholder="{{i18n.UserID}}" 
+            oninvalid="this.setCustomValidity('{{i18n.FillField}}')"
+            required>
+        <input type="password" id="pass" placeholder="{{i18n.Password}}" required minlength="8" 
+            oninvalid="this.setCustomValidity('{{i18n.FillField}}')"
+            onkeyup="if (event.keyCode == 13) monkshu_env.components['login-box'].getShadowRootByContainedElement(this).querySelector('#submit').click();">
+        <button type="submit" id="submit">{{i18n.SignIn}}</button>
+    </form>
+</div>

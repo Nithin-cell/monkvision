@@ -76,31 +76,32 @@ span#signin > span > a {text-decoration: none;}
 </head>
 
 <body>
-<img class="logo" src="{{{htmlData.logo}}}" onclick="window.open('{{{htmlData.aboutLink}}}', '_blank')"></img>
+<!-- <img class="logo" src="{{{htmlData.logo}}}" onclick="window.open('{{{htmlData.aboutLink}}}', '_blank')"></img> -->
 
-<span id="signin">
+<!-- <span id="signin">
 	<span><a href="{{#_org_monkshu_makeLink}}./register.html{{/_org_monkshu_makeLink}}">{{i18n.Register}}</a></span>
 	<span><a href="{{#_org_monkshu_makeLink}}./login.html{{/_org_monkshu_makeLink}}">{{i18n.SignIn}}</a></span>
-</span>
+</span> -->
 
-<div class="advtextbox">
+<!-- <div class="advtextbox">
 	<h1>{{i18n.logintagline}}</h1>
 	<h2>{{i18n.loginsubtag}}</h2>
 	<p onclick="window.open('{{{htmlData.aboutLink}}}', '_blank')">{{i18n.learn}}</p>
+</div> -->
+<div>
+	<img src="./img/botFace.svg" width="60%" height="60%" style="position:absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
+	<img src="./img/loginContainer.svg" width="40%" height="34%" style="position:absolute;top: 46%;left: 50%;transform: translate(-50%, -50%);">
+	<div class="lgbox">
+		<login-box routeOnSuccess="./main.html"></login-box>
+	</div>
 </div>
-
-<div class="lgbox">
-	<span><br><br>{{i18n.LoginMsg}}<br><br></span>
-	<login-box roles="[APP_CONSTANTS.GUEST_ROLE, APP_CONSTANTS.USER_ROLE]" routeOnSuccess="./main.html"></login-box>
-</div>
-
-<div class="langbox">
+<!-- <div class="langbox">
 	<span class="langsel" onclick="language.changeLanguage('en')">English</span>&nbsp;&nbsp;
 	<span class="langsel" onclick="language.changeLanguage('hi')">हिंदी</span>&nbsp;&nbsp;
 	<span class="langsel" onclick="language.changeLanguage('ja')">日本語</span>
 	<span class="langsel" onclick="language.changeLanguage('th')">&nbsp;ภาษาไทย</span>
 	<span class="langsel" onclick="language.changeLanguage('zh')">中文</span>
-</div>	
+</div>	 -->
 </body>
 
 </html>
