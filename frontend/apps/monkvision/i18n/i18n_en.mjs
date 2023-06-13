@@ -12,6 +12,7 @@ export const i18n = {
 "LoginMsg": "Customer Login",
 "RegisterMsg": "Customer Registration",
 "UserID" : "Login",
+"username" : "Username",
 "DesiredUserID" : "Desired User ID",
 "Password" : "Password",
 "SignIn" : "Login",

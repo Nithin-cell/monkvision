@@ -15,8 +15,9 @@ body{
 }
 
 input, input:-internal-autofill-previewed, input:-internal-autofill-selected {
-    width: 70%;
-    padding: 10px;
+    width: 26%;
+    height: 27px;
+    color: white;
     margin: 0;
     border: 1px solid #FFFFFF;
     border-radius: 5px;
@@ -32,9 +33,8 @@ input, input:-internal-autofill-previewed, input:-internal-autofill-selected {
 }
 
 button {
-    width: 70%;
+    width: 26%;
     padding: 10px;
-    margin: 0;
     box-sizing: border-box;
     border-style: none;
     border-radius: 5px;
@@ -43,7 +43,7 @@ button {
     background-color: rgba(255,255,255,0.2);
     color: white;
     position: relative;
-    margin: 20px 0% 20px 0%;
+    margin: 1rem 0% 1rem 0%;
     font-family: inherit;
     font-size: inherit;
     text-transform: uppercase;
@@ -55,10 +55,8 @@ button:hover {
 }
 
 div.container {
-    display: flex;
-    flex-direction: column;
-    background-color: transparent;
-    
+    width: 70%;
+    margin: auto;
 }
 
 span#notifier {
@@ -67,20 +65,50 @@ span#notifier {
     margin: 0;
     display: none;
 }
+#help{
+    color: red
+}
+.logoContainer{
+    width: 30%;
+    margin: auto;
+}
+.logoContainer > img{
+    width: 80%;
+}
+input + img{
+    position: absolute;
+    height: 18px;
+    right: 37%;
+    transform: translate(-14%, 83%);
+}
+p{
+    margin: auto;
+    padding: 0;
+}
 
 </style>
 
 
 
 <div id="container">
+    <div class="logoContainer">
+        <img src="./img/logo_dark.png">
+    </div>
     <form spellcheck="false" onsubmit="monkshu_env.components['login-box'].signin(this); return false;">
         <span id="notifier">{{i18n.BadLogin}}</span>
-        <input type="text" id="userid" placeholder="{{i18n.UserID}}" 
+        <div>
+            <input type="text" id="userid" placeholder="{{i18n.username}}" 
             oninvalid="this.setCustomValidity('{{i18n.FillField}}')"
             required>
-        <input type="password" id="pass" placeholder="{{i18n.Password}}" required minlength="8" 
+            <img src="./img/Path.svg">
+        </div>
+        <div>
+            <input type="password" id="pass" placeholder="{{i18n.Password}}" required minlength="8" 
             oninvalid="this.setCustomValidity('{{i18n.FillField}}')"
             onkeyup="if (event.keyCode == 13) monkshu_env.components['login-box'].getShadowRootByContainedElement(this).querySelector('#submit').click();">
+            <img src="./img/Shape.svg">
+        </div>
         <button type="submit" id="submit">{{i18n.SignIn}}</button>
+        <p style="color:white">Need help? <a id="help" href="#">Forgot password</a></p>
     </form>
 </div>
