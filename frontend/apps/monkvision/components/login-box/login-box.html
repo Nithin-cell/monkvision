@@ -18,6 +18,7 @@ input, input:-internal-autofill-previewed, input:-internal-autofill-selected {
     width: 26%;
     height: 27px;
     color: white;
+    padding-right: 30px;
     margin: 0;
     border: 1px solid #FFFFFF;
     border-radius: 5px;
@@ -80,6 +81,7 @@ input + img{
     height: 18px;
     right: 37%;
     transform: translate(-14%, 83%);
+    opacity: 20%;
 }
 p{
     margin: auto;
@@ -97,16 +99,20 @@ p{
     <form spellcheck="false" onsubmit="monkshu_env.components['login-box'].signin(this); return false;">
         <span id="notifier">{{i18n.BadLogin}}</span>
         <div>
-            <input type="text" id="userid" placeholder="{{i18n.username}}" 
+            <input type="email" id="userid" placeholder="{{i18n.username}}" 
             oninvalid="this.setCustomValidity('{{i18n.FillField}}')"
+            onkeyup="monkshu_env.components['login-box'].handleEmailInputChange(this)"
             required>
-            <img src="./img/Path.svg">
+            <img src="./img/tick.svg">
         </div>
         <div>
-            <input type="password" id="pass" placeholder="{{i18n.Password}}" required minlength="8" 
-            oninvalid="this.setCustomValidity('{{i18n.FillField}}')"
+            <input type="password" id="pass" placeholder="{{i18n.Password}}" required minlength="8"
+            oninvalid="this.setCustomValidity('{{i18n.FillField}}')" >
+            <img src="./img/eye.svg" onclick="monkshu_env.components['login-box'].previewPassword(this)">
+        </div>
+        <div>
+            <input type="password" id="code" placeholder="{{i18n.code}}" required
             onkeyup="if (event.keyCode == 13) monkshu_env.components['login-box'].getShadowRootByContainedElement(this).querySelector('#submit').click();">
-            <img src="./img/Shape.svg">
         </div>
         <button type="submit" id="submit">{{i18n.SignIn}}</button>
         <p style="color:white">Need help? <a id="help" href="#">Forgot password</a></p>
