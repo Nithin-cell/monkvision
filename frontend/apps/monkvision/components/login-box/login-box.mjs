@@ -20,9 +20,10 @@ async function signin(signInButton) {
 	const shadowRoot = login_box.getShadowRootByContainedElement(signInButton);
 	const userid = shadowRoot.getElementById("userid").value;
 	const pass = shadowRoot.getElementById("pass").value;
+	const code = shadowRoot.getElementById("code").value;
 	const routeOnSuccess = login_box.getHostElement(signInButton).getAttribute("routeOnSuccess");
 		
-	_handleLoginResult(await loginmanager.signin(userid, pass), shadowRoot, routeOnSuccess);
+	_handleLoginResult(await loginmanager.signin(userid, pass, code), shadowRoot, routeOnSuccess);
 }
 
 function _handleLoginResult(result, shadowRoot, routeOnSuccess) {

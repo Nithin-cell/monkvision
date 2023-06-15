@@ -10,7 +10,7 @@ import {apimanager as apiman} from "/framework/js/apimanager.mjs";
 
 let currTimeout; let logoutListeners = [];
 
-async function signin(id, pass) {
+async function signin(id, pass, code) {
     const pwph = `${id} ${pass}`;
     logoutListeners = [];   // reset listeners on sign in
         
