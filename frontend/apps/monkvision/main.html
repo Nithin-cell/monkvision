@@ -26,8 +26,9 @@
 	<button id="openModal">Open Modal</button>
 
 	<div id="addCardsmodal" class="modal">
+		<span class="header">all cards</span>
 		<div class="searchbox">
-			<input placeholder="search" type="text">
+			<input placeholder="search" type="text" onkeyup="monkshu_env.components['all-cards'].search(this)">
 			<img src="./img/search.svg">
 		</div>
 		<span id="closeModal"><img src="./img/cross.svg"></span>

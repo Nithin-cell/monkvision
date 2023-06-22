@@ -263,5 +263,15 @@ async function elementRendered(el) {
     ).join('');
 }
 
-export const all_cards = { trueWebComponentMode:true,elementRendered}
+function search(inp){
+    let val = inp.value.toLowerCase();
+    let $$ = all_cards.shadowRoot;
+    if(val.length){
+      $$.querySelectorAll('.flex-item glowing-arc').forEach(el => el.getAttribute('innerTitle').toLowerCase().startsWith(val)? el.parentElementNode.style.order=1 : el.parentElementNode.style.order=2)
+    } else{
+      $$.querySelectorAll('.flex-item').forEach(el => el.style.order = 'initial');
+    }
+}
+
+export const all_cards = { trueWebComponentMode:true,elementRendered, search}
 monkshu_component.register("all-cards", `${COMPONENT_PATH}/all-cards.html`, all_cards);
