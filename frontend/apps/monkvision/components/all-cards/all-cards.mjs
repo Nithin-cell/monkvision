@@ -258,16 +258,20 @@ const allCards =
     ];
 
 async function elementRendered(el) {
-    el.shadowRoot.querySelector('.cardsContainer').innerHTML = allCards.map((card) =>
-        `<div class='flex-item'><glowing-arc ${Object.keys(card).map(k=>`${k}="${card[k]}"`).join(' ')}></glowing-arc></div>`
-    ).join('');
+    updateFragment();
+}
+
+function updateFragment(){
+  all_cards.shadowRoot.querySelector('.cardsContainer').innerHTML = allCards.map((card) =>
+    `<div class='flex-item'><glowing-arc ${Object.keys(card).map(k=>`${k}="${card[k]}"`).join(' ')}></glowing-arc></div>`
+  ).join('');
 }
 
 function search(inp){
     let val = inp.value.toLowerCase();
     let $$ = all_cards.shadowRoot;
     if(val.length){
-      $$.querySelectorAll('.flex-item glowing-arc').forEach(el => el.getAttribute('innerTitle').toLowerCase().startsWith(val)? el.parentElementNode.style.order=1 : el.parentElementNode.style.order=2)
+      $$.querySelectorAll('.flex-item glowing-arc').forEach(el => el.getAttribute('innerTitle').toLowerCase().startsWith(val)? el.closest(".flex-item").style.order=1 : el.closest(".flex-item").style.order=2)
     } else{
       $$.querySelectorAll('.flex-item').forEach(el => el.style.order = 'initial');
     }

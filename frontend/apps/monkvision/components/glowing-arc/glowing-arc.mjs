@@ -8,21 +8,19 @@ const radius = 100; //hit-n-trial to achieve result
 const initialPoints = {x: 100, y: 10};
 const origin = {x: 100, y: 110};
 async function elementRendered(element) {
+    const parent = element.getAttribute('parent');
     const mainTitle = element.getAttribute('mainTitle');
     const data = element.getAttribute('data');
     const innerTitle = element.getAttribute('innerTitle');
     const innerSubtitle = element.getAttribute('innerSubtitle');
     const percentage = element.getAttribute('percentage');
     const color = element.getAttribute('color');
+    const outlineColor = element.getAttribute('outlineColor');
     const warningColour = element.getAttribute('warningcolour');
     const arcElement = element.shadowRoot.querySelector('.color-arc');
     
-    setArc(arcElement, percentage, color, mainTitle, data, innerTitle, innerSubtitle);
-    // element.shadowRoot.querySelector('.mainTitle').innerText = mainTitle;
-    // element.shadowRoot.querySelector('.data').innerText = data;
-    // element.shadowRoot.querySelector('.innerTitle').innerText = innerTitle;
-    // element.shadowRoot.querySelector('.innerSubtitle').innerText = innerSubtitle;
-
+    setArc(arcElement, percentage, color, mainTitle, data, innerTitle, innerSubtitle, outlineColor, parent);
+    setCSS(element, parent);
 
     if (warningColour) {
         const triangle = element.shadowRoot.querySelector('.warning-triangle svg');
@@ -37,12 +35,14 @@ async function elementRendered(element) {
  * @param {HTMLOrSVGElement} svg svg element to embed arc graphics
  * @param {Number | String} p percentage of circumference that arc should cover
  * @param {String} c arc color can be hex/name/rgb..
- * @param {*} data text
- * @param {*} innerSubtitle text  
- * @param {*} innerTitle text
- * @param {*} mainTitle text
+ * @param {String} mainTitle text
+ * @param {String} data text
+ * @param {String} innerTitle text
+ * @param {String} innerSubtitle text  
+ * @param {String} outlineColor color value  
+ * @param {String} parent parent element where this component is used. (to set css accordingly)
 */
-function setArc(svg, p, c, mainTitle, data, innerTitle, innerSubtitle){
+function setArc(svg, p, c, mainTitle, data, innerTitle, innerSubtitle, outlineColor, parent){
     p = Number(p);
     p = p>100? 100 : p;
     let endPoints = getEndPoints(p);
@@ -51,9 +51,9 @@ function setArc(svg, p, c, mainTitle, data, innerTitle, innerSubtitle){
         const d = `M ${initialPoints.x} ${initialPoints.y} A ${radius} ${radius} 0 ${p>50? 1 : 0} 1 ${endPoints.x} ${endPoints.y}`;
         svg.querySelector('g').insertAdjacentHTML("beforeend", `
         <path class="arc" d="${d}" stroke="${c}" stroke-width="18px" stroke-linecap="round">
-        <animate id="a1" attributeType="XML" attributeName="stroke-dasharray" from="0" to="1000" dur="${2}s" fill="freeze" />
+        <animate id="a1" attributeType="XML" attributeName="stroke-dasharray" from="0" to="1000" dur="${2}s" fill="remove-during-active" />
         </path>
-        <path d="${circle}" stroke="white" stroke-width="2px" stroke-linecap="round" opacity="0.9"/>
+        <path d="${circle}" stroke="${outlineColor?? "white"}" stroke-width="2px" stroke-linecap="round" opacity="0.9"/>
         `)
         svg.insertAdjacentHTML('beforeend', `
         <g>
@@ -62,16 +62,16 @@ function setArc(svg, p, c, mainTitle, data, innerTitle, innerSubtitle){
                     text-anchor: middle;
                     fill: white;
                     dominant-baseline: middle;
-                    transform: translate(-10%, -1%)
+                    transform: translate(-10%, -1%);
                 }
                 .small {
-                    font: reguar 13px sans-serif;
+                    font: regular 13px sans-serif;
                 }
                 .heavy {
                     font: bold 30px sans-serif;
                 }
             </style>
-            <text x="50%" y="40%" class="small">${innerTitle?? ''}</text>
+            <text x="50%" y="${parent=='tab'? "46%" : "40%"}" width="200" class="small">${innerTitle?? ''}</text>
             <text x="50%" y="50%" class="heavy">${data?? ''}</text>
             <text x="50%" y="60%" class="small">${innerSubtitle?? ''}</text>
             <text x="50%" y="96%" class="small">${mainTitle?? ''}</text>
@@ -108,6 +108,16 @@ function startAnimation(element){
 function addAnimation(element){
     if(element.getAttribute('onmouseover') == ''){
         element.setAttribute('onmouseover', "monkshu_env.components['glowing-arc'].startAnimation(this)");
+    }
+}
+function setCSS(element, parent){
+    if(parent == 'tab'){
+        let rules = element.shadowRoot.styleSheets[0].cssRules;
+        for(let i=0; i<rules.length; i++){
+            if(rules[i].selectorText == ".color-arc"){
+                rules[i].style.transform = "translate(22%, 12%)";
+            }
+        }
     }
 }
 

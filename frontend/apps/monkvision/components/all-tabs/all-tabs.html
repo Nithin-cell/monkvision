@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            height: 100%;
+            margin: 0;
+        }
+
+        .cardsContainer{
+            overflow-y: scroll;
+            height: 100%;
+        }
+
+        .cardsContainer::-webkit-scrollbar {
+            width: 0em;  /* Adjust the width as needed */
+        }
+
+        .rowFlex{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .flex-item {
+            width: 17.1%;
+            margin: 1rem;
+            height: auto;
+            aspect-ratio: 1;
+            position: relative;
+        }
+        .container-svg{
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .flex-item glowing-arc {
+            width: 80%;
+            position: absolute;
+            top: 10%;
+            display: block;
+            /* height: 100%; */
+            aspect-ratio: 1;
+        }
+
+        .flex-item glowing-arc .color-arc {
+            transform: translate(22%, 12%);
+        }
+
+        /* .flex-item glowing-arc html{
+            width: 100% !important;
+            height: 100% !important;
+        }  */
+    </style>
+</head>
+<body>
+    <div class="cardsContainer rowFlex">
+    </div>
+</body>
+</html>
