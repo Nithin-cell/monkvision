@@ -21,10 +21,18 @@
 	import {main} from "./js/main.mjs"; window.main = main;
 	</script>
 		
-	<title></title>
+	<title>Dashboard</title>
+	<style>
+		#openModal{
+			display: none;
+		}
+	</style>
 </head>
 
 <body>
+	<div class="appname">
+		<img src="./img/botAndText.svg" alt="monkvision">
+	</div>
 	<button id="openModal" onclick="main.openModal('allCardsModal')">Open Modal</button>
 
 	<div id="allCardsModal" class="modal">
@@ -52,5 +60,17 @@
 	</div>
 
 	<div id="backdrop" class="backdrop"></div>	
+	<div class="footer">
+		<span style="width: 30%;">
+			<img src="./img/full-white_tekmonks.png" style="height: 5rem;">
+		</span>
+		<span class="fc2">
+			<div class="yearOrg">©2023 - TekMonks  |   All right reserved</div>
+			<div class="termsPrivacy">
+				<a href="#">TERMS AND CONDITIONS</a>
+				<a href="#">PRIVACY POLICY</a>
+			</div>
+		</span>
+	</div>
 </body>
 </html>
