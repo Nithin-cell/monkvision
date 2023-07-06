@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            height: 100%;
+            margin: 0;
+            overscroll-behavior: contain;
+        }
+        .cardsContainer{
+            overflow-y: scroll;
+            height: 100%;
+            overscroll-behavior: contain;
+        }
+        .cardsContainer::-webkit-scrollbar {
+            width: 0em;  /* Adjust the width as needed */
+        }
+
+        .rowFlex{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .flex-item {
+            width: 11.6%;
+            padding: 1rem;
+            aspect-ratio: 1;
+        }
+        .flex-item glowing-arc {
+            width: 100%;
+            display: block;
+            height: 100%;
+            aspect-ratio: 1;
+        }
+
+        .flex-item glowing-arc svg {
+            width: 100%; /* Make the SVG element fill the available width within the custom element */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .flex-item glowing-arc html{
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="cardsContainer rowFlex">
+
+    </div>
+</body>
+</html>
