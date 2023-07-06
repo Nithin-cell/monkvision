@@ -20,9 +20,10 @@ async function signin(signInButton) {
 	const shadowRoot = login_box.getShadowRootByContainedElement(signInButton);
 	const userid = shadowRoot.getElementById("userid").value;
 	const pass = shadowRoot.getElementById("pass").value;
+	const code = shadowRoot.getElementById("code").value;
 	const routeOnSuccess = login_box.getHostElement(signInButton).getAttribute("routeOnSuccess");
 		
-	_handleLoginResult(await loginmanager.signin(userid, pass), shadowRoot, routeOnSuccess);
+	_handleLoginResult(await loginmanager.signin(userid, pass, code), shadowRoot, routeOnSuccess);
 }
 
 function _handleLoginResult(result, shadowRoot, routeOnSuccess) {
@@ -30,6 +31,28 @@ function _handleLoginResult(result, shadowRoot, routeOnSuccess) {
 	else shadowRoot.getElementById("notifier").style.display = "inline";
 }
 
+function handleEmailInputChange(el){
+	let image = el.nextElementSibling;
+	if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value)){
+		image.style.opacity = 1;
+	} 
+	else {
+		image.style.opacity = 0.2;
+	}
+}
+
+function previewPassword(el){
+	let _ = el.previousElementSibling;
+	if(_.getAttribute('type')=='text'){
+		el.style.opacity=0.2;
+		_.setAttribute('type', 'password');
+	}
+	else{
+		el.style.opacity=1;
+		_.setAttribute('type', 'text');		
+	}
+}
+
 const trueWebComponentMode = true;	// making this false renders the component without using Shadow DOM
-export const login_box = {signin, trueWebComponentMode, elementConnected}
+export const login_box = {signin, trueWebComponentMode, elementConnected, handleEmailInputChange, previewPassword}
 monkshu_component.register("login-box", `${APP_CONSTANTS.APP_PATH}/components/login-box/login-box.html`, login_box);

@@ -1,0 +1,338 @@
+<!-- 
+(C) 2020 TekMonks. All rights reserved.
+-->
+<style>
+
+</style>
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <script type="module">
+        import {notif_comp} from "./components/notif-comp/notif-comp.mjs"; 
+        import {all_notifs} from "./components/all-notifs/all-notifs.mjs"; 
+        import {language} from "./js/language.mjs"; window.language=language;
+    </script>
+    <title>{{pageTitle}}</title>
+    {{{css}}}
+</head>
+<style>
+    body{
+        background: url(./img/MonkvissionBackground.png); background-size: cover; width: 100%; height: 100%; background-repeat: no-repeat;
+        overflow: hidden;
+        }
+    .font{
+        font-family: 'ubuntu';
+        color: #FFFFFF;
+        font-weight: 400;
+    }
+    .termsPrivacy{
+        font-family: 'ubuntu';
+        color: #FFFFFF;
+        font-size: 10px;
+        position: absolute;
+        bottom: 4em;
+        left:10em;
+        line-height: 0.5em;
+    }
+    /* CSS rules for screens with a maximum width of 1000 pixels */
+    @media only screen and (min-width: 1000px) and (max-width:1500px){
+        .profile-menu-img{
+            position: absolute;
+            top: 1.85em;
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            right: 2.7em;
+            border: 1px solid #FFFFFF;
+        }
+        .profile-menu-container{
+            height:10em;
+            position: absolute;
+            right: 1em;
+            top:0.5em;
+        }
+        .profile-menu-input{
+            background-color: transparent;
+            box-sizing: border-box;
+            width: 22em;
+            height: 1.8em;
+            border: 1px solid #FFFFFF;
+            position: absolute;
+            top: 5em;
+            right: 8.5em;
+            border-radius: 3px;
+            padding-left: 1em;
+            font-size: 10px;
+            color:#FFFFFF
+        }
+        .profile-menu-search{
+            position:absolute;right: 6em;top: 3em;width: 11px;
+        }
+        .profile-menu-text{
+            position:absolute;top: 2.5em;right: 8.2em;font-size: 10px;
+        }
+        .profile-menu-container{
+            height: 6em;position: absolute;right: 1em;top:0.5em;
+        }
+        .notification-container{
+            position: absolute;
+            left: 4em;
+            top: 4em;
+            width: 80%;
+        }
+        .notification-header{
+            font-size: 1.5em;
+        }
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+     
+    }
+    @media only screen and (min-width: 1501px) and (max-width:2000px){
+        .profile-menu-container{
+            height:10em;
+            position: absolute;
+            right: 1em;
+            top:0.5em;
+        }
+        .profile-menu-img{
+            position: absolute;
+            top: 2.8em;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            right: 3.9em;
+            border: 1px solid #FFFFFF;
+        }
+        .profile-menu-text{
+            position:absolute;
+            top:2em;
+            right:8em;
+        }
+        .profile-menu-input{
+            background-color: transparent;
+            box-sizing: border-box;
+            width: 28em;
+            height: 2em;
+            border: 1px solid #FFFFFF;
+            position: absolute;
+            top: 5.5em;
+            right: 10em;
+            border-radius: 7px;
+            padding-left: 1em;
+            color:#FFFFFF;
+        }
+        .profile-menu-search{
+            position:absolute;
+            right:9em;
+            top:4.8em;
+        }
+        .notification-container{
+            position: absolute;
+            left: 6em;
+            top: 6em;
+            width: 80%;
+        }
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+
+    }
+    @media only screen and (min-width: 2001px) and (max-width:2500px){
+        .profile-menu-container{
+            height:10em;
+            position: absolute;
+            right: 1em;
+            top:0.5em;
+        }
+        .profile-menu-img{
+            position: absolute;
+            top: 2.8em;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            right: 3.9em;
+            border: 1px solid #FFFFFF;
+        }
+        .profile-menu-text{
+            position:absolute;
+            top:2em;
+            right:8em;
+        }
+        .profile-menu-input{
+            background-color: transparent;
+            box-sizing: border-box;
+            width: 28em;
+            height: 2em;
+            border: 1px solid #FFFFFF;
+            position: absolute;
+            top: 5.5em;
+            right: 10em;
+            border-radius: 7px;
+            padding-left: 1em;
+            color:#FFFFFF;
+        }
+        .profile-menu-search{
+            position:absolute;
+            right:9em;
+            top:4.8em;
+        }
+        .notification-container{
+            position: absolute;
+            left: 6em;
+            top: 6em;
+            width: 80%;
+        }
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+
+    }
+    @media only screen and (min-width: 2501px) and (max-width:3000px){
+        .profile-menu-container{
+            height:10em;
+            position: absolute;
+            right: 1em;
+            top:0.5em;
+        }
+        .profile-menu-img{
+            position: absolute;
+            top: 2.8em;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            right: 3.9em;
+            border: 1px solid #FFFFFF;
+        }
+        .profile-menu-text{
+            position:absolute;
+            top:2em;
+            right:8em;
+        }
+        .profile-menu-input{
+            background-color: transparent;
+            box-sizing: border-box;
+            width: 28em;
+            height: 2em;
+            border: 1px solid #FFFFFF;
+            position: absolute;
+            top: 5.5em;
+            right: 10em;
+            border-radius: 7px;
+            padding-left: 1em;
+            color:#FFFFFF;
+        }
+        .profile-menu-search{
+            position:absolute;
+            right:9em;
+            top:4.8em;
+        }
+        .notification-container{
+            position: absolute;
+            left: 6em;
+            top: 6em;
+            width: 80%;
+        }
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+
+    }
+    @media only screen and (min-width: 3001px){
+        .profile-menu-container{
+            height:10em;
+            position: absolute;
+            right: 1em;
+            top:0.5em;
+        }
+        .profile-menu-img{
+            position: absolute;
+            top: 2.8em;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            right: 3.9em;
+            border: 1px solid #FFFFFF;
+        }
+        .profile-menu-text{
+            position:absolute;
+            top:2em;
+            right:8em;
+        }
+        .profile-menu-input{
+            background-color: transparent;
+            box-sizing: border-box;
+            width: 28em;
+            height: 2em;
+            border: 1px solid #FFFFFF;
+            position: absolute;
+            top: 5.5em;
+            right: 10em;
+            border-radius: 7px;
+            padding-left: 1em;
+            color:#FFFFFF;
+        }
+        .profile-menu-search{
+            position:absolute;
+            right:9em;
+            top:4.8em;
+        }
+        .notification-container{
+            position: absolute;
+            left: 6em;
+            top: 6em;
+            width: 80%;
+        }
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+
+    }
+   
+
+</style>
+<body>
+
+<div id="container">
+    <img src="./img/arrow_left.svg" height="35" width="35" style="margin-top: 1em;margin-left:1em;">
+    <div class="profile-menu">
+        <img class="profile-menu-container" src="./img/top_right_component.svg">
+        <img class="profile-menu-img" src="./img/man1.jpg" onclick="monkshu_env.components['all-notifs'].loadProfile()">
+        <p class="font profile-menu-text" >Hello Rohan!</p>
+        <input class="profile-menu-input" type="text" placeholder="Search" >
+        <img class="profile-menu-search" src="./img/search_icon.svg" height="18" width="18" >
+        
+    </div>
+    <div class="notification-container">
+        <h1 class="font notification-header">NOTIFICATIONS</h1>
+        <all-notifs></all-notifs>
+    </div>
+    <img src="./img/full-white_tekmonks.png" class="footer-img">
+	<div class="termsPrivacy">
+        <p style="white-space:pre;">©2023 - TekMonks  |   All right reserved</p>
+		<p><a href="" style="color:#505D68;">TERMS AND CONDITIONS</a>   <a href="" style="color:#505D68;padding-left: 1em;">PRIVACY POLICY</a></p>
+		
+	</div>
+</div>
+</body>
+</html>
+    

@@ -1,0 +1,727 @@
+<!-- 
+(C) 2020 TekMonks. All rights reserved.
+-->
+<style>
+
+</style>
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <script type="module">
+        import {notif_comp} from "./components/notif-comp/notif-comp.mjs"; 
+        import {all_notifs} from "./components/all-notifs/all-notifs.mjs"; 
+        import {language} from "./js/language.mjs"; window.language=language;
+        </script>
+    <title>{{pageTitle}}</title>
+    {{{css}}}
+</head>
+<style>
+    body{
+        background: url(./img/MonkvissionBackground.png); background-size: cover; width: 100%; height: 100%; background-repeat: no-repeat;
+        overflow: hidden;
+        }
+    .font{
+        font-family: 'ubuntu';
+        color: #FFFFFF;
+        font-weight: 400;
+    }
+    .termsPrivacy{
+        font-family: 'ubuntu';
+        color: #FFFFFF;
+        font-size: 10px;
+        position: absolute;
+        bottom: 4em;
+        left:10em;
+        line-height: 0.5em;
+    }
+    /* CSS rules for screens with a maximum width of 1000 pixels */
+
+    @media only screen and (max-width:999px){
+        .profile-menu{
+            position: fixed;
+            top: 25%;
+            left: 50%;
+            
+        }
+        .profile-menu-container{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            height:25em;
+        }
+        .image-container{
+            position: absolute;
+            top: -6.1em;
+            left: 8.2em;
+            width: 8em;
+        }
+        .edit-button{
+            position: absolute;
+            left: 11.5em;
+            top: -3em;
+            opacity: 90%;
+        }
+        .update-logo{
+            position: absolute;
+            left: -17.5em;
+            bottom: 0.5em;
+            width: 24em;
+        }
+        .personal-info{
+            position: absolute;
+            color: #ffffff;
+            top: 2em;
+            left: -19em;
+            font-size: 0.8em;
+        }
+        .profile-menu-img{
+            position: absolute;
+            top: -4.15em;
+            height: 4em;
+            width: 4em;
+            border-radius: 50%;
+            right: -14.3em;
+            border: 1px solid #FFFFFF;
+        }
+        .profile-input{
+            position: absolute;
+            width: 36em;
+            left: -18.2em;
+            background: transparent;
+            height: 27px;
+            color: white !important;
+            border: 1px solid #FFFFFF;
+            border-radius: 5px;
+            text-align: left;
+            font-family: inherit;
+            font-size: smaller;
+            padding-left: 1em;
+        }
+        .calender-input{
+            position: absolute;
+            top: 9.3em;
+            right: -14em;
+            font-size: -1em;
+            height: 1.3em;
+        }
+        .profile-input-1{
+            position:absolute;
+            top: 5em;
+        }
+        .profile-input-2{
+            position:absolute;
+            top: 7em;
+        }
+        .profile-input-3{
+            position:absolute;
+            top: 11em;
+        }
+        .profile-input-4{
+            position:absolute;
+            top: 17em;
+        }
+        .profile-input-5{
+            position:absolute;
+            top: 20em;
+        }
+        .company-info{
+            position: absolute;
+            color: #ffffff;
+            top: 14em;
+            font-size: 0.8em;
+            left: -19em;
+        }
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+     
+    }
+    @media only screen and (min-width: 1000px) and (max-width:1500px){
+        .profile-menu{
+            position: fixed;
+            top: 25%;
+            left: 50%;
+            
+        }
+        .profile-menu-container{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            height:25em;
+        }
+        .image-container{
+            position: absolute;
+            top: -6.1em;
+            left: 8.2em;
+            width: 8em;
+        }
+        .edit-button{
+            position: absolute;
+            left: 11.5em;
+            top: -3em;
+            opacity: 90%;
+        }
+        .update-logo{
+            position: absolute;
+            left: -17.5em;
+            bottom: 0.5em;
+            width: 24em;
+        }
+        .personal-info{
+            position: absolute;
+            color: #ffffff;
+            top: 2em;
+            left: -19em;
+            font-size: 0.8em;
+        }
+        .profile-menu-img{
+            position: absolute;
+            top: -4.15em;
+            height: 4em;
+            width: 4em;
+            border-radius: 50%;
+            right: -14.3em;
+            border: 1px solid #FFFFFF;
+        }
+        .profile-input{
+            position: absolute;
+            width: 36em;
+            left: -18.2em;
+            background: transparent;
+            height: 27px;
+            color: white !important;
+            border: 1px solid #FFFFFF;
+            border-radius: 5px;
+            text-align: left;
+            font-family: inherit;
+            font-size: smaller;
+            padding-left: 1em;
+        }
+        .calender-input{
+            position: absolute;
+            top: 9.3em;
+            right: -14em;
+            font-size: -1em;
+            height: 1.3em;
+        }
+        .profile-input-1{
+            position:absolute;
+            top: 5em;
+        }
+        .profile-input-2{
+            position:absolute;
+            top: 7em;
+        }
+        .profile-input-3{
+            position:absolute;
+            top: 11em;
+        }
+        .profile-input-4{
+            position:absolute;
+            top: 17em;
+        }
+        .profile-input-5{
+            position:absolute;
+            top: 20em;
+        }
+        .company-info{
+            position: absolute;
+            color: #ffffff;
+            top: 14em;
+            font-size: 0.8em;
+            left: -19em;
+        }
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+     
+    }
+    @media only screen and (min-width: 1501px) and (max-width:2000px){
+
+        .profile-menu{
+            position: fixed;
+            top: 25%;
+            left: 50%;
+            
+        }
+        .profile-menu-container{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            height:25em;
+        }
+        .image-container{
+            position: absolute;
+            top: -6.1em;
+            left: 8.2em;
+            width: 8em;
+        }
+        .edit-button{
+            position: absolute;
+            left: 11.5em;
+            top: -3em;
+            opacity: 90%;
+        }
+        .update-logo{
+            position: absolute;
+            left: -17.5em;
+            bottom: 0.5em;
+            width: 24em;
+        }
+        .personal-info{
+            position: absolute;
+            color: #ffffff;
+            top: 2em;
+            left: -19em;
+            font-size: 0.8em;
+        }
+        .profile-menu-img{
+            position: absolute;
+            top: -4.15em;
+            height: 4em;
+            width: 4em;
+            border-radius: 50%;
+            right: -14.3em;
+            border: 1px solid #FFFFFF;
+        }
+        .profile-input{
+            position: absolute;
+            width: 36em;
+            left: -18.2em;
+            background: transparent;
+            height: 27px;
+            color: white !important;
+            border: 1px solid #FFFFFF;
+            border-radius: 5px;
+            text-align: left;
+            font-family: inherit;
+            font-size: smaller;
+            padding-left: 1em;
+        }
+        .calender-input{
+            position: absolute;
+            top: 9.3em;
+            right: -14em;
+            font-size: -1em;
+            height: 1.3em;
+        }
+        .profile-input-1{
+            position:absolute;
+            top: 5em;
+        }
+        .profile-input-2{
+            position:absolute;
+            top: 8em;
+        }
+        .profile-input-3{
+            position:absolute;
+            top: 11em;
+        }
+        .profile-input-4{
+            position:absolute;
+            top: 17em;
+        }
+        .profile-input-5{
+            position:absolute;
+            top: 20em;
+        }
+        .company-info{
+            position: absolute;
+            color: #ffffff;
+            top: 14em;
+            font-size: 0.8em;
+            left: -19em;
+        }
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+
+    }
+    @media only screen and (min-width: 2001px) and (max-width:2500px){
+        
+        .profile-menu{
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            
+        }
+        .profile-menu-container{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            height:30em;
+        }
+
+        .image-container{
+            position: absolute;
+            top: -10em;
+            left: 9.2em;
+            width: 12em;
+        }
+        .edit-button{
+            position: absolute;
+            left: 14.5em;
+            top: -5em;
+            opacity: 90%;
+            height: 2em;
+        }
+        .update-logo{
+            position: absolute;
+            left: -21em;
+            bottom: 0.5em;
+            width: 30em;
+        }
+        .personal-info{
+            position: absolute;
+            color: #ffffff;
+            top: 2em;
+            left: -17.5em;
+            font-size: 1em;
+        }
+        .profile-menu-img{
+            position: absolute;
+            top: -7em;
+            height: 6em;
+            width: 6em;
+            border-radius: 50%;
+            right: -18.2em;
+            border: 1px solid #FFFFFF;
+        }
+        .profile-input{
+            position: absolute;
+            width: 42em;
+            left: -21.2em;
+            background: transparent;
+            height: 32px;
+            color: white !important;
+            border: 1px solid #FFFFFF;
+            border-radius: 5px;
+            text-align: left;
+            font-family: inherit;
+            font-size: smaller;
+            padding-left: 1em;
+        }
+        .profile-input-1{
+            position:absolute;
+            top: 6em;
+        }
+        .profile-input-2{
+            position:absolute;
+            top: 10em;
+        }
+        .profile-input-3{
+            position:absolute;
+            top: 14em;
+        }
+        .profile-input-4{
+            position:absolute;
+            top: 20em;
+        }
+        .profile-input-5{
+            position:absolute;
+            top: 24em;
+        }
+        .company-info{
+            position: absolute;
+            color: #ffffff;
+            top: 14em;
+            font-size: 0.8em;
+            left: -19em;
+        }
+        .calender-input{
+            position: absolute;
+            top: 10.9em;
+            right: -14em;
+            font-size: 1.1em;
+            height: 1.3em;
+        }
+
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+
+    }
+    @media only screen and (min-width: 2501px) and (max-width:3000px){
+         
+        .profile-menu{
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            
+        }
+        .profile-menu-container{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            height:30em;
+        }
+
+        .image-container{
+            position: absolute;
+            top: -10em;
+            left: 9.2em;
+            width: 12em;
+        }
+        .edit-button{
+            position: absolute;
+            left: 14.5em;
+            top: -5em;
+            opacity: 90%;
+            height: 2em;
+        }
+        .update-logo{
+            position: absolute;
+            left: -21em;
+            bottom: 0.5em;
+            width: 30em;
+        }
+        .personal-info{
+            position: absolute;
+            color: #ffffff;
+            top: 2em;
+            left: -17.5em;
+            font-size: 1em;
+        }
+        .profile-menu-img{
+            position: absolute;
+            top: -7em;
+            height: 6em;
+            width: 6em;
+            border-radius: 50%;
+            right: -18.2em;
+            border: 1px solid #FFFFFF;
+        }
+        .profile-input{
+            position: absolute;
+            width: 42em;
+            left: -21.2em;
+            background: transparent;
+            height: 32px;
+            color: white !important;
+            border: 1px solid #FFFFFF;
+            border-radius: 5px;
+            text-align: left;
+            font-family: inherit;
+            font-size: smaller;
+            padding-left: 1em;
+        }
+        .profile-input-1{
+            position:absolute;
+            top: 6em;
+        }
+        .profile-input-2{
+            position:absolute;
+            top: 10em;
+        }
+        .profile-input-3{
+            position:absolute;
+            top: 14em;
+        }
+        .profile-input-4{
+            position:absolute;
+            top: 20em;
+        }
+        .profile-input-5{
+            position:absolute;
+            top: 24em;
+        }
+        .company-info{
+            position: absolute;
+            color: #ffffff;
+            top: 14em;
+            font-size: 0.8em;
+            left: -19em;
+        }
+        .calender-input{
+            position: absolute;
+            top: 10.9em;
+            right: -14em;
+            font-size: 1.1em;
+            height: 1.3em;
+        }
+
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+
+    }
+    @media only screen and (min-width: 3001px){
+         
+        .profile-menu{
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            
+        }
+        .profile-menu-container{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            height:30em;
+        }
+
+        .image-container{
+            position: absolute;
+            top: -10em;
+            left: 9.2em;
+            width: 12em;
+        }
+        .edit-button{
+            position: absolute;
+            left: 14.5em;
+            top: -5em;
+            opacity: 90%;
+            height: 2em;
+        }
+        .update-logo{
+            position: absolute;
+            left: -21em;
+            bottom: 0.5em;
+            width: 30em;
+        }
+        .personal-info{
+            position: absolute;
+            color: #ffffff;
+            top: 2em;
+            left: -17.5em;
+            font-size: 1em;
+        }
+        .profile-menu-img{
+            position: absolute;
+            top: -7em;
+            height: 6em;
+            width: 6em;
+            border-radius: 50%;
+            right: -18.2em;
+            border: 1px solid #FFFFFF;
+        }
+        .profile-input{
+            position: absolute;
+            width: 42em;
+            left: -21.2em;
+            background: transparent;
+            height: 32px;
+            color: white !important;
+            border: 1px solid #FFFFFF;
+            border-radius: 5px;
+            text-align: left;
+            font-family: inherit;
+            font-size: smaller;
+            padding-left: 1em;
+        }
+        .profile-input-1{
+            position:absolute;
+            top: 6em;
+        }
+        .profile-input-2{
+            position:absolute;
+            top: 10em;
+        }
+        .profile-input-3{
+            position:absolute;
+            top: 14em;
+        }
+        .profile-input-4{
+            position:absolute;
+            top: 20em;
+        }
+        .profile-input-5{
+            position:absolute;
+            top: 24em;
+        }
+        .company-info{
+            position: absolute;
+            color: #ffffff;
+            top: 14em;
+            font-size: 0.8em;
+            left: -19em;
+        }
+        .calender-input{
+            position: absolute;
+            top: 10.9em;
+            right: -14em;
+            font-size: 1.1em;
+            height: 1.3em;
+        }
+
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+
+    }
+   
+
+    
+   
+
+</style>
+<body>
+
+<div id="container">
+    <img src="./img/arrow_left.svg" height="35" width="35" style="margin-top: 1em;margin-left:1em;">
+    <div class="profile-menu" >
+        <img class="profile-menu-container" src="./img/profile_details_container.svg" >
+        <img class="image-container" src="./img/image_cover.svg">
+        <img class="profile-menu-img" src="./img/man1.jpg">
+        <img  src="./img/edit.svg" class="edit-button">
+        <img src="./img/update_logo.svg" class="update-logo">
+        <p class="personal-info">PERSONAL INFORMATION</p>
+        <input type="text" class="profile-input profile-input-1" >
+        <input type="text" class="profile-input profile-input-2">
+        <input type="text" class="profile-input profile-input-3" >
+        <img src="./img/calender.svg" class="calender-input">
+        <p class="company-info">COMPANY INFORMATION</p >
+        <input type="text" class="profile-input profile-input-4" >
+        <input type="text" class="profile-input profile-input-5" >
+    </div>
+    
+    <img src="./img/full-white_tekmonks.png" class="footer-img">
+	<div class="termsPrivacy">
+        <p style="white-space:pre;">©2023 - TekMonks  |   All right reserved</p>
+		<p><a href="" style="color:#505D68;">TERMS AND CONDITIONS</a>   <a href="" style="color:#505D68;padding-left: 1em;">PRIVACY POLICY</a></p>
+		
+	</div>
+</div>
+</body>
+</html>
+    

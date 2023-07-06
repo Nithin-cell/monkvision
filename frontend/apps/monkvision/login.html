@@ -51,6 +51,30 @@ span#signin {
 	position: absolute;
 	cursor: default;
 }
+.yearOrg{
+	color: #D9D9D9;
+	font-style: normal;
+	font-size: 8px;
+	line-height: 21px;
+	vertical-align: middle;
+	margin: auto;
+}
+.termsPrivacy{
+	display: flex; flex-direction: row; color: #505D68;
+	font-style: normal;
+	font-size: 8px;
+	line-height: 9px;
+	text-align: center;
+	text-transform: uppercase;
+	margin: auto;
+    column-gap: 10px;
+	text-decoration: underline;
+}
+.footer{
+	position:absolute;
+	left: 50%;transform: translate(-50%, -50%);
+	margin: auto;
+}
 
 span#signin > span {padding-right: 30px;}
 
@@ -90,9 +114,19 @@ span#signin > span > a {text-decoration: none;}
 </div> -->
 <div>
 	<img src="./img/botFace.svg" width="60%" height="60%" style="position:absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
-	<img src="./img/loginContainer.svg" width="40%" height="34%" style="position:absolute;top: 46%;left: 50%;transform: translate(-50%, -50%);">
+	<img src="./img/loginContainer.svg" width="60%" height="42%" style="position:absolute;top: 46%;left: 50%;transform: translate(-50%, -50%);">
 	<div class="lgbox">
-		<login-box routeOnSuccess="./main.html"></login-box>
+		<login-box routeOnSuccess="./notifications.html"></login-box>
+	</div>
+</div>
+<div class="footer" style="display: flex; flex-direction: column; bottom: 1%;">
+	<div>
+		<img src="./img/full-white_tekmonks.png" style="position: absolute; width: 56%; left: 50%; transform: translate(-50%, -69%);">
+	</div>
+	<div class="yearOrg">©2023 - TekMonks  |   All right reserved</div>
+	<div class="termsPrivacy">
+		<p>TERMS AND CONDITIONS</p>
+		<p>PRIVACY POLICY</p>
 	</div>
 </div>
 <!-- <div class="langbox">

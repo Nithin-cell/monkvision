@@ -14,7 +14,7 @@ export const APP_CONSTANTS = {
     MAIN_HTML: APP_PATH+"/main.html",
     LOGIN_HTML: APP_PATH+"/login.html",
     REGISTER_HTML: APP_PATH+"/register.html",
-
+    PROFILE_HTML:APP_PATH+"/components/profile-comp/profile.html",
     DIALOGS_PATH: APP_PATH+"/dialogs",
     COMPONENTS_PATH: APP_PATH+"/components",
 
@@ -34,7 +34,7 @@ export const APP_CONSTANTS = {
     GUEST_ROLE: "guest",
     PERMISSIONS_MAP: {
         user:[APP_PATH+"/main.html", APP_PATH+"/register.html", APP_PATH+"/login.html", APP_PATH+"/pdf_report.html", $$.MONKSHU_CONSTANTS.ERROR_THTML], 
-        guest:[APP_PATH+"/register.html", APP_PATH+"/login.html", $$.MONKSHU_CONSTANTS.ERROR_THTML]
+        guest:[APP_PATH+"/register.html", APP_PATH+"/login.html", $$.MONKSHU_CONSTANTS.ERROR_THTML,APP_PATH+"/notifications.html",APP_PATH+"/main.html",APP_PATH+"/components/profile-comp/profile.html"]
     },
     API_KEYS: {"*":"fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389"},
     KEY_HEADER: "X-API-Key"

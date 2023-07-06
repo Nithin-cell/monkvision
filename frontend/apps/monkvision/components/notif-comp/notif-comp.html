@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <script type="module">
+        import {notif_comp} from "./components/notif-comp/notif-comp.mjs"; 
+        import {language} from "./js/language.mjs"; window.language=language;
+    </script>
+
+</head>
+<style>
+    
+    .font{
+        font-family: 'ubuntu';
+        color: #FFFFFF;
+        font-weight: 400;
+    }
+   
+</style>
+<body>
+    <div style="padding-top: 1em;position: relative;">
+        <img src="./img/critical_containerBox.svg" style="width: 35em;">
+        <img src="./img/alert.svg" style="width: 1.5em;position: absolute;top: 1.5em;left: 1em;">
+        <p class="font" style="position: absolute;top: 1.5em;left: 4em;font-size: 12px;">CRITICAL</p>
+        <p class="font" style="position: absolute;top: 3em;left: 3em;">(OS METRIC) STATUS OF NODE/HOST</p>
+        <p class="font" style="position: absolute;top: 7.5em;left: 4.8em;font-size: 10px;max-width: 46em">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p class="font" style="position: absolute;bottom: 1.5em;left: 4.8em;font-size: 10px;max-width: 46em">Email sent to: johndoe@gmail.com </p>
+    </div>
+</body>
