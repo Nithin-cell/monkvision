@@ -19,8 +19,8 @@ const init = async _ => {
 
 async function main() {
 	apiman.registerAPIKeys(APP_CONSTANTS.API_KEYS, APP_CONSTANTS.KEY_HEADER);
-//	await _addPageDataInterceptors();
-
+	await _addPageDataInterceptors();
+	
 	const decodedURL = new URL(router.decodeURL(window.location.href));
 
 	const baseURL = decodedURL.search?decodedURL.href.substring(0, decodedURL.href.length-decodedURL.search.length):decodedURL.href;
