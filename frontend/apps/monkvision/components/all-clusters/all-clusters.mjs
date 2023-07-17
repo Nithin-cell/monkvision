@@ -78,7 +78,8 @@ function populateClusters(element){
     if(pageData.items && pageData.items.length){
         const arr = pageData.items;
         const container = element.shadowRoot.querySelector('.flex-container');
-        for(let i=0,l=arr.length; i<5 && i<l; i++){
+        let l=arr.length;
+        for(let i=0; i<5 && i<l; i++){
             container.insertAdjacentHTML('beforeend', 
             `
             <div class="flex-child${i==0? ' large-child' : ''}">
@@ -91,6 +92,9 @@ function populateClusters(element){
             </div>
             `);
         }
+        if(l>5){
+            element.shadowRoot.querySelector('#next').parentElement.setAttribute('opacity', 1);
+        }
     }
 }
 
@@ -101,7 +105,8 @@ function scrollFlex(path, flag){
     else{
         if(pageData.shift>=0) return;
     }
-    const flexContainer = all_clusters.shadowRoot.querySelector('.flex-container');
+    const $$ = all_clusters.shadowRoot;
+    const flexContainer = $$.querySelector('.flex-container');
     if(flag<0){
         pageData.shift = pageData.shift - 1;
         let parent = flexContainer.querySelector('.large-child');
@@ -117,7 +122,6 @@ function scrollFlex(path, flag){
             nextSib = nextSib.nextElementSibling;
         }
         let nextArc = pageData.items[Math.abs(pageData.shift)+4];
-        console.log("nextarc", nextArc);
         try {
             parent.removeChild(parent.querySelector('glowing-arc'));
         } catch (e) {
@@ -140,9 +144,12 @@ function scrollFlex(path, flag){
             prevSib = parent.previousElementSibling;
         }
         let prevArc = pageData.items[Math.abs(pageData.shift)];
-        console.log("prevarc", prevArc);
         parent.insertAdjacentHTML('beforeend', `<glowing-arc parent="clusters" ${Object.keys(prevArc).map(k=>`${k}="${prevArc[k]}"`).join(' ')}></glowing-arc>`);
     }
+    let prevPossible = Math.abs(pageData.shift) + 5 < pageData.items.length;
+    let nextPossible = pageData.shift<0;
+    $$.querySelector('#prev').parentElement.setAttribute('opacity', prevPossible? 1 : 0.6);
+    $$.querySelector('#next').parentElement.setAttribute('opacity', nextPossible? 1 : 0.6);
 }
 
 
