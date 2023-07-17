@@ -18,6 +18,9 @@
 	import {all_cards} from "./components/all-cards/all-cards.mjs";
 	import {glowing_arc} from "./components/glowing-arc/glowing-arc.mjs";
 	import {all_tabs} from "./components/all-tabs/all-tabs.mjs";
+	import {arc_reactor} from "./components/arc-reactor/arc-reactor.mjs";
+	import {log_space} from "./components/log-space/log-space.mjs";
+	import {all_clusters} from "./components/all-clusters/all-clusters.mjs";
 	import {main} from "./js/main.mjs"; window.main = main;
 	</script>
 		
@@ -26,6 +29,16 @@
 		#openModal{
 			display: none;
 		}
+		log-space{
+			width: 40%;
+			aspect-ratio: 659/333;
+			display: inline-block;
+		}
+		all-clusters{
+			width: 40%;
+			aspect-ratio: 1728/1830;
+			display: inline-block;
+		}
 	</style>
 </head>
 
@@ -33,6 +46,7 @@
 	<div class="appname">
 		<img src="./img/botAndText.svg" alt="monkvision">
 	</div>
+	<all-clusters></all-clusters>
 	<button id="openModal" onclick="main.openModal('allCardsModal')">Open Modal</button>
 
 	<div id="allCardsModal" class="modal">

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            margin: 0;
+            color: white;
+        }
+        .container{
+            background-image: url('./img/bg_log.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            position: relative;
+            aspect-ratio: 659/333;
+        }
+        .container>span{
+            width: 45%;
+            max-height: 4%;
+            display: inline-block;
+            font-size: 213%;
+            opacity: 0.9;
+            margin-left: 47%;
+            overflow: hidden;
+        }
+        .content{
+            height: 87.07%;
+            width: 90%;
+            margin-top: 1.37%;
+            margin-left: 5%;
+            background: rgba(50, 50, 50, 0.3);
+            overflow: hidden auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .content::-webkit-scrollbar {
+            width: 0;
+        }
+        .abs{
+            position: absolute;
+        }
+        .content>div{
+            position: relative;
+            height: 14%;
+        }
+        .content>div>*{
+            position: absolute;
+        }
+        .time{
+            left: 8%;
+            font-size: 1.5vw;
+        }
+        .lines{
+            right: 76%;
+        }
+        .status{
+            left: 30%;
+            font-size: 1.5vw;
+            top: -28%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span></span>
+        <div class="abs content">
+            
+        </div>
+    </div>
+</body>
+</html>
