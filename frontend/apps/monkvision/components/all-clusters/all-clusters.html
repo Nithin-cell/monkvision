@@ -63,6 +63,24 @@
         .large-child glowing-arc{
             width: 63%;
         }
+        .spread-input {
+            opacity: 0;
+            padding: 0.2rem;
+            height: 3.3%;
+            width: 3%;
+            border: 1px solid rgba(256, 256, 256, 0.3);
+            border-radius: 0.5rem;
+            transition: width 0.3s, opacity 0.3s, left 0.3s;
+            left: 92.7%;
+            top: 1.3%;;
+        }
+
+        .spread-input:focus {
+            opacity: 1;
+            width: 37%;
+            left: 54%;
+            outline-color: rgba(256, 256, 256, 0.3);
+        }
         </style>
 </head>
 <body>
@@ -87,5 +105,6 @@
     <div class="abs flex-container">
         
     </div>
+    <input type="text" class="abs spread-input" />
 </body>
 </html>
