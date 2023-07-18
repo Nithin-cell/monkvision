@@ -74,10 +74,12 @@ async function elementRendered(element) {
 }
 
 function populateClusters(element){
+    element = element?? all_clusters;
     element.shadowRoot.querySelector('body>span').innerText = pageData.name?? "Clusters"
     if(pageData.items && pageData.items.length){
         const arr = pageData.items;
         const container = element.shadowRoot.querySelector('.flex-container');
+        container.innerHTML = '';
         let l=arr.length;
         for(let i=0; i<5 && i<l; i++){
             container.insertAdjacentHTML('beforeend', 
