@@ -65,15 +65,15 @@ function setArc(svg, p, c, mainTitle, data, innerTitle, innerSubtitle, outlineCo
                     transform: translate(-10%, -1%);
                 }
                 .small {
-                    font: regular 13px sans-serif;
+                    font: normal ${parent=="clusters"? 18 : 13}px sans-serif;
                 }
                 .heavy {
-                    font: bold 30px sans-serif;
+                    font: bold ${parent=="clusters"? 65 : 30}px sans-serif;
                 }
             </style>
-            <text x="50%" y="${parent=='tab'? "46%" : "40%"}" width="200" class="small">${innerTitle?? ''}</text>
+            <text x="50%" y="${parent=='tab'? 46 : parent=="clusters"? 34 : 40}%" width="200" class="small">${innerTitle?? ''}</text>
             <text x="50%" y="50%" class="heavy">${data?? ''}</text>
-            <text x="50%" y="60%" class="small">${innerSubtitle?? ''}</text>
+            <text x="50%" y="${parent=="clusters"? 62.5 : 60}%" class="small">${innerSubtitle?? ''}</text>
             <text x="50%" y="96%" class="small">${mainTitle?? ''}</text>
         </g>
         `)
