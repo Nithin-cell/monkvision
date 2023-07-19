@@ -4,7 +4,7 @@ const COMPONENT_PATH = util.getModulePath(import.meta);
 
 const pageData = {
     name: "Servers",
-    shift: 0,
+    selectedItem: 0,
     items: [
         {
             ip: "139.24.26.247:23",
@@ -131,7 +131,7 @@ function populateServers(element){
         for(let i=0; i<l; i++){
             container.insertAdjacentHTML('beforeend', 
             `
-            <div class="flex-child">${getServer(arr[i], i!=0? 0.6: 1)}</div>
+            <div class="flex-child${i==pageData.selectedItem? ' selected':''}" ix="${i}" onclick="monkshu_env.components['all-servers'].selectItemHandler(this)">${getServer(arr[i], i==pageData.selectedItem? 1: 0.6)}</div>
             `);
         }
         if(l>7){
@@ -177,5 +177,15 @@ function scrollEndHandler(cont){
     }
 }
 
-export const all_servers = { trueWebComponentMode:true,elementRendered, scrollFlex, scrollEndHandler}
+function selectItemHandler(el){
+    const prevSelection = all_servers.shadowRoot.querySelector(`[ix="${pageData.selectedItem}"].flex-child`);
+    prevSelection?.classList.remove('selected');
+    prevSelection?.querySelector('g').setAttribute('opacity', '0.6');
+    prevSelection?.classList.remove('selected');
+    el.classList.add('selected');
+    el.querySelector('g').setAttribute('opacity', '1');
+    pageData.selectedItem = el.getAttribute('ix');
+}
+
+export const all_servers = { trueWebComponentMode:true,elementRendered, scrollFlex, scrollEndHandler, selectItemHandler}
 monkshu_component.register("all-servers", `${COMPONENT_PATH}/all-servers.html`, all_servers);
