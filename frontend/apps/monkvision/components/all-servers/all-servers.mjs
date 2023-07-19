@@ -42,6 +42,78 @@ const pageData = {
             ip: "133.25.26.24:22",
             type: "SERVER"
         },
+        {
+            ip: "139.24.26.247:23",
+            type: "SERVER"
+        },
+        {
+            ip: "133.25.26.24:22",
+            type: "SERVER",
+            warningColor: "red"
+        },
+        {
+            ip: "133.25.26.24:22",
+            type: "SERVER",
+            warningColor: "yellow"
+        },
+        {
+            ip: "133.25.26.24:22",
+            type: "SERVER"
+        },
+        {
+            ip: "133.25.26.24:22",
+            type: "SERVER"
+        },
+        {
+            ip: "133.25.26.24:22",
+            type: "SERVER",
+            warningColor: "green"
+        },
+        {
+            ip: "133.25.26.24:22",
+            type: "SERVER",
+            warningColor: "yellow"
+        },
+        {
+            ip: "133.25.26.24:22",
+            type: "SERVER"
+        },
+        {
+            ip: "139.24.26.247:23",
+            type: "SERVER"
+        },
+        {
+            ip: "133.25.26.24:22",
+            type: "SERVER",
+            warningColor: "red"
+        },
+        {
+            ip: "133.25.26.24:22",
+            type: "SERVER",
+            warningColor: "yellow"
+        },
+        {
+            ip: "133.25.26.24:22",
+            type: "SERVER"
+        },
+        {
+            ip: "133.25.26.24:22",
+            type: "SERVER"
+        },
+        {
+            ip: "133.25.26.24:22",
+            type: "SERVER",
+            warningColor: "green"
+        },
+        {
+            ip: "133.25.26.24:22",
+            type: "SERVER",
+            warningColor: "yellow"
+        },
+        {
+            ip: "133.25.26.24:22",
+            type: "SERVER"
+        },
     ]
 }
 async function elementRendered(element) {
@@ -62,64 +134,20 @@ function populateServers(element){
             <div class="flex-child">${getServer(arr[i], i!=0? 0.6: 1)}</div>
             `);
         }
-        if(l>5){
-            $$.querySelector('#next').parentElement.setAttribute('opacity', 1);
+        if(l>7){
+            $$.querySelector('.bg #next').parentElement.setAttribute('opacity', 1);
         }
     }
 }
 
 function scrollFlex(path, flag){
-    if(flag < 0){
-        if(Math.abs(pageData.shift) + 5 >= pageData.items.length) return;
-    }
-    else{
-        if(pageData.shift>=0) return;
-    }
-    const $$ = all_servers.shadowRoot;
-    const flexContainer = $$.querySelector('.flex-container');
-    if(flag<0){
-        pageData.shift = pageData.shift - 1;
-        let parent = flexContainer.querySelector('.large-child');
-        let nextSib = parent.nextElementSibling;
-        while(nextSib){
-            try{
-                parent.removeChild(parent.querySelector('glowing-arc'));
-            } catch(e){
-
-            }
-            parent.appendChild(nextSib.querySelector('glowing-arc'));
-            parent = nextSib;
-            nextSib = nextSib.nextElementSibling;
-        }
-        let nextArc = pageData.items[Math.abs(pageData.shift)+4];
-        try {
-            parent.removeChild(parent.querySelector('glowing-arc'));
-        } catch (e) {
-            
-        }
-        parent.insertAdjacentHTML('beforeend', `<glowing-arc parent="clusters" ${Object.keys(nextArc).map(k=>`${k}="${nextArc[k]}"`).join(' ')}></glowing-arc>`);
-    }
-    else{
-        pageData.shift = pageData.shift + 1;
-        let parent = flexContainer.querySelector('.flex-child:nth-child(5)');
-        let prevSib = parent.previousElementSibling;
-        while(prevSib){
-            try {
-                parent.removeChild(parent.querySelector('glowing-arc'));
-            } catch (e) {
-                
-            }
-            parent.appendChild(prevSib.querySelector('glowing-arc'));
-            parent = prevSib;
-            prevSib = parent.previousElementSibling;
-        }
-        let prevArc = pageData.items[Math.abs(pageData.shift)];
-        parent.insertAdjacentHTML('beforeend', `<glowing-arc parent="clusters" ${Object.keys(prevArc).map(k=>`${k}="${prevArc[k]}"`).join(' ')}></glowing-arc>`);
-    }
-    let prevPossible = Math.abs(pageData.shift) + 5 < pageData.items.length;
-    let nextPossible = pageData.shift<0;
-    $$.querySelector('#prev').parentElement.setAttribute('opacity', prevPossible? 1 : 0.6);
-    $$.querySelector('#next').parentElement.setAttribute('opacity', nextPossible? 1 : 0.6);
+    const flexContainer = all_servers.shadowRoot.querySelector('.flex-container');
+    let width = flexContainer.offsetWidth;
+    width = (-0.9)*width;
+    flexContainer.scrollBy({
+        left: flag*width,
+        behavior: "smooth"
+    })
 }
 
 
@@ -136,5 +164,18 @@ function getServer(obj, op){
     `
 }
 
-export const all_servers = { trueWebComponentMode:true,elementRendered, scrollFlex}
+function scrollEndHandler(cont){
+    const prev = all_servers.shadowRoot.querySelector('.bg #prev').parentElement;
+    const next = all_servers.shadowRoot.querySelector('.bg #next').parentElement;
+    if(cont.scrollLeft == 0)
+        prev.setAttribute('opacity', '0.6');
+    else if(cont.scrollLeft >=  cont.scrollWidth - cont.clientWidth)
+        next.setAttribute('opacity', '0.6');
+    else{
+        prev.setAttribute('opacity', '1');
+        next.setAttribute('opacity', '1');
+    }
+}
+
+export const all_servers = { trueWebComponentMode:true,elementRendered, scrollFlex, scrollEndHandler}
 monkshu_component.register("all-servers", `${COMPONENT_PATH}/all-servers.html`, all_servers);
