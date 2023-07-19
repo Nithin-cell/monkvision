@@ -21,9 +21,12 @@ async function elementRendered(element) {
 function loadProfile(){
     router.loadPage(APP_CONSTANTS.PROFILE_HTML)
 }
+function loadNotifs(){
+    router.loadPage(APP_CONSTANTS.NOTIFICATIONS_HTML)
+}
 
 const trueWebComponentMode = true;	// making this false renders the component without using Shadow DOM
-export const all_notifs = {trueWebComponentMode, elementRendered,loadProfile}
+export const all_notifs = {trueWebComponentMode, elementRendered,loadProfile,loadNotifs}
 
 
 monkshu_component.register("all-notifs", `${APP_CONSTANTS.APP_PATH}/components/all-notifs/all-notifs.html`, all_notifs);

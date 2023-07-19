@@ -129,7 +129,7 @@ function _startRefresh() {
         return(minutes + ":" + seconds);
 }
 
-export const main = {changePassword, interceptPageLoadData, timeRangeUpdated, playPauseCharts, loadPDFReport, openModal};
+export const main = {changePassword, interceptPageLoadData, timeRangeUpdated, playPauseCharts, loadPDFReport, openModal,loadMain};
 
 function openModal(id){
     closeAllModals();
@@ -149,4 +149,8 @@ function openModal(id){
 
 function closeAllModals(){
     document.querySelectorAll('.modal').forEach(m => m.style.display = "none");
+}
+
+function loadMain(){
+    router.loadPage(APP_CONSTANTS.MAIN_HTML)
 }

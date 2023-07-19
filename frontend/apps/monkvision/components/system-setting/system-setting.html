@@ -1,0 +1,562 @@
+<!-- 
+(C) 2020 TekMonks. All rights reserved.
+-->
+<style>
+
+</style>
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <script type="module">
+        import {language} from "./js/language.mjs"; window.language=language;
+        import {main} from "./js/main.mjs"; window.main = main;
+    </script>
+    <title>{{pageTitle}}</title>
+    {{{css}}}
+</head>
+<style>
+    body{
+        background: url(./img/MonkvissionBackground.png); background-size: cover; width: 100%; height: 100%; background-repeat: no-repeat;
+        overflow: hidden;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        }
+    .font{
+        font-family: 'ubuntu';
+        color: #FFFFFF;
+        font-weight: 400;
+    }
+    .termsPrivacy{
+        font-family: 'ubuntu';
+        color: #FFFFFF;
+        font-size: 10px;
+        position: absolute;
+        bottom: 4em;
+        left:10em;
+        line-height: 0.5em;
+    }
+    /* CSS rules for screens with a maximum width of 1000 pixels */
+
+    @media only screen and (max-width:999px){
+        .notif-setting{
+            position: fixed;
+            top: 25%;
+            left: 50%;
+        }
+        .notif-setting-container{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            height:19em;
+        }
+        .about-application{
+            position: fixed;
+            top: 25%;
+            left: 50%;
+            
+        }
+        .about-application-container{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            height:19em;
+        }
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+     
+    }
+    @media only screen and (min-width: 1000px) and (max-width:1500px){
+        .notif-setting{
+            position: fixed;
+            top: 25%;
+            left: 50%;
+        }
+        .notif-setting-container{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            height:19em;
+        }
+        .about-application{
+            position: fixed;
+            top: 25%;
+            left: 50%;
+            
+        }
+        .about-application-container{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            height:19em;
+        }
+
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+     
+    }
+    @media only screen and (min-width: 1501px) and (max-width:2000px){
+
+        .notif-setting{
+            position: fixed;
+            top: 25%;
+            left: 50%;
+        }
+        .notif-setting-container{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            height: 13.8em;
+            top: 13em;
+        }
+        .notification-setting-header{
+            position: absolute;
+            color: #ffffff;
+            top: 17.5em;
+            white-space: pre;
+            font-size: 12px;
+            right: 10em;
+        }
+        .about-application{
+            position: fixed;
+            top: 25%;
+            left: 50%;
+            
+        }
+        .about-application-container{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            height: 12em;
+        }
+        .about-application-header{
+            position: absolute;
+            color: #ffffff;
+            right: 12em;
+            font-size: 12px;
+            white-space: pre;
+        }
+        .version{
+            position: absolute;
+            color: #ffffff;
+            right: 3.5em;
+            top: 1em;
+            white-space: pre;
+            font-size: 20px;
+        }
+        .check-for-updates{
+            position: absolute;
+            color: #ffffff;
+            top: 7.5em;
+            white-space: pre;
+            left: -14.5em;
+        }
+        .about-application-details{
+            position: absolute;
+            color: #ffffff;
+            width: 27em;
+            left: -14.6em;
+            top: 3em;
+        }
+        .switch1 {
+            display: inline-block;
+            height: 34px;
+            position: relative;
+            width: 60px;
+            left: 2.1em;
+        }
+
+        .switch1 input {
+            display: none;
+            top: 9px;
+            position: relative;
+        }
+
+        .slider1 {
+        background-color: #ccc;
+        bottom: 0;
+        cursor: pointer;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 9px;
+        transition: .4s;
+        }
+
+        .slider1:before {
+            background-color: #fff;
+            bottom: -1.5px;
+            content: "";
+            height: 18px;
+            left: -6px;
+            position: absolute;
+            transition: .4s;
+            width: 18px;
+        }
+
+        input:checked + .slider1 {
+        background-color: grey;
+        }
+
+        input:checked + .slider1:before {
+        transform: translateX(26px);
+        }
+
+        .slider1.round1 {
+            border-radius: 34px;
+            height: 12px;
+            width: 26px;
+        }
+        
+
+        .slider1.round1:before {
+        border-radius: 50%;
+        }
+
+        .switch2 {
+            display: inline-block;
+            height: 34px;
+            position: relative;
+            width: 60px;
+            left: 2.1em;
+        }
+
+        .switch2 input {
+            display: none;
+            top: 9px;
+            position: relative;
+        }
+
+        .slider2 {
+        background-color: #ccc;
+        bottom: 0;
+        cursor: pointer;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 9px;
+        transition: .4s;
+        }
+
+        .slider2:before {
+            background-color: #fff;
+            bottom: -1.5px;
+            content: "";
+            height: 18px;
+            left: -6px;
+            position: absolute;
+            transition: .4s;
+            width: 18px;
+        }
+
+        input:checked + .slider2 {
+        background-color: grey;
+        }
+
+        input:checked + .slider2:before {
+        transform: translateX(26px);
+        }
+
+        .slider2.round2 {
+            border-radius: 34px;
+            height: 12px;
+            width: 26px;
+        }
+        
+
+        .slider2.round2:before {
+        border-radius: 50%;
+        }
+
+        .switch3 {
+            display: inline-block;
+            height: 34px;
+            position: relative;
+            width: 60px;
+            left: 2.1em;
+        }
+
+        .switch3 input {
+            display: none;
+            top: 9px;
+            position: relative;
+        }
+
+        .slider3 {
+        background-color: #ccc;
+        bottom: 0;
+        cursor: pointer;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 9px;
+        transition: .4s;
+        }
+
+        .slider3:before {
+            background-color: #fff;
+            bottom: -1.5px;
+            content: "";
+            height: 18px;
+            left: -6px;
+            position: absolute;
+            transition: .4s;
+            width: 18px;
+        }
+
+        input:checked + .slider3 {
+        background-color: grey;
+        }
+
+        input:checked + .slider3:before {
+        transform: translateX(26px);
+        }
+
+        .slider3.round3 {
+            border-radius: 34px;
+            height: 12px;
+            width: 26px;
+        }
+        
+
+        .slider3.round3:before {
+        border-radius: 50%;
+        }
+
+
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+
+    }
+    @media only screen and (min-width: 2001px) and (max-width:2500px){
+        
+        .notif-setting{
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            
+        }
+        .notif-setting-container{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            height:30em;
+        }
+        .about-application{
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            
+        }
+        .about-application-container{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            height:30em;   
+        }
+
+
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+
+    }
+    @media only screen and (min-width: 2501px) and (max-width:3000px){
+         
+        .notif-setting{
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            
+        }
+        .notif-setting-container{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            height:30em;
+        }
+        .about-application{
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            
+        }
+        .about-application-container{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            height:30em;   
+        }
+
+
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+
+    }
+    @media only screen and (min-width: 3001px){
+         
+        .notif-setting{
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            
+        }
+        .notif-setting-container{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            height:30em;
+        }
+        .about-application{
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            
+        }
+        .about-application-container{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            height:30em;   
+        }
+
+        .footer-img{
+            height: 5em;
+            position: absolute;
+            bottom:1em;
+            left: 1em;
+        }
+
+
+    }
+</style>
+<body>
+
+<div id="container">
+    <img src="./img/arrow_left.svg" height="35" width="35" style="margin-top: 1em;margin-left:1em;position: absolute;top: 1em;" onclick="main.loadMain()">
+    <div class="about-application" >
+        <img class="about-application-container" src="./img/system_setting_cover.svg" >
+        <p class="about-application-header">ABOUT APPLICATION</p>
+        <p class="version">VERSION 1.1.230A</p>
+        <p class="about-application-details">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, minus pariatur cumque accusantium molestias perspiciatis ea saepe nam possimus sint,
+            veritatis eveniet quasi fugiat consectetur. 
+        </p>
+        <a href="" class="check-for-updates"><p>CHECK FOR UPDATES</p></a>
+    </div>
+    <div class="notif-setting" >
+        <img class="notif-setting-container" src="./img/notif_setting_cover.svg" >
+        <p class="notification-setting-header">NOTIFICATION SETTINGS</p>
+        <div style="    position: absolute;
+                        top: 16em;
+                        display: flex;
+                        align-items: center;
+                        left: -15em;
+            ">
+            <p style="color: #ffffff;
+            white-space: pre;
+            font-size: 13px;">Critical Alerts</p>
+            <label class="switch1" for="checkbox1">
+                <input type="checkbox" id="checkbox1" />
+                <div class="slider1 round1"></div>
+            </label>
+            <p style="color: #ffffff;
+            white-space: pre;
+            font-size: 13px;
+            margin-left: 2em;">Send E-mail to</p>
+            <input type="text" style="    color: #ffffff;
+            background-color: transparent;
+            border: 1px solid;
+            padding-left: 0.5em;
+            margin-left: 1.3em;
+            width: 17em;
+            border-radius: 5px;
+            height: 2em;" placeholder="abc@gmail.com">
+        </div>
+        <div style="    position: absolute;
+        top: 18.5em;
+        display: flex;
+        align-items: center;
+        left: -15em;
+            ">
+            <p style="    color: #ffffff;
+            white-space: pre;
+            font-size: 13px;">Warning Alerts</p>
+            <label class="switch2" for="checkbox2" style="left: 1.75em;">
+                <input type="checkbox" id="checkbox2" />
+                <div class="slider2 round2"></div>
+            </label>
+            <p style="color: #ffffff;
+            white-space: pre;
+            font-size: 13px;
+            margin-left: 1.65em;">Send E-mail to</p>
+            <input type="text" style="    color: #ffffff;
+            background-color: transparent;
+            border: 1px solid;
+            padding-left: 0.5em;
+            margin-left: 1.3em;
+            width: 17em;
+            border-radius: 5px;
+            height: 2em;" placeholder="abc@gmail.com">
+        </div>
+        <div style="    position: absolute;
+        top: 21em;
+        display: flex;
+        align-items: center;
+        left: -15em;
+            ">
+            <p style="    color: #ffffff;
+            white-space: pre;
+            font-size: 13px;">Normal Alerts</p>
+            <label class="switch3" for="checkbox3">
+                <input type="checkbox" id="checkbox3" />
+                <div class="slider3 round3"></div>
+            </label>
+            <p style="color: #ffffff;
+            white-space: pre;
+            font-size: 13px;
+            margin-left: 2em;">Send E-mail to</p>
+            <input type="text" style="color: #ffffff;
+            background-color: transparent;
+            border: 1px solid;
+            padding-left: 0.5em;
+            margin-left: 1.3em;
+            width: 17em;
+            border-radius: 5px;
+            height: 2em;" placeholder="abc@gmail.com">
+        </div>
+    </div>
+    
+    <img src="./img/full-white_tekmonks.png" class="footer-img">
+	<div class="termsPrivacy">
+        <p style="white-space:pre;">©2023 - TekMonks  |   All right reserved</p>
+		<p><a href="" style="color:#505D68;">TERMS AND CONDITIONS</a>   <a href="" style="color:#505D68;padding-left: 1em;">PRIVACY POLICY</a></p>
+		
+	</div>
+</div>
+</body>
+</html>
+    

@@ -15,6 +15,7 @@
         import {notif_comp} from "./components/notif-comp/notif-comp.mjs"; 
         import {all_notifs} from "./components/all-notifs/all-notifs.mjs"; 
         import {language} from "./js/language.mjs"; window.language=language;
+        import {main} from "./js/main.mjs"; window.main = main;
     </script>
     <title>{{pageTitle}}</title>
     {{{css}}}
@@ -305,7 +306,6 @@
             bottom:1em;
             left: 1em;
         }
-
     }
    
 
@@ -313,7 +313,7 @@
 <body>
 
 <div id="container">
-    <img src="./img/arrow_left.svg" height="35" width="35" style="margin-top: 1em;margin-left:1em;">
+    <img src="./img/arrow_left.svg" height="35" width="35" style="margin-top: 1em;margin-left:1em;" onclick="main.loadMain()">
     <div class="profile-menu">
         <img class="profile-menu-container" src="./img/top_right_component.svg">
         <img class="profile-menu-img" src="./img/man1.jpg" onclick="monkshu_env.components['all-notifs'].loadProfile()">

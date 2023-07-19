@@ -17,6 +17,9 @@ export const APP_CONSTANTS = {
     PROFILE_HTML:APP_PATH+"/components/profile-comp/profile.html",
     DIALOGS_PATH: APP_PATH+"/dialogs",
     COMPONENTS_PATH: APP_PATH+"/components",
+    NOTIFICATIONS_HTML:APP_PATH+"/notifications.html",
+    CHANGE_PASSWORD:APP_PATH+"/components/change-password/change-password.html",
+    SYSTEM_SETTING:APP_PATH+"/components/system-setting/system-setting.html",
 
     // Login constants
     MIN_PASS_LENGTH: 8,
@@ -34,7 +37,8 @@ export const APP_CONSTANTS = {
     GUEST_ROLE: "guest",
     PERMISSIONS_MAP: {
         user:[APP_PATH+"/main.html", APP_PATH+"/register.html", APP_PATH+"/login.html", APP_PATH+"/pdf_report.html", $$.MONKSHU_CONSTANTS.ERROR_THTML], 
-        guest:[APP_PATH+"/register.html", APP_PATH+"/login.html", $$.MONKSHU_CONSTANTS.ERROR_THTML,APP_PATH+"/notifications.html",APP_PATH+"/main.html",APP_PATH+"/components/profile-comp/profile.html"]
+        guest:[APP_PATH+"/register.html", APP_PATH+"/login.html", $$.MONKSHU_CONSTANTS.ERROR_THTML,APP_PATH+"/notifications.html",APP_PATH+"/main.html",APP_PATH+"/components/profile-comp/profile.html",
+              APP_PATH+"/notifications.html",APP_PATH+"/components/change-password/change-password.html",APP_PATH+"/components/system-setting/system-setting.html"]
     },
     API_KEYS: {"*":"fheiwu98237hjief8923ydewjidw834284hwqdnejwr79389"},
     KEY_HEADER: "X-API-Key"
