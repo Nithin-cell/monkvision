@@ -134,7 +134,7 @@
             width: 3.3em;
         }
         .top-bar{
-            width: 36em;
+            width: 43.8%;
             margin-top: -1em;
             margin-left: 4em;
         }
@@ -149,19 +149,19 @@
         }
         .main-content-setting{
             position: absolute;
-            left: 37em;
+            left: 44.5%;
             top: 9em;
         }
         .main-content-search{
             position: absolute;
-            left: 35em;
+            left: 42.5%;
             top: 9em;
         }
         .content-switch-tabs{
             display: flex;
             flex-direction: row;
             width: 10em;
-            margin-left: 34em;
+            margin-left: 42%;
         }
         .content-switch-tabs img{
             margin-right: 0.5em;
@@ -330,15 +330,30 @@
   color: #ffffff;
 }
 		log-space{
-			width: 40%;
+			width: 35%;
 			aspect-ratio: 659/333;
 			display: inline-block;
-		}
+            position: absolute;
+            top: 43em;
+            right: 6em;
+        }
+		
 		all-clusters, all-servers{
-			width: 40%;
+			width: 35%;
 			aspect-ratio: 1728/1830;
 			display: inline-block;
+
 		}
+        all-clusters{
+            position: absolute;
+            top: 17em;
+            right: 6%;
+        }
+        all-servers{
+            position: absolute;
+            top: 27em;
+            right: 6%;
+        }
         card-view{
             width: 40%;
 			aspect-ratio: 1728/1830;
@@ -390,7 +405,7 @@
                 <img class="all-pages-tab" src="./img/all_windows.svg">
                 <img class="slide-right-tab" src="./img/slide_right.svg">
             </div>
-            <img class="graph-container-img" src="./img/graph_container_img.svg">
+            <img class="graph-container-img" src="./img/graph_container_img.svg" style="width: 96%;margin-left: 2em;margin-top: -1%;">
         </div>
         <div class="side-profile" id="sideProfileDiv" style="right: -100%;">
             <img class="side-profile-logout" src="./img/logout_button.svg">
@@ -446,6 +461,10 @@
 			</div>
 		</div>
         <arc-reactor style="position: absolute;top: 6em;"></arc-reactor>
+        <log-space></log-space>
+        <all-clusters></all-clusters>
+        <all-servers></all-servers>
+        <img src="./img/download_report_icon.svg" style="position: absolute;right: 6em;width: 24%;top: 64em;">
 		<div id="backdrop" class="backdrop"></div>	
 	</div>
 </body>
