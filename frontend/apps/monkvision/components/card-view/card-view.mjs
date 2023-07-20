@@ -314,12 +314,54 @@ function scrollEndHandler(cont){
     }
 }
 
-function selectItemHandler(el){
-    const prevSelection = card_view.shadowRoot.querySelector(`[ix="${pageData.selectedItem}"].flex-child`);
+function selectItemHandler(el, parent){
+  const newSelection = el.getAttribute('ix');
+  if(parent){
+    const prevSelection = monkshu_env.components[parent].shadowRoot.querySelector(`.selected.flex-item`);
     prevSelection?.classList.remove('selected');
-    el.classList.add('selected');
-    pageData.selectedItem = el.getAttribute('ix');
+    const prevSelection_ = card_view.shadowRoot.querySelector(`.selected.flex-child`);
+    prevSelection_?.classList.remove('selected');
+    card_view.shadowRoot.querySelector(`[ix="${newSelection}"].flex-child`)?.classList.add('selected');
+  }else{
+    const prevSelection_ = card_view.shadowRoot.querySelector(`.selected.flex-child`);
+    prevSelection_?.classList.remove('selected');
+  }
+  el.classList.add('selected');
+  pageData.selectedItem = newSelection;
 }
 
-export const card_view = { trueWebComponentMode:true,elementRendered, scrollFlex, scrollEndHandler, selectItemHandler, pageData}
+
+function openModal() {
+  const document = card_view.shadowRoot;
+  const modal = document.querySelector('.modal');
+  const modalContent = document.querySelector('.modal-content')
+  const closeBtn = document.querySelector('#closeModal')
+  const backdrop = document.querySelector('.backdrop');
+  modal.style.display = 'block';
+  backdrop.style.display = 'block';
+  modalContent.innerHTML = '<all-cards></all-cards>';
+  setTimeout(() => {
+    modal.style.cssText = modal.style.cssText + 'width: 70%; height: 80%;';
+  }, 50);
+  setTimeout(()=>{
+    document.querySelector('#closeModal').style.display = 'flex';
+    document.querySelector('.header').style.display = 'flex'
+  }, 500);
+  closeBtn.onclick = closeModal;
+  backdrop.onclick = closeModal;
+}
+
+function closeModal() {
+  const document = card_view.shadowRoot;
+  const modal = document.querySelector('.modal');
+  document.querySelector('#closeModal').style.display = 'none';
+  document.querySelector('.header').style.display = 'none'
+  modal.style.cssText = modal.style.cssText + 'width: 0%; height: 0%;';
+  setTimeout(() => {
+    modal.style.display = 'none';
+    document.querySelector('.backdrop').style.display = 'none';
+  }, 500);
+}
+
+export const card_view = { trueWebComponentMode:true,elementRendered, scrollFlex, scrollEndHandler, selectItemHandler, pageData, openModal}
 monkshu_component.register("card-view", `${COMPONENT_PATH}/card-view.html`, card_view);
