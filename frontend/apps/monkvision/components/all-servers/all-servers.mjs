@@ -181,7 +181,6 @@ function selectItemHandler(el){
     const prevSelection = all_servers.shadowRoot.querySelector(`[ix="${pageData.selectedItem}"].flex-child`);
     prevSelection?.classList.remove('selected');
     prevSelection?.querySelector('g').setAttribute('opacity', '0.6');
-    prevSelection?.classList.remove('selected');
     el.classList.add('selected');
     el.querySelector('g').setAttribute('opacity', '1');
     pageData.selectedItem = el.getAttribute('ix');

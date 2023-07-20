@@ -23,6 +23,7 @@
 	import {log_space} from "./components/log-space/log-space.mjs";
 	import {all_clusters} from "./components/all-clusters/all-clusters.mjs";
 	import {all_servers} from "./components/all-servers/all-servers.mjs";
+    import {card_view} from "./components/card-view/card-view.mjs";
 	import {main} from "./js/main.mjs"; window.main = main;
     import {all_notifs} from "./components/all-notifs/all-notifs.mjs";
     import {change_password} from "./components/change-password/change-password.mjs";
@@ -338,6 +339,11 @@
 			aspect-ratio: 1728/1830;
 			display: inline-block;
 		}
+        card-view{
+            width: 40%;
+			aspect-ratio: 1728/1830;
+			display: inline-block;
+        }
 	</style>
 	
 </head>
@@ -413,7 +419,7 @@
         </div>
 		<all-servers></all-servers>
 	<log-space></log-space>
-	<arc-reactor></arc-reactor>
+	<card-view></card-view>
 	<button id="openModal" onclick="main.openModal('allCardsModal')">Open Modal</button>
 
 		<div id="allCardsModal" class="modal">
