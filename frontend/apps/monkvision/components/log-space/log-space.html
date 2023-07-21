@@ -18,9 +18,9 @@
         }
         .container>span{
             width: 45%;
-            max-height: 4%;
+            height: 5%;
             display: inline-block;
-            font-size: 213%;
+            font-size: 100%;
             opacity: 0.9;
             margin-left: 47%;
             overflow: hidden;
@@ -30,7 +30,6 @@
             width: 90%;
             margin-top: 1.37%;
             margin-left: 5%;
-            background: rgba(50, 50, 50, 0.3);
             overflow: hidden auto;
             scrollbar-width: none;
             -ms-overflow-style: none;
@@ -43,22 +42,29 @@
         }
         .content>div{
             position: relative;
+            display: flex;
+            flex-flow: row;
             height: 14%;
         }
-        .content>div>*{
-            position: absolute;
-        }
         .time{
-            left: 8%;
-            font-size: 1.5vw;
+            display: flex;
+            place-items: center;
+            width: 10%;
+            height: 40%;
         }
         .lines{
-            right: 76%;
+            width: 20%;
+            padding-left: 1%;
+            height: 100%;
         }
         .status{
-            left: 30%;
-            font-size: 1.5vw;
-            top: -28%;
+            width: 70%;
+            height: 2rem;
+            font-size: 0.8rem;
+            line-height: 0.8rem;
+            max-height: 3rem;
+            margin-block: 0;
+            overflow: hidden auto;
         }
     </style>
 </head>
