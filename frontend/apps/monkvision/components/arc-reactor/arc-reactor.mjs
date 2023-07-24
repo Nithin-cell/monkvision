@@ -163,7 +163,7 @@ function populateSvg(element){
         <line x1="399.781" y1="256.035" x2="399.781" y2="557.233" stroke="white" stroke-width="2" stroke-dasharray="2 2"/>
         <line x1="248.089" y1="402.139" x2="549.473" y2="402.139" stroke="white" stroke-width="2" stroke-dasharray="2 2"/>
         <rect x="302" y="327" width="90" height="26" rx="4" fill="#169632"/>
-        <text x="345.703" y="341" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="snow" font-size="11px">139.59.3.40:22</text>
+        <text x="345.703" y="341" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="snow" font-size="11px">${pageData.reactor.boxText}</text>
         <g filter="url(#filter4_d_128_21)">
         <circle cx="399.663" cy="400" r="8" fill="white"/>
         <circle cx="399.663" cy="400" r="6.5" stroke="#245F15" stroke-width="3"/>

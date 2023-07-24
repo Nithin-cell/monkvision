@@ -35,6 +35,16 @@
 		#openModal{
 			display: none;
 		}
+        log-space{
+            z-index: 3;
+            transform: scaleY(1.2);
+        }
+        all-servers{
+            z-index: 2;
+        }
+        all-clusters{
+            z-index: 1;
+        }
 		.font{
         font-family: 'ubuntu';
         color: #FFFFFF;
@@ -668,9 +678,10 @@
 
         .download-report{
             position: absolute;
-            right: 6%;
-            width: 26%;
-            top: 85vh;
+            right: 7.6%;
+            width: 24%;
+            transform: scaleX(1.145);
+            top: 88vh;
         }
     }
     @media only screen and (min-width: 2001px) and (max-width:2500px){
