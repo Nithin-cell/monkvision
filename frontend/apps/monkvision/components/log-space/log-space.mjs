@@ -106,11 +106,11 @@ async function elementRendered(element) {
 }
 
 function populateLogs(element){
-    element.shadowRoot.querySelector('.bg text').innerHTML = pageData.name?? "Cycle Logs"
+    const $$ = element? element.shadowRoot : log_space.shadowRoot;
+    $$.querySelector('.bg text').innerHTML = pageData.name?? "Cycle Logs"
     if(pageData.logs && pageData.logs.length){
         const arr = pageData.logs;
-        const content = element.shadowRoot.querySelector('.content');
-        content.innerHTML = '';
+        const content = $$.querySelector('.content');
         content.innerHTML = '';
         for(let i=0, l=arr.length; i<l; i++){
             content.insertAdjacentHTML('beforeend', `

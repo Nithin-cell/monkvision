@@ -9,28 +9,28 @@ const pageData = {
         boxText: "139.17.16.151:22",
         arcs: [
             {
-                color: "#AA1020",
-                percent: 15,
-            },
-            {
-                color: "#cccc80",
+                color: "#FF2002",
                 percent: 10,
             },
             {
-                color: "#ddd",
-                percent: 30,
+                color: "#FF9C07",
+                percent: 15,
+            },
+            {
+                color: "#47C4FB",
+                percent: 50,
             }
         ],
-        bottomHead: "Explodes at:",
+        bottomHead: "Theshold at:",
         bottomVal: 88,
         leftArc: {
-            color: "#AAFF56",
+            color: "#FF9C07",
             percent: 50
         },
-        mainText: "99.98%",
+        mainText: "100%",
         mainTextType: "Status",
-        blocksCount: 5,
-        blocksColor: "#EE82EE"
+        blocksCount: 9,
+        blocksColor: "#62FF02"
     }
 }
 async function elementRendered(element) {

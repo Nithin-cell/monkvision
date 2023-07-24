@@ -10,7 +10,7 @@ async function elementRendered(el) {
 
 function updateFragment(){
   all_cards.shadowRoot.querySelector('.cardsContainer').innerHTML = card_view.pageData.items.map((card, i) =>
-    `<div class='flex-item${i==card_view.pageData.selectedItem? ' selected': ''}' ix="${i}" onclick="monkshu_env.components['card-view'].selectItemHandler(this, 'all-cards')"><glowing-arc ${Object.keys(card).map(k=>`${k}="${card[k]}"`).join(' ')}></glowing-arc></div>`
+    `<div class='flex-item${i==card_view.pageData.selectedItem? ' selected': ''}' ix="${i}" onclick="monkshu_env.components['card-view'].selectItemHandler(this, 'all-cards')"><glowing-arc animate="1" ${Object.keys(card).map(k=>`${k}="${card[k]}"`).join(' ')}></glowing-arc></div>`
   ).join('');
 }
 

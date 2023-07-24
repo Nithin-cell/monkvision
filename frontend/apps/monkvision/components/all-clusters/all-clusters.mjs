@@ -7,52 +7,52 @@ const pageData = {
     shift: 0,
     items: [
         {
-            data: "0",
-            innerTitle: "DISK",
-            percentage: "89",
+            data: "A",
+            innerTitle: "CLUSTER",
+            percentage: "80",
             innerSubtitle: "India",
-            color: "red",
-            warningColour: "red"
+            color: "#169632"
         },
         {
-            data: "1",
-            innerTitle: "DISK",
+            data: "B",
+            innerTitle: "CLUSTER",
             percentage: "50",
-            innerSubtitle: "USA",
-            color: "yellow"
+            innerSubtitle: "Japan",
+            color: "#FF9C07",
+            outlineColor: "#FF9C07"
         },
         {
-            data: "2",
-            innerTitle: "DISK",
-            percentage: "10",
-            innerSubtitle: "India",
-            color: "green"
+            data: "C",
+            innerTitle: "CLUSTER",
+            percentage: "20",
+            innerSubtitle: "America",
+            color: "#FF2002",
+            outlineColor: "#FF2002"
         },
         {
-            data: "3",
-            innerTitle: "DISK",
+            data: "D",
+            innerTitle: "CLUSTER",
+            percentage: "50",
+            innerSubtitle: "Philippines",
+            color: "rgba(71, 196, 251, 0.5)"
+        },
+        {
+            data: "E",
+            innerTitle: "CLUSTER",
             percentage: "30",
-            innerSubtitle: "JAPAN",
-            color: "yellow",
-            warningColour: "yellow"
+            innerSubtitle: "India",
+            color: "rgba(71, 196, 251, 0.5)"
         },
         {
-            data: "4",
-            innerTitle: "DISK",
-            percentage: "95",
-            innerSubtitle: "Australia",
-            color: "red",
-            warningColour: "red"
+            data: "F",
+            innerTitle: "CLUSTER",
+            percentage: "80",
+            innerSubtitle: "India",
+            color: "#169632",
+            outlineColor: "#169632"
         },
         {
-            data: "5",
-            innerTitle: "RESTARTS",
-            percentage: "60",
-            innerSubtitle: "Australia",
-            color: "blue"
-        },
-        {
-            data: "6",
+            data: "G",
             innerTitle: "ATTACKS",
             percentage: "47",
             innerSubtitle: "Gorakhpur",
@@ -60,7 +60,7 @@ const pageData = {
             warningColour: "turquoise"
         },
         {
-            data: "7",
+            data: "H",
             innerTitle: "ATTACKS",
             percentage: "47",
             innerSubtitle: "Gorakhpur",
@@ -148,8 +148,8 @@ function scrollFlex(path, flag){
         let prevArc = pageData.items[Math.abs(pageData.shift)];
         parent.insertAdjacentHTML('beforeend', `<glowing-arc parent="clusters" ${Object.keys(prevArc).map(k=>`${k}="${prevArc[k]}"`).join(' ')}></glowing-arc>`);
     }
-    let prevPossible = Math.abs(pageData.shift) + 5 < pageData.items.length;
-    let nextPossible = pageData.shift<0;
+    let prevPossible = pageData.shift<0;
+    let nextPossible = Math.abs(pageData.shift) + 5 < pageData.items.length;
     $$.querySelector('#prev').parentElement.setAttribute('opacity', prevPossible? 1 : 0.6);
     $$.querySelector('#next').parentElement.setAttribute('opacity', nextPossible? 1 : 0.6);
 }

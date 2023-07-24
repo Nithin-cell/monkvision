@@ -7,57 +7,55 @@ const pageData = {
     selectedItem: 0,
     items: [
         {
-          mainTitle: "Reads/sec",
+          mainTitle: "USAGE %",
+          data: "50%",
+          innerTitle: "RAM",
+          percentage: "50",
+          color: "#169632",
+        },
+        {
+          mainTitle: "WRITES/SEC",
+          data: "48/s",
+          innerTitle: "DISK",
+          percentage: "40",
+          color: "rgba(71, 196, 251, 0.5)"
+        },
+        {
+          mainTitle: "READS/SEC",
           data: "89/s",
           innerTitle: "DISK",
-          percentage: "88",
-          color: "rgba(88, 34, 98, 0.8)",
-          warningColour: "rgba(50, 56, 76, 1)"
+          percentage: "75",
+          color: "rgba(71, 196, 251, 0.5)",
         },
         {
-          mainTitle: "Reads/sec",
-          data: "42/s",
-          innerTitle: "NETWORK",
-          percentage: "65",
-          color: "rgba(183, 201, 8, 0.8)"
-        },
-        {
-          mainTitle: "Reads/sec",
-          data: "76/s",
-          innerTitle: "DATABASE",
+          mainTitle: "COUNT",
+          data: "9",
+          innerTitle: "RESTARTS",
           percentage: "92",
-          color: "rgba(216, 56, 193, 0.8)",
-          warningColour: "rgba(99, 78, 169, 1)"
+          color: "rgba(255, 156, 7, 0.8)",
+          warningColour: "#FF9C07"
         },
         {
-          mainTitle: "Reads/sec",
-          data: "51/s",
-          innerTitle: "CACHE",
-          percentage: "33",
-          color: "rgba(42, 195, 17, 0.8)",
-          warningColour: "rgba(241, 87, 67, 1)"
+          mainTitle: "COUNT",
+          data: "6",
+          innerTitle: "REBOOTS",
+          percentage: "100",
+          color: "rgba(255, 32, 2, 0.8)",
+          warningColour: "rgba(255, 32, 2, 1)"
         },
         {
-          mainTitle: "Writes/sec",
-          data: "67/s",
-          innerTitle: "DISK",
-          percentage: "42",
-          color: "rgba(189, 58, 231, 0.8)"
-        },
-        {
-          mainTitle: "Writes/sec",
-          data: "23/s",
+          mainTitle: "TRANSFER KB/SEC",
+          data: "50/s",
           innerTitle: "NETWORK",
-          percentage: "74",
-          color: "rgba(85, 171, 51, 0.8)"
+          percentage: "50",
+          color: "rgba(22, 150, 50, 0.8)"
         },
         {
-          mainTitle: "Writes/sec",
-          data: "98/s",
-          innerTitle: "DATABASE",
-          percentage: "60",
-          color: "rgba(23, 198, 212, 0.8)",
-          warningColour: "rgba(157, 25, 57, 1)"
+          mainTitle: "RECIEVED KB/SEC",
+          data: "50/s",
+          innerTitle: "NETWORK",
+          percentage: "50",
+          color: "rgba(22, 150, 50, 0.8)"
         },
         {
           mainTitle: "Writes/sec",
@@ -277,14 +275,11 @@ function populateCards(element){
             <div class="flex-child${i==pageData.selectedItem? ' selected':''}" ix="${i}" onclick="monkshu_env.components['card-view'].selectItemHandler(this)">${getGlowingArc(arr[i], i==pageData.selectedItem? 1: 0.6)}</div>
             `);
         }
-        if(l>6){
-            $$.querySelector('.bg #next').parentElement.setAttribute('opacity', 1);
-        }
+        scrollEndHandler(container)
     }
 }
 
 function scrollFlex(path, flag){
-    console.log("hre")
     const flexContainer = card_view.shadowRoot.querySelector('.flex-container');
     let width = flexContainer.offsetWidth;
     width = (0.9)*width;
@@ -297,7 +292,7 @@ function scrollFlex(path, flag){
 
 function getGlowingArc(card){
     return `
-    <glowing-arc ${Object.keys(card).map(k=>`${k}="${card[k]}"`).join(' ')}></glowing-arc>
+    <glowing-arc parent="cardView" ${Object.keys(card).map(k=>`${k}="${card[k]}"`).join(' ')}></glowing-arc>
     `
 }
 
@@ -328,6 +323,7 @@ function selectItemHandler(el, parent){
   }
   el.classList.add('selected');
   pageData.selectedItem = newSelection;
+  el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
 }
 
 

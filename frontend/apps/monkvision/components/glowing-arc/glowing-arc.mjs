@@ -17,9 +17,10 @@ async function elementRendered(element) {
     const color = element.getAttribute('color');
     const outlineColor = element.getAttribute('outlineColor');
     const warningColour = element.getAttribute('warningcolour');
+    const animate = element.getAttribute('animate');
     const arcElement = element.shadowRoot.querySelector('.color-arc');
     
-    setArc(arcElement, percentage, color, mainTitle, data, innerTitle, innerSubtitle, outlineColor, parent);
+    setArc(arcElement, percentage, color, mainTitle, data, innerTitle, innerSubtitle, outlineColor, parent, animate);
     setCSS(element, parent);
 
     if (warningColour) {
@@ -41,17 +42,19 @@ async function elementRendered(element) {
  * @param {String} innerSubtitle text  
  * @param {String} outlineColor color value  
  * @param {String} parent parent element where this component is used. (to set css accordingly)
+ * @param {any} animate apply animation flag
 */
-function setArc(svg, p, c, mainTitle, data, innerTitle, innerSubtitle, outlineColor, parent){
+function setArc(svg, p, c, mainTitle, data, innerTitle, innerSubtitle, outlineColor, parent, animate){
     p = Number(p);
     p = p>100? 100 : p;
     let endPoints = getEndPoints(p);
     if(p!=0){
+        animate = animate? '<animate id="a1" attributeType="XML" attributeName="stroke-dasharray" from="0" to="1000" dur="2s" fill="remove-during-active" />' : '';
         const circle = `M ${initialPoints.x} ${initialPoints.y} A ${radius} ${radius} 0 1 1 ${initialPoints.x-0.01} ${initialPoints.y}`;
         const d = `M ${initialPoints.x} ${initialPoints.y} A ${radius} ${radius} 0 ${p>50? 1 : 0} 1 ${endPoints.x} ${endPoints.y}`;
         svg.querySelector('g').insertAdjacentHTML("beforeend", `
         <path class="arc" d="${d}" stroke="${c}" stroke-width="18px" stroke-linecap="round">
-        <animate id="a1" attributeType="XML" attributeName="stroke-dasharray" from="0" to="1000" dur="${2}s" fill="remove-during-active" />
+        ${animate}
         </path>
         <path d="${circle}" stroke="${outlineColor?? "white"}" stroke-width="2px" stroke-linecap="round" opacity="0.9"/>
         `)
@@ -65,13 +68,13 @@ function setArc(svg, p, c, mainTitle, data, innerTitle, innerSubtitle, outlineCo
                     transform: translate(-10%, -1%);
                 }
                 .small {
-                    font: normal ${parent=="clusters"? 18 : 13}px sans-serif;
+                    font: normal ${parent=="clusters"? 18 : parent=="cardView"? 26 : 20}px sans-serif;
                 }
                 .heavy {
-                    font: bold ${parent=="clusters"? 65 : 30}px sans-serif;
+                    font: bold ${parent=="clusters" || parent=="cardView"? 65 : 30}px sans-serif;
                 }
             </style>
-            <text x="50%" y="${parent=='tab'? 46 : parent=="clusters"? 34 : 40}%" width="200" class="small">${innerTitle?? ''}</text>
+            <text x="50%" y="${parent=='tab'? 46 : parent=="clusters" || parent=="cardView"? 34 : 40}%" width="200" class="small">${innerTitle?? ''}</text>
             <text x="50%" y="50%" class="heavy">${data?? ''}</text>
             <text x="50%" y="${parent=="clusters"? 62.5 : 60}%" class="small">${innerSubtitle?? ''}</text>
             <text x="50%" y="96%" class="small">${mainTitle?? ''}</text>
@@ -98,7 +101,8 @@ function getEndPoints(percentage){
 function startAnimation(element){
     element.setAttribute('onmouseover', '');
     const a1 = element.querySelector('#a1');
-    a1?.beginElement();
+    if(!a1) return;
+    a1.beginElement();
     setTimeout(()=> {
         if(element.getAttribute('onmouseover') == ''){
             element.setAttribute('onmouseover', "monkshu_env.components['glowing-arc'].startAnimation(this)");

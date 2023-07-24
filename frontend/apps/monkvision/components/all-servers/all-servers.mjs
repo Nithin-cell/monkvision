@@ -13,12 +13,7 @@ const pageData = {
         {
             ip: "133.25.26.24:22",
             type: "SERVER",
-            warningColor: "red"
-        },
-        {
-            ip: "133.25.26.24:22",
-            type: "SERVER",
-            warningColor: "yellow"
+            warningColor: "#FF9C07"
         },
         {
             ip: "133.25.26.24:22",
@@ -30,13 +25,16 @@ const pageData = {
         },
         {
             ip: "133.25.26.24:22",
-            type: "SERVER",
-            warningColor: "green"
+            type: "SERVER"
         },
         {
             ip: "133.25.26.24:22",
             type: "SERVER",
-            warningColor: "yellow"
+            warningColor: "#FF9C07"
+        },
+        {
+            ip: "133.25.26.24:22",
+            type: "SERVER"
         },
         {
             ip: "133.25.26.24:22",
@@ -184,6 +182,7 @@ function selectItemHandler(el){
     el.classList.add('selected');
     el.querySelector('g').setAttribute('opacity', '1');
     pageData.selectedItem = el.getAttribute('ix');
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
 }
 
 export const all_servers = { trueWebComponentMode:true,elementRendered, scrollFlex, scrollEndHandler, selectItemHandler}

@@ -24,14 +24,16 @@
             position: absolute;
         }
         .flex-container {
+            transform-origin: top left;
             display: flex;
             flex-wrap: nowrap;
             scroll-behavior: smooth;
-            width: 93.9%;
-            height: 20.8%;
+            width: 78.4%;
+            aspect-ratio: 639/150;
             margin-top: 3.4%;
             margin-left: 3.2%;
-            overflow: auto hidden;
+            transform: scale(1.2);
+            overflow: auto visible;
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
