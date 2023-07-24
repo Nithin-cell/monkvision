@@ -43,7 +43,7 @@ function populateSvg(element){
         let {paths, points} = getArcPoints(pageData.reactor.arcs);
         let lastPt = points[points.length-1];
         element.shadowRoot.querySelector('body').innerHTML = `
-        <svg width="806" height="802" viewBox="0 0 806 802" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 806 802" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="399" cy="399" r="194" stroke="white"/>
         
         ${paths.join('')}

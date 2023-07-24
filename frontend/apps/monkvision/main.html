@@ -40,41 +40,1057 @@
         color: #FFFFFF;
         font-weight: 400;
     	}
-		 /* CSS rules for screens with a maximum width of 1000 pixels */
-		 @media only screen and (min-width: 1000px) and (max-width:1500px){
+        @media only screen and (max-width:999px){
+            .profile-menu-container{
+			height: 11em;
+			position: absolute;
+			right: 1em;
+			top: 0;
+        }
         .profile-menu-img{
-            position: absolute;
-            top: 1.85em;
-            height: 30px;
-            width: 30px;
-            border-radius: 50%;
-            right: 2.7em;
-            border: 1px solid #FFFFFF;
-        }
-        .profile-menu-container{
-            height:10em;
-            position: absolute;
-            right: 1em;
-            top:0.5em;
-        }
-        .profile-menu-search{
-            position:absolute;right: 6em;top: 3em;width: 11px;
+			position: absolute;
+			top: 2.85em;
+			height: 55px;
+			width: 55px;
+			border-radius: 50%;
+			right: 3.965em;
+			border: 1px solid #FFFFFF;
         }
         .profile-menu-text{
-            position:absolute;top: 2.5em;right: 8.2em;font-size: 10px;
+			position: absolute;
+			top: 2.5em;
+			right: 8.5em;
         }
-        .profile-menu-container{
-            height: 6em;position: absolute;right: 1em;top:0.5em;
+		.image-container{
+			position: absolute;
+			top: 1.45em;
+			right: 2.5em;
+			width: 6.5em;
+        }
+        .start-icon{
+            width: 3em;
+            height: 1em;
+            position: absolute;
+            left: 14.5em;
+            top: 0.5em;
+
+        }
+        .start-icon-button{
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            position: absolute;
+            right: 9em;
+            width: 30em;
+            top: 8.2em;
+            height: 2em;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .start-icon-button-text{
+            color: white;
+            font-weight: bold;
+            z-index: 2;
+            top: -0.65em;
+            position: absolute;
+            left: 11.8em;
+        }
+        .profile-menu-bell{
+            position: absolute;
+            right: 4.2em;
+            top: 7.2em;
+            width: 3.3em;
+        }
+        .top-bar{
+            width: 43.8%;
+            margin-top: -1em;
+            margin-left: 4em;
+        }
+        .main-content-header{
+            width: 36em;
+            margin-top: 4em;
+            margin-left: 3em;
+            color: #FFFFFF;
+            font-size: 1.4em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .main-content-setting{
+            position: absolute;
+            left: 44.5%;
+            top: 8em;
+            width: 1em;
+        }
+        .main-content-search{
+            position: absolute;
+            left: 42.5%;
+            top: 8em;
+            width: 1em;
+        }
+        .content-switch-tabs{
+            display: flex;
+            flex-direction: row;
+            width: 10em;
+            margin-left: 42%;
+        }
+        .content-switch-tabs img{
+            margin-right: 0.5em;
+        }
+        .slide-left-tab{
+            width: 4em;
+            margin-right:0em;
+        }
+        .slide-right-tab{
+            width: 4em;
+            margin-left: -1em;
+        }
+        .pages-tab{
+            width: 3em;
+        }
+        .all-pages-tab{
+            width: 4em;
+            margin-left:-0.5em
+        }
+        .side-profile{
+            position: fixed;
+            z-index: 3;
+            right: -100%;
+            top: 0;
+            height: 100%;
+            background-color: #333231;
+            width: 20em;
+            transition: right 0.2s ease-in-out;
+        }
+        .side-profile-image-cover{
+            position: absolute;
+            right: 0em;
+            width: 20em;
+        }
+        .side-profile-img-cover{
+            position: absolute;
+            top: 1.45em;
+            right: 1.5em;
+            width: 6.5em;
+        }
+        .side-profile-img{
+            position: absolute;
+            top: 2.85em;
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            right: 2.969em;
+            border: 1px solid #FFFFFF;
+        }
+        .side-profile-title{
+
+            margin-left: 3.5em;
+            color: #FFFFFF;
+            font-size: 0.8em;
+            font-family: ubuntu;
+            font-weight: normal;
+            margin-top: -1.5em;
+
+        }
+        .side-profile-username{
+            margin-top: 3.5em;
+            margin-left: 2.5em;
+            color: #FFFFFF;
+            font-size: 1.1em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .side-profile-logout{
+            position: relative;
+            top: 3em;
+            left: 2em;
+            width: 9em;
+        }
+        }
+		 /* CSS rules for screens with a maximum width of 1000 pixels */
+		 @media only screen and (min-width: 1000px) and (max-width:1500px){
+            .main-content{
+                position: relative;
+                top: 2em;
+            }
+            .profile-menu-container{
+			    height: 8em;
+                position: absolute;
+                right: 1em;
+                top: 0;
+        }
+        .profile-menu-img{
+            position: absolute;
+            top: 2.23em;
+            height: 2.3em;
+            width: 2.3em;
+            border-radius: 50%;
+            right: 3.23em;
+            border: 1px solid #FFFFFF;
+        }
+        .profile-menu-text{
+            position: absolute;
+            top: 2.2em;
+            right: 8.4em;
+            font-size: 0.75em;
         }
 		.image-container{
             position: absolute;
-            top: -6.1em;
-            left: 8.2em;
-            width: 8em;
+            top: 1.2em;
+            right: 2.2em;
+            width: 4.5em;
         }
-     
+        .start-icon{
+            width: 3em;
+            height: 0.75em;
+            position: absolute;
+            left: 10.5em;
+            top: 0.3em;
+
+        }
+        .start-icon-button{
+            border: 1px solid #ffffff;
+            border-radius: 3px;
+            position: absolute;
+            right: 7.4em;
+            width: 21.2em;
+            top: 6.2em;
+            height: 1.4em;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .start-icon-button-text{
+            color: white;
+            font-weight: bold;
+            z-index: 2;
+            top: -0.65em;
+            position: absolute;
+            left: 11.8em;
+            font-size: 0.75em;
+        }
+        .profile-menu-bell{
+            position: absolute;
+            right: 3.2em;
+            top: 5.2em;
+            width: 2.5em;
+        }
+        .top-bar{
+            width: 43.5%;
+            margin-top: -1em;
+            margin-left: 4em;
+        }
+        .main-content-header{
+            width: 36em;
+            margin-left: 3.5em;
+            color: #FFFFFF;
+            font-size: 1.2em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .main-content-setting{
+            position: absolute;
+            left: 44.5%;
+            top: 0.5em;
+            width: 1em;
+        }
+        .main-content-search{
+            position: absolute;
+            left: 42.5%;
+            top: 0.5em;
+            width: 1em;
+        }
+        .content-switch-tabs{
+            display: flex;
+            flex-direction: row;
+            width: 10em;
+            margin-left: 43%;
+        }
+        .content-switch-tabs img{
+            margin-right: 0.5em;
+        }
+        .slide-left-tab{
+            width: 3em;
+            margin-right:0em;
+        }
+        .slide-right-tab{
+            width: 3em;
+            margin-left: -1em;
+        }
+        .pages-tab{
+            width: 2em;
+        }
+        .all-pages-tab{
+            width: 3em;
+            margin-left:-0.5em
+        }
+        .side-profile{
+            position: fixed;
+            z-index: 3;
+            right: -100%;
+            top: 0;
+            height: 100%;
+            background-color: #333231;
+            width: 20em;
+            transition: right 0.2s ease-in-out;
+        }
+        .side-profile-image-cover{
+            position: absolute;
+            right: 0em;
+            width: 20em;
+        }
+        .side-profile-img-cover{
+            position: absolute;
+            top: 1.45em;
+            right: 1.5em;
+            width: 6.5em;
+        }
+        .side-profile-img{
+            position: absolute;
+            top: 2.85em;
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            right: 2.969em;
+            border: 1px solid #FFFFFF;
+        }
+        .side-profile-title{
+
+            margin-left: 3.5em;
+            color: #FFFFFF;
+            font-size: 0.8em;
+            font-family: ubuntu;
+            font-weight: normal;
+            margin-top: -1.5em;
+
+        }
+        .side-profile-username{
+            margin-top: 3.5em;
+            margin-left: 2.5em;
+            color: #FFFFFF;
+            font-size: 1.1em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .side-profile-logout{
+            position: relative;
+            top: 3em;
+            left: 2em;
+            width: 9em;
+        }
+        .start-date{
+            position: absolute;
+            right: 18.4em;
+            top: 4.2em;
+            width: 10.2em;
+            background: transparent;
+            color: #ffffff;
+        }
+        .end-date{
+            position: absolute;
+            right: 7.5em;
+            width: 10.2em;
+            top: 4.2em;
+            background: transparent;
+            color: #ffffff;
+        }
+        .monkvision-logo{
+            width: 8em;
+            margin-top: 1em;
+            margin-left: 1em;
+        }
+        arc-reactor{
+            position: absolute;
+            top: 0em;
+            left: 1em;
+            width: 45%;
+        }
+        card-view{
+            width: 42%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+            position: absolute;
+            top: 65vh;
+            left: 5em;
+        }
+        log-space{
+            width: 36%;
+            aspect-ratio: 659/333;
+            display: inline-block;
+            position: absolute;
+            top: 49vh;
+            right: 6%;
+        }
+        all-servers{
+            position: absolute;
+            top: 30vh;
+            right: 6%;
+            width: 36%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+        }
+        all-clusters{
+            position: absolute;
+            top: 14vh;
+            right: 6%;
+            width: 36%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+        }
+        .download-report{
+            position: absolute;
+            right: 6%;
+            width: 26%;
+            top: 81vh;
+        }
     }
     @media only screen and (min-width: 1501px) and (max-width:2000px){
+        .main-content{
+            position: relative;
+            top: -2em;
+            }
+        .profile-menu-container{
+			height: 11em;
+			position: absolute;
+			right: 1em;
+			top: 0;
+        }
+        .profile-menu-img{
+			position: absolute;
+			top: 2.85em;
+			height: 55px;
+			width: 55px;
+			border-radius: 50%;
+			right: 3.965em;
+			border: 1px solid #FFFFFF;
+        }
+        .profile-menu-text{
+			position: absolute;
+			top: 2.5em;
+			right: 8.5em;
+        }
+		.image-container{
+			position: absolute;
+			top: 1.45em;
+			right: 2.5em;
+			width: 6.5em;
+        }
+        .start-icon{
+            width: 3em;
+            height: 1em;
+            position: absolute;
+            left: 14.5em;
+            top: 0.5em;
+
+        }
+        .start-icon-button{
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            position: absolute;
+            right: 9em;
+            width: 30em;
+            top: 8.2em;
+            height: 2em;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .start-icon-button-text{
+            color: white;
+            font-weight: bold;
+            z-index: 2;
+            top: -0.65em;
+            position: absolute;
+            left: 11.8em;
+        }
+        .profile-menu-bell{
+            position: absolute;
+            right: 4.2em;
+            top: 7.2em;
+            width: 3.3em;
+        }
+        .top-bar{
+            width: 43.8%;
+            margin-top: -1em;
+            margin-left: 4em;
+        }
+        .main-content-header{
+            width: 36em;
+            margin-top: 4em;
+            margin-left: 3em;
+            color: #FFFFFF;
+            font-size: 1.6em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .main-content-setting{
+            position: absolute;
+            left: 44.5%;
+            top: 0em;
+        }
+        .main-content-search{
+            position: absolute;
+            left: 42.5%;
+            top: 0em;
+        }
+        .content-switch-tabs{
+            display: flex;
+            flex-direction: row;
+            width: 10em;
+            margin-left: 42%;
+        }
+        .content-switch-tabs img{
+            margin-right: 0.5em;
+        }
+        .slide-left-tab{
+            width: 4em;
+            margin-right:0em;
+        }
+        .slide-right-tab{
+            width: 4em;
+            margin-left: -1em;
+        }
+        .pages-tab{
+            width: 3em;
+        }
+        .all-pages-tab{
+            width: 4em;
+            margin-left:-0.5em
+        }
+        .side-profile{
+            position: fixed;
+            z-index: 3;
+            right: -100%;
+            top: 0;
+            height: 100%;
+            background-color: #333231;
+            width: 20em;
+            transition: right 0.2s ease-in-out;
+        }
+        .side-profile-image-cover{
+            position: absolute;
+            right: 0em;
+            width: 20em;
+        }
+        .side-profile-img-cover{
+            position: absolute;
+            top: 1.45em;
+            right: 1.5em;
+            width: 6.5em;
+        }
+        .side-profile-img{
+            position: absolute;
+            top: 2.85em;
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            right: 2.969em;
+            border: 1px solid #FFFFFF;
+        }
+        .side-profile-title{
+
+            margin-left: 3.5em;
+            color: #FFFFFF;
+            font-size: 0.8em;
+            font-family: ubuntu;
+            font-weight: normal;
+            margin-top: -1.5em;
+
+        }
+        .side-profile-username{
+            margin-top: 3.5em;
+            margin-left: 2.5em;
+            color: #FFFFFF;
+            font-size: 1.1em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .side-profile-logout{
+            position: relative;
+            top: 3em;
+            left: 2em;
+            width: 9em;
+        }
+        .start-date{
+            position: absolute;
+			right: 25em;
+			top: 6em;
+			width: 14em;
+			background: transparent;
+			color: #ffffff;
+        }
+        .end-date{
+            position: absolute;
+			right: 10em;
+			width: 14em;
+			top: 6em;
+			background: transparent;
+			color: #ffffff;
+        }
+        .monkvision-logo{
+            width: 10em;
+            margin-top: 1em;
+            margin-left: 1em;
+        }
+
+        arc-reactor{
+            position: absolute;
+            top: -1em;
+            left: 4em;
+            width: 46%;
+        }
+        card-view{
+            width: 46%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+            position: absolute;
+            top: 69vh;
+            left: 5em;
+        }
+        log-space{
+            width: 38%;
+            aspect-ratio: 659/333;
+            display: inline-block;
+            position: absolute;
+            top: 58vh;
+            right: 6%;
+        }
+        all-servers{
+            position: absolute;
+            top: 32vh;
+            right: 6%;
+            width: 38%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+
+        }
+        all-clusters{
+            position: absolute;
+            top: 14vh;
+            right: 6%;
+            width: 38%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+        }
+
+        .download-report{
+            position: absolute;
+            right: 6%;
+            width: 26%;
+            top: 85vh;
+        }
+    }
+    @media only screen and (min-width: 2001px) and (max-width:2500px){
+        .main-content{
+                position: relative;
+                top:0em;
+            }
+        .profile-menu-container{
+			height: 11em;
+			position: absolute;
+			right: 1em;
+			top: 0;
+        }
+        .profile-menu-img{
+			position: absolute;
+			top: 2.85em;
+			height: 55px;
+			width: 55px;
+			border-radius: 50%;
+			right: 3.965em;
+			border: 1px solid #FFFFFF;
+        }
+        .profile-menu-text{
+			position: absolute;
+			top: 2.5em;
+			right: 8.5em;
+        }
+		.image-container{
+			position: absolute;
+			top: 1.45em;
+			right: 2.5em;
+			width: 6.5em;
+        }
+        .start-icon{
+            width: 3em;
+            height: 1em;
+            position: absolute;
+            left: 14.5em;
+            top: 0.5em;
+
+        }
+        .start-icon-button{
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            position: absolute;
+            right: 9em;
+            width: 30em;
+            top: 8.2em;
+            height: 2em;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .start-icon-button-text{
+            color: white;
+            font-weight: bold;
+            z-index: 2;
+            top: -0.65em;
+            position: absolute;
+            left: 11.8em;
+        }
+        .profile-menu-bell{
+            position: absolute;
+            right: 4.2em;
+            top: 7.2em;
+            width: 3.3em;
+        }
+        .top-bar{
+            width: 43.8%;
+            margin-top: -1em;
+            margin-left: 4em;
+        }
+        .main-content-header{
+            width: 36em;
+            margin-top: 4em;
+            margin-left: 3em;
+            color: #FFFFFF;
+            font-size: 1.4em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .main-content-setting{
+            position: absolute;
+            left: 44.5%;
+            top: 0em;
+        }
+        .main-content-search{
+            position: absolute;
+            left: 42.5%;
+            top: 0em;
+        }
+        .content-switch-tabs{
+            display: flex;
+            flex-direction: row;
+            width: 10em;
+            margin-left: 42%;
+        }
+        .content-switch-tabs img{
+            margin-right: 0.5em;
+        }
+        .slide-left-tab{
+            width: 4em;
+            margin-right:0em;
+        }
+        .slide-right-tab{
+            width: 4em;
+            margin-left: -1em;
+        }
+        .pages-tab{
+            width: 3em;
+        }
+        .all-pages-tab{
+            width: 4em;
+            margin-left:-0.5em
+        }
+        .side-profile{
+            position: fixed;
+            z-index: 3;
+            right: -100%;
+            top: 0;
+            height: 100%;
+            background-color: #333231;
+            width: 20em;
+            transition: right 0.2s ease-in-out;
+        }
+        .side-profile-image-cover{
+            position: absolute;
+            right: 0em;
+            width: 20em;
+        }
+        .side-profile-img-cover{
+            position: absolute;
+            top: 1.45em;
+            right: 1.5em;
+            width: 6.5em;
+        }
+        .side-profile-img{
+            position: absolute;
+            top: 2.85em;
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            right: 2.969em;
+            border: 1px solid #FFFFFF;
+        }
+        .side-profile-title{
+
+            margin-left: 3.5em;
+            color: #FFFFFF;
+            font-size: 0.8em;
+            font-family: ubuntu;
+            font-weight: normal;
+            margin-top: -1.5em;
+
+        }
+        .side-profile-username{
+            margin-top: 3.5em;
+            margin-left: 2.5em;
+            color: #FFFFFF;
+            font-size: 1.1em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .side-profile-logout{
+            position: relative;
+            top: 3em;
+            left: 2em;
+            width: 9em;
+        }
+        arc-reactor{
+            position: absolute;
+            top: 0em;
+            left: 1em;
+            width: 45%;
+        }
+        card-view{
+            width: 42%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+            position: absolute;
+            top: 65vh;
+            left: 5em;
+        }
+        log-space{
+            width: 36%;
+            aspect-ratio: 659/333;
+            display: inline-block;
+            position: absolute;
+            top: 55vh;
+            right: 6%;
+        }
+        all-servers{
+            position: absolute;
+            top: 30vh;
+            right: 6%;
+
+        }
+        all-clusters{
+            position: absolute;
+            top: 14vh;
+            right: 6%;
+        }
+        .download-report{
+            position: absolute;
+            right: 6%;
+            width: 26%;
+            top: 78vh;
+        }
+ 
+
+    }
+    @media only screen and (min-width: 2501px) and (max-width:3000px){
+        .main-content{
+                position: relative;
+                top:0em;
+            }
+        .profile-menu-container{
+			height: 11em;
+			position: absolute;
+			right: 1em;
+			top: 0;
+        }
+        .profile-menu-img{
+			position: absolute;
+			top: 2.85em;
+			height: 55px;
+			width: 55px;
+			border-radius: 50%;
+			right: 3.965em;
+			border: 1px solid #FFFFFF;
+        }
+        .profile-menu-text{
+			position: absolute;
+			top: 2.5em;
+			right: 8.5em;
+        }
+		.image-container{
+			position: absolute;
+			top: 1.45em;
+			right: 2.5em;
+			width: 6.5em;
+        }
+        .start-icon{
+            width: 3em;
+            height: 1em;
+            position: absolute;
+            left: 14.5em;
+            top: 0.5em;
+
+        }
+        .start-icon-button{
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            position: absolute;
+            right: 9em;
+            width: 30em;
+            top: 8.2em;
+            height: 2em;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .start-icon-button-text{
+            color: white;
+            font-weight: bold;
+            z-index: 2;
+            top: -0.65em;
+            position: absolute;
+            left: 11.8em;
+        }
+        .profile-menu-bell{
+            position: absolute;
+            right: 4.2em;
+            top: 7.2em;
+            width: 3.3em;
+        }
+        .top-bar{
+            width: 43.8%;
+            margin-top: -1em;
+            margin-left: 4em;
+        }
+        .main-content-header{
+            width: 36em;
+            margin-top: 4em;
+            margin-left: 3em;
+            color: #FFFFFF;
+            font-size: 1.4em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .main-content-setting{
+            position: absolute;
+            left: 44.5%;
+            top: 0em;
+        }
+        .main-content-search{
+            position: absolute;
+            left: 42.5%;
+            top: 0em;
+        }
+        .content-switch-tabs{
+            display: flex;
+            flex-direction: row;
+            width: 10em;
+            margin-left: 42%;
+        }
+        .content-switch-tabs img{
+            margin-right: 0.5em;
+        }
+        .slide-left-tab{
+            width: 4em;
+            margin-right:0em;
+        }
+        .slide-right-tab{
+            width: 4em;
+            margin-left: -1em;
+        }
+        .pages-tab{
+            width: 3em;
+        }
+        .all-pages-tab{
+            width: 4em;
+            margin-left:-0.5em
+        }
+        .side-profile{
+            position: fixed;
+            z-index: 3;
+            right: -100%;
+            top: 0;
+            height: 100%;
+            background-color: #333231;
+            width: 20em;
+            transition: right 0.2s ease-in-out;
+        }
+        .side-profile-image-cover{
+            position: absolute;
+            right: 0em;
+            width: 20em;
+        }
+        .side-profile-img-cover{
+            position: absolute;
+            top: 1.45em;
+            right: 1.5em;
+            width: 6.5em;
+        }
+        .side-profile-img{
+            position: absolute;
+            top: 2.85em;
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            right: 2.969em;
+            border: 1px solid #FFFFFF;
+        }
+        .side-profile-title{
+
+            margin-left: 3.5em;
+            color: #FFFFFF;
+            font-size: 0.8em;
+            font-family: ubuntu;
+            font-weight: normal;
+            margin-top: -1.5em;
+
+        }
+        .side-profile-username{
+            margin-top: 3.5em;
+            margin-left: 2.5em;
+            color: #FFFFFF;
+            font-size: 1.1em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .side-profile-logout{
+            position: relative;
+            top: 3em;
+            left: 2em;
+            width: 9em;
+        }
+        arc-reactor{
+            position: absolute;
+            top: 0em;
+            left: 1em;
+            width: 45%;
+        }
+        card-view{
+            width: 42%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+            position: absolute;
+            top: 65vh;
+            left: 5em;
+        }
+        log-space{
+            width: 36%;
+            aspect-ratio: 659/333;
+            display: inline-block;
+            position: absolute;
+            top: 55vh;
+            right: 6%;
+        }
+        all-servers{
+            position: absolute;
+            top: 30vh;
+            right: 6%;
+
+        }
+        all-clusters{
+            position: absolute;
+            top: 14vh;
+            right: 6%;
+        }
+        .download-report{
+            position: absolute;
+            right: 6%;
+            width: 26%;
+            top: 78vh;
+        }
+
+    }
+    @media only screen and (min-width: 3001px){
+        .main-content{
+                position: relative;
+                top:0em;
+            }
         .profile-menu-container{
 			height: 11em;
 			position: absolute;
@@ -235,93 +1251,44 @@
             left: 2em;
             width: 9em;
         }
+        arc-reactor{
+            position: absolute;
+            top: 0em;
+            left: 1em;
+            width: 45%;
+        }
+        card-view{
+            width: 42%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+            position: absolute;
+            top: 65vh;
+            left: 5em;
+        }
+        log-space{
+            width: 36%;
+            aspect-ratio: 659/333;
+            display: inline-block;
+            position: absolute;
+            top: 55vh;
+            right: 6%;
+        }
+        all-servers{
+            position: absolute;
+            top: 30vh;
+            right: 6%;
 
-    }
-    @media only screen and (min-width: 2001px) and (max-width:2500px){
-        .profile-menu-container{
-            height:10em;
+        }
+        all-clusters{
             position: absolute;
-            right: 1em;
-            top:0.5em;
+            top: 14vh;
+            right: 6%;
         }
-        .profile-menu-img{
+        .download-report{
             position: absolute;
-            top: 2.8em;
-            height: 50px;
-            width: 50px;
-            border-radius: 50%;
-            right: 3.9em;
-            border: 1px solid #FFFFFF;
-        }
-        .profile-menu-text{
-            position:absolute;
-            top:2em;
-            right:8em;
-        }
-		.image-container{
-            position: absolute;
-            top: -10em;
-            left: 9.2em;
-            width: 12em;
-        }
- 
-
-    }
-    @media only screen and (min-width: 2501px) and (max-width:3000px){
-        .profile-menu-container{
-            height:10em;
-            position: absolute;
-            right: 1em;
-            top:0.5em;
-        }
-        .profile-menu-img{
-            position: absolute;
-            top: 2.8em;
-            height: 50px;
-            width: 50px;
-            border-radius: 50%;
-            right: 3.9em;
-            border: 1px solid #FFFFFF;
-        }
-        .profile-menu-text{
-            position:absolute;
-            top:2em;
-            right:8em;
-        }
-		.image-container{
-            position: absolute;
-            top: -10em;
-            left: 9.2em;
-            width: 12em;
-        }
-
-    }
-    @media only screen and (min-width: 3001px){
-        .profile-menu-container{
-            height:10em;
-            position: absolute;
-            right: 1em;
-            top:0.5em;
-        }
-        .profile-menu-img{
-            position: absolute;
-            top: 2.8em;
-            height: 50px;
-            width: 50px;
-            border-radius: 50%;
-            right: 3.9em;
-            border: 1px solid #FFFFFF;
-        }
-        .profile-menu-text{
-            position:absolute;
-            top:2em;
-            right:8em;
-        }
-		.image-container{
-            position: absolute;
-            top: -10em;
-            left: 9.2em;
-            width: 12em;
+            right: 6%;
+            width: 26%;
+            top: 78vh;
         }
 
     }
@@ -329,36 +1296,9 @@
   background-color: #f0f0f0;
   color: #ffffff;
 }
-		log-space{
-			width: 35%;
-			aspect-ratio: 659/333;
-			display: inline-block;
-            position: absolute;
-            top: 43em;
-            right: 6em;
-        }
 		
-		all-clusters, all-servers{
-			width: 35%;
-			aspect-ratio: 1728/1830;
-			display: inline-block;
-
-		}
-        all-clusters{
-            position: absolute;
-            top: 17em;
-            right: 6%;
-        }
-        all-servers{
-            position: absolute;
-            top: 27em;
-            right: 6%;
-        }
-        card-view{
-            width: 40%;
-			aspect-ratio: 1728/1830;
-			display: inline-block;
-        }
+        
+        
 	</style>
 	
 </head>
@@ -366,23 +1306,13 @@
 <body>
 	<div id="container">
 		<div class="appname">
-			<img src="./img/botAndText.svg" alt="monkvision" style="width: 10em;margin-top: 1em;margin-left: 1em;">
+			<img src="./img/botAndText.svg" alt="monkvision" class="monkvision-logo">
 		</div>
 		<div class="profile-menu" >
 			<img class="profile-menu-container" src="./img/profile_container_img.svg">
 			<img class="image-container" src="./img/image_cover.svg">
-			<input type="date" style="    position: absolute;
-			right: 25em;
-			top: 6em;
-			width: 14em;
-			background: transparent;
-			color: #ffffff;" placeholder="Start Date"> 
-			<input type="date" class="custom-date-input" style="position: absolute;
-			right: 10em;
-			width: 14em;
-			top: 6em;
-			background: transparent;
-			color: #ffffff;" placeholder="End Date"> 
+			<input type="date" class="start-date" placeholder="Start Date"> 
+			<input type="date" class="end-date"  placeholder="End Date"> 
 			<img class="profile-menu-img" src="./img/man1.jpg" onclick="toggleSideProfile()">
 			<p class="font profile-menu-text" >Hello Rohan!</p>
 			<button class="start-icon-button">
@@ -405,7 +1335,14 @@
                 <img class="all-pages-tab" src="./img/all_windows.svg">
                 <img class="slide-right-tab" src="./img/slide_right.svg">
             </div>
-            <img class="graph-container-img" src="./img/graph_container_img.svg" style="width: 96%;margin-left: 2em;margin-top: -1%;">
+            <img class="graph-container-img" src="./img/home_container.png" style="width: 94vw;margin-left: 2em;margin-top: -1%;height: 85vh;">
+            <arc-reactor></arc-reactor>
+            <log-space></log-space>
+            <all-clusters></all-clusters>
+            <all-servers></all-servers>
+            <card-view></card-view>
+            <img src="./img/download_report_icon.svg" class="download-report">
+            <div id="backdrop" class="backdrop"></div>	
         </div>
         <div class="side-profile" id="sideProfileDiv" style="right: -100%;">
             <img class="side-profile-logout" src="./img/logout_button.svg">
@@ -432,9 +1369,7 @@
         <div id="side-profile-cover" onclick="toggleSideProfile()" style="transition: right 0.2s ease-in-out;width:100%;background-color:#333231;opacity:20%;height:100%;position:fixed;top:0;right:-100%;z-index: 2;">
 
         </div>
-		<all-servers></all-servers>
-	<log-space></log-space>
-	<card-view></card-view>
+	
 	<button id="openModal" onclick="main.openModal('allCardsModal')">Open Modal</button>
 
 		<div id="allCardsModal" class="modal">
@@ -460,12 +1395,7 @@
 				<all-tabs></all-tabs>
 			</div>
 		</div>
-        <arc-reactor style="position: absolute;top: 6em;"></arc-reactor>
-        <log-space></log-space>
-        <all-clusters></all-clusters>
-        <all-servers></all-servers>
-        <img src="./img/download_report_icon.svg" style="position: absolute;right: 6em;width: 24%;top: 64em;">
-		<div id="backdrop" class="backdrop"></div>	
+       
 	</div>
 </body>
 <script>
