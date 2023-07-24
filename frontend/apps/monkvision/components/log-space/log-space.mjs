@@ -111,6 +111,7 @@ function populateLogs(element){
         const arr = pageData.logs;
         const content = element.shadowRoot.querySelector('.content');
         content.innerHTML = '';
+        content.innerHTML = '';
         for(let i=0, l=arr.length; i<l; i++){
             content.insertAdjacentHTML('beforeend', `
             <div>
