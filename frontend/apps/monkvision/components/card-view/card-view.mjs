@@ -337,7 +337,7 @@ function openModal() {
   backdrop.style.display = 'block';
   modalContent.innerHTML = '<all-cards></all-cards>';
   setTimeout(() => {
-    modal.style.cssText = modal.style.cssText + 'width: 70%; height: 80%;';
+    modal.style.cssText = modal.style.cssText + 'width: 70%; height: 80%; opacity: 1;';
   }, 50);
   setTimeout(()=>{
     document.querySelector('#closeModal').style.display = 'flex';
@@ -352,7 +352,7 @@ function closeModal() {
   const modal = document.querySelector('.modal');
   document.querySelector('#closeModal').style.display = 'none';
   document.querySelector('.header').style.display = 'none'
-  modal.style.cssText = modal.style.cssText + 'width: 0%; height: 0%;';
+  modal.style.cssText = modal.style.cssText + 'width: 0%; height: 0%; opacity: 0';
   setTimeout(() => {
     modal.style.display = 'none';
     document.querySelector('.backdrop').style.display = 'none';

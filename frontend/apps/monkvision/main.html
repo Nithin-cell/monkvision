@@ -18,6 +18,7 @@
 	import {all_cards} from "./components/all-cards/all-cards.mjs";
     import {profile_comp} from "./components/profile-comp/profile.mjs";
 	import {glowing_arc} from "./components/glowing-arc/glowing-arc.mjs";
+    import {tab_head} from "./components/tab-head/tab-head.mjs";
 	import {all_tabs} from "./components/all-tabs/all-tabs.mjs";
 	import {arc_reactor} from "./components/arc-reactor/arc-reactor.mjs";
 	import {log_space} from "./components/log-space/log-space.mjs";
@@ -32,9 +33,10 @@
 		
 	<title>Dashboard</title>
 	<style>
-		#openModal{
-			display: none;
-		}
+		tab-head{
+            position: absolute;
+            width: 94vw;
+        }
         log-space{
             z-index: 3;
             transform: scaleY(1.2);
@@ -1332,19 +1334,7 @@
 		</div>
         <div class="main-content">
             
-            <h3 class="main-content-header">DB AND OS LEVEL MATRICS</h3>
-            <img class="main-content-setting" src="./img/setting.svg">
-            <img class="main-content-search" src="./img/search.svg">
-            <img class="top-bar" src="./img/top_bar.svg">
-            <div class="content-switch-tabs">
-                <img class="slide-left-tab" src="./img/slide_left.svg">
-                <img class="pages-tab" src="./img/pages.svg">
-                <img class="pages-tab" src="./img/pages.svg">
-                <img class="pages-tab" src="./img/pages.svg">
-                <img class="pages-tab" src="./img/pages.svg">
-                <img class="all-pages-tab" src="./img/all_windows.svg">
-                <img class="slide-right-tab" src="./img/slide_right.svg">
-            </div>
+            <tab-head></tab-head>
             <img class="graph-container-img" src="./img/home_container.png" style="width: 94vw;margin-left: 2em;margin-top: -1%;height: 85vh;">
             <arc-reactor></arc-reactor>
             <log-space></log-space>
@@ -1380,32 +1370,6 @@
 
         </div>
 	
-	<button id="openModal" onclick="main.openModal('allCardsModal')">Open Modal</button>
-
-		<div id="allCardsModal" class="modal">
-			<span class="header">all cards</span>
-			<div class="searchbox">
-				<input placeholder="search" type="text" onkeyup="monkshu_env.components['all-cards'].search(this)">
-				<img src="./img/search.svg">
-			</div>
-			<span id="closeModal"><img src="./img/cross.svg"></span>
-			<div class="modal-content">
-				<all-cards></all-cards>
-			</div>
-		</div>
-
-		<div id="allTabsModal" class="modal">
-			<span class="header">all tabs</span>
-			<div class="searchbox">
-				<input placeholder="search" type="text" onkeyup="monkshu_env.components['all-tabs'].search(this)">
-				<img src="./img/search.svg">
-			</div>
-			<span id="closeModal"><img src="./img/cross.svg"></span>
-			<div class="modal-content">
-				<all-tabs></all-tabs>
-			</div>
-		</div>
-       
 	</div>
 </body>
 <script>

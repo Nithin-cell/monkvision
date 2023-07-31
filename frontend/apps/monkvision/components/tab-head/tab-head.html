@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #container{
+            width: 100%;
+            height: 100%;
+        }
+        .header{
+            font-family: Montserrat;
+            font-size: 1.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: white;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            width: 0%;
+            height: 0%;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            padding: 20px;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            background-image: url('./img/modal_bg.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            transition: all 0.3s ease-out;
+        }
+
+        .backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(2, 25, 34, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 9998;
+        }
+
+        .modal-content{
+            overflow: hidden;
+            box-sizing: border-box;
+            position: absolute;
+            bottom: 0.2rem;
+            top: 3rem;
+            right: 2rem;
+            left: 2rem;
+        }
+        .searchbox{
+            display: inline-flex;
+            width: 40%;
+            height: 4%;
+            position: absolute;
+            left: 55%;
+            top: 1%;
+        }
+        .searchbox img{
+            width: 4%;
+            padding: 2px;
+        }
+        .searchbox input{
+            width: 100%;
+            background-color: transparent;
+            border: 0 transparent;
+            color: white;
+        }
+
+        .searchbox input:focus {
+            outline: none;
+            box-shadow: 0 0 0 0 rgba(0, 0, 255, 0.4);
+        }
+
+        .searchbox ::placeholder {
+            color: white;
+            opacity: 1;
+        }
+        #closeModal{
+            position: absolute;
+            right: 0.7%;
+            display: flex;
+            top: 1.5%;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <svg viewBox="35 0 1225 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            
+            
+            <foreignObject x="704.06" y="64" width="543.88" height="40">
+                <style>
+                    #prev, #next, #exp, .fc{
+                        cursor: pointer;
+                        width: 16.67%; 
+                        height:100%; 
+                        padding-top: 9px;
+                    }
+                    .fc{
+                        padding-top: 0px;
+                    }
+                </style>
+                <div style="display: flex;
+                flex-flow: row nowrap;
+                width: 100%;
+                height: 100%;
+                column-gap: auto;">
+                    <div id="prev" onclick="monkshu_env.components['tab-head'].shift(-1)">
+                        <svg viewBox="7 0 58 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M47.1109 1.81802C46.267 0.974107 45.1224 0.5 43.9289 0.5H12.0711C8.062 0.5 6.05424 5.34714 8.88909 8.18198L24.8891 24.182C25.733 25.0259 26.8776 25.5 28.0711 25.5H59.9289C63.938 25.5 65.9458 20.6529 63.1109 17.818L47.1109 1.81802Z" stroke="white"/>
+                            <path d="M34 19.4211L27.5789 13L34 6.57895L35.4211 8L30.4211 13L35.4211 18L34 19.4211ZM40 19.4211L33.5789 13L40 6.57895L41.4211 8L36.4211 13L41.4211 18L40 19.4211Z" fill="white"/>
+                        </svg>
+                    </div>
+                    <div class="fc" onclick="monkshu_env.components['tab-head'].selectItemHandler(event)" ix="">
+
+                    </div>
+                    <div class="fc" onclick="monkshu_env.components['tab-head'].selectItemHandler(event)" ix="">
+                        
+                    </div>
+                    <div class="fc" onclick="monkshu_env.components['tab-head'].selectItemHandler(event)" ix="">
+                        
+                    </div>
+                    <div class="fc" onclick="monkshu_env.components['tab-head'].selectItemHandler(event)" ix="">
+                        
+                    </div>
+                    <div class="fc" onclick="monkshu_env.components['tab-head'].selectItemHandler(event)" ix="">
+                        
+                    </div>
+                    <div class="fc" onclick="monkshu_env.components['tab-head'].selectItemHandler(event)" ix="">
+                        
+                    </div>
+                    <div id="exp" onclick="monkshu_env.components['tab-head'].openModal()">
+                        <svg viewBox="7 0 58 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M47.1109 1.81802C46.267 0.974107 45.1224 0.5 43.9289 0.5H12.0711C8.062 0.5 6.05424 5.34714 8.88909 8.18198L24.8891 24.182C25.733 25.0259 26.8776 25.5 28.0711 25.5H59.9289C63.938 25.5 65.9458 20.6529 63.1109 17.818L47.1109 1.81802Z" stroke="white"/>
+                            <rect x="28.5" y="5.5083" width="6.325" height="6.325" rx="2.25" fill="#D9D9D9"/>
+                            <rect x="37.175" y="5.5083" width="6.325" height="6.325" rx="2.25" fill="#D9D9D9"/>
+                            <rect x="28.5" y="14.1749" width="6.325" height="6.325" rx="2.25" fill="#D9D9D9"/>
+                            <rect x="37.175" y="14.1749" width="6.325" height="6.325" rx="2.25" fill="#D9D9D9"/>
+                        </svg>
+                    </div>
+                    <div id="next" onclick="monkshu_env.components['tab-head'].shift(1)">
+                        <svg viewBox="7 0 58 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M47.1109 1.81802C46.267 0.974107 45.1224 0.5 43.9289 0.5H12.0711C8.062 0.5 6.05424 5.34714 8.88909 8.18198L24.8891 24.182C25.733 25.0259 26.8776 25.5 28.0711 25.5H59.9289C63.938 25.5 65.9458 20.6529 63.1109 17.818L47.1109 1.81802Z" stroke="white"/>
+                            <path d="M38 19.4211L44.4211 13L38 6.57895L36.5789 8L41.5789 13L36.5789 18L38 19.4211ZM32 19.4211L38.4211 13L32 6.57895L30.5789 8L35.5789 13L30.5789 18L32 19.4211Z" fill="white"/>
+                        </svg>
+                    </div>
+                </div>
+            </foreignObject>            
+            
+            <text id="title" x="43" y="27" fill="white" font-size="30"></text>
+            
+            <path id="pLine" d="M45 41 H759" stroke="white" stroke-width="2"/>
+            <path id="pHead" transform="translate()" d="M776.582 58.8752C774.499 60.958 774.499 64.3349 776.582 66.4177C778.665 68.5005 782.042 68.5005 784.125 66.4177C786.208 64.3349 786.208 60.958 784.125 58.8752C782.042 56.7924 778.665 56.7924 776.582 58.8752ZM757.646 41.3535L779.646 63.3535L781.061 61.9393L759.061 39.9393L757.646 41.3535Z" fill="white"/>
+            <path d="M45 42H246L240.909 48.9536C239.968 50.2398 238.469 51 236.875 51H54.125C52.5309 51 51.0323 50.2398 50.0906 48.9535L45 42Z" fill="white"/>
+            
+            <!-- Uncomment this to show search and setting icons
+                 <path d="M720.081 26.29L716.308 22.61C717.772 20.8144 718.482 18.5353 718.29 16.2413C718.098 13.9473 717.019 11.8128 715.276 10.2767C713.532 8.74053 711.257 7.91954 708.916 7.9825C706.576 8.04546 704.349 8.98759 702.694 10.6152C701.039 12.2427 700.08 14.4321 700.016 16.7329C699.952 19.0338 700.787 21.2714 702.35 22.9855C703.912 24.6997 706.083 25.7601 708.416 25.9488C710.75 26.1375 713.068 25.4401 714.894 24L718.637 27.68C718.731 27.7738 718.844 27.8482 718.968 27.8989C719.092 27.9497 719.225 27.9758 719.359 27.9758C719.493 27.9758 719.626 27.9497 719.75 27.8989C719.874 27.8482 719.987 27.7738 720.081 27.68C720.264 27.4936 720.367 27.2444 720.367 26.985C720.367 26.7257 720.264 26.4765 720.081 26.29ZM709.188 24C707.78 24 706.403 23.5895 705.233 22.8203C704.062 22.0511 703.149 20.9579 702.61 19.6788C702.071 18.3997 701.93 16.9923 702.205 15.6344C702.48 14.2765 703.158 13.0292 704.154 12.0503C705.149 11.0713 706.418 10.4046 707.799 10.1345C709.18 9.86443 710.612 10.0031 711.913 10.5329C713.214 11.0627 714.326 11.9599 715.108 13.111C715.89 14.2622 716.308 15.6156 716.308 17C716.308 18.8565 715.558 20.637 714.222 21.9498C712.887 23.2625 711.076 24 709.188 24Z" fill="white"/>
+            <path d="M742.684 12.2281C743.702 12.5614 744.386 12.9474 745.14 13.6491L747.316 12.9649L748.526 15.0351L746.86 16.5789C747.053 17.5439 747.053 18.4561 746.86 19.4211L748.526 20.9649L747.316 23.0351L745.14 22.3509C744.386 23.0526 743.702 23.4386 742.684 23.7719L742.193 26H739.807L739.316 23.7719C738.298 23.4386 737.614 23.0526 736.86 22.3509L734.684 23.0351L733.474 20.9649L735.14 19.4211C734.947 18.4561 734.947 17.5439 735.14 16.5789L733.474 15.0351L734.684 12.9649L736.86 13.6491C737.614 12.9474 738.298 12.5614 739.316 12.2281L739.807 10H742.193L742.684 12.2281ZM744.403 10.7544L743.807 8H738.193L737.596 10.7544C737.193 10.9474 736.807 11.1754 736.438 11.4211L733.737 10.5789L730.947 15.4211L733.035 17.3509C733 17.7719 733 18.2281 733.035 18.6491L730.947 20.5789L733.737 25.4211L736.438 24.5789C736.807 24.8246 737.193 25.0526 737.596 25.2456L738.193 28H743.807L744.403 25.2456C744.807 25.0526 745.193 24.8246 745.561 24.5789L748.263 25.4211L751.053 20.5789L748.965 18.6491C749 18.2281 749 17.7719 748.965 17.3509L751.053 15.4211L748.263 10.5789L745.561 11.4211C745.193 11.1754 744.807 10.9474 744.403 10.7544ZM737 18C737 20.2105 738.789 22 741 22C743.21 22 745 20.2105 745 18C745 15.7895 743.21 14 741 14C738.789 14 737 15.7895 737 18ZM739 18C739 16.7719 739.772 16 741 16C742.228 16 743 16.7719 743 18C743 19.2281 742.228 20 741 20C739.772 20 739 19.2281 739 18Z" fill="#F2F2F2"/> -->
+            
+        </svg>
+    </div>
+    <div id="allTabsModal" class="modal">
+        <span class="header">all tabs</span>
+        <div class="searchbox">
+            <input placeholder="search" type="text" onkeyup="monkshu_env.components['all-tabs'].search(this)">
+            <img src="./img/search.svg">
+        </div>
+        <span id="closeModal"><img src="./img/cross.svg"></span>
+        <div class="modal-content">
+        </div>
+    </div>
+    <div id="backdrop" class="backdrop"></div>
+</body>
+</html>
