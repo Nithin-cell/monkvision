@@ -30,7 +30,8 @@ const pageData = {
         mainText: "100%",
         mainTextType: "Status",
         blocksCount: 9,
-        blocksColor: "#62FF02"
+        blocksColor: "#62FF02",
+        graph: [14, 24, 32, -80, 50, 60, -40, 27, -20, -70, 50, 21, 77]
     }
 }
 async function elementRendered(element) {
@@ -157,13 +158,13 @@ function populateSvg(element){
         <rect x="2.31116" y="399.632" width="794" height="1" fill="white" fill-opacity="0.4"/>
         <rect x="2.31116" y="473.632" width="794" height="1" fill="white" fill-opacity="0.4"/>
         </g>
-        <path opacity="0.5" d="M41.7646 315.096C22.0379 315.096 17.1062 267.947 2.31116 264.792V548.792H796.311V546.788C742.063 546.788 754.459 509.105 705.142 509.105C655.825 509.105 643.429 458.755 618.771 458.755C594.112 458.755 586.648 481.834 561.989 481.834C537.331 481.834 530.934 421.026 496.413 421.026C461.891 421.026 456.025 380.142 436.299 380.142C416.572 380.142 401.777 407.368 367.255 407.368C332.733 407.368 332.733 361.209 308.075 361.209C283.417 361.209 288.348 398.984 258.758 398.984C229.168 398.984 214.373 354.898 194.647 354.898C174.92 354.898 165.056 373.831 145.33 373.831C125.603 373.831 115.74 289.944 91.0813 289.944C66.423 289.944 61.4913 315.096 41.7646 315.096Z" fill="url(#paint1_linear_128_21)"/>
-        <!-- graph path -->
-        <path d="M1.31116 264.792C16.1062 268.908 21.0379 314.183 40.7646 314.183C60.4913 314.183 65.423 289.487 90.0814 289.487C114.74 289.487 124.603 375.922 144.33 375.922C164.056 375.922 173.92 351.227 193.647 351.227C213.373 351.227 228.168 400.618 257.758 400.618C287.348 400.618 282.417 359.458 307.075 359.458C331.734 359.458 331.734 408.85 366.255 408.85C400.777 408.85 415.572 384.154 435.299 384.154C455.025 384.154 464.889 425.314 499.411 425.314C533.932 425.314 533.932 487.053 558.591 487.053C583.249 487.053 593.112 462.357 617.771 462.357C642.429 462.357 657.224 515.864 706.541 515.864C755.858 515.864 741.063 548.792 795.311 548.792" stroke="#00AF07" stroke-width="3"/>
+        ${getGraphPath()}
+        <g id="crossHair">
         <line x1="399.781" y1="256.035" x2="399.781" y2="557.233" stroke="white" stroke-width="2" stroke-dasharray="2 2"/>
         <line x1="248.089" y1="402.139" x2="549.473" y2="402.139" stroke="white" stroke-width="2" stroke-dasharray="2 2"/>
         <rect x="302" y="327" width="90" height="26" rx="4" fill="#169632"/>
         <text x="345.703" y="341" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="snow" font-size="11px">${pageData.reactor.boxText}</text>
+        </g>
         <g filter="url(#filter4_d_128_21)">
         <circle cx="399.663" cy="400" r="8" fill="white"/>
         <circle cx="399.663" cy="400" r="6.5" stroke="#245F15" stroke-width="3"/>
@@ -291,7 +292,7 @@ function populateSvg(element){
         <stop offset="0.00133629" stop-color="white"/>
         <stop offset="0.506713" stop-color="#25B7F6" stop-opacity="0"/>
         </radialGradient>
-        <linearGradient id="paint1_linear_128_21" x1="410.905" y1="407.344" x2="374.681" y2="635.598" gradientUnits="userSpaceOnUse">
+        <linearGradient id="paint1_linear_128_21" x1="0" y1="0" x2="806" y2="802" gradientUnits="userSpaceOnUse">
         <stop stop-color="#FCFCFC" stop-opacity="0.43"/>
         <stop offset="1" stop-color="white" stop-opacity="0"/>
         </linearGradient>
@@ -387,5 +388,88 @@ function getLeftArc(arc){
         return '';
     }
 }
+
+function getGraphPath() {
+    const rf = pageData.reactor.graph;
+    let width = 254;
+    let _x= 254/(rf.length - 1), _y=-1.27;
+    const xi = 399-width/2, yi = 400;
+    const pts = [];
+    for (let i = 0, l = rf.length; i < l; i++) pts.push([_x * i + xi, yi + _y * rf[i]]);
+    const scatter = getGraphPoints(pts);
+    return (svgPath(pts, 399-width/2, 399+width/2));
+}
+
+function svgPath(points, xs, xe) {
+    if(points.length<2) return '';
+    const d = points.reduce((acc, point, i, a) => i === 0
+        // if first point
+        ? `M ${point[0]},${point[1]}`
+        // else
+        : `${acc} ${bezierCommand(point, i, a)}`
+        , '')
+    return (
+    `
+    <g id="graph">
+    <path opacity="0.5" d="${d} L${xe},527 H${xs} Z" fill="url(#paint1_linear_128_21)"/>
+    <path stroke-width="2" stroke="green" d="${d}"/>
+    </g>
+    `)
+}
+
+function bezierCommand(point, i, a) {
+    // start control point
+    const [cpsX, cpsY] = controlPoint(a[i - 1], a[i - 2], point)
+    // end control point
+    const [cpeX, cpeY] = controlPoint(point, a[i - 1], a[i + 1], true)
+    let seg = `C ${cpsX},${cpsY} ${cpeX},${cpeY} ${point[0]},${point[1]}`;
+    return seg;
+}
+
+function controlPoint(current, previous, next, reverse) {
+    // When 'current' is the first or last point of the array
+    // 'previous' or 'next' don't exist.
+    // Replace with 'current'
+    const p = previous || current
+    const n = next || current
+    // The smoothing ratio
+    const smoothing = 0.2;
+    // Properties of the opposed-line
+    const o = line(p, n)
+    // If is end-control-point, add PI to the angle to go backward
+    const angle = o.angle + (reverse ? Math.PI : 0)
+    const length = o.length * smoothing
+    // The control point position is relative to the current point
+    const x = current[0] + Math.cos(angle) * length
+    const y = current[1] + Math.sin(angle) * length
+    return [x, y]
+}
+
+function line(pointA, pointB) {
+    const lengthX = pointB[0] - pointA[0]
+    const lengthY = pointB[1] - pointA[1]
+    return {
+        length: Math.sqrt(Math.pow(lengthX, 2) + Math.pow(lengthY, 2)),
+        angle: Math.atan2(lengthY, lengthX)
+    }
+}
+
+function getGraphPoints(pts) {
+    let c = '';
+    pts.forEach(a => {
+        c += `<circle cx="${a[0]}" cy="${a[1]}" r="2" fill="rgba(0,255,0,0.3)"/>`;
+    });
+    return c;
+}
+
+function setCrossHair(){
+    getElement('g#crossHair').innerHTML = 
+    `<line x1="399.781" y1="256.035" x2="399.781" y2="557.233" stroke="white" stroke-width="2" stroke-dasharray="2 2"/>
+    <line x1="248.089" y1="402.139" x2="549.473" y2="402.139" stroke="white" stroke-width="2" stroke-dasharray="2 2"/>
+    <rect x="302" y="327" width="90" height="26" rx="4" fill="#169632"/>
+    <text x="345.703" y="341" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="snow" font-size="11px">${pageData.reactor.boxText}</text>
+    `
+}
+
 export const arc_reactor = { trueWebComponentMode:true,elementRendered}
 monkshu_component.register("arc-reactor", `${COMPONENT_PATH}/arc-reactor.html`, arc_reactor);

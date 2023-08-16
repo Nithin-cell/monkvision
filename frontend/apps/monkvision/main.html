@@ -29,6 +29,7 @@
     import {all_notifs} from "./components/all-notifs/all-notifs.mjs";
     import {change_password} from "./components/change-password/change-password.mjs";
     import {system_setting} from "./components/system-setting/system-setting.mjs";
+    import {chart_box} from "./components/chart-box/chart-box.mjs";
 	</script>
 		
 	<title>Dashboard</title>
@@ -1802,12 +1803,13 @@
         left: 47%;
         top: -7%;">
         <img class="main-content-graph-img" src="./img/graph_container_homepage.png" style="width: 95vw;margin-left: 1.2%;margin-top: -3%;height: 60vh;">
-        <img class="graph-img" src="./img/graph_down_main.png" style="     position: absolute;
+        <!-- <img class="graph-img" src="./img/graph_down_main.png" style="     position: absolute;
         top: 7%;
         right: 1%;
         height: 78%;
         width: 96%;
-    ">
+        ">-->
+        <chart-box id="cpu_chart" title="Most CPU used by node(historical data)" api="loggraphMaxNodes" type="bargraph" maxticks="3" ysteps="[10],[10]" ymaxs="[100],[100]" ylabels="[],[]" ycolors="[0.1:#D43F3F4C:#af3234,else:#40D59D4C:#0e8f7e]" yAtZeros="[true],[true]" gridLines="true" labelColor="rgba(120,120,120)" gridColor="rgba(255,255,255,0.60)" styleBody="div#content{overflow-y:hidden}" params="id=shell_mon__bin_bash_c__home_monboss_monboss_scripts_cpu_max_node_dashboard_sh__primary_prod_&statusAsBoolean=false&statusFalseValue=0.1&statusTrueValue=1&nullValue=none" style="position: absolute; top: 7%; right: 1%; height: 78%; width: 96%;"></chart-box>
     </div>
 </body>
 <script>
