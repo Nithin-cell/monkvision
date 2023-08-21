@@ -85,6 +85,27 @@ async function _refreshData(element, force) {
 		return;
 	}	
 
+	if(type == "arcReactor"){
+		contentDiv.innerHTML = "<arc-reactor></arc-reactor>";	// clear it 
+		return;
+	}
+	if(type == "allClusters"){
+		contentDiv.innerHTML = "<all-clusters></all-clusters>";	// clear it 
+		return;
+	}
+	if(type == "allServers"){
+		contentDiv.innerHTML = "<all-servers></all-servers>";	// clear it 
+		return;
+	}
+	if(type == "cardView"){
+		contentDiv.innerHTML = "<card-view></card-view>";	// clear it 
+		return;
+	}
+	if(type == "cycleLogs"){
+		contentDiv.innerHTML = "<log-space></log-space>";	// clear it 
+		return;
+	}
+
 	if (type == "metrictext") {
 		contentDiv.innerHTML = "";	// clear it 
 		if (!content || !content.contents) return;
@@ -255,45 +276,45 @@ async function _getContent(api, params) {
 	const API_TO_CALL = `${APP_CONSTANTS.API_PATH}/${api}`;
 
 	const paramObj = {timeRange: getTimeRange()}; if (params) for (const param of params.split("&")) paramObj[param.split("=")[0]] = param.split("=")[1];
-	// const resp = await apiman.rest(API_TO_CALL, "GET", paramObj, true, false);
-	const resp = {
-		"result": true,
-		"type": "bargraph",
-		"contents": {
-			"length": 7,
-			"x": [
-				"ssh_mon_sql_injections_access",
-				"ssh_mon_login_attack",
-				"ssh_mon_nodejs_injections_access",
-				"ssh_mon_ddos",
-				"ssh_mon_icmp_flood",
-				"ssh_mon_php_attackers_access",
-				"ssh_mon_too_many_http_errors_access"
-			],
-			"ys": [
-				[
-					3,
-					110,
-					25,
-					9,
-					5,
-					8,
-					65
-				]
-			],
-			"infos": [
-				[
-					3,
-					110,
-					25,
-					9,
-					5,
-					8,
-					65
-				]
-			]
-		}
-	}
+	const resp = await apiman.rest(API_TO_CALL, "GET", paramObj, true, false);
+	// const resp = {
+	// 	"result": true,
+	// 	"type": "bargraph",
+	// 	"contents": {
+	// 		"length": 7,
+	// 		"x": [
+	// 			"ssh_mon_sql_injections_access",
+	// 			"ssh_mon_login_attack",
+	// 			"ssh_mon_nodejs_injections_access",
+	// 			"ssh_mon_ddos",
+	// 			"ssh_mon_icmp_flood",
+	// 			"ssh_mon_php_attackers_access",
+	// 			"ssh_mon_too_many_http_errors_access"
+	// 		],
+	// 		"ys": [
+	// 			[
+	// 				3,
+	// 				110,
+	// 				25,
+	// 				9,
+	// 				5,
+	// 				8,
+	// 				65
+	// 			]
+	// 		],
+	// 		"infos": [
+	// 			[
+	// 				3,
+	// 				110,
+	// 				25,
+	// 				9,
+	// 				5,
+	// 				8,
+	// 				65
+	// 			]
+	// 		]
+	// 	}
+	// }
 
 	if (resp && resp.type=="text" && resp.contents && resp.contents.length) for (const [i,line] of resp.contents.entries())
 		resp.contents[i] = _escapeHTML(line).replace(/(?:\r\n|\r|\n)/g, '<br>');

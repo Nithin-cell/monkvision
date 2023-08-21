@@ -136,7 +136,24 @@ const pageData = {
     ]
   }
 
+async function getDashboardData(){
+  const dashboardsRaw = await $$.requireJSON(`${APP_CONSTANTS.APP_PATH}/conf/dashboards.json`);
+  const dashboards = []; pageData.tabs = dashboards;
+  for (const key of Object.keys(dashboardsRaw)) {
+    const file = dashboardsRaw[key].split(",")[0], refresh = parseInt(dashboardsRaw[key].split(",")[1].split(":")[1]), nodelist = JSON.parse(dashboardsRaw[key].split(",")[2].split(":")[1]),
+    name = await i18n.get(`name_${key}`, session.get($$.MONKSHU_CONSTANTS.LANG_ID)), title = await i18n.get(`title_${key}`, session.get($$.MONKSHU_CONSTANTS.LANG_ID));
+    const dataForModal = {
+      outerColor: `rgba(${Math.random()*300 % 256}, ${Math.random()*300 % 256}, ${Math.random()*300 % 256}, 0.8)`,
+      outerCircle: "white",
+      percentage: `${Math.random()*200 % 100}`,
+      color: `rgba(${Math.random()*300 % 256}, ${Math.random()*300 % 256}, ${Math.random()*300 % 256}, 0.5)`
+    }
+    dashboards.push({ name, file, refresh, title, id: key, nodelist , ...dataForModal});
+  }
+}
+
 async function elementRendered(element) {
+    await getDashboardData();
     populateTabs(element);
 }
 
