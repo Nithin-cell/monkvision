@@ -1,6 +1,8 @@
 import {util} from "/framework/js/util.mjs";
 import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 const COMPONENT_PATH = util.getModulePath(import.meta);
+import {i18n} from "/framework/js/i18n.mjs";
+import {session} from "/framework/js/session.mjs";
 
 const pageData = {
     selectedItem: 0,

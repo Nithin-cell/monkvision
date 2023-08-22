@@ -258,6 +258,7 @@ const pageData = {
     ]
 }
 async function elementRendered(element) {
+  pageData.items = JSON.parse(element.getAttribute('content'))?? pageData.items;
     populateCards(element);
 }
 

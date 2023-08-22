@@ -1,6 +1,6 @@
 {
+    "dash4":"dashboard_newUI.page,refresh:300000,nodelist:false",
     "dash1":"dashboard_staging_summary.page,refresh:300000,nodelist:false",
     "dash2":"dashboard_staging.page,refresh:300000,nodelist:true",
-    "dash3":"dashboard_staging_query.page,refresh:360000,nodelist:false",
-    "dash4":"dashboard_newUI.page,refresh:300000,nodelist:false"
+    "dash3":"dashboard_staging_query.page,refresh:360000,nodelist:false"
 }

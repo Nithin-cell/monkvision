@@ -86,23 +86,23 @@ async function _refreshData(element, force) {
 	}	
 
 	if(type == "arcReactor"){
-		contentDiv.innerHTML = "<arc-reactor></arc-reactor>";	// clear it 
+		contentDiv.innerHTML = `<arc-reactor content='${JSON.stringify(content)}'></arc-reactor>`;	// clear it 
 		return;
 	}
 	if(type == "allClusters"){
-		contentDiv.innerHTML = "<all-clusters></all-clusters>";	// clear it 
+		contentDiv.innerHTML = `<all-clusters content='${JSON.stringify(content)}'></all-clusters>`;	// clear it 
 		return;
 	}
 	if(type == "allServers"){
-		contentDiv.innerHTML = "<all-servers></all-servers>";	// clear it 
+		contentDiv.innerHTML = `<all-servers content='${JSON.stringify(content)}'></all-servers>`;	// clear it 
 		return;
 	}
 	if(type == "cardView"){
-		contentDiv.innerHTML = "<card-view></card-view>";	// clear it 
+		contentDiv.innerHTML = `<card-view content='${JSON.stringify(content)}'></card-view>`;	// clear it 
 		return;
 	}
 	if(type == "cycleLogs"){
-		contentDiv.innerHTML = "<log-space></log-space>";	// clear it 
+		contentDiv.innerHTML = `<log-space content='${JSON.stringify(content)}'></log-space>`;	// clear it 
 		return;
 	}
 

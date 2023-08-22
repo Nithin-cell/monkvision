@@ -102,6 +102,7 @@ const pageData = {
     ]
 }
 async function elementRendered(element) {
+    pageData.logs = JSON.parse(element.getAttribute('content'))?? pageData.logs;
     populateLogs(element);
 }
 
