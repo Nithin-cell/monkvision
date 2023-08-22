@@ -80,10 +80,6 @@ async function interceptPageLoadData() {
 
     const pageload_func = async data => {
         // select current dashboard icon on page load
-        const dashboardsRaw = await $$.requireJSON(`${APP_CONSTANTS.APP_PATH}/conf/dashboards.json`);
-        const allDashIcons = document.querySelectorAll("div#leftheader > img.dashicon");
-        for (const dashIcon of allDashIcons) if (data.dash.endsWith(dashboardsRaw[dashIcon.id].split(",")[0]))
-            dashIcon.classList.add("selected"); else dashIcon.classList.remove("selected");
 
         // load initial charts and set the refresh interval
         timeRangeUpdated(false);    // load initial charts they will get the dates from HTML
@@ -111,7 +107,7 @@ function _startRefresh() {
     _stopRefresh(); if (!session.get(REFRESH_INTERVAL)) return;
     let totalSeconds = (session.get(REFRESH_INTERVAL)/1000) - 1;
     session.set(SHOW_REFRESH_TIMER, setInterval(_=>{
-        document.getElementById('showtimer').innerText = showTimerFormat(totalSeconds);
+        // document.getElementById('showtimer').innerText = showTimerFormat(totalSeconds);
         totalSeconds--; if (totalSeconds == 0) { totalSeconds = session.get(REFRESH_INTERVAL)/1000 }
     }, 1000));
     session.set(DASHBOARD_TIMER, setInterval(_=>{timeRangeUpdated(false, 

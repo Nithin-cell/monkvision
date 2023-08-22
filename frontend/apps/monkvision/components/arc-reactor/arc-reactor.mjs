@@ -27,7 +27,7 @@ const pageData = {
             color: "#FF9C07",
             percent: 50
         },
-        mainText: "100%",
+        mainText: "100.00%",
         mainTextType: "Status",
         blocksCount: 9,
         blocksColor: "#62FF02",

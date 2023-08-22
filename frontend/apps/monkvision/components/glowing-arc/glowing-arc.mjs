@@ -68,10 +68,10 @@ function setArc(svg, p, c, mainTitle, data, innerTitle, innerSubtitle, outlineCo
                     transform: translate(-10%, -1%);
                 }
                 .small {
-                    font: normal ${parent=="clusters"? 18 : parent=="cardView"? 26 : 20}px sans-serif;
+                    font: normal ${parent=="clusters"? 18 : parent=="cardView"? 26 : 20}px Montserrat;
                 }
                 .heavy {
-                    font: bold ${parent=="clusters" || parent=="cardView"? 65 : 30}px sans-serif;
+                    font: bold ${parent=="clusters" || parent=="cardView"? 65 : 30}px Montserrat;
                 }
             </style>
             <text x="50%" y="${parent=='tab'? 46 : parent=="clusters" || parent=="cardView"? 34 : 40}%" width="200" class="small">${innerTitle?? ''}</text>
