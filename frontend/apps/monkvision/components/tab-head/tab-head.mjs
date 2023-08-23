@@ -218,6 +218,7 @@ function selectItemHandler(el){
     setLineHead();
   }
   setTitle();
+  document.getElementById("maincontent").innerHTML = `<page-generator file="./dashboards/${pageData.tabs[pageData.selectedItem].file}"></page-generator>`
 }
 
 function setTitle(){
