@@ -8,6 +8,7 @@
         padding: 0;
         min-height: 600px;
         z-index: -10;
+        background: url(./img/MonkvissionBackground.png); background-size: cover; width: 100%; height: 100%; background-repeat: no-repeat;
         overflow: hidden;
     }
     
@@ -132,11 +133,1457 @@
             
         <title>{{pageTitle}}</title>
         {{{css}}}
+        <style>
+            @media only screen and (min-width: 1000px) and (max-width:1500px){
+            .main-content{
+                position: relative;
+                top: 2em;
+            }
+            .profile-menu-container{
+			    height: 9.5em;
+                position: absolute;
+                right: 0em;
+                top: -0.5em;
+        }
+        .profile-menu-img{
+            position: absolute;
+            top: 2.08em;
+            max-height: 2.7em;
+            max-width: 2.7em;
+            border-radius: 50%;
+            right: 2.59em;
+            border: 1px solid #FFFFFF;
+        }
+        .profile-menu-text{
+            position: absolute;
+            top: 2em;
+            right: 8em;
+            font-size: 0.8em;
+        }
+		.image-container{
+            position: absolute;
+            top: 0.8em;
+            right: 1.3em;
+            width: 5.4em;
+        }
+        .start-icon{
+            width: 3em;
+            height: 0.75em;
+            position: absolute;
+            left: 12em;
+            top: 0.3em;
+
+        }
+        .start-icon-button{
+            border: 1px solid #ffffff;
+            border-radius: 3px;
+            position: absolute;
+            right: 7.2em;
+            width: 25.6em;
+            top: 6.5em;
+            height: 1.8em;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .start-icon-button-text{
+            color: white;
+            font-weight: bold;
+            z-index: 2;
+            top: -0.65em;
+            position: absolute;
+            left: 13.8em;
+            font-size: 0.75em;
+        }
+        .profile-menu-bell{
+            position: absolute;
+            right: 2.5em;
+            top: 5.7em;
+            width: 3em;
+        }
+        .top-bar{
+            width: 43.5%;
+            margin-top: -1em;
+            margin-left: 4em;
+        }
+        .main-content-header{
+            width: 36em;
+            margin-left: 3.5em;
+            color: #FFFFFF;
+            font-size: 1.2em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .main-content-setting{
+            position: absolute;
+            left: 44.5%;
+            top: 0.5em;
+            width: 1em;
+        }
+        .main-content-search{
+            position: absolute;
+            left: 42.5%;
+            top: 0.5em;
+            width: 1em;
+        }
+        .content-switch-tabs{
+            display: flex;
+            flex-direction: row;
+            width: 10em;
+            margin-left: 43%;
+        }
+        .content-switch-tabs img{
+            margin-right: 0.5em;
+        }
+        .slide-left-tab{
+            width: 3em;
+            margin-right:0em;
+        }
+        .slide-right-tab{
+            width: 3em;
+            margin-left: -1em;
+        }
+        .pages-tab{
+            width: 2em;
+        }
+        .all-pages-tab{
+            width: 3em;
+            margin-left:-0.5em
+        }
+        .side-profile{
+            position: fixed;
+            z-index: 3;
+            right: -100%;
+            top: 0;
+            height: 100%;
+            background-color: #333231;
+            width: 20em;
+            transition: right 0.2s ease-in-out;
+        }
+        .side-profile-image-cover{
+            position: absolute;
+            right: 0em;
+            width: 20em;
+        }
+        .side-profile-img-cover{
+            position: absolute;
+            top: 1.45em;
+            right: 1.5em;
+            width: 6.5em;
+        }
+        .side-profile-img{
+            position: absolute;
+            top: 2.85em;
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            right: 2.969em;
+            border: 1px solid #FFFFFF;
+        }
+        .side-profile-title{
+
+            margin-left: 3.5em;
+            color: #FFFFFF;
+            font-size: 0.8em;
+            font-family: ubuntu;
+            font-weight: normal;
+            margin-top: -1.5em;
+
+        }
+        .side-profile-username{
+            margin-top: 3.5em;
+            margin-left: 2.5em;
+            color: #FFFFFF;
+            font-size: 1.1em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .side-profile-logout{
+            position: relative;
+            top: 3em;
+            left: 2em;
+            width: 9em;
+        }
+        .start-date{
+            position: absolute;
+            right: 27.8em;
+            top: 5.9em;
+            width: 17em;
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid;
+            border-radius: 0.4em;
+            height: 2.5em;
+            padding-left: 1em;
+            font-size: 0.75em;
+            padding-top: 0.3em;
+        }
+        .end-date{
+            position: absolute;
+            right: 10em;
+            width: 17em;
+            top: 5.9em;
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid;
+            border-radius: 0.3em;
+            padding-left: 1em;
+            height: 2.5em;
+            font-size: 0.75em;
+            padding-top: 0.3em;
+        }
+        .monkvision-logo{
+            width: 8em;
+            margin-top: 2vh;
+            margin-left: 2em;
+        }
+        arc-reactor{
+            position: absolute;
+            top: 0em;
+            left: 4em;
+            width: 47%;
+        }
+        card-view{
+            width: 47%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+            position: absolute;
+            top: 70vh;
+            left: 4em;
+        }
+        log-space{
+            width: 36%;
+            aspect-ratio: 659/333;
+            display: inline-block;
+            position: absolute;
+            top: 59vh;
+            right: 5%;
+        }
+        all-servers{
+            position: absolute;
+            top: 31vh;
+            right: 5%;
+            width: 36%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+        }
+        all-clusters{
+            position: absolute;
+            top: 15vh;
+            right: 5%;
+            width: 36%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+        }
+        tab-head{
+            position: absolute;
+            width: 72vw;
+            z-index: 4;
+            left: 3%;
+        }
+        .download-report{
+            position: absolute;
+            right: 5%;
+            width: 26%;
+            top: 86vh;
+        }
+        .start-date-placeholder{
+            position: absolute;
+            right: 23.5em;
+            z-index: 2;
+            color: white;
+            width: 10em;
+            background: #0a222d;
+            top: 4em;
+            height: 1em;
+            font-size: 0.8em;
+        }
+        .end-date-placeholder{
+            
+            position: absolute;
+            right: 11em;
+            z-index: 2;
+            color: white;
+            width: 9em;
+            background: #0d242e;
+            top: 4em;
+            height: 1em;
+            font-size: 0.8em;
+        }
+        .calender-input-start-date{
+            position: absolute;
+            right: 17.5em;
+            top: 3.8em;
+            width: 1.1em;
+            z-index: -1;
+        }
+        .calender-input-end-date{
+            position: absolute;
+            right: 6.5em;
+            top: 3.8em;
+            width: 1.1em;
+            z-index: -1;
+        }
+        input[type=datetime-local]::-webkit-calendar-picker-indicator {
+            opacity: 0%;
+            z-index: 4;
+            height: 40px;
+            width: 40px;
+        
+        }
+    }
+    @media only screen and (min-width: 1501px) and (max-width:2000px){
+        .main-content{
+            position: relative;
+            top: 5%;
+            }
+        .profile-menu-container{
+			height: 11em;
+			position: absolute;
+			right: 1em;
+			top: 0;
+        }
+        .profile-menu-img{
+			position: absolute;
+			top: 2.85em;
+			height: 55px;
+			width: 55px;
+			border-radius: 50%;
+			right: 3.965em;
+			border: 1px solid #FFFFFF;
+        }
+        .profile-menu-text{
+			position: absolute;
+			top: 2.5em;
+			right: 8.5em;
+        }
+		.image-container{
+			position: absolute;
+			top: 1.45em;
+			right: 2.5em;
+			width: 6.5em;
+        }
+        .start-icon{
+            width: 3em;
+            height: 1em;
+            position: absolute;
+            left: 14.5em;
+            top: 0.5em;
+
+        }
+        .start-icon-button{
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            position: absolute;
+            right: 9em;
+            width: 30em;
+            top: 8.2em;
+            height: 2em;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .start-icon-button-text{
+            color: white;
+            font-weight: bold;
+            z-index: 2;
+            top: -0.65em;
+            position: absolute;
+            left: 11.8em;
+        }
+        .profile-menu-bell{
+            position: absolute;
+            right: 4.2em;
+            top: 7.2em;
+            width: 3.3em;
+        }
+        .top-bar{
+            width: 43.8%;
+            margin-top: -1em;
+            margin-left: 4em;
+        }
+        .main-content-header{
+            width: 36em;
+            margin-top: 4em;
+            margin-left: 3em;
+            color: #FFFFFF;
+            font-size: 1.6em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .main-content-setting{
+            position: absolute;
+            left: 44.5%;
+            top: 0em;
+        }
+        .main-content-search{
+            position: absolute;
+            left: 42.5%;
+            top: 0em;
+        }
+        .content-switch-tabs{
+            display: flex;
+            flex-direction: row;
+            width: 10em;
+            margin-left: 42%;
+        }
+        .content-switch-tabs img{
+            margin-right: 0.5em;
+        }
+        .slide-left-tab{
+            width: 4em;
+            margin-right:0em;
+        }
+        .slide-right-tab{
+            width: 4em;
+            margin-left: -1em;
+        }
+        .pages-tab{
+            width: 3em;
+        }
+        .all-pages-tab{
+            width: 4em;
+            margin-left:-0.5em
+        }
+        .side-profile{
+            position: fixed;
+            z-index: 3;
+            right: -100%;
+            top: 0;
+            height: 100%;
+            background-color: #333231;
+            width: 20em;
+            transition: right 0.2s ease-in-out;
+        }
+        .side-profile-image-cover{
+            position: absolute;
+            right: 0em;
+            width: 20em;
+        }
+        .side-profile-img-cover{
+            position: absolute;
+            top: 1.45em;
+            right: 1.5em;
+            width: 6.5em;
+        }
+        .side-profile-img{
+            position: absolute;
+            top: 2.85em;
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            right: 2.969em;
+            border: 1px solid #FFFFFF;
+        }
+        .side-profile-title{
+
+            margin-left: 3.5em;
+            color: #FFFFFF;
+            font-size: 0.8em;
+            font-family: ubuntu;
+            font-weight: normal;
+            margin-top: -1.5em;
+
+        }
+        .side-profile-username{
+            margin-top: 3.5em;
+            margin-left: 2.5em;
+            color: #FFFFFF;
+            font-size: 1.1em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .side-profile-logout{
+            position: relative;
+            top: 3em;
+            left: 2em;
+            width: 9em;
+        }
+        .start-date{
+            position: absolute; 
+        right: 25em;
+        top: 5.8em;
+        width: 14em;
+        background: transparent;
+        color: #ffffff;
+        border: 1px solid;
+        border-radius: 0.3em;
+        height: 2em;
+        padding-left: 1em;
+        }
+        .end-date{
+            position: absolute;
+            right: 10em;
+            width: 14em;
+            top: 5.8em;
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid;
+            border-radius: 0.3em;
+            height: 2em;
+            padding-left: 1em;
+        }
+        .monkvision-logo{
+            width: 12em;
+            margin-top: 2vh;
+            margin-left: 2em;
+        }
+
+        arc-reactor{
+            position: absolute;
+            top: -1em;
+            left: 4em;
+            width: 47%;
+        }
+        card-view{
+            width: 46%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+            position: absolute;
+            top: 70vh;
+            left: 5em;
+        }
+        log-space{
+            width: 38%;
+            aspect-ratio: 659/333;
+            display: inline-block;
+            position: absolute;
+            top: 57vh;
+            right: 6%;
+        }
+        all-servers{
+            position: absolute;
+            top: 33vh;
+            right: 6%;
+            width: 38%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+
+        }
+        all-clusters{
+            position: absolute;
+            top: 15vh;
+            right: 6%;
+            width: 38%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+        }
+        tab-head{
+            position: absolute;
+            width: 72vw;
+            z-index: 4;
+            left: 3%;
+        }
+
+        .download-report{
+            position: absolute;
+            right: 7.6%;
+            width: 24%;
+            transform: scaleX(1.145);
+            top: 86vh;
+        }
+        .start-date-placeholder{
+            position: absolute;
+            right: 23em;
+            z-index: 2;
+            color: white;
+            width: 9em;
+            background: #0a222d;
+            top: 4.2em;
+            height: 1em;
+        }
+        .end-date-placeholder{
+            position: absolute;
+            right: 10em;
+            z-index: 2;
+            color: white;
+            width: 9em;
+            background: #0d242e;
+            top: 4.2em;
+        }
+        .calender-input-start-date{
+            position: absolute;
+            right: 21em;
+            top: 5em;
+            width: 1.3em;
+            z-index: -1;
+        }
+        .calender-input-end-date{
+            position: absolute;
+            right: 8.5em;
+            top: 5em;
+            width: 1.3em;   
+            z-index: -1;
+        }
+        input[type=datetime-local]::-webkit-calendar-picker-indicator {
+            opacity: 0%;
+            z-index: 3;
+            height: 50px;
+            width: 50px;
+        
+        }
+    }
+    @media only screen and (min-width: 2001px) and (max-width:2500px){
+        input[type=datetime-local]::-webkit-calendar-picker-indicator {
+            opacity: 0%;
+            z-index: 3;
+            height: 20px;
+            width: 80px;
+            
+        }
+        .main-content{
+            position: relative;
+            top: 10%;
+            }
+        .profile-menu-container{
+			height: 15em;
+            position: absolute;
+            right: 1em;
+            top: 0.5em;
+        }
+        .profile-menu-img{
+            position: absolute;
+            top: 4.5em;
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+            right: 5em;
+            border: 1px solid #FFFFFF;
+        }
+        .profile-menu-text{
+			position: absolute;
+            top: 3em;
+            right: 9em;
+            font-size: 20px;
+        }
+		.image-container{
+			position: absolute;
+            top: 2.5em;
+            right: 3em;
+            width: 8.5em;
+        }
+        .start-icon{
+            width: 3em;
+            height: 2em;
+            position: absolute;
+            left: 22.5em;
+            top: 0.4em;
+
+        }
+        .start-icon-button{
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            position: absolute;
+            right: 12.6em;
+            width: 40.5em;
+            top: 11.5em;
+            height: 3em;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .start-icon-button-text{
+            color: white;
+            font-weight: bold;
+            z-index: 2;
+            top: -0.65em;
+            position: absolute;
+            left: 11.8em;
+            font-size: 1.5em;
+        }
+        .profile-menu-bell{
+            position: absolute;
+            right: 4.2em;
+            top: 10.2em;
+            width: 5.3em;
+        }
+        .top-bar{
+            width: 43.8%;
+            margin-top: -1em;
+            margin-left: 4em;
+        }
+        .main-content-header{
+            width: 36em;
+            margin-top: 4em;
+            margin-left: 2.5em;
+            color: #FFFFFF;
+            font-size: 2em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .main-content-setting{
+            position: absolute;
+            left: 43.5%;
+            top: 1em;
+        }
+        .main-content-search{
+            position: absolute;
+            left: 41.5%;
+            top: 1em;
+        }
+        .content-switch-tabs{
+            display: flex;
+            flex-direction: row;
+            width: 10em;
+            height: 2em;
+            margin-left: 42.5%;
+        }
+        .content-switch-tabs img{
+            margin-right: 0.5em;
+        }
+        .slide-left-tab{
+            width: 4em;
+            margin-right:0em;
+        }
+        .slide-right-tab{
+            width: 4em;
+            margin-left: -1em;
+        }
+        .pages-tab{
+            width: 3em;
+        }
+        .all-pages-tab{
+            width: 4em;
+            margin-left:-0.5em
+        }
+        .side-profile{
+            position: fixed;
+            z-index: 3;
+            right: -100%;
+            top: 0;
+            height: 100%;
+            background-color: #333231;
+            width: 20em;
+            transition: right 0.2s ease-in-out;
+        }
+        .side-profile-image-cover{
+            position: absolute;
+            right: 0em;
+            width: 20em;
+        }
+        .side-profile-img-cover{
+            position: absolute;
+            top: 1.45em;
+            right: 1.5em;
+            width: 6.5em;
+        }
+        .side-profile-img{
+            position: absolute;
+            top: 2.85em;
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            right: 2.969em;
+            border: 1px solid #FFFFFF;
+        }
+        .side-profile-title{
+
+            margin-left: 3.5em;
+            color: #FFFFFF;
+            font-size: 0.8em;
+            font-family: ubuntu;
+            font-weight: normal;
+            margin-top: -1.5em;
+
+        }
+        .side-profile-username{
+            margin-top: 3.5em;
+            margin-left: 2.5em;
+            color: #FFFFFF;
+            font-size: 1.1em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .side-profile-logout{
+            position: relative;
+            top: 3em;
+            left: 2em;
+            width: 9em;
+        }
+        .start-date{
+            position: absolute;
+            right: 33.5em;
+            top: 8.5em;
+            width: 19.5em;
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid;
+            border-radius: 0.3em;
+            height: 2.5em;
+            padding-left: 1em;
+        }
+        
+        .end-date{
+            position: absolute;
+            right: 13em;
+            width: 19.5em;
+            top: 8.5em;
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid;
+            border-radius: 0.3em;
+            height: 2.5em;
+            padding-left: 1em;
+        }
+
+        .monkvision-logo{
+            width: 14em;
+            margin-top: 1em;
+            margin-left: 2em;
+        }
+        tab-head{
+            position: absolute;
+            width: 72vw;
+            z-index: 4;
+            left: 3%;
+        }
+        arc-reactor{
+            position: absolute;
+            top: -1em;
+            left: 4em;
+            width: 46%;
+        }
+        card-view{
+            width: 46%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+            position: absolute;
+            top: 69vh;
+            left: 5em;
+        }
+        log-space{
+            width: 38%;
+            aspect-ratio: 659/333;
+            display: inline-block;
+            position: absolute;
+            top: 56vh;
+            right: 7%;
+        }
+        all-servers{
+            position: absolute;
+            top: 32vh;
+            right: 7%;
+            width: 38%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+
+        }
+        all-clusters{
+            position: absolute;
+            top: 14vh;
+            right: 7%;
+            width: 38%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+        }
+
+        .download-report{
+            position: absolute;
+            right: 8%;
+            width: 24%;
+            transform: scaleX(1.145);
+            top: 86vh;
+        }
+        .start-date-placeholder{
+            position: absolute;
+            right: 20em;
+            z-index: 2;
+            color: white;
+            width: 9em;
+            background: #0a222d;
+            top: 3.9em;
+            height: 1em;
+            font-size: 1.5em;
+        }
+        
+        .end-date-placeholder{
+            position: absolute;
+            right: 8.5em;
+            z-index: 2;
+            color: white;
+            width: 9em;
+            background: #0d242e;
+            top: 3.9em;
+            font-size: 1.5em;
+            height: 1em;
+        }
+        .calender-input-start-date{
+            position: absolute;
+            right: 28.3em;
+            top: 7.2em;
+            width: 1.8em;
+            z-index: -1;
+        }
+        .calender-input-end-date{
+            position: absolute;
+            right: 11.2em;
+            top: 7.2em;
+            width: 1.8em;
+            z-index: -1;
+        }
+        input[type=datetime-local]::-webkit-calendar-picker-indicator {
+            opacity: 0%;
+            z-index: 3;
+            height: 60px;
+            width: 60px;
+        
+        }
+
+    }
+    @media only screen and (min-width: 2501px) and (max-width:3000px){
+        .main-content{
+                position: relative;
+                top:0em;
+            }
+        .profile-menu-container{
+            height: 17em;
+            position: absolute;
+            right: 1em;
+            top: 0.5em;
+        }
+        .profile-menu-img{
+            position: absolute;
+            top: 5.3em;
+            height: 75px;
+            width: 75px;
+            border-radius: 50%;
+            right: 5.8em;
+            border: 1px solid #FFFFFF;
+        }
+        .profile-menu-text{
+			position: absolute;
+            top: 3em;
+            right: 9em;
+            font-size: 23px;
+        }
+		.image-container{
+            position: absolute;
+            top: 3em;
+            right: 3.5em;
+            width: 9.5em;
+        }
+        .start-icon{
+            width: 3em;
+            height: 1em;
+            position: absolute;
+            left: 14.5em;
+            top: 0.4em;
+            font-size: 1.5em;
+
+        }
+        .start-icon-button{
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            position: absolute;
+            right: 14em;
+            width: 45em;
+            top: 13.5em;
+            height: 3em;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .start-icon-button-text{
+            color: white;
+            font-weight: bold;
+            z-index: 2;
+            top: -0.65em;
+            position: absolute;
+            left: 11.8em;
+            font-size: 1.5em;
+        }
+        .profile-menu-bell{
+            position: absolute;
+            right: 4.5em;
+            top: 11.3em;
+            width: 6em;
+
+        }
+        .top-bar{
+            width: 44.8%;
+            margin-top: -1em;
+            margin-left: 4em;
+        }
+        .main-content-header{
+            width: 36em;
+            margin-top: 4em;
+            margin-left: 2.5em;
+            color: #FFFFFF;
+            font-size: 2em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .main-content-setting{
+            position: absolute;
+            left: 43.5%;
+            top: 0.75em;
+            width: 2em;
+        }
+        .main-content-search{
+            position: absolute;
+            left: 41.5%;
+            top: 0.75em;
+            width: 2em;
+        }
+        .content-switch-tabs{
+            display: flex;
+            flex-direction: row;
+            width: 10em;
+            height: 2em;
+            margin-left: 42.5%;
+        }
+        .content-switch-tabs img{
+            margin-right: 1em;
+        }
+        .slide-left-tab{
+            width: 5em;
+            margin-right:0em;
+        }
+        .slide-right-tab{
+            width: 5em;
+            margin-left: -1em;
+        }
+        .pages-tab{
+            width: 4em;
+        }
+        .all-pages-tab{
+            width: 5em;
+             margin-left: -0.5em;
+        }
+        .side-profile{
+            position: fixed;
+            z-index: 3;
+            right: -100%;
+            top: 0;
+            height: 100%;
+            background-color: #333231;
+            width: 20em;
+            transition: right 0.2s ease-in-out;
+        }
+        .side-profile-image-cover{
+            position: absolute;
+            right: 0em;
+            width: 20em;
+        }
+        .side-profile-img-cover{
+            position: absolute;
+            top: 1.45em;
+            right: 1.5em;
+            width: 6.5em;
+        }
+        .side-profile-img{
+            position: absolute;
+            top: 2.85em;
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            right: 2.969em;
+            border: 1px solid #FFFFFF;
+        }
+        .side-profile-title{
+
+            margin-left: 3.5em;
+            color: #FFFFFF;
+            font-size: 0.8em;
+            font-family: ubuntu;
+            font-weight: normal;
+            margin-top: -1.5em;
+
+        }
+        .side-profile-username{
+            margin-top: 3.5em;
+            margin-left: 2.5em;
+            color: #FFFFFF;
+            font-size: 1.1em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .side-profile-logout{
+            position: relative;
+            top: 3em;
+            left: 2em;
+            width: 9em;
+        }
+        .start-date{
+            position: absolute;
+            right: 38em;
+            top: 10em;
+            width: 21em;
+            background: transparent;
+            color: #ffffff;
+            height: 3em;
+        }
+        .end-date{
+            position: absolute;
+            right: 14.5em;
+            width: 21em;
+            top: 10em;
+            background: transparent;
+            color: #ffffff;
+            height: 3em;
+        }
+        .monkvision-logo{
+            width: 14em;
+            margin-top: 1em;
+            margin-left: 2em;
+        }
+        arc-reactor{
+            position: absolute;
+            top: -1em;
+            left: 4em;
+            width: 46%;
+        }
+        card-view{
+            width: 46%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+            position: absolute;
+            top: 69vh;
+            left: 5em;
+        }
+        log-space{
+            width: 38%;
+            aspect-ratio: 659/333;
+            display: inline-block;
+            position: absolute;
+            top: 56vh;
+            right: 7%;
+        }
+        all-servers{
+            position: absolute;
+            top: 32vh;
+            right: 7%;
+            width: 38%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+
+        }
+        all-clusters{
+            position: absolute;
+            top: 14vh;
+            right: 7%;
+            width: 38%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+        }
+
+        .download-report{
+            position: absolute;
+            right: 8%;
+            width: 24%;
+            transform: scaleX(1.145);
+            top: 86vh;
+        }
+        .start-date-placeholder{
+            position: absolute;
+            right: 26em;
+            z-index: 2;
+            color: white;
+            width: 6em;
+            background: #0a222d;
+            top: 4.2em;
+            height: 1em;
+        }
+        .end-date-placeholder{
+            position: absolute;
+            right: 13em;
+            z-index: 2;
+            color: white;
+            width: 6em;
+            background: #0d242e;
+            top: 4.2em;
+        }
+        .calender-input-start-date{
+            position: absolute;
+            right: 21em;
+            top: 5em;
+            width: 1.3em;
+            z-index: -1;
+        }
+        .calender-input-end-date{
+            position: absolute;
+            right: 8.5em;
+            top: 5em;
+            width: 1.3em;   
+            z-index: -1;
+        }
+
+        input[type=datetime-local]::-webkit-calendar-picker-indicator {
+            opacity: 0%;
+            z-index: 3;
+            height: 20px;
+            width: 40px;
+            
+        }
+    }
+    @media only screen and (min-width: 3001px){
+        .main-content{
+                position: relative;
+                top:0em;
+            }
+        .profile-menu-container{
+			height: 15em;
+            position: absolute;
+            right: 1em;
+            top: 0.5em;
+        }
+        .profile-menu-img{
+            position: absolute;
+            top: 4.5em;
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+            right: 5em;
+            border: 1px solid #FFFFFF;
+        }
+        .profile-menu-text{
+			position: absolute;
+            top: 3em;
+            right: 9em;
+            font-size: 20px;
+        }
+		.image-container{
+			position: absolute;
+            top: 2.5em;
+            right: 3em;
+            width: 8.5em;
+        }
+        .start-icon{
+            width: 3em;
+            height: 1em;
+            position: absolute;
+            left: 14.5em;
+            top: 0.5em;
+
+        }
+        .start-icon-button{
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            position: absolute;
+            right: 12em;
+            width: 41em;
+            top: 11.5em;
+            height: 3em;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .start-icon-button-text{
+            color: white;
+            font-weight: bold;
+            z-index: 2;
+            top: -0.65em;
+            position: absolute;
+            left: 11.8em;
+        }
+        .profile-menu-bell{
+            position: absolute;
+            right: 4.2em;
+            top: 10.2em;
+            width: 5.3em;
+        }
+        .top-bar{
+            width: 43.8%;
+            margin-top: -1em;
+            margin-left: 4em;
+        }
+        .main-content-header{
+            width: 36em;
+            margin-top: 4em;
+            margin-left: 2.5em;
+            color: #FFFFFF;
+            font-size: 2em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .main-content-setting{
+            position: absolute;
+            left: 43.5%;
+            top: 1em;
+        }
+        .main-content-search{
+            position: absolute;
+            left: 41.5%;
+            top: 1em;
+        }
+        .content-switch-tabs{
+            display: flex;
+            flex-direction: row;
+            width: 10em;
+            height: 2em;
+            margin-left: 42.5%;
+        }
+        .content-switch-tabs img{
+            margin-right: 0.5em;
+        }
+        .slide-left-tab{
+            width: 4em;
+            margin-right:0em;
+        }
+        .slide-right-tab{
+            width: 4em;
+            margin-left: -1em;
+        }
+        .pages-tab{
+            width: 3em;
+        }
+        .all-pages-tab{
+            width: 4em;
+            margin-left:-0.5em
+        }
+        .side-profile{
+            position: fixed;
+            z-index: 3;
+            right: -100%;
+            top: 0;
+            height: 100%;
+            background-color: #333231;
+            width: 20em;
+            transition: right 0.2s ease-in-out;
+        }
+        .side-profile-image-cover{
+            position: absolute;
+            right: 0em;
+            width: 20em;
+        }
+        .side-profile-img-cover{
+            position: absolute;
+            top: 1.45em;
+            right: 1.5em;
+            width: 6.5em;
+        }
+        .side-profile-img{
+            position: absolute;
+            top: 2.85em;
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            right: 2.969em;
+            border: 1px solid #FFFFFF;
+        }
+        .side-profile-title{
+
+            margin-left: 3.5em;
+            color: #FFFFFF;
+            font-size: 0.8em;
+            font-family: ubuntu;
+            font-weight: normal;
+            margin-top: -1.5em;
+
+        }
+        .side-profile-username{
+            margin-top: 3.5em;
+            margin-left: 2.5em;
+            color: #FFFFFF;
+            font-size: 1.1em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .side-profile-logout{
+            position: relative;
+            top: 3em;
+            left: 2em;
+            width: 9em;
+        }
+        .start-date{
+            position: absolute;
+            right: 33em;
+            top: 9em;
+            width: 19em;
+            background: transparent;
+            color: #ffffff;
+            height: 2em;
+        }
+        .end-date{
+            position: absolute;
+            right: 13em;
+            width: 19em;
+            top: 9em;
+            background: transparent;
+            color: #ffffff;
+            height: 2em;
+        }
+        .monkvision-logo{
+            width: 14em;
+            margin-top: 1em;
+            margin-left: 2em;
+        }
+        arc-reactor{
+            position: absolute;
+            top: -1em;
+            left: 4em;
+            width: 46%;
+        }
+        card-view{
+            width: 46%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+            position: absolute;
+            top: 69vh;
+            left: 5em;
+        }
+        log-space{
+            width: 38%;
+            aspect-ratio: 659/333;
+            display: inline-block;
+            position: absolute;
+            top: 56vh;
+            right: 7%;
+        }
+        all-servers{
+            position: absolute;
+            top: 32vh;
+            right: 7%;
+            width: 38%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+
+        }
+        all-clusters{
+            position: absolute;
+            top: 14vh;
+            right: 7%;
+            width: 38%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+        }
+
+        .download-report{
+            position: absolute;
+            right: 8%;
+            width: 24%;
+            transform: scaleX(1.145);
+            top: 86vh;
+        }
+        .start-date-placeholder{
+            position: absolute;
+            right: 26em;
+            z-index: 2;
+            color: white;
+            width: 6em;
+            background: #0a222d;
+            top: 4.2em;
+            height: 1em;
+        }
+        .end-date-placeholder{
+            position: absolute;
+            right: 13em;
+            z-index: 2;
+            color: white;
+            width: 6em;
+            background: #0d242e;
+            top: 4.2em;
+        }
+        .calender-input-start-date{
+            position: absolute;
+            right: 21em;
+            top: 5em;
+            width: 1.3em;
+            z-index: 1;
+        }
+        .calender-input-end-date{
+            position: absolute;
+            right: 8.5em;
+            top: 5em;
+            width: 1.3em;   
+            z-index: 1;
+        }}
+        </style>
     </head>
     
     <body>
     <div id="container">
-        <span id="header">
+        <!-- <span id="header">
             <img id="textlogo" src="{{{htmlData.textlogo}}}">
             <span id="title">{{title}}</span>
             {{#showDateFilter}}
@@ -153,18 +1600,41 @@
                 <menu-item onclick="main.loadPDFReport()">PDF Report</menu-item>
             </span-with-menu>
             <span id="signoff"><img src="./img/poweroff.svg" onclick="loginmanager.logout()"></span>
-        </span>
+        </span> -->
     
-        <span id="searchbar">
+        <!-- <span id="searchbar">
             <img id="searchicon" src="{{{htmlData.SearchIcon}}}" alt="search icon" onclick="main.showQueryResult(this)">
             <input id="searchbartext" type="text" placeholder="{{i18n.NLPSearch}}" onkeyup="if (event.keyCode == 13) main.showQueryResult(this);">
-        </span>
+        </span> -->
+        <div class="appname">
+			<img src="./img/botAndText.svg" alt="monkvision" class="monkvision-logo">
+		</div>
+		<div class="profile-menu" >
+			<img class="profile-menu-container" src="./img/profile_container_img.svg">
+			<img class="image-container" src="./img/image_cover.svg">
+			<img class="profile-menu-img" src="./img/man1.jpg" onclick="toggleSideProfile()" style="object-fit:cover;">
+            <input type="datetime-local" class="start-date" onfocus="startdate()" onblur="startdatechange()"> 
+            <p class="start-date-placeholder">Start Date</p>
+            <img src="./img/calender.svg" class="calender-input-start-date" >
+			<input type="datetime-local" class="end-date" onfocus="endDate()" onblur="endDatechange()"> 
+            <p class="end-date-placeholder">End Date</p>
+            <img src="./img/calender.svg" class="calender-input-end-date" >
+			<p class="font profile-menu-text" >Hello Rohan!</p>
+			<button class="start-icon-button">
+                <p class="start-icon-button-text">START</p><img class="start-icon" src="./img/start.svg">
+            </button>
+            <img class="profile-menu-bell" src="./img/bell_icon.svg">
+		</div>
 
         <div id="leftheader">
             <tab-head></tab-head>
         </div>
     
         <div id="maincontent">
+            <!-- <img class="graph-container-img" src="./img/home_container.png" style="width: 94vw;
+            margin-left: 2em;
+            margin-top: 5%;
+            height: 85vh;"> -->
             <page-generator file="{{{dash}}}" pagedata='{{pagedata}}'></page-generator>
         </div>
     
@@ -177,6 +1647,33 @@
             elem.previousElementSibling.style.display = 'none';
             elem.previousElementSibling.previousElementSibling.style.display = 'none';
         }
+        function startdate(){
+            console.log("start date ")
+            document.getElementsByClassName('start-date-placeholder')[0].style.display="none";
+        }
+        function startdatechange(){
+            if(!document.getElementsByClassName('start-date')[0].value){
+                document.getElementsByClassName('start-date-placeholder')[0].style.display="block";
+            }
+    
+        }
+        function endDate(){
+            document.getElementsByClassName('end-date-placeholder')[0].style.display="none";
+        }
+        function endDatechange(){
+            if(!document.getElementsByClassName('end-date')[0].value){
+                document.getElementsByClassName('end-date-placeholder')[0].style.display="block";
+            }
+    
+        }
+        function toggleSideProfile() {
+            var slidingDiv = document.getElementById("sideProfileDiv");
+            var slidingDivCover = document.getElementById("side-profile-cover");
+            slidingDiv.style.right = slidingDiv.style.right === "-100%" ? "0" : "-100%";
+            slidingDivCover.style.right = slidingDivCover.style.right === "-100%" ? "0" : "-100%";
+        }
+        
     </script>
     </body>
+
     </html>
