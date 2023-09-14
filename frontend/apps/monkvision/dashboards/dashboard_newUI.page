@@ -40,6 +40,19 @@ SCHEMA
         "api":"cycleLogs", 
         "type":"cycleLogs",
         "styleBody":"div#container{height: calc(100vh - 50px) !important; font-size: large} div#content{height: calc(60% - 10px) !important;} div#content > div#textcontent > span#text > p {padding:5px;margin:4px;} div#content > div#textcontent > span#text > p:hover {border-radius: 3px; background-color: #fafafa21;}"
+    },
+    "groupB":{
+        "html":"group-b", 
+        "id": "groupB1",
+        "file": "conf/groups/groupB1.json"
+    },
+    "cardView2": {
+        "html":"chart-box", 
+        "id":"cardView", 
+        "title":"{{i18n.CriticalAlerts}}", 
+        "api":"cardView", 
+        "type":"cardView",
+        "styleBody":"div#container{height: calc(100vh - 50px) !important; font-size: large} div#content{height: calc(60% - 10px) !important;} div#content > div#textcontent > span#text > p {padding:5px;margin:4px;} div#content > div#textcontent > span#text > p:hover {border-radius: 3px; background-color: #fafafa21;}"
     }
 }
 ======
@@ -52,23 +65,28 @@ LAYOUT
 |------------------------------------------------------------------------------------|
 | arcReactor                              |               allClusters                |
 |------------------------------------------------------------------------------------|
+| arcReactor                              |               allClusters                |
+|------------------------------------------------------------------------------------|
+| arcReactor                              |               allServers                 |
+|------------------------------------------------------------------------------------|
 | arcReactor                              |               allServers                 |
 |------------------------------------------------------------------------------------|
 | arcReactor                              |               allServers                 |
 |------------------------------------------------------------------------------------|
-| arcReactor                              |               cycleLogs                  |
-|------------------------------------------------------------------------------------|
-| arcReactor                              |               cycleLogs                  |
-|------------------------------------------------------------------------------------|
-| arcReactor                              |               cycleLogs                  |
+| cardView                                |               cycleLogs                  |
 |------------------------------------------------------------------------------------|
 | cardView                                |               cycleLogs                  |
 |------------------------------------------------------------------------------------|
 | cardView                                |               cycleLogs                  |
+|------------------------------------------------------------------------------------|
+| groupB                                                                             |
+|------------------------------------------------------------------------------------|
+|cardView2                                                                           |
 --------------------------------------------------------------------------------------
+
 =================
-Row Heights = 10%,10%,10%,10%,10%,10%,10%,10%,10%
-Col Widths = 60%,40%
+Row Heights = 10%,10%,10%,10%,10%,10%,10%,10%,10%,85%,30%
+Col Widths = 55%,calc(45% - 10px);
 =================
 
 
