@@ -10,6 +10,7 @@ import {utils as chartUtils} from "./lib/utils.mjs";
 import {apimanager as apiman} from "/framework/js/apimanager.mjs";
 import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 import {util as frameworkUtils} from "/framework/js/util.mjs";
+import { data as fakeData } from "../../conf/testData/chartData.mjs"; //remove when not testing
 
 //added
 import {i18n} from "/framework/js/i18n.mjs";
@@ -249,7 +250,7 @@ async function _refreshData(element, force) {
 
 
 const _makeArray = string => {
-	if (!string) return null; const raw = string.trim(); if (!raw.startsWith("[")) raw = `[${raw}]`;
+	if (!string) return null; let raw = string.trim(); if (!raw.startsWith("[")) raw = `[${raw}]`;
 	const arrayVals = XRegExp.matchRecursive(raw, '\\[', '\\]', "g");
 	return arrayVals;
 }
@@ -273,48 +274,11 @@ function _getLabels(labelsRAW) {
 }
 
 async function _getContent(api, params) {
+	if(fakeData[api]) return fakeData[api]; //remove this line when not testing
 	const API_TO_CALL = `${APP_CONSTANTS.API_PATH}/${api}`;
 
 	const paramObj = {timeRange: getTimeRange()}; if (params) for (const param of params.split("&")) paramObj[param.split("=")[0]] = param.split("=")[1];
 	const resp = await apiman.rest(API_TO_CALL, "GET", paramObj, true, false);
-	// const resp = {
-	// 	"result": true,
-	// 	"type": "bargraph",
-	// 	"contents": {
-	// 		"length": 7,
-	// 		"x": [
-	// 			"ssh_mon_sql_injections_access",
-	// 			"ssh_mon_login_attack",
-	// 			"ssh_mon_nodejs_injections_access",
-	// 			"ssh_mon_ddos",
-	// 			"ssh_mon_icmp_flood",
-	// 			"ssh_mon_php_attackers_access",
-	// 			"ssh_mon_too_many_http_errors_access"
-	// 		],
-	// 		"ys": [
-	// 			[
-	// 				3,
-	// 				110,
-	// 				25,
-	// 				9,
-	// 				5,
-	// 				8,
-	// 				65
-	// 			]
-	// 		],
-	// 		"infos": [
-	// 			[
-	// 				3,
-	// 				110,
-	// 				25,
-	// 				9,
-	// 				5,
-	// 				8,
-	// 				65
-	// 			]
-	// 		]
-	// 	}
-	// }
 
 	if (resp && resp.type=="text" && resp.contents && resp.contents.length) for (const [i,line] of resp.contents.entries())
 		resp.contents[i] = _escapeHTML(line).replace(/(?:\r\n|\r|\n)/g, '<br>');
