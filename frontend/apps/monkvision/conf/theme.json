@@ -68,7 +68,7 @@
         "label#clusterLabel": "color:rgba(250,250,250,0.85);",
         "div#container": "width: 100%;",
         "div#maincontent": "width: 100vw;height: 100vh;",
-        "div#leftheader": "width: 89%;height: 13%;",
+        "div#leftheader": "width: 75%;height: 13%;",
         "span#header": "top: 15px; left: 30px; color: #41cf70; width: calc(100% - 30px); font-family: 'Ubuntu';",
         "div#leftheader > span": "color: rgba(250,250,250,0.95); padding-bottom: 30px; width: 70px; left: 0px; font-size: smaller; font-weight: 500;",
         "span#header > img#textlogo": "height: 13px; width: 100px;",

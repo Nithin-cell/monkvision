@@ -75,7 +75,6 @@ async function interceptPageLoadData() {
             data.dateTimeNow = session.get(SELECTED_DATES).to;
             data.dateTimeWeekAgo = session.get(SELECTED_DATES).from;
         }
-        const allDashIcons = document.querySelectorAll("div#leftheader > img.dashicon");
     }
 
     const pageload_func = async data => {

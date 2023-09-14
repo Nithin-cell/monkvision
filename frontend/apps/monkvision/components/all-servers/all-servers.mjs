@@ -3,7 +3,7 @@ import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 const COMPONENT_PATH = util.getModulePath(import.meta);
 
 const pageData = {
-    name: "Servers",
+    name: "Sliders B",
     selectedItem: 0,
     items: [
         {
