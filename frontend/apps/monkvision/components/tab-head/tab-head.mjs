@@ -187,10 +187,14 @@ function shift(shift){
 
 function setNavButtons(){
     const $$ = tab_head.shadowRoot;
-    if(pageData.st==0)  return $$.getElementById('prev').style.opacity = '0.4';
-    if(pageData.st + 6>= pageData.tabs.length) return $$.getElementById('next').style.opacity = '0.4';
-    $$.getElementById('prev').style.opacity = '1';
-    $$.getElementById('next').style.opacity = '1';
+    const p = $$.getElementById('prev'); const n = $$.getElementById('next');
+    let a = pageData.st==0;
+    let b = pageData.st + 6>= pageData.tabs.length;
+    if(a) p.style.opacity = '0.4';
+    if(b) n.style.opacity = '0.4';
+    if(a || b) return;
+    p.style.opacity = '1';
+    n.style.opacity = '1';
 }
 
 function getTabSvg(div, tab, i){
