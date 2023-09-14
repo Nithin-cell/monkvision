@@ -69,43 +69,44 @@ async function elementConnected(element) {
 }
 
 async function generatePageHTML(elementParent, schema, cssParsed, cssInternal, cssHref, layoutObj) {
+	const htmlParts = [];
 	if (!elementParent.webscrolls_env) elementParent.webscrolls_env = {};
 	if (layoutObj.rowHeights.length < layoutObj.rows.length) layoutObj.rowHeights.push(Array(layoutObj.rows.length-layoutObj.rowHeights.length).fill("auto"));
 	if (layoutObj.colWidths.length < layoutObj.columns.length) layoutObj.colWidths.push(Array(layoutObj.columns.length-layoutObj.colWidths.length).fill("auto"));
 
-	let css = `${cssHref?`<link rel="stylesheet" type="text/css" href="${cssHref}">`:""}
+	htmlParts.push(`${cssHref?`<link rel="stylesheet" type="text/css" href="${cssHref}">`:""}
 	<style>
 	.grid-container {
 		display: grid;
 		grid-template-rows: ${layoutObj.rowHeights.join(" ")};
 		grid-template-columns: ${layoutObj.colWidths.join(" ")};
 	}
-	`;
-	let html = `<div class="grid-container${cssParsed.containerClasses?" "+cssParsed.containerClasses:''}">
-	`;
+	`);
+	let cssPos=0,htmlPos=1;
+	htmlParts.push(`<div class="grid-container${cssParsed.containerClasses?" "+cssParsed.containerClasses:''}">`);
 
 	for (const [i, element] of layoutObj.elementsAndPlacements.entries()) {
-		css += `.item${i} {
+		htmlParts.splice(++cssPos, 0, `.item${i} {
 			grid-column: ${element.colStart+1} / ${element.colEnd+1};
 			grid-row: ${element.rowStart+1} / ${element.rowEnd+1};
 			overflow: hidden;
 		}
-		`
+		`);
+		htmlPos++; 
 
 		let htmlElement = JSON.parse(schema)[element.element]; 
-		htmlElement.id = element.name || element.element; 
-		html += `<div class="item${i}${cssParsed.itemClasses?" "+cssParsed.itemClasses:''}${cssParsed.perItemClass?` ${cssParsed.perItemClass}-${htmlElement.id}`:''}"><${htmlElement.html || "div"}`; 
+		htmlElement.id = element.name || element.element;
+		htmlParts.splice(++htmlPos, 0, `<div class="item${i}${cssParsed.itemClasses?" "+cssParsed.itemClasses:''}${cssParsed.perItemClass?` ${cssParsed.perItemClass}-${htmlElement.id}`:''}"><${htmlElement.html || "div"}`); 
 		delete htmlElement.html; let innerHTML = htmlElement.__org_monkshu_innerHTML||''; delete htmlElement.__org_monkshu_innerHTML;
-		for (const attr of Object.keys(htmlElement)) html += ` ${attr}="${await evalAttrValue(htmlElement[attr])}"`; html += `>${innerHTML}</${htmlElement.html}></div>
-		`
+		for (const attr of Object.keys(htmlElement)) htmlParts.splice(++htmlPos, 0, ` ${attr}="${await evalAttrValue(htmlElement[attr])}"`); htmlParts.splice(++htmlPos, 0, `>${innerHTML}</${htmlElement.html}></div>
+		`);
 	}
 
-	css += cssInternal;
-	css += "</style>"; html += "</div>";
+	htmlParts.splice(++cssPos, 0, cssInternal);
+	htmlParts.splice(++cssPos, 0, "</style>");
+	htmlParts.splice(++htmlPos, 0, "</div>");
 
-	let finalHTML = css+html;
-
-	return finalHTML;
+	return htmlParts.join("");
 }
 
 async function evalAttrValue(str) {
@@ -130,5 +131,5 @@ function findObject(objectArray, colStart, colEnd, rowEnd, label) {
 }
 
 const trueWebComponentMode = true;	// making this false renders the component without using Shadow DOM
-export const page_generator = {trueWebComponentMode, elementConnected}
+export const page_generator = {trueWebComponentMode, elementConnected, evalAttrValue}
 monkshu_component.register("page-generator", null, page_generator);
