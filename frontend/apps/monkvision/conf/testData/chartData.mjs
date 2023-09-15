@@ -4718,6 +4718,141 @@ export const data = {
             warningColour: "rgba(65, 161, 187, 1)"
             }
         ]
+    },
+    "sliderb1": {
+      name: "Sliders B",
+      items: [
+          {
+              ix: 0,
+              ip: "139.24.26.247:23",
+              type: "SERVER"
+          },
+          {
+              ix: 1,
+              ip: "133.25.26.24:22",
+              type: "SERVER",
+              warningColor: "#FF9C07"
+          },
+          {
+              ix: 2,
+              ip: "133.25.26.24:22",
+              type: "SERVER"
+          },
+          {
+              ix: 3,
+              ip: "133.25.26.24:22",
+              type: "SERVER"
+          },
+          {
+              ix: 4,
+              ip: "133.25.26.24:22",
+              type: "SERVER"
+          },
+          {
+              ix: 5,
+              ip: "133.25.26.24:22",
+              type: "SERVER",
+              warningColor: "#FF9C07"
+          },
+          {
+              ix: 6,
+              ip: "133.25.26.24:22",
+              type: "SERVER"
+          },
+          {
+              ix: 7,
+              ip: "133.25.26.24:22",
+              type: "SERVER"
+          },
+          {
+              ix: 8,
+              ip: "139.24.26.247:23",
+              type: "SERVER"
+          },
+          {
+              ix: 9,
+              ip: "133.25.26.24:22",
+              type: "SERVER",
+              warningColor: "red"
+          },
+          {
+              ix: 10,
+              ip: "133.25.26.24:22",
+              type: "SERVER",
+              warningColor: "yellow"
+          },
+          {
+              ix: 11,
+              ip: "133.25.26.24:22",
+              type: "SERVER"
+          },
+          {
+              ix: 12,
+              ip: "133.25.26.24:22",
+              type: "SERVER"
+          },
+          {
+              ix: 13,
+              ip: "133.25.26.24:22",
+              type: "SERVER",
+              warningColor: "green"
+          },
+          {
+              ix: 14,
+              ip: "133.25.26.24:22",
+              type: "SERVER",
+              warningColor: "yellow"
+          },
+          {
+              ix: 15,
+              ip: "133.25.26.24:22",
+              type: "SERVER"
+          },
+          {
+              ix: 16,
+              ip: "139.24.26.247:23",
+              type: "SERVER"
+          },
+          {
+              ix: 17,
+              ip: "133.25.26.24:22",
+              type: "SERVER",
+              warningColor: "red"
+          },
+          {
+              ix: 18,
+              ip: "133.25.26.24:22",
+              type: "SERVER",
+              warningColor: "yellow"
+          },
+          {
+              ix: 19,
+              ip: "133.25.26.24:22",
+              type: "SERVER"
+          },
+          {
+              ix: 20,
+              ip: "133.25.26.24:22",
+              type: "SERVER"
+          },
+          {
+              ix: 21,
+              ip: "133.25.26.24:22",
+              type: "SERVER",
+              warningColor: "green"
+          },
+          {
+              ix: 22,
+              ip: "133.25.26.24:22",
+              type: "SERVER",
+              warningColor: "yellow"
+          },
+          {
+              ix: 23,
+              ip: "133.25.26.24:22",
+              type: "SERVER"
+          },
+      ]
     }
 }
 

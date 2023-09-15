@@ -94,10 +94,6 @@ async function _refreshData(element, force) {
 		contentDiv.innerHTML = `<all-clusters content='${JSON.stringify(content)}'></all-clusters>`;	// clear it 
 		return;
 	}
-	if(type == "allServers"){
-		contentDiv.innerHTML = `<all-servers content='${JSON.stringify(content)}'></all-servers>`;	// clear it 
-		return;
-	}
 	if(type == "cardView"){
 		contentDiv.innerHTML = `<card-view content='${JSON.stringify(content)}'></card-view>`;	// clear it 
 		return;

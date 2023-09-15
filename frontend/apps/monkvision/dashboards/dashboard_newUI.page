@@ -17,12 +17,11 @@ SCHEMA
         "type":"allClusters",
         "styleBody":"div#container{height: calc(100vh - 50px) !important; font-size: large} div#content{height: calc(60% - 10px) !important;} div#content > div#textcontent > span#text > p {padding:5px;margin:4px;} div#content > div#textcontent > span#text > p:hover {border-radius: 3px; background-color: #fafafa21;}"
     },
-    "allServers": {
-        "html":"chart-box", 
-        "id":"allServers", 
+    "sliderB": {
+        "html":"slider-b", 
+        "id":"sliderB1", 
         "title":"{{i18n.CriticalAlerts}}", 
-        "api":"allServers", 
-        "type":"allServers",
+        "api":"sliderb1", 
         "styleBody":"div#container{height: calc(100vh - 50px) !important; font-size: large} div#content{height: calc(60% - 10px) !important;} div#content > div#textcontent > span#text > p {padding:5px;margin:4px;} div#content > div#textcontent > span#text > p:hover {border-radius: 3px; background-color: #fafafa21;}"
     },
     "cardView": {
@@ -67,11 +66,11 @@ LAYOUT
 |------------------------------------------------------------------------------------|
 | arcReactor                              |               allClusters                |
 |------------------------------------------------------------------------------------|
-| arcReactor                              |               allServers                 |
+| arcReactor                              |               sliderB                    |
 |------------------------------------------------------------------------------------|
-| arcReactor                              |               allServers                 |
+| arcReactor                              |               sliderB                    |
 |------------------------------------------------------------------------------------|
-| arcReactor                              |               allServers                 |
+| arcReactor                              |               sliderB                    |
 |------------------------------------------------------------------------------------|
 | cardView                                |               cycleLogs                  |
 |------------------------------------------------------------------------------------|
