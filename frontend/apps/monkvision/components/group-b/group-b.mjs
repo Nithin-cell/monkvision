@@ -35,7 +35,6 @@ async function getTabs(el){
     for(let [ix, i] of Object.keys(items).entries()){
         htmlParts.push(`<div id="bt${ix}" title="${items[i]["title"]}" subtitle="${items[i]["subtitle"]}" ${staticPt}${ix===0? ' selected"' : '"'}><p>${i}</p></div>`);
     }
-    console.log(Object.keys(items));
     setTitle(el, items[Object.keys(items)[0]]["title"], items[Object.keys(items)[0]]["subtitle"]);
     return htmlParts.join('');
 }
@@ -50,16 +49,23 @@ async function getContent(el){
 }
 
 function select(el){
-    alert("select clicked")
+    const [c, p1, p2]=['selected','foreignObject','#content'];
+    const prevSelection = querySelector(el, `${p1} .${c}`);
+    if(el.tagName==="path"){
+        let curr = Number(prevSelection.id.substr(2));
+        el.getAttribute('id')==='prev'? curr-=1 : curr+=1;
+        curr = querySelector(el, `${p1} div#bt${curr}`);
+        if(curr) el = curr; else return;
+    }
     let [id, title, subtitle] = ['id', 'title', 'subtitle'].map(attr => el.getAttribute(attr));
     id = id.substr(2);
 
-    const [c, p1, p2]=['selected','foreignObject','#content'];
-    querySelector(el, `${p1} .${c}`).classList.remove(c);
+    prevSelection.classList.remove(c);
     querySelector(el, `${p1} div#bt${id}`).classList.add(c);
     querySelector(el, `${p2} .${c}`).classList.remove(c);
     querySelector(el, `${p2} div#it${id}`).classList.add(c);
     setTitle(el, title, subtitle);
+    changeOpacityOfPaths(el,+id);
 }
 
 function setTitle(el, title, subtitle){
@@ -67,6 +73,19 @@ function setTitle(el, title, subtitle){
     textBoxes[0].innerHTML = title; textBoxes[1].innerHTML = subtitle;
 }
 
+async function changeOpacityOfPaths(el, id){
+    let prev=querySelector(el, 'path#prev'), next=querySelector(el, 'path#prev');
+    const setOpc = (path, dim=false) => path.setAttribute('opacity', dim? '0.6': '1');
+    const len = Object.keys(await getFile(group_b.getHostElement(el))).length;
+    if(!len) return [prev, next].forEach(p => setOpc(p, true));
+    if(id==0){
+        setOpc(prev, true); setOpc(next);
+    }
+    else if(id==len-1){
+        setOpc(prev); setOpc(next, true);
+    }
+    else [prev, next].forEach(p => setOpc(p));
+}
 
 export const group_b = {trueWebComponentMode:true, elementRendered, select};
 monkshu_component.register("group-b", `${COMPONENT_PATH}/group-b.html`, group_b);
