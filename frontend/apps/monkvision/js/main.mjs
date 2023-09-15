@@ -124,8 +124,6 @@ function _startRefresh() {
         return(minutes + ":" + seconds);
 }
 
-export const main = {changePassword, interceptPageLoadData, timeRangeUpdated, playPauseCharts, loadPDFReport, openModal,loadMain};
-
 function openModal(id){
     closeAllModals();
     const modal = document.getElementById(id);
@@ -149,3 +147,28 @@ function closeAllModals(){
 function loadMain(){
     router.loadPage(APP_CONSTANTS.MAIN_HTML)
 }
+
+function getShadowRoot(ctx){
+    return ctx.tagName.includes('-')? ctx.shadowRoot : ctx.getRootNode();
+}
+/**
+ * 
+ * @param {HTMLElement} ctx contained element to find parent shadowRoot 
+ * @param {keyof HTMLElementTagNameMap} q qualified CSS-Selector
+ * @param {Boolean} all set true to find all instances, default false
+ * @returns {HTMLElement | HTMLElement[]}
+*/
+function querySelector(ctx, q , all=false){
+    return all? getShadowRoot(ctx).querySelectorAll(q) : getShadowRoot(ctx).querySelector(q);
+}
+
+async function getFile(el){
+    try {
+        let items  = await $$.requireJSON(el.getAttribute("file"), false);
+        return items;
+    } catch (er) {
+        console.log(er);
+        return ({});
+    }
+}
+export const main = {changePassword, interceptPageLoadData, timeRangeUpdated, playPauseCharts, loadPDFReport, openModal,loadMain,querySelector,getShadowRoot, getFile};
