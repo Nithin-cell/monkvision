@@ -27,7 +27,7 @@ async function getContent(el){
     let items = await main.getFile(el);
     let htmlParts = [];
     for(let [ix, i] of Object.keys(items).entries()){
-        let child = items[i].html; delete items[i].html;
+        let child = items[i].html;
         htmlParts.push(`<div id="it${ix}" class="flex-item${ix===0? ' selected' : ''}"><${child} ${await Promise.all(Object.keys(items[i]).map(async attr=> `${attr}="${await page_generator.evalAttrValue(items[i][attr])}"`)).then(_=> _.join(" "))}></${child}></div>`);
     }
     return htmlParts.join("");
