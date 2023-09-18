@@ -33,7 +33,7 @@
             flex-wrap: nowrap;
             scroll-behavior: smooth;
             aspect-ratio: 860/154;
-            width: 95%;
+            width: 95.1%;
             margin-top: 3%;
             margin-left: 2.3%;
             overflow: auto hidden;
@@ -190,7 +190,7 @@
 <body>
     <div class="abs bg">
         <svg viewBox="80 861 820 160" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <text x="80" y="877" text-anchor="start" dominant-baseline="middle" fill="white" font-size="13"></text>
+            <text x="80" y="874" text-anchor="start" dominant-baseline="middle" fill="white" font-size="13">{{name}}</text>
             <path d="M554.007 1019.11H554.017H887C892.247 1019.11 896.5 1014.85 896.5 1009.61V1008.26C896.5 1005.64 895.411 1003.12 893.492 1001.33L884.615 993.019C882.494 991.034 881.29 988.259 881.29 985.353V928.66C881.29 925.57 882.652 922.637 885.011 920.642L893.133 913.775C895.268 911.97 896.5 909.316 896.5 906.52V902.132C896.5 899.47 895.383 896.93 893.421 895.13L859.478 863.999C857.726 862.392 855.435 861.5 853.057 861.5H654.4H492.165H280.961C278.434 861.5 276.011 862.507 274.228 864.297L254.84 883.771C252.87 885.75 250.192 886.862 247.399 886.862H108.884H91C85.7533 886.862 81.5 891.115 81.5 896.362V906.234C81.5 909.185 82.8712 911.968 85.2109 913.767L94.129 920.621C96.715 922.608 98.2305 925.685 98.2305 928.946V985.069C98.2305 988.148 96.8796 991.071 94.5351 993.066L84.8435 1001.31C82.7223 1003.12 81.5 1005.76 81.5 1008.55V1010C81.5 1015.25 85.7533 1019.5 91 1019.5H533.226H533.23L554.007 1019.11Z" stroke="white" stroke-opacity="0.3"/>
             <path d="M232.302 864.591C232.678 864.213 233.189 864 233.721 864H256.195C257.974 864 258.868 866.147 257.614 867.409L245.698 879.409C245.322 879.787 244.811 880 244.279 880H221.805C220.026 880 219.132 877.853 220.386 876.591L232.302 864.591Z" fill="#D9D9D9"/>
             <path d="M232.657 864.943C232.939 864.659 233.322 864.5 233.721 864.5H256.195C257.529 864.5 258.199 866.111 257.26 867.057L245.343 879.057C245.061 879.341 244.678 879.5 244.279 879.5H221.805C220.471 879.5 219.801 877.889 220.74 876.943L232.657 864.943Z" stroke="white" stroke-opacity="0.3"/>
@@ -214,11 +214,15 @@
         </svg>
     </div>
     <div class="abs flex-container" onscroll="monkshu_env.components['card-view'].scrollEndHandler(this)">
-        
+        {{#items}}
+        <div class="flex-child" ix="{{ix}}" onclick="monkshu_env.components['card-view'].selectItemHandler(this)">
+            <glowing-arc {{#mainTitle}}mainTitle='{{.}}'{{/mainTitle}} {{#data}}data='{{.}}'{{/data}} {{#innerTitle}}innerTitle='{{.}}'{{/innerTitle}} {{#percentage}}percentage='{{.}}'{{/percentage}} {{#color}}color='{{.}}'{{/color}} {{#warningColour}}warningColour='{{.}}'{{/warningColour}}></glowing-arc>
+        </div>
+        {{/items}}
     </div>
     <input type="text" class="abs spread-input" />
     <div id="allCardsModal" class="modal">
-        <span class="header">all cards</span>
+        <span class="header">{{name}}</span>
         <div class="searchbox">
             <input placeholder="search" type="text" onkeyup="monkshu_env.components['all-cards'].search(this)">
             <img src="./img/search.svg">
@@ -229,6 +233,6 @@
         </div>
     </div>
     <div id="backdrop" class="backdrop"></div>
-    <div id="expand" onclick="monkshu_env.components['card-view'].openModal()"></div>
+    <div id="expand" onclick="monkshu_env.components['card-view'].openModal(this)"></div>
 </body>
 </html>

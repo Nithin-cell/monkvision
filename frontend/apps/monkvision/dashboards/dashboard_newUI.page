@@ -25,11 +25,10 @@ SCHEMA
         "styleBody":"div#container{height: calc(100vh - 50px) !important; font-size: large} div#content{height: calc(60% - 10px) !important;} div#content > div#textcontent > span#text > p {padding:5px;margin:4px;} div#content > div#textcontent > span#text > p:hover {border-radius: 3px; background-color: #fafafa21;}"
     },
     "cardView": {
-        "html":"chart-box", 
+        "html":"card-view", 
         "id":"cardView", 
         "title":"{{i18n.CriticalAlerts}}", 
         "api":"cardView", 
-        "type":"cardView",
         "styleBody":"div#container{height: calc(100vh - 50px) !important; font-size: large} div#content{height: calc(60% - 10px) !important;} div#content > div#textcontent > span#text > p {padding:5px;margin:4px;} div#content > div#textcontent > span#text > p:hover {border-radius: 3px; background-color: #fafafa21;}"
     },
     "cycleLogs": {
@@ -46,10 +45,10 @@ SCHEMA
         "file": "conf/groups/groupB1.json"
     },
     "cardView2": {
-        "html":"chart-box", 
+        "html":"card-view", 
         "id":"cardView", 
         "title":"{{i18n.CriticalAlerts}}", 
-        "api":"cardView", 
+        "api":"cardView2", 
         "type":"cardView",
         "styleBody":"div#container{height: calc(100vh - 50px) !important; font-size: large} div#content{height: calc(60% - 10px) !important;} div#content > div#textcontent > span#text > p {padding:5px;margin:4px;} div#content > div#textcontent > span#text > p:hover {border-radius: 3px; background-color: #fafafa21;}"
     }
