@@ -4466,6 +4466,7 @@ export const data = {
     },
     "cardView": {
         name: "All cards",
+        html: "glowing-arc",
         items: [
             {
                 ix: 0,
@@ -4753,6 +4754,7 @@ export const data = {
     },
     "cardView2": {
         name: "All cards",
+        html: "glowing-arc",
         items: [
             {
               ix: 0,

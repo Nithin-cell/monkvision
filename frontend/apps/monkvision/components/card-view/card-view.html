@@ -216,7 +216,7 @@
     <div class="abs flex-container" onscroll="monkshu_env.components['card-view'].scrollEndHandler(this)">
         {{#items}}
         <div class="flex-child" ix="{{ix}}" onclick="monkshu_env.components['card-view'].selectItemHandler(this)">
-            <glowing-arc {{#mainTitle}}mainTitle='{{.}}'{{/mainTitle}} {{#data}}data='{{.}}'{{/data}} {{#innerTitle}}innerTitle='{{.}}'{{/innerTitle}} {{#percentage}}percentage='{{.}}'{{/percentage}} {{#color}}color='{{.}}'{{/color}} {{#warningColour}}warningColour='{{.}}'{{/warningColour}}></glowing-arc>
+            <{{html}} {{#mainTitle}}mainTitle='{{.}}'{{/mainTitle}} {{#data}}data='{{.}}'{{/data}} {{#innerTitle}}innerTitle='{{.}}'{{/innerTitle}} {{#percentage}}percentage='{{.}}'{{/percentage}} {{#color}}color='{{.}}'{{/color}} {{#warningColour}}warningColour='{{.}}'{{/warningColour}} ></{{html}}>
         </div>
         {{/items}}
     </div>
