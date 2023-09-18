@@ -90,10 +90,6 @@ async function _refreshData(element, force) {
 		contentDiv.innerHTML = `<arc-reactor content='${JSON.stringify(content)}'></arc-reactor>`;	// clear it 
 		return;
 	}
-	if(type == "allClusters"){
-		contentDiv.innerHTML = `<all-clusters content='${JSON.stringify(content)}'></all-clusters>`;	// clear it 
-		return;
-	}
 	if(type == "cycleLogs"){
 		contentDiv.innerHTML = `<log-space content='${JSON.stringify(content)}'></log-space>`;	// clear it 
 		return;

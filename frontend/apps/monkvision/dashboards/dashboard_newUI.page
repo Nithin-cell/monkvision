@@ -9,12 +9,12 @@ SCHEMA
         "type":"arcReactor",
         "styleBody":"div#container{height: calc(100vh - 50px) !important; font-size: large} div#content{height: calc(60% - 10px) !important;} div#content > div#textcontent > span#text > p {padding:5px;margin:4px;} div#content > div#textcontent > span#text > p:hover {border-radius: 3px; background-color: #fafafa21;}"
     },
-    "allClusters": {
-        "html":"chart-box", 
-        "id":"allClusters", 
+    "sliderA": {
+        "html":"slider-a", 
+        "id":"sliderA", 
         "title":"{{i18n.CriticalAlerts}}", 
-        "api":"allClusters", 
-        "type":"allClusters",
+        "api":"sliderA", 
+        "type":"sliderA",
         "styleBody":"div#container{height: calc(100vh - 50px) !important; font-size: large} div#content{height: calc(60% - 10px) !important;} div#content > div#textcontent > span#text > p {padding:5px;margin:4px;} div#content > div#textcontent > span#text > p:hover {border-radius: 3px; background-color: #fafafa21;}"
     },
     "sliderB": {
@@ -59,11 +59,11 @@ SCHEMA
 LAYOUT
 =================
 --------------------------------------------------------------------------------------
-| arcReactor                              |               allClusters                |
+| arcReactor                              |               sliderA                    |
 |------------------------------------------------------------------------------------|
-| arcReactor                              |               allClusters                |
+| arcReactor                              |               sliderA                    |
 |------------------------------------------------------------------------------------|
-| arcReactor                              |               allClusters                |
+| arcReactor                              |               sliderA                    |
 |------------------------------------------------------------------------------------|
 | arcReactor                              |               sliderB                    |
 |------------------------------------------------------------------------------------|

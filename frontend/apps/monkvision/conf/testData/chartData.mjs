@@ -5174,6 +5174,88 @@ export const data = {
               type: "SERVER"
           },
       ]
+    },
+    "sliderA": {
+        name: "Sliders A",
+        html: "glowing-arc",
+        items: [
+            {
+                ix: 0,
+                data: "A",
+                innerTitle: "CLUSTER",
+                percentage: "80",
+                innerSubtitle: "India",
+                color: "#169632"
+            },
+            {
+                ix: 1,
+                data: "B",
+                innerTitle: "CLUSTER",
+                percentage: "50",
+                innerSubtitle: "Japan",
+                color: "#FF9C07",
+                outlineColor: "#FF9C07"
+            },
+            {
+                ix: 2,
+                data: "C",
+                innerTitle: "CLUSTER",
+                percentage: "20",
+                innerSubtitle: "America",
+                color: "#FF2002",
+                outlineColor: "#FF2002"
+            },
+            {
+                ix: 3,
+                data: "D",
+                innerTitle: "CLUSTER",
+                percentage: "50",
+                innerSubtitle: "Philippines",
+                color: "rgba(71, 196, 251, 0.5)"
+            },
+            {
+                ix: 4,
+                data: "E",
+                innerTitle: "CLUSTER",
+                percentage: "30",
+                innerSubtitle: "India",
+                color: "rgba(71, 196, 251, 0.5)"
+            },
+            {
+                ix: 5,
+                data: "F",
+                innerTitle: "CLUSTER",
+                percentage: "80",
+                innerSubtitle: "India",
+                color: "#169632",
+                outlineColor: "#169632"
+            },
+            {
+                ix: 6,
+                data: "G",
+                innerTitle: "ATTACKS",
+                percentage: "47",
+                innerSubtitle: "Gorakhpur",
+                color: "turquoise",
+            },
+            {
+                ix: 7,
+                data: "H",
+                innerTitle: "ATTACKS",
+                percentage: "47",
+                innerSubtitle: "Gorakhpur",
+                color: "turquoise",
+                warningColour: "turquoise"
+            },
+            {
+                ix: 8,
+                data: "I",
+                innerTitle: "DEFENDS",
+                percentage: "47",
+                innerSubtitle: "Basti",
+                color: "mediumpurple",
+            },
+        ]
     }
 }
 
