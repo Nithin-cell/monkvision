@@ -75,9 +75,7 @@
         "span#header > span#signoff": "margin-right: 20px;",
         "span#header > span#signoff > img": "height: 30px; width: 30px;",
         "span#header > span#title": "width: 300px; font-size: 0.85em; font-weight: bold; background-color: #505050ad; box-shadow: 0 0 1px #50505045; border-radius: 5px; padding: 5px; color: rgba(250,250,250,0.95);",
-        "span#header > span#showtimer": "font-weight: bold; background-color: #505050ad; box-shadow: 0 0 1px #50505045; border-radius: 5px; padding: 5px; color: rgba(250,250,250,0.95);",
-        "input#datetimepickerfrom, input#datetimepickerfrom:active, input#datetimepickerto, input#datetimepickerto:active":
-            "font-size: 0.8em; font-family: sans-serif; background-color: rgb(80,80,80); color: rgba(250,250,250,0.95); border-radius: 4px; box-shadow: 0 0 1px #50505045; padding: 4px; border-style: none;",
+        "span#header > span#showtimer": "font-weight: bold; background-color: #505050ad; box-shadow: 0 0 1px #50505045; border-radius: 5px; padding: 5px; color: rgba(250,250,250,0.95);",        
         "span#header > img#playpause": "height: 30px; width: 30px;"
     },
     "main_i18n": {

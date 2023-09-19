@@ -1,6 +1,7 @@
 <!-- 
 (C) 2020 TekMonks. All rights reserved.
 -->
+
 <style>
     /* Most of these are overridden or coming from theme.json */
     body {
@@ -23,6 +24,7 @@
     div#maincontent {
         background-color: transparent;
         z-index: -1;
+        width:98vw !important;
     }
     
     span#header {
@@ -130,11 +132,312 @@
         import {group_b} from "./components/group-b/group-b.mjs"; 
         import {loginmanager} from "./js/loginmanager.mjs"; window.loginmanager = loginmanager;
         import {router} from "/framework/js/router.mjs"; window.router = router;
+        import {profile_comp} from "./components/profile-comp/profile.mjs";
+        import {all_notifs} from "./components/all-notifs/all-notifs.mjs";
+        import {change_password} from "./components/change-password/change-password.mjs";
+        import {system_setting} from "./components/system-setting/system-setting.mjs";
+
         </script>
             
         <title>{{pageTitle}}</title>
         {{{css}}}
         <style>
+             @media only screen and (max-width:999px){
+                .main-content{
+                position: relative;
+                top: 2em;
+            }
+            .profile-menu-container{
+			    height: 9.5em;
+                position: absolute;
+                right: 0em;
+                top: -0.5em;
+        }
+        .profile-menu-img{
+            position: absolute;
+            top: 2.08em;
+            max-height: 2.7em;
+            max-width: 2.7em;
+            border-radius: 50%;
+            right: 2.59em;
+            border: 1px solid #FFFFFF;
+        }
+        .profile-menu-text{
+            position: absolute;
+            top: 2em;
+            right: 8em;
+            font-size: 0.8em;
+        }
+		.image-container{
+            position: absolute;
+            top: 0.8em;
+            right: 1.3em;
+            width: 5.4em;
+        }
+        .start-icon{
+            width: 3em;
+            height: 0.75em;
+            position: absolute;
+            left: 12em;
+            top: 0.3em;
+
+        }
+        .start-icon-button{
+            border: 1px solid #ffffff;
+            border-radius: 3px;
+            position: absolute;
+            right: 7.2em;
+            width: 25.6em;
+            top: 6.5em;
+            height: 1.8em;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .start-icon-button-text{
+            color: white;
+            font-weight: bold;
+            z-index: 2;
+            top: -0.65em;
+            position: absolute;
+            left: 13.8em;
+            font-size: 0.75em;
+        }
+        .profile-menu-bell{
+            position: absolute;
+            right: 2.5em;
+            top: 5.7em;
+            width: 3em;
+        }
+        .top-bar{
+            width: 43.5%;
+            margin-top: -1em;
+            margin-left: 4em;
+        }
+        .main-content-header{
+            width: 36em;
+            margin-left: 3.5em;
+            color: #FFFFFF;
+            font-size: 1.2em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .main-content-setting{
+            position: absolute;
+            left: 44.5%;
+            top: 0.5em;
+            width: 1em;
+        }
+        .main-content-search{
+            position: absolute;
+            left: 42.5%;
+            top: 0.5em;
+            width: 1em;
+        }
+        .content-switch-tabs{
+            display: flex;
+            flex-direction: row;
+            width: 10em;
+            margin-left: 43%;
+        }
+        .content-switch-tabs img{
+            margin-right: 0.5em;
+        }
+        .slide-left-tab{
+            width: 3em;
+            margin-right:0em;
+        }
+        .slide-right-tab{
+            width: 3em;
+            margin-left: -1em;
+        }
+        .pages-tab{
+            width: 2em;
+        }
+        .all-pages-tab{
+            width: 3em;
+            margin-left:-0.5em
+        }
+        .side-profile{
+            position: fixed;
+            z-index: 3;
+            right: -100%;
+            top: 0;
+            height: 100%;
+            background-color: #333231;
+            width: 20em;
+            transition: right 0.2s ease-in-out;
+        }
+        .side-profile-image-cover{
+            position: absolute;
+            right: 0em;
+            width: 20em;
+        }
+        .side-profile-img-cover{
+            position: absolute;
+            top: 1.45em;
+            right: 1.5em;
+            width: 6.5em;
+        }
+        .side-profile-img{
+            position: absolute;
+            top: 2.85em;
+            height: 55px;
+            width: 55px;
+            border-radius: 50%;
+            right: 2.969em;
+            border: 1px solid #FFFFFF;
+        }
+        .side-profile-title{
+
+            margin-left: 3.5em;
+            color: #FFFFFF;
+            font-size: 0.8em;
+            font-family: ubuntu;
+            font-weight: normal;
+            margin-top: -1.5em;
+
+        }
+        .side-profile-username{
+            margin-top: 3.5em;
+            margin-left: 2.5em;
+            color: #FFFFFF;
+            font-size: 1.1em;
+            font-family: ubuntu;
+            font-weight: normal;
+        }
+        .side-profile-logout{
+            position: relative;
+            top: 3em;
+            left: 2em;
+            width: 9em;
+        }
+        .start-date{
+            position: absolute;
+            right: 27.8em;
+            top: 5.9em;
+            width: 17em;
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid;
+            border-radius: 0.4em;
+            height: 2.5em;
+            padding-left: 1em;
+            font-size: 0.75em;
+            padding-top: 0.3em;
+        }
+        .end-date{
+            position: absolute;
+            right: 10em;
+            width: 17em;
+            top: 5.9em;
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid;
+            border-radius: 0.3em;
+            padding-left: 1em;
+            height: 2.5em;
+            font-size: 0.75em;
+            padding-top: 0.3em;
+        }
+        .monkvision-logo{
+            width: 8em;
+            margin-top: 2vh;
+            margin-left: 2em;
+        }
+        arc-reactor{
+            position: absolute;
+            top: 0em;
+            left: 4em;
+            width: 47%;
+        }
+        card-view{
+            width: 47%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+            position: absolute;
+            top: 70vh;
+            left: 4em;
+        }
+        log-space{
+            width: 36%;
+            aspect-ratio: 659/333;
+            display: inline-block;
+            position: absolute;
+            top: 59vh;
+            right: 5%;
+        }
+        all-servers{
+            position: absolute;
+            top: 31vh;
+            right: 5%;
+            width: 36%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+        }
+        all-clusters{
+            position: absolute;
+            top: 15vh;
+            right: 5%;
+            width: 36%;
+            aspect-ratio: 1728/1830;
+            display: inline-block;
+        }
+        tab-head{
+            position: absolute;
+            width: 72vw;
+            z-index: 4;
+            left: 3%;
+        }
+        .download-report{
+            position: absolute;
+            right: 5%;
+            width: 26%;
+            top: 86vh;
+        }
+        .start-date-placeholder{
+            position: absolute;
+            right: 23.5em;
+            z-index: 2;
+            color: white;
+            width: 10em;
+            background: #0a222d;
+            top: 4em;
+            height: 1em;
+            font-size: 0.8em;
+        }
+        .end-date-placeholder{
+            
+            position: absolute;
+            right: 11em;
+            z-index: 2;
+            color: white;
+            width: 9em;
+            background: #0d242e;
+            top: 4em;
+            height: 1em;
+            font-size: 0.8em;
+        }
+        .calender-input-start-date{
+            position: absolute;
+            right: 17.5em;
+            top: 3.8em;
+            width: 1.1em;
+            z-index: -1;
+        }
+        .calender-input-end-date{
+            position: absolute;
+            right: 6.5em;
+            top: 3.8em;
+            width: 1.1em;
+            z-index: -1;
+        }
+        input[type=datetime-local]::-webkit-calendar-picker-indicator {
+            opacity: 0%;
+            z-index: 4;
+            height: 40px;
+            width: 40px;
+        
+        }
+        }
             @media only screen and (min-width: 1000px) and (max-width:1500px){
             .main-content{
                 position: relative;
@@ -1535,6 +1838,14 @@
             width: 1.3em;   
             z-index: 1;
         }}
+        .font{
+            color: #ffffff;
+            font-family: 'Ubuntu';
+
+        }
+        #leftheader{
+            margin-top: 6vh;
+        }
         </style>
     </head>
     
@@ -1570,10 +1881,10 @@
 			<img class="profile-menu-container" src="./img/profile_container_img.svg">
 			<img class="image-container" src="./img/image_cover.svg">
 			<img class="profile-menu-img" src="./img/man1.jpg" onclick="toggleSideProfile()" style="object-fit:cover;">
-            <input type="datetime-local" class="start-date" onfocus="startdate()" onblur="startdatechange()"> 
+            <input type="datetime-local" id="datetimepickerfrom" class="start-date" value="{{{dateTimeWeekAgo}}}" onfocus="startdate()" onblur="startdatechange()" onchange="main.timeRangeUpdated(true)"> 
             <p class="start-date-placeholder">Start Date</p>
             <img src="./img/calender.svg" class="calender-input-start-date" >
-			<input type="datetime-local" class="end-date" onfocus="endDate()" onblur="endDatechange()"> 
+			<input type="datetime-local" id="datetimepickerto" class="end-date" value="{{{dateTimeNow}}}" onfocus="endDate()" onblur="endDatechange()" onchange="main.timeRangeUpdated(true)"> 
             <p class="end-date-placeholder">End Date</p>
             <img src="./img/calender.svg" class="calender-input-end-date" >
 			<p class="font profile-menu-text" >Hello Rohan!</p>
@@ -1586,13 +1897,35 @@
         <div id="leftheader">
             <tab-head></tab-head>
         </div>
-    
+        <img class="graph-container-img" src="./img/home_container.png" style="position: absolute;
+        top: 12em;margin-left: 1em;width: 98%;">
         <div id="maincontent">
-            <!-- <img class="graph-container-img" src="./img/home_container.png" style="width: 94vw;
-            margin-left: 2em;
-            margin-top: 5%;
-            height: 85vh;"> -->
             <page-generator file="{{{dash}}}" pagedata='{{pagedata}}'></page-generator>
+        </div>
+        <div class="side-profile" id="sideProfileDiv" style="right: -100%;">
+            <img class="side-profile-logout" src="./img/logout_button.svg">
+            <img src="./img/side-profile-cover.svg" class="side-profile-image-cover">
+            <img class="side-profile-img-cover" src="./img/image_cover.svg">
+            <img class="side-profile-img" src="./img/man1.jpg">
+            <h3 class="side-profile-username">ROHAN SINGH</h3>
+            <p class="side-profile-title">ADMIN</p>
+
+            <div class="edit-profile" onclick="monkshu_env.components['profile-comp'].loadProfile()">
+                <img class="side-profile-edit" src="./img/edit_profile.svg" style="margin-top: 2em;width: 15em;margin-left: 2em;">
+            </div>
+            <div class="side-profile-notifications" onclick="monkshu_env.components['all-notifs'].loadNotifs()">
+                <img class="side-profile-notification" src="./img/notification_icon.svg" style="margin-top: 2em;width: 15em;margin-left: 2em;">
+            </div>
+            <div class="side-profile-change-password" onclick="monkshu_env.components['change-password'].changePassword()">
+                <img class="side-profile-password" src="./img/change_password.svg" style="margin-top: 2em;width: 15em;margin-left: 2em;">
+            </div>
+            <div class="side-profile-system-settings" onclick="monkshu_env.components['system-setting'].systemSetting()">
+                <img class="side-profile-system-setting" src="./img/system_setting.svg" style="margin-top: 2em;width: 15em;margin-left: 2em;">
+            </div>
+            
+        </div>
+        <div id="side-profile-cover" onclick="toggleSideProfile()" style="transition: right 0.2s ease-in-out;width:100%;background-color:#333231;opacity:20%;height:100%;position:fixed;top:0;right:-100%;z-index: 2;">
+
         </div>
     
         <dialog-box id="dialog"></dialog-box>
@@ -1624,6 +1957,7 @@
     
         }
         function toggleSideProfile() {
+            console.log("Working")
             var slidingDiv = document.getElementById("sideProfileDiv");
             var slidingDivCover = document.getElementById("side-profile-cover");
             slidingDiv.style.right = slidingDiv.style.right === "-100%" ? "0" : "-100%";

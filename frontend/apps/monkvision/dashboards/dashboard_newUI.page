@@ -7,7 +7,7 @@ SCHEMA
         "title":"{{i18n.CriticalAlerts}}", 
         "api":"arcReactor", 
         "type":"arcReactor",
-        "styleBody":"div#container{height: calc(100vh - 50px) !important; font-size: large} div#content{height: calc(60% - 10px) !important;} div#content > div#textcontent > span#text > p {padding:5px;margin:4px;} div#content > div#textcontent > span#text > p:hover {border-radius: 3px; background-color: #fafafa21;}"
+        "styleBody":"div#container{height: calc(100vh - 50px) !important; font-size: large;width: 75%;margin-left: 4em;} div#content{height: calc(60% - 10px) !important;} div#content > div#textcontent > span#text > p {padding:5px;margin:4px;} div#content > div#textcontent > span#text > p:hover {border-radius: 3px; background-color: #fafafa21;}"
     },
     "allClusters": {
         "html":"chart-box", 
@@ -107,6 +107,33 @@ body {margin: 0; height: calc(100vh - 65px);}
     margin: 5px;
     color: rgba(250,250,250,0.95);
 
+}
+.class-arcReactor{
+    width:75% !important;
+    margin-left:4em;
+}
+.class-cardView{
+    height: 14em;
+    width: 85%;
+    margin-left: 2em;
+}
+.class-allServers{
+    height: 15em;
+    width: 100%;
+    margin-left: -8%;
+    margin-top: 3%;
+}
+.class-allClusters{
+    height: 15em;
+    width: 100%;
+    margin-left: -8%;
+    margin-top: 3%;
+}
+.class-cycleLogs{
+    margin-top:7%;
+    margin-left:-8%;
+    width:100%;
+    height:45vh;
 }
 
 =======
