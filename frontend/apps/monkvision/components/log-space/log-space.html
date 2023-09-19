@@ -78,11 +78,23 @@
         <path d="M258.279 0.5H235.805C234.471 0.5 233.801 2.11051 234.74 3.05696L246.657 15.057C246.939 15.3405 247.322 15.5 247.721 15.5H270.195C271.529 15.5 272.199 13.8895 271.26 12.943L259.343 0.943041C259.061 0.659473 258.678 0.5 258.279 0.5Z" stroke="white"/>
         <path d="M290.279 0.5H267.805C266.471 0.5 265.801 2.11051 266.74 3.05696L278.657 15.057C278.939 15.3405 279.322 15.5 279.721 15.5H302.195C303.529 15.5 304.199 13.8895 303.26 12.943L291.343 0.943041C291.061 0.659473 290.678 0.5 290.279 0.5Z" stroke="white"/>
         <path opacity="0.6" d="M0 47.2857C0 45.5874 1.98305 44.662 3.28467 45.7529L14.2847 54.9719C14.7381 55.3519 15 55.9132 15 56.5048V122.639C15 123.206 14.7587 123.747 14.3363 124.127L3.33625 134.004C2.0487 135.16 0 134.247 0 132.516V47.2857Z" fill="#D9D9D9"/>
-        <text x="410" y="10" text-anchor="start" dominant-baseline="middle" fill="white" font-size="15">Cycle Logs</text>
+        <text x="410" y="10" text-anchor="start" dominant-baseline="middle" fill="white" font-size="15">{{name}}</text>
         <defs>
         </defs>
     </svg>   
 </div>
 <div class="abs content">
-    
+    {{#logs}}
+    <div>
+        <span class="time">{{time}}</span>
+        <svg class="lines" viewBox="0 0 100 100" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="16.666" x2="100" y2="16.666" stroke="white"></line>
+        <circle cx="94" cy="16.666" r="6" fill="white"></circle>
+        <line x1="35" y1="54" x2="95" y2="54" stroke="white"></line>
+        <line x1="35" y1="90.333" x2="95" y2="90.333" stroke="white"></line>
+        <line x1="94" y1="0" x2="94" y2="100" stroke="white"></line>
+        </svg>
+        <p class="status">{{status}}</p>
+    </div>
+    {{/logs}}
 </div>

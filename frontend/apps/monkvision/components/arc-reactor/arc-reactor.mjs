@@ -1,50 +1,21 @@
 import {util} from "/framework/js/util.mjs";
 import {monkshu_component} from "/framework/js/monkshu_component.mjs";
-// import { glowing_arc } from "../glowing-arc/glowing-arc.mjs"
+import { chart_box } from "../chart-box/chart-box.mjs";
+import { main } from "../../js/main.mjs";
+
 const COMPONENT_PATH = util.getModulePath(import.meta);
 const origin = {x: 399, y:399};
-const pageData = {
-    reactor: {
-        lastTimeStamp: "19:15:47",
-        boxText: "139.17.16.151:22",
-        arcs: [
-            {
-                color: "#FF2002",
-                percent: 10,
-            },
-            {
-                color: "#FF9C07",
-                percent: 15,
-            },
-            {
-                color: "#47C4FB",
-                percent: 50,
-            }
-        ],
-        bottomHead: "Theshold at:",
-        bottomVal: 88,
-        leftArc: {
-            color: "#FF9C07",
-            percent: 50
-        },
-        mainText: "100.00%",
-        mainTextType: "Status",
-        blocksCount: 9,
-        blocksColor: "#62FF02",
-        graph: [14, 24, 32, -80, 50, 60, -40, 27, -20, -70, 50, 21, 77]
-    }
-}
-async function elementRendered(element) {
-    pageData.reactor = JSON.parse(element.getAttribute('content'))?? pageData.reactor;
-    populateSvg(element);
+async function elementRendered(el) {
+    populateSvg(el);
 }
 
 
-function populateSvg(element){
+async function populateSvg(el){
+    let pageData = await chart_box._getContent(el.getAttribute('api'), el.getAttribute('params'));
     if(pageData.reactor){
         let {paths, points} = getArcPoints(pageData.reactor.arcs);
         let lastPt = points[points.length-1];
-        element.shadowRoot.querySelector('body').innerHTML = `
+        main.querySelector(el, 'body').innerHTML = `
         <svg viewBox="50 150 700 515" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="399" cy="399" r="194" stroke="white"/>
         
@@ -159,7 +130,7 @@ function populateSvg(element){
         <rect x="2.31116" y="399.632" width="794" height="1" fill="white" fill-opacity="0.4"/>
         <rect x="2.31116" y="473.632" width="794" height="1" fill="white" fill-opacity="0.4"/>
         </g>
-        ${getGraphPath()}
+        ${getGraphPath(pageData.reactor.graph)}
         <g id="crossHair">
         <line x1="399.781" y1="256.035" x2="399.781" y2="557.233" stroke="white" stroke-width="2" stroke-dasharray="2 2"/>
         <line x1="248.089" y1="402.139" x2="549.473" y2="402.139" stroke="white" stroke-width="2" stroke-dasharray="2 2"/>
@@ -390,14 +361,13 @@ function getLeftArc(arc){
     }
 }
 
-function getGraphPath() {
-    const rf = pageData.reactor.graph;
+function getGraphPath(rf) {
     let width = 254;
     let _x= 254/(rf.length - 1), _y=-1.27;
     const xi = 399-width/2, yi = 400;
     const pts = [];
     for (let i = 0, l = rf.length; i < l; i++) pts.push([_x * i + xi, yi + _y * rf[i]]);
-    const scatter = getGraphPoints(pts);
+    // const scatter = getGraphPoints(pts); //for scatter plot make use of these scatter points
     return (svgPath(pts, 399-width/2, 399+width/2));
 }
 
@@ -463,12 +433,12 @@ function getGraphPoints(pts) {
     return c;
 }
 
-function setCrossHair(){
+function setCrossHair(boxText){
     getElement('g#crossHair').innerHTML = 
     `<line x1="399.781" y1="256.035" x2="399.781" y2="557.233" stroke="white" stroke-width="2" stroke-dasharray="2 2"/>
     <line x1="248.089" y1="402.139" x2="549.473" y2="402.139" stroke="white" stroke-width="2" stroke-dasharray="2 2"/>
     <rect x="302" y="327" width="90" height="26" rx="4" fill="#169632"/>
-    <text x="345.703" y="341" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="snow" font-size="11px">${pageData.reactor.boxText}</text>
+    <text x="345.703" y="341" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="snow" font-size="11px">${boxText}</text>
     `
 }
 

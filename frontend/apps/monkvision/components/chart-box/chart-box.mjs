@@ -84,15 +84,6 @@ async function _refreshData(element, force) {
 		await bindData(data, id);
 		contentDiv.scrollTop = contentDiv.scrollHeight; // scroll to bottom
 		return;
-	}	
-
-	if(type == "arcReactor"){
-		contentDiv.innerHTML = `<arc-reactor content='${JSON.stringify(content)}'></arc-reactor>`;	// clear it 
-		return;
-	}
-	if(type == "cycleLogs"){
-		contentDiv.innerHTML = `<log-space content='${JSON.stringify(content)}'></log-space>`;	// clear it 
-		return;
 	}
 
 	if (type == "metrictext") {

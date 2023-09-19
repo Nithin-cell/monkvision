@@ -5256,6 +5256,137 @@ export const data = {
                 color: "mediumpurple",
             },
         ]
+    },
+    "arcReactor": {
+        reactor: {
+            lastTimeStamp: "19:15:47",
+            boxText: "139.17.16.151:22",
+            arcs: [
+                {
+                    color: "#FF2002",
+                    percent: 10,
+                },
+                {
+                    color: "#FF9C07",
+                    percent: 15,
+                },
+                {
+                    color: "#47C4FB",
+                    percent: 50,
+                }
+            ],
+            bottomHead: "Theshold at:",
+            bottomVal: 88,
+            leftArc: {
+                color: "#FF9C07",
+                percent: 50
+            },
+            mainText: "100.00%",
+            mainTextType: "Status",
+            blocksCount: 9,
+            blocksColor: "#62FF02",
+            graph: [14, 24, 32, -80, 50, 60, -40, 27, -20, -70, 50, 21, 77]
+        }
+    },
+    "cycleLogs": {
+        name: "Cycle logs",
+        logs: [
+            {
+                time: "00:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 5",
+            },
+            {
+                time: "01:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 3",
+            },
+              {
+                time: "02:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 6",
+            },
+            {
+                time: "03:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 5",
+            },
+            {
+                time: "04:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 3",
+            },
+            {
+                time: "05:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 3",
+            },
+            {
+                time: "06:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 6",
+            },
+            {
+                time: "07:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 5",
+            },
+            {
+                time: "08:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 8",
+            },{
+                time: "09:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 3",
+            },
+            {
+                time: "10:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 6",
+            },
+            {
+                time: "11:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 5",
+            },
+            {
+                time: "12:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 3",
+            },
+            {
+                time: "13:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 6",
+            },
+            {
+                time: "14:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 5",
+            },
+            {
+                time: "15:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 8",
+            },
+            {
+                time: "16:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 8",
+            },
+            {
+                time: "17:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 4",
+            },
+            {
+                time: "18:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 3",
+            },
+            {
+                time: "19:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 6",
+            },
+            {
+                time: "20:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 5",
+            },
+            {
+                time: "21:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 8",
+            },
+            {
+                time: "22:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 3",
+            },
+            {
+                time: "23:00",
+                status: "DEV SERVER 139.59.3.40, device - centos-swap, Threshold at: 6",
+            }
+        ]
     }
 }
 
