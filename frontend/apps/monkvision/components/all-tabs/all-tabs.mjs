@@ -1,15 +1,16 @@
 import {util} from "/framework/js/util.mjs";
 import {monkshu_component} from "/framework/js/monkshu_component.mjs";
+import { main } from "./../../js/main.mjs";
 const COMPONENT_PATH = util.getModulePath(import.meta);
 import {tab_head} from '../tab-head/tab-head.mjs'
 
 
-async function elementRendered() {
-  updateFragment();
+async function elementRendered(el) {
+  updateFragment(el);
 }
 
-function updateFragment(){
-  const container = all_tabs.shadowRoot.querySelector('.cardsContainer');
+function updateFragment(el){
+  const container = main.querySelector(el, '.cardsContainer');
   tab_head.pageData.tabs.forEach((tab, i)=>{
     container.insertAdjacentHTML('beforeend', `<div class='flex-item${i==tab_head.pageData.selectedItem? ' selected': ''}' ix='${i}' onclick="monkshu_env.components['all-tabs'].selectItemHandler(this)"><div>
     <svg class="container-svg" width="192" height="188" viewBox="0 0 192 188" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,15 +30,14 @@ function search(inp){
     let val = inp.value.toLowerCase();
     let $$ = all_tabs.shadowRoot;
     if(val.length){
-      $$.querySelectorAll('.flex-item glowing-arc').forEach(el => el.getAttribute('innerTitle').toLowerCase().startsWith(val)? el.closest(".flex-item").style.order=1 : el.closest(".flex-item").style.order=2)
+      main.querySelector(inp, '.flex-item glowing-arc', true).forEach(el => el.getAttribute('innerTitle').toLowerCase().startsWith(val)? el.closest(".flex-item").style.order=1 : el.closest(".flex-item").style.order=2)
     } else{
-      $$.querySelectorAll('.flex-item').forEach(el => el.style.order = 'initial');
+      main.querySelector(inp, '.flex-item', true).forEach(el => el.style.order = 'initial');
     }
 }
 
 function selectItemHandler(el){
-  const $$ = monkshu_env.components['all-tabs'].shadowRoot;
-  const prevSelection = $$.querySelector(`.selected.flex-item`);
+  const prevSelection = main.querySelector(el, `.selected.flex-item`);
   prevSelection?.classList.remove('selected');
   el.classList.add('selected');
   tab_head.pageData.selectedItem = el.getAttribute('ix');

@@ -40,14 +40,6 @@ SCHEMA
         "html":"group-b", 
         "id": "groupB1",
         "file": "conf/groups/groupB1.json"
-    },
-    "cardView2": {
-        "html":"card-view", 
-        "id":"cardView", 
-        "title":"{{i18n.CriticalAlerts}}", 
-        "api":"cardView2", 
-        "type":"cardView",
-        "styleBody":"div#container{height: calc(100vh - 50px) !important; font-size: large} div#content{height: calc(60% - 10px) !important;} div#content > div#textcontent > span#text > p {padding:5px;margin:4px;} div#content > div#textcontent > span#text > p:hover {border-radius: 3px; background-color: #fafafa21;}"
     }
 }
 ======
@@ -75,11 +67,14 @@ LAYOUT
 | cardView                                |               cycleLogs                  |
 |------------------------------------------------------------------------------------|
 | groupB                                                                             |                                                                        
+| groupB                                                                             |
 --------------------------------------------------------------------------------------
 
 =================
 Row Heights = 10%,10%,10%,10%,10%,10%,10%,10%,10%,85%
 Col Widths = 55%,calc(45% - 10px);
+Row Heights = 7rem,7rem,7rem,7rem,7rem,7rem,7rem,7rem,7rem,25.5rem
+Col Widths = 55rem,calc(45rem - 10px);
 =================
 
 
