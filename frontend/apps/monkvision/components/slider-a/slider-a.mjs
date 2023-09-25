@@ -42,7 +42,7 @@ function removeSelection(el){
 }
 
 function scrollFlex(path, flag){
-    const flex = getElement(`#main #sub`);
+    const flex = main.querySelector(path, `#main #sub`);
     let width = flex.offsetWidth;
     width = (-0.9)*width;
     flex.scrollBy({
