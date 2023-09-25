@@ -1898,7 +1898,7 @@
             <tab-head></tab-head>
         </div>
         <img class="graph-container-img" src="./img/home_container.png" style="position: absolute;
-        top: 12em;margin-left: 1em;width: 98%;">
+        top: 20%;margin-left: 1%;width: 98%;">
         <div id="maincontent">
             <page-generator file="{{{dash}}}" pagedata='{{pagedata}}'></page-generator>
         </div>
@@ -1938,7 +1938,7 @@
             elem.previousElementSibling.previousElementSibling.style.display = 'none';
         }
         function startdate(){
-            console.log("start date ")
+            
             document.getElementsByClassName('start-date-placeholder')[0].style.display="none";
         }
         function startdatechange(){
@@ -1957,7 +1957,7 @@
     
         }
         function toggleSideProfile() {
-            console.log("Working")
+            
             var slidingDiv = document.getElementById("sideProfileDiv");
             var slidingDivCover = document.getElementById("side-profile-cover");
             slidingDiv.style.right = slidingDiv.style.right === "-100%" ? "0" : "-100%";

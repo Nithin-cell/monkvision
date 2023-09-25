@@ -34,7 +34,7 @@ SCHEMA
         "id":"cycleLogs", 
         "title":"{{i18n.CriticalAlerts}}", 
         "api":"cycleLogs", 
-        "styleBody":"div#container{height: calc(100vh - 50px) !important; font-size: large} div#content{height: calc(60% - 10px) !important;} div#content > div#textcontent > span#text > p {padding:5px;margin:4px;} div#content > div#textcontent > span#text > p:hover {border-radius: 3px; background-color: #fafafa21;}"
+        "styleBody":""
     },
     "groupB":{
         "html":"group-b", 
@@ -74,13 +74,11 @@ LAYOUT
 |------------------------------------------------------------------------------------|
 | cardView                                |               cycleLogs                  |
 |------------------------------------------------------------------------------------|
-| groupB                                                                             |
-|------------------------------------------------------------------------------------|
-|cardView2                                                                           |
+| groupB                                                                             |                                                                        
 --------------------------------------------------------------------------------------
 
 =================
-Row Heights = 10%,10%,10%,10%,10%,10%,10%,10%,10%,85%,30%
+Row Heights = 10%,10%,10%,10%,10%,10%,10%,10%,10%,85%
 Col Widths = 55%,calc(45% - 10px);
 =================
 
@@ -106,31 +104,35 @@ body {margin: 0; height: calc(100vh - 65px);}
 
 }
 .class-arcReactor{
-    width:75% !important;
-    margin-left:4em;
+    width:70% !important;
+    margin-left:10%;
 }
 .class-cardView{
-    height: 14em;
+    height: 25vh;
     width: 85%;
-    margin-left: 2em;
+    margin-left: 5%;
+    margin-top: 9vh;
 }
-.class-allServers{
-    height: 15em;
+.class-sliderB{
+    height: 25vh;
     width: 100%;
-    margin-left: -8%;
-    margin-top: 3%;
+    margin-left: -3%;
+    margin-top: -3vh;
 }
-.class-allClusters{
-    height: 15em;
+.class-SliderA{
+    height: 25vh;
     width: 100%;
-    margin-left: -8%;
-    margin-top: 3%;
+    margin-left: -3%;
+    margin-top: 3vh;
 }
 .class-cycleLogs{
-    margin-top:7%;
-    margin-left:-8%;
-    width:100%;
-    height:45vh;
+    margin-top: -6vh;
+    margin-left: -3%;
+    width: 100%;
+    height: 45vh;
+}
+.class-groupB{
+    margin-top:6vh;
 }
 
 =======
