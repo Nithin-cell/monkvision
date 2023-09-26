@@ -34,7 +34,7 @@ function scrollEndHandler(cont){
     const [attr, dim, bright] = ['opacity', '0.6', '1'];
     if(cont.scrollLeft == 0)
         prev.setAttribute(attr, dim);
-    else if(cont.scrollLeft >=  cont.scrollWidth - cont.clientWidth)
+    else if(cont.scrollLeft >=  cont.scrollWidth - cont.clientWidth - 2)
         next.setAttribute(attr, dim);
     else{
         prev.setAttribute(attr, bright);

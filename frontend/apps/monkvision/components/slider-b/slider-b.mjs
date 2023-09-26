@@ -35,7 +35,7 @@ function scrollEndHandler(cont){
     const next = main.querySelector(cont, '.bg #next').parentElement;
     if(cont.scrollLeft == 0)
         prev.setAttribute('opacity', '0.6');
-    else if(cont.scrollLeft >=  cont.scrollWidth - cont.clientWidth)
+    else if(cont.scrollLeft >=  cont.scrollWidth - cont.clientWidth - 2)
         next.setAttribute('opacity', '0.6');
     else{
         prev.setAttribute('opacity', '1');
