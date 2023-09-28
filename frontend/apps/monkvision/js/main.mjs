@@ -29,8 +29,8 @@ function timeRangeUpdated(stopRefresh, dates) {
 
 function playPauseCharts(btn, force) {
     let [img, p] = ['img', 'p'].map(q => btn.querySelector(q));
-    if (img.src.endsWith("play.svg") && force!="stop") { img.src = "./img/pause.svg"; p.innerHTML =  'START'; _startRefresh(); } 
-    else if (img.src.endsWith("pause.svg") && force!="start") { img.src = "./img/play.svg"; p.innerHTML =  'STOP'; _stopRefresh(); }
+    if (img.src.endsWith("play.svg") && force!="stop") { img.src = "./img/pause.svg"; p.innerHTML =  'STOP'; _startRefresh(); } 
+    else if (img.src.endsWith("pause.svg") && force!="start") { img.src = "./img/play.svg"; p.innerHTML =  'START'; _stopRefresh(); }
 }
 
 async function interceptPageLoadData() {
