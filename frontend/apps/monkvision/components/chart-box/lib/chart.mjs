@@ -28,9 +28,10 @@ const _init = async _ => {
  * @param labelColor The label color
  * @param gridColor The grid color
  * @param singleAxis Use single Y axis?
+ * @param {String} texture image file name to use that as background 
  */
-async function drawBargraph(canvas, contents, maxXTicks, gridLines, xAtZero, yAtZeros, ysteps, ylabels, ymaxs, bgColors, brColors, labelColor, gridColor, singleAxis, annotation, legend, animation) {
-    return await _drawLineOrBarGraph(canvas, contents, maxXTicks, gridLines, xAtZero, yAtZeros, ysteps, ylabels, ymaxs, bgColors, brColors, labelColor, gridColor, singleAxis, "bar", 0, 1, annotation, legend, animation);
+async function drawBargraph(canvas, contents, maxXTicks, gridLines, xAtZero, yAtZeros, ysteps, ylabels, ymaxs, bgColors, brColors, labelColor, gridColor, singleAxis, annotation, legend, animation, texture) {
+    return await _drawLineOrBarGraph(canvas, contents, maxXTicks, gridLines, xAtZero, yAtZeros, ysteps, ylabels, ymaxs, bgColors, brColors, labelColor, gridColor, singleAxis, "bar", 0, 1, annotation, legend, animation, texture);
 }
 
 /**
@@ -58,11 +59,13 @@ async function drawLinegraph(canvas, contents, maxXTicks, gridLines, xAtZero, yA
     return await _drawLineOrBarGraph(canvas, contents, maxXTicks, gridLines, xAtZero, yAtZeros, ysteps, ylabels, ymaxs, bgColors, brColors, labelColor, gridColor, singleAxis, "line", 0.8, 1, annotation, legend, animation);
 }
 
-async function _drawLineOrBarGraph(canvas, contents, maxXTicks, gridLines, xAtZero, yAtZeros, ysteps, ylabels, ymaxs, bgColors, brColors, labelColor, gridColor, singleAxis, type, pointWidth, lineWidth, annotation, legend, animation) {
+async function _drawLineOrBarGraph(canvas, contents, maxXTicks, gridLines, xAtZero, yAtZeros, ysteps, ylabels, ymaxs, bgColors, brColors, labelColor, gridColor, singleAxis, type, pointWidth, lineWidth, annotation, legend, animation, texture) {
     await _init(); const ctx = canvas.getContext("2d"); 
 
+    texture = texture? await getFillPattern(texture) : null;
+    texture = texture? ctx.createPattern(texture, 'repeat') : null;
     const datasets = []; for (const [i,ys] of contents.ys.entries()) datasets.push({ data: ys, ...contents.legends && { label: contents.legends[i] },     /* Add label property if legends present in contents */
-        backgroundColor: bgColors[i], borderColor: brColors[i], borderWidth: lineWidth, pointRadius: pointWidth,
+        backgroundColor: texture?? bgColors[i], borderColor: brColors[i], borderWidth: lineWidth, pointRadius: pointWidth,
         yAxisID: singleAxis?"yaxis0":`yaxis${i}` });
     
     const data = {labels: contents.x, datasets}
@@ -133,6 +136,18 @@ async function drawPiegraph(canvas, rawContents, labelColor, gridLines, gridColo
     };
 
     return new Chart(ctx, {type, data, options});
+}
+
+async function getFillPattern(texture){
+    return new Promise(resolve=>{
+        if(document.querySelector(`#${texture}`)) resolve(document.querySelector(`#${texture}`));
+        let img = new Image();
+        img.src = `./img/${texture}`;
+        img.style.display = "none";
+        document.body.appendChild(img);
+        img.onload = ()=> resolve(img);
+        img.onerror = ()=> resolve(null);
+    })
 }
 
 export const chart = {drawBargraph, drawLinegraph, drawPiegraph};

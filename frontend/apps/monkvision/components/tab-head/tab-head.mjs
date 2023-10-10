@@ -6,136 +6,7 @@ import {session} from "/framework/js/session.mjs";
 
 const pageData = {
     selectedItem: 0,
-    st: 0,
-    tabs: [
-      {
-        title: "DB and OS LEVEL METRICS",
-        outerColor: "rgba(217, 217, 217, 0.8)",
-        outerCircle: "white",
-        percentage: "44",
-        color: "rgba(71, 196, 251, 0.5)"
-      },
-      {
-        title: "SECURITY LEVEL METRICS",
-        outlineColor: "rgba(255, 32, 2, 1)",
-        outerColor: "rgba(255, 32, 2, 0.8)",
-        outerCircle: "rgba(255, 32, 2, 1)",
-        percentage: "20",
-        color: "rgba(255, 32, 2, 0.9)",
-      },
-      {
-        title: "NODE LEVEL METRICS",
-        outlineColor: "rgba(255, 32, 2, 1)",
-        outerColor: "rgba(255, 32, 2, 0.8)",
-        outerCircle: "rgba(255, 32, 2, 1)",
-        percentage: "20",
-        color: "rgba(255, 32, 2, 0.9)",
-      },
-      {
-        title: "DB and OS LEVEL METRICS",
-        
-        outerColor: "rgba(217, 217, 217, 0.8)",
-        outerCircle: "white",
-        percentage: "20",
-        color: "rgba(71, 196, 251, 0.5)"
-      },
-      {
-        title: "DB and OS LEVEL METRICS",
-        
-        outerColor: "rgba(217, 217, 217, 0.8)",
-        outerCircle: "white",
-        percentage: "35",
-        color: "rgba(71, 196, 251, 0.5)"
-      },
-      {
-        title: "DB and OS LEVEL METRICS",
-        outlineColor: "rgba(255, 156, 7, 1)",
-        outerColor: "rgba(255, 156, 7, 0.8)",
-        outerCircle: "rgba(255, 156, 7, 1)",
-        percentage: "25",
-        color: "rgba(255, 156, 7, 0.9)",
-      },
-      {
-        title: "DB and OS LEVEL METRICS",
-        
-        outerColor: "rgba(217, 217, 217, 0.8)",
-        outerCircle: "white",
-        percentage: "30",
-        color: "rgba(71, 196, 251, 0.5)"
-      },
-      {
-        title: "DB and OS LEVEL METRICS",
-        
-        outerColor: "rgba(217, 217, 217, 0.8)",
-        outerCircle: "white",
-        percentage: "20",
-        color: "rgba(71, 196, 251, 0.5)"
-      },
-      {
-        title: "DB and OS LEVEL METRICS",
-        outlineColor: "rgba(255, 156, 7, 1)",
-        outerColor: "rgba(255, 156, 7, 0.8)",
-        outerCircle: "rgba(255, 156, 7, 1)",
-        percentage: "25",
-        color: "rgba(255, 156, 7, 0.9)",
-      },
-      {
-        title: "DB and OS LEVEL METRICS",
-        
-        outerColor: "rgba(217, 217, 217, 0.8)",
-        outerCircle: "white",
-        percentage: "30",
-        color: "rgba(71, 196, 251, 0.5)"
-      },
-      {
-        title: "DB and OS LEVEL METRICS",
-        
-        outerColor: "rgba(217, 217, 217, 0.8)",
-        outerCircle: "white",
-        percentage: "30",
-        color: "rgba(71, 196, 251, 0.5)"
-      },
-      {
-        title: "DB and OS LEVEL METRICS",
-        
-        outerColor: "rgba(217, 217, 217, 0.8)",
-        outerCircle: "white",
-        percentage: "35",
-        color: "rgba(71, 196, 251, 0.5)"
-      },
-      {
-        title: "DB and OS LEVEL METRICS",
-        outlineColor: "rgba(255, 32, 2, 1)",
-        outerColor: "rgba(255, 32, 2, 0.8)",
-        outerCircle: "rgba(255, 32, 2, 1)",
-        percentage: "20",
-        color: "rgba(255, 32, 2, 0.9)",
-      },
-      {
-        title: "DB and OS LEVEL METRICS",
-        
-        outerColor: "rgba(217, 217, 217, 0.8)",
-        outerCircle: "white",
-        percentage: "20",
-        color: "rgba(71, 196, 251, 0.5)"
-      },
-      {
-        title: "DB and OS LEVEL METRICS",
-        
-        outerColor: "rgba(217, 217, 217, 0.8)",
-        outerCircle: "white",
-        percentage: "35",
-        color: "rgba(71, 196, 251, 0.5)"
-      },
-      {
-        title: "DB and OS LEVEL METRICS",
-        outlineColor: "rgba(255, 32, 2, 1)",
-        outerColor: "rgba(255, 32, 2, 0.8)",
-        outerCircle: "rgba(255, 32, 2, 1)",
-        percentage: "20",
-        color: "rgba(255, 32, 2, 0.9)",
-      },
-    ]
+    st: 0
   }
 
 async function getDashboardData(){
@@ -268,6 +139,7 @@ function openModal() {
   }, 500);
   closeBtn.onclick = closeModal;
   backdrop.onclick = closeModal;
+  console.log("herer")
 }
 
 function closeModal() {

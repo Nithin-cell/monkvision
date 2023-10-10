@@ -27,7 +27,7 @@ function updateFragment(el){
 
 
 function search(inp){
-    let val = inp.value.toLowerCase();
+    let val = inp.value.trim().toLowerCase();
     let $$ = all_tabs.shadowRoot;
     if(val.length){
       main.querySelector(inp, '.flex-item glowing-arc', true).forEach(el => el.getAttribute('innerTitle').toLowerCase().startsWith(val)? el.closest(".flex-item").style.order=1 : el.closest(".flex-item").style.order=2)

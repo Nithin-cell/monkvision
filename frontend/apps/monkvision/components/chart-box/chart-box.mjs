@@ -170,6 +170,7 @@ async function _refreshData(element, force) {
 				ctx.fillStyle = gridColor; ctx.fillText("threshold",x,y); }} : {animateScale:true}
 		
 		if (type == "bargraph") {
+			const texture = element.getAttribute("texture");
 			const colorHash = _getColorHash(_makeArray(element.getAttribute("ycolors")));
 			const bgColors = [], brColors = []; for (const [i,ys] of content.contents.ys.entries()) {
 				const bgColorsThis = []; const brColorsThis = [];
@@ -183,7 +184,7 @@ async function _refreshData(element, force) {
 				element.getAttribute("xAtZero"), _makeArray(element.getAttribute("yAtZeros")), 
 				_makeArray(element.getAttribute("ysteps")), labels, _makeArray(element.getAttribute("ymaxs")), 
 				bgColors, brColors, labelColor, gridColor, 
-				(element.getAttribute("singleAxis") && element.getAttribute("singleAxis").toLowerCase() == "true"), annotation, legend, animation);
+				(element.getAttribute("singleAxis") && element.getAttribute("singleAxis").toLowerCase() == "true"), annotation, legend, animation, texture);
 		}
 
 		if (type == "linegraph") {			
