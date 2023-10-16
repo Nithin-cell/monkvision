@@ -65,6 +65,7 @@ function scrollEndHandler(box){
 }
 
 function selectItemHandler(el){
+    if(el.parentElement.getAttribute('id').startsWith('sel')) return;
     removeSelection(el);
     showSelectedItem(el);
     
