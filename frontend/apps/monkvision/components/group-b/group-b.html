@@ -2,9 +2,6 @@
 :host {
   --svg-ratio: 1640/654;
 }
-html, body, .groupB{
-  pointer-events: none;
-} 
 body{
   aspect-ratio: var(--svg-ratio);
 }
@@ -19,7 +16,6 @@ body{
 }
 .bg{
   width: 100%;
-  z-index: -1;
 }
 .flex-container {
   display: flex;
@@ -47,7 +43,6 @@ foreignObject .selected{
 }
 foreignObject .flex-item>p{
   transform: skew(-45deg);
-  cursor: pointer;
 }
 .row{
   flex-flow: row nowrap;
@@ -69,6 +64,9 @@ foreignObject .flex-item>p{
 }
 .selected{
   display: flex !important;
+}
+path#prev, path#next{
+  cursor: pointer;
 }
 chart-box{
   width: 100%;

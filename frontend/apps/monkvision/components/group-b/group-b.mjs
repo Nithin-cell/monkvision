@@ -59,17 +59,15 @@ function setTitle(el, title, subtitle){
 }
 
 async function changeOpacityOfPaths(el, id){
-    let prev=main.querySelector(el, 'path#prev'), next=main.querySelector(el, 'path#prev');
+    let prev=main.querySelector(el, 'path#prev'), next=main.querySelector(el, 'path#next');
     const setOpc = (path, dim=false) => path.setAttribute('opacity', dim? '0.6': '1');
     const len = Object.keys(await main.getFile(group_b.getHostElement(el))).length;
     if(!len) return [prev, next].forEach(p => setOpc(p, true));
-    if(id==0){
-        setOpc(prev, true); setOpc(next);
+    switch(id){
+        case 0: setOpc(prev, true); break;
+        case len-1: setOpc(next, true); break;
+        default: [prev, next].forEach(p => setOpc(p));
     }
-    else if(id==len-1){
-        setOpc(prev); setOpc(next, true);
-    }
-    else [prev, next].forEach(p => setOpc(p));
 }
 
 export const group_b = {trueWebComponentMode:true, elementRendered, select};
