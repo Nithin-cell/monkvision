@@ -2,9 +2,6 @@
  * (C) 2018 TekMonks. All rights reserved.
  * License: MIT - see enclosed license.txt file.
  */
-import {router} from "/framework/js/router.mjs";
-import {loginmanager} from "../../js/loginmanager.mjs";
-import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 
 async function elementRendered(element) {
     // const mainTitle = element.getAttribute('mainTitle');
@@ -19,7 +16,4 @@ async function elementRendered(element) {
 }
 
 const trueWebComponentMode = true;	// making this false renders the component without using Shadow DOM
-export const notif_comp = {trueWebComponentMode, elementRendered}
-
-
-monkshu_component.register("notif-comp", `${APP_CONSTANTS.APP_PATH}/components/notif-comp/notif-comp.html`, notif_comp);
+export const notif_comp = {trueWebComponentMode, trueJS:false, elementRendered}

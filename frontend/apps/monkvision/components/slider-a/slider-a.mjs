@@ -1,8 +1,5 @@
-import {util} from "/framework/js/util.mjs";
-import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 import { main } from "./../../js/main.mjs";
 import { chart_box } from "../chart-box/chart-box.mjs";
-const COMPONENT_PATH = util.getModulePath(import.meta);
 
 async function elementConnected(el) {
     populateClusters(el);
@@ -74,5 +71,8 @@ function selectItemHandler(el){
     slider_a.setDataByContainedElement(el, pageData);
 }
 
-export const slider_a = { trueWebComponentMode:true,elementConnected, scrollFlex, scrollEndHandler, selectItemHandler}
-monkshu_component.register("slider-a", `${COMPONENT_PATH}/slider-a.html`, slider_a);
+function _refresh() { 
+	for (const element of slider_a.getAllElementInstances()) populateClusters(element);
+}
+
+export const slider_a = { trueWebComponentMode:true, trueJS:false,elementConnected, scrollFlex, scrollEndHandler, selectItemHandler, _refresh}

@@ -7,6 +7,7 @@ import {router} from "/framework/js/router.mjs";
 import {session} from "/framework/js/session.mjs";
 import {securityguard} from "/framework/js/securityguard.mjs";
 import {apimanager as apiman} from "/framework/js/apimanager.mjs";
+import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 
 const init = async _ => {
 	window.APP_CONSTANTS = (await import ("./constants.mjs")).APP_CONSTANTS;
@@ -20,6 +21,7 @@ const init = async _ => {
 async function main() {
 	apiman.registerAPIKeys(APP_CONSTANTS.API_KEYS, APP_CONSTANTS.KEY_HEADER);
 	await _addPageDataInterceptors();
+	await registerComponents();
 	
 	const decodedURL = new URL(router.decodeURL(window.location.href));
 
@@ -36,5 +38,21 @@ async function _addPageDataInterceptors() {
 		(module[functionName])();
 	}
 }
+
+async function registerComponents() {
+	const appConfig = await $$.requireJSON(`${APP_CONSTANTS.APP_PATH}/conf/app.json`);
+	
+	appConfig["components"].forEach(async (component) => {
+	  try {
+		let componentPath = `${APP_CONSTANTS.COMPONENTS_PATH}/${component}/${component}`;
+		let module = await import(componentPath+'.mjs');
+		module = module[Object.keys(module)[0]];
+		monkshu_component.register(component, module.trueJS? null : componentPath+'.html', module);
+	  } catch (e) {
+		console.log(e);
+	  }
+	});
+}
+  
 
 export const application = {init, main};

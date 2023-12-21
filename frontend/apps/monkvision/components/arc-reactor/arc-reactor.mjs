@@ -1,9 +1,6 @@
-import {util} from "/framework/js/util.mjs";
-import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 import { chart_box } from "../chart-box/chart-box.mjs";
 import { main } from "../../js/main.mjs";
 
-const COMPONENT_PATH = util.getModulePath(import.meta);
 const origin = {x: 399, y:399};
 async function elementRendered(el) {
     populateSvg(el);
@@ -442,5 +439,8 @@ function setCrossHair(boxText){
     `
 }
 
-export const arc_reactor = { trueWebComponentMode:true,elementRendered}
-monkshu_component.register("arc-reactor", `${COMPONENT_PATH}/arc-reactor.html`, arc_reactor);
+function _refresh() { 
+	for (const element of arc_reactor.getAllElementInstances()) populateSvg(element);
+}
+
+export const arc_reactor = { trueWebComponentMode:true, trueJS:false,elementRendered, _refresh}

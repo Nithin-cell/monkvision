@@ -4,7 +4,6 @@
  * License: See enclosed LICENSE file.
  */
  import {router} from "/framework/js/router.mjs";
- import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 
  const elementConnected = async element => {
      const htmlContent = element.getAttribute("htmlcontent") ? decodeURIComponent(element.getAttribute("htmlcontent")) : 
@@ -15,5 +14,4 @@
  }
 
  // convert this all into a WebComponent so we can use it
- export const html_fragment = {trueWebComponentMode: true, elementConnected}
- monkshu_component.register("html-fragment", null, html_fragment);
+ export const html_fragment = {trueWebComponentMode: true, trueJS:true, elementConnected}

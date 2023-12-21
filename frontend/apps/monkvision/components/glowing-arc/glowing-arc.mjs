@@ -1,9 +1,3 @@
-import {util} from "/framework/js/util.mjs";
-import {monkshu_component} from "/framework/js/monkshu_component.mjs";
-const COMPONENT_PATH = util.getModulePath(import.meta);
-
-//elementRendered
-//elementConnected
 const radius = 100; //hit-n-trial to achieve result
 const initialPoints = {x: 100, y: 10};
 const origin = {x: 100, y: 110};
@@ -125,5 +119,4 @@ function setCSS(element, parent){
     }
 }
 
-export const glowing_arc = { trueWebComponentMode:true,elementRendered, startAnimation, addAnimation}
-monkshu_component.register("glowing-arc", `${COMPONENT_PATH}/glowing-arc.html`, glowing_arc);
+export const glowing_arc = { trueWebComponentMode:true, trueJS:false, elementRendered, startAnimation, addAnimation}

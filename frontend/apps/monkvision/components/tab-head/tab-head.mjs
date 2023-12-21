@@ -1,6 +1,3 @@
-import {util} from "/framework/js/util.mjs";
-import {monkshu_component} from "/framework/js/monkshu_component.mjs";
-const COMPONENT_PATH = util.getModulePath(import.meta);
 import {i18n} from "/framework/js/i18n.mjs";
 import {session} from "/framework/js/session.mjs";
 
@@ -154,6 +151,9 @@ function closeModal() {
   }, 500);
 }
 
+function refreshTabHead() { 
+	for (const element of tab_head.getAllElementInstances()) populateTabs(element);
+}
 
-export const tab_head = { trueWebComponentMode:true,elementRendered, selectItemHandler, shift, openModal, pageData}
-monkshu_component.register("tab-head", `${COMPONENT_PATH}/tab-head.html`, tab_head);
+
+export const tab_head = { trueWebComponentMode:true, trueJS:false,elementRendered, selectItemHandler, shift, openModal, pageData}

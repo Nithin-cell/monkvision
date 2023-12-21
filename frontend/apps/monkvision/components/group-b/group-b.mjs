@@ -1,8 +1,5 @@
-import {util} from "/framework/js/util.mjs";
-import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 import { page_generator } from "../page-generator/page-generator.mjs";
 import { main } from "../../js/main.mjs";
-const COMPONENT_PATH = util.getModulePath(import.meta);
 
 async function elementRendered(element) {
     populateItems(element);
@@ -70,5 +67,4 @@ async function changeOpacityOfPaths(el, id){
     }
 }
 
-export const group_b = {trueWebComponentMode:true, elementRendered, select};
-monkshu_component.register("group-b", `${COMPONENT_PATH}/group-b.html`, group_b);
+export const group_b = {trueWebComponentMode:true, trueJS:false, elementRendered, select};

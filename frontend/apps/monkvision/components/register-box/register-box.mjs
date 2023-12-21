@@ -5,9 +5,7 @@
  * License: MIT - see enclosed license.txt file.
  */
 import {base32} from "./3p/base32.mjs";
-import {router} from "/framework/js/router.mjs";
 import {loginmanager} from "../../js/loginmanager.mjs";
-import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 
 async function elementConnected(element) {
 	const data = {};
@@ -37,5 +35,4 @@ function _getTOTPRandomKey() {
 	const key = base32.encode(randomBytes, "RFC3548"); return key;
 }
 
-export const register_box = {register, trueWebComponentMode: true, elementConnected}
-monkshu_component.register("register-box", `${APP_CONSTANTS.APP_PATH}/components/register-box/register-box.html`, register_box);
+export const register_box = {register, trueWebComponentMode: true, trueJS:false, elementConnected}

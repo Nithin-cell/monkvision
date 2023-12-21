@@ -1,0 +1,5 @@
+{
+    "components": ["all-cards","arc-reactor","chart-box","group-b","log-space","profile-comp","slider-b","tab-head"
+,"all-notifs","card-view","dialog-box","html-fragment","notif-comp","register-box","span-with-menu"
+,"all-tabs","change-password","glowing-arc","login-box","page-generator","slider-a","system-setting"]
+}

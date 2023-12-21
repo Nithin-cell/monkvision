@@ -1,8 +1,5 @@
-import {util} from "/framework/js/util.mjs";
-import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 import { main } from "./../../js/main.mjs";
 import { chart_box } from "../chart-box/chart-box.mjs";
-const COMPONENT_PATH = util.getModulePath(import.meta);
 
 async function elementConnected(element) {
     populateCards(element);
@@ -95,5 +92,8 @@ function closeModal() {
   }, 500);
 }
 
-export const card_view = { trueWebComponentMode:true,elementConnected, scrollFlex, scrollEndHandler, selectItemHandler, openModal}
-monkshu_component.register("card-view", `${COMPONENT_PATH}/card-view.html`, card_view);
+function _refresh() { 
+	for (const element of card_view.getAllElementInstances()) populateCards(element);
+}
+
+export const card_view = { trueWebComponentMode:true, trueJS:false,elementConnected, scrollFlex, scrollEndHandler, selectItemHandler, openModal, _refresh}

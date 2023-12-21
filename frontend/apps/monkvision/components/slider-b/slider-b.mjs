@@ -1,9 +1,5 @@
-import {util} from "/framework/js/util.mjs";
-import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 import { main } from "./../../js/main.mjs";
 import { chart_box } from "../chart-box/chart-box.mjs";
-
-const COMPONENT_PATH = util.getModulePath(import.meta);
 
 async function elementConnected(element) {
     populateData(element);
@@ -55,5 +51,8 @@ function selectItemHandler(el){
     slider_b.setDataByContainedElement(el, pageData);
 }
 
-export const slider_b = { trueWebComponentMode:true,elementConnected, scrollFlex, scrollEndHandler, selectItemHandler}
-monkshu_component.register("slider-b", `${COMPONENT_PATH}/slider-b.html`, slider_b);
+function _refresh() { 
+	for (const element of slider_b.getAllElementInstances()) populateData(element);
+}
+
+export const slider_b = { trueWebComponentMode:true, trueJS:false,elementConnected, scrollFlex, scrollEndHandler, selectItemHandler, _refresh}

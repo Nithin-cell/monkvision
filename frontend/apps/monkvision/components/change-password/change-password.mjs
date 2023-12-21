@@ -3,9 +3,7 @@
  * License: MIT - see enclosed license.txt file.
  */
 import {router} from "/framework/js/router.mjs";
-import {loginmanager} from "../../js/loginmanager.mjs";
 import {APP_CONSTANTS} from "../../js/constants.mjs";
-import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 
 var pageData = {}
 
@@ -17,7 +15,4 @@ function changePassword(){
 }
 
 const trueWebComponentMode = true;	// making this false renders the component without using Shadow DOM
-export const change_password = {trueWebComponentMode, elementRendered,changePassword}
-
-
-monkshu_component.register("change-password", `${APP_CONSTANTS.APP_PATH}/components/change-password/change-password.html`, change_password);
+export const change_password = {trueWebComponentMode, trueJS:false, elementRendered,changePassword}

@@ -1,7 +1,4 @@
-import {util} from "/framework/js/util.mjs";
-import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 import { main } from "../../js/main.mjs";
-const COMPONENT_PATH = util.getModulePath(import.meta);
 import {card_view} from '../card-view/card-view.mjs';
 
 
@@ -25,5 +22,4 @@ function search(inp){
     }
 }
 
-export const all_cards = { trueWebComponentMode:true, elementRendered, search}
-monkshu_component.register("all-cards", `${COMPONENT_PATH}/all-cards.html`, all_cards);
+export const all_cards = { trueWebComponentMode:true, trueJS:false, elementRendered, search}

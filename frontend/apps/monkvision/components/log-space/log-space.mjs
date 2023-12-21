@@ -1,7 +1,4 @@
-import {util} from "/framework/js/util.mjs";
-import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 import { chart_box } from "../chart-box/chart-box.mjs";
-const COMPONENT_PATH = util.getModulePath(import.meta);
 
 async function elementConnected(el) {
     populateLogs(el);
@@ -16,6 +13,8 @@ async function populateLogs(el){
     }
 }
 
+function _refresh() { 
+	for (const element of log_space.getAllElementInstances()) populateLogs(element);
+}
 
-export const log_space = { trueWebComponentMode:true,elementConnected}
-monkshu_component.register("log-space", `${COMPONENT_PATH}/log-space.html`, log_space);
+export const log_space = { trueWebComponentMode:true, trueJS:false,elementConnected,_refresh}

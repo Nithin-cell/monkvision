@@ -1,7 +1,4 @@
-import {util} from "/framework/js/util.mjs";
-import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 import { main } from "./../../js/main.mjs";
-const COMPONENT_PATH = util.getModulePath(import.meta);
 import {tab_head} from '../tab-head/tab-head.mjs'
 
 
@@ -44,5 +41,4 @@ function selectItemHandler(el){
   tab_head.selectItemHandler("all-tabs");
 }
 
-export const all_tabs = { trueWebComponentMode:true,elementRendered, search, selectItemHandler}
-monkshu_component.register("all-tabs", `${COMPONENT_PATH}/all-tabs.html`, all_tabs);
+export const all_tabs = { trueWebComponentMode:true, trueJS:false,elementRendered, search, selectItemHandler}

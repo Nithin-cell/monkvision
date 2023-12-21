@@ -3,7 +3,6 @@
  * License: MIT - see enclosed license.txt file.
  */
 import {util} from "/framework/js/util.mjs";
-import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 
 async function initialRender(element) {
 	const data = {}; data.content = _getContent(element);
@@ -48,5 +47,4 @@ function _getContent(element) {
 }
 
 const trueWebComponentMode = true;	// making this false renders the component without using Shadow DOM
-export const span_with_menu = {trueWebComponentMode, initialRender, showMenu}
-monkshu_component.register("span-with-menu", `${APP_CONSTANTS.APP_PATH}/components/span-with-menu/span-with-menu.html`, span_with_menu);
+export const span_with_menu = {trueWebComponentMode, trueJS:false, initialRender, showMenu}

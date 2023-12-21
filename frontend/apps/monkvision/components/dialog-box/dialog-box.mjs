@@ -3,7 +3,6 @@
  * License: MIT - see enclosed license.txt file.
  */
 import {router} from "/framework/js/router.mjs";
-import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 
 async function showDialog(templatePath, showOK, showCancel, data, hostID, retValIDs, callback) {
     const shadowRoot = dialog_box.getShadowRootByHostId(hostID); _resetUI(shadowRoot);
@@ -63,5 +62,4 @@ function _resetUI(shadowRoot) {
 }
 
 const trueWebComponentMode = true;	// making this false renders the component without using Shadow DOM
-export const dialog_box = {showDialog, trueWebComponentMode, hideDialog, error, hideError, submit}
-monkshu_component.register("dialog-box", `${APP_CONSTANTS.APP_PATH}/components/dialog-box/dialog-box.html`, dialog_box);
+export const dialog_box = {showDialog, trueWebComponentMode, trueJS:false, hideDialog, error, hideError, submit}

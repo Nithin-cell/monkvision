@@ -4,7 +4,6 @@
  */
 import {router} from "/framework/js/router.mjs";
 import {loginmanager} from "../../js/loginmanager.mjs";
-import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 
 async function elementConnected(element) {
 	let data = {};
@@ -54,5 +53,4 @@ function previewPassword(el){
 }
 
 const trueWebComponentMode = true;	// making this false renders the component without using Shadow DOM
-export const login_box = {signin, trueWebComponentMode, elementConnected, handleEmailInputChange, previewPassword}
-monkshu_component.register("login-box", `${APP_CONSTANTS.APP_PATH}/components/login-box/login-box.html`, login_box);
+export const login_box = {signin, trueWebComponentMode, trueJS:false, elementConnected, handleEmailInputChange, previewPassword}

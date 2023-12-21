@@ -8,7 +8,6 @@
 import {chart} from "./lib/chart.mjs";
 import {utils as chartUtils} from "./lib/utils.mjs";
 import {apimanager as apiman} from "/framework/js/apimanager.mjs";
-import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 import {util as frameworkUtils} from "/framework/js/util.mjs";
 import { data as fakeData } from "../../conf/testData/chartData.mjs"; //remove when not testing
 
@@ -267,5 +266,4 @@ async function _getContent(api, params) {
 }
 
 const _isTrue = string => string?string.toLowerCase() == "true":false;
-export const chart_box = {trueWebComponentMode: true, elementRendered, setTimeRange, getTimeRange,_getContent, exportCSV}
-monkshu_component.register("chart-box", `${APP_CONSTANTS.APP_PATH}/components/chart-box/chart-box.html`, chart_box);
+export const chart_box = {trueWebComponentMode: true, trueJS:false, elementRendered, setTimeRange, getTimeRange,_getContent, exportCSV}

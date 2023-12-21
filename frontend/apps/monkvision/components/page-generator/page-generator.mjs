@@ -4,7 +4,6 @@
  */
 import {router} from "/framework/js/router.mjs";
 import {session} from "/framework/js/session.mjs";
-import {monkshu_component} from "/framework/js/monkshu_component.mjs";
 
 async function elementConnected(element) {
 	let pageFile = await fetch(element.getAttribute("file"), {mode: "no-cors"}).then(response => response.text());
@@ -131,5 +130,4 @@ function findObject(objectArray, colStart, colEnd, rowEnd, label) {
 }
 
 const trueWebComponentMode = true;	// making this false renders the component without using Shadow DOM
-export const page_generator = {trueWebComponentMode, elementConnected, evalAttrValue}
-monkshu_component.register("page-generator", null, page_generator);
+export const page_generator = {trueWebComponentMode, trueJS:true, elementConnected, evalAttrValue}
