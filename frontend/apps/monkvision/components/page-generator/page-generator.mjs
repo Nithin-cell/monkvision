@@ -68,49 +68,48 @@ async function elementConnected(element) {
 }
 
 async function generatePageHTML(elementParent, schema, cssParsed, cssInternal, cssHref, layoutObj) {
-	const htmlParts = [];
 	if (!elementParent.webscrolls_env) elementParent.webscrolls_env = {};
 	if (layoutObj.rowHeights.length < layoutObj.rows.length) layoutObj.rowHeights.push(Array(layoutObj.rows.length-layoutObj.rowHeights.length).fill("auto"));
 	if (layoutObj.colWidths.length < layoutObj.columns.length) layoutObj.colWidths.push(Array(layoutObj.columns.length-layoutObj.colWidths.length).fill("auto"));
+	const pagedata = elementParent.getAttribute("pagedata")?JSON.parse(elementParent.getAttribute("pagedata")):undefined;
 
-	htmlParts.push(`${cssHref?`<link rel="stylesheet" type="text/css" href="${cssHref}">`:""}
+	let css = `${cssHref?`<link rel="stylesheet" type="text/css" href="${cssHref}">`:""}
 	<style>
 	.grid-container {
 		display: grid;
 		grid-template-rows: ${layoutObj.rowHeights.join(" ")};
 		grid-template-columns: ${layoutObj.colWidths.join(" ")};
 	}
-	`);
-	let cssPos=0,htmlPos=1;
-	htmlParts.push(`<div class="grid-container${cssParsed.containerClasses?" "+cssParsed.containerClasses:''}">`);
+	`;
+	let html = `<div class="grid-container${cssParsed.containerClasses?" "+cssParsed.containerClasses:''}">
+	`;
 
 	for (const [i, element] of layoutObj.elementsAndPlacements.entries()) {
-		htmlParts.splice(++cssPos, 0, `.item${i} {
+		css += `.item${i} {
 			grid-column: ${element.colStart+1} / ${element.colEnd+1};
 			grid-row: ${element.rowStart+1} / ${element.rowEnd+1};
 			overflow: hidden;
 		}
-		`);
-		htmlPos++; 
+		`
 
-		let htmlElement = JSON.parse(schema)[element.element]; 
-		htmlElement.id = element.name || element.element;
-		htmlParts.splice(++htmlPos, 0, `<div class="item${i}${cssParsed.itemClasses?" "+cssParsed.itemClasses:''}${cssParsed.perItemClass?` ${cssParsed.perItemClass}-${htmlElement.id}`:''}"><${htmlElement.html || "div"}`); 
+		const htmlElement = JSON.parse(schema)[element.element]; htmlElement.id = element.name || element.element; 
+		html += `<div class="item${i}${cssParsed.itemClasses?" "+cssParsed.itemClasses:''}${cssParsed.perItemClass?` ${cssParsed.perItemClass}-${htmlElement.id}`:''}"><${htmlElement.html || "div"}`; 
 		delete htmlElement.html; let innerHTML = htmlElement.__org_monkshu_innerHTML||''; delete htmlElement.__org_monkshu_innerHTML;
-		for (const attr of Object.keys(htmlElement)) htmlParts.splice(++htmlPos, 0, ` ${attr}="${await evalAttrValue(htmlElement[attr])}"`); htmlParts.splice(++htmlPos, 0, `>${innerHTML}</${htmlElement.html}></div>
-		`);
+		for (const attr of Object.keys(htmlElement)) html += ` ${attr}="${await evalAttrValue(htmlElement[attr], pagedata)}"`; html += `>${innerHTML}</${htmlElement.html}></div>
+		`
 	}
 
-	htmlParts.splice(++cssPos, 0, cssInternal);
-	htmlParts.splice(++cssPos, 0, "</style>");
-	htmlParts.splice(++htmlPos, 0, "</div>");
+	css += cssInternal;
+	css += "</style>"; html += "</div>";
 
-	return htmlParts.join("");
+	let finalHTML = css+html;
+
+	return finalHTML;
 }
 
-async function evalAttrValue(str) {
+async function evalAttrValue(str, pagedata) {
 	let val = (window[str] || str).toString();	// Mustache expects Strings only
-	val = await router.expandPageData(val, session.get($$.MONKSHU_CONSTANTS.PAGE_URL), {});
+	val = await router.expandPageData(val, session.get($$.MONKSHU_CONSTANTS.PAGE_URL), pagedata||{});
 	if (val.match(/url\(.+\)/)) {
 		try {
 			let testURL = router.decodeURL(val.trim().substring(4,val.length-1)); let response = await fetch(testURL); 
