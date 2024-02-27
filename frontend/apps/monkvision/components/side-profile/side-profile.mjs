@@ -33,7 +33,8 @@ async function getData(){
             },
             {
                 icon: "./img/notification_icon.svg",
-                buttonText: "Notifications"
+                buttonText: "Notifications",
+                redirect: "notifications.html"
             },
             {
                 icon: "./img/shield.svg",

@@ -118,7 +118,7 @@ input{
     </g>
 </svg>
 <div class="bg content flex">
-    <img id="dp" src="{{dp}}" alt="profile picture">
+    <img id="dp" src="{{dp}}" alt="profile picture" onclick="monkshu_env.components['profile-comp'].toggle(this,event)">
     <div class="name flex">Hi {{name}}</div>
     <div class="us flex">
         {{^toggle}}
