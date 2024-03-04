@@ -1,31 +1,141 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="pragma" content="no-cache">
-    <meta http-equiv="expires" content="-1">
-    <script type="module">
-        import {notif_comp} from "./components/notif-comp/notif-comp.mjs"; 
-        import {language} from "./js/language.mjs"; window.language=language;
-    </script>
-
-</head>
 <style>
-    
-    .font{
-        font-family: 'ubuntu';
-        color: #FFFFFF;
-        font-weight: 400;
+    :host {
+        --svg-ratio: 602/167;
     }
-   
+    body, html {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        aspect-ratio: var(--svg-ratio);
+    }
+    .bg{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+    }
+    .content{
+        display: flex;
+        flex-flow: row nowrap;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        width: 94%;
+        height: 47%;
+        left: 3%;
+        position: absolute;
+        top: 30%;
+        scrollbar-width: none; /* Hide scrollbar (Firefox) */
+        /* Chrome, Safari, Edge: */
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        background: rgba(0,0,0,0.05);
+    }
+    .frame{
+        display: flex;
+        flex-flow: column nowrap;
+        width: 100%;
+        flex: 0 0 100%;
+        scroll-snap-align: start;
+    }
+    .child{
+        padding: 0% 2%;
+        color: whitesmoke;
+    }
+    .head{
+        height: 20%;
+        font-size: 150%;
+    }
+    .long{
+        height: 40%;
+        font-size: 100%;
+    }
+    .short{
+        height: 10%;
+        filter: brightness(0.6);
+        font-size: 80%;
+    }
+    #prev, #next{
+        position: absolute;
+        width: 2.5%;
+        top: 37%;
+        display: flex;
+        align-items: center;
+        height: 33%;
+    }
+    #prev{
+        display: none;
+    }
+    #next{
+        right: 0%;
+    }
 </style>
-<body>
-    <div style="padding-top: 1em;position: relative;">
-        <img src="./img/critical_containerBox.svg" style="width: 35em;">
-        <img src="./img/alert.svg" style="width: 1.5em;position: absolute;top: 1.5em;left: 1em;">
-        <p class="font" style="position: absolute;top: 1.5em;left: 4em;font-size: 12px;">CRITICAL</p>
-        <p class="font" style="position: absolute;top: 3em;left: 3em;">(OS METRIC) STATUS OF NODE/HOST</p>
-        <p class="font" style="position: absolute;top: 7.5em;left: 4.8em;font-size: 10px;max-width: 46em">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <p class="font" style="position: absolute;bottom: 1.5em;left: 4.8em;font-size: 10px;max-width: 46em">Email sent to: johndoe@gmail.com </p>
+<div onclick="monkshu_env.components['notif-comp'].scrollContent(this)" id="prev">
+    <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.24512 3.1758L5.54929 6.87167C5.11282 7.30814 5.11282 8.02236 5.54929 8.45883L9.24512 12.1547" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+</div>
+<div onclick="monkshu_env.components['notif-comp'].scrollContent(this)" id="next">
+    <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5.75488 11.8242L9.45071 8.12833C9.88718 7.69186 9.88718 6.97764 9.45071 6.54117L5.75488 2.84534" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+</div>
+<div class="bg">
+    <svg viewBox="0 0 602 167" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+            d="M27.6573 0.706303L27.6573 0.70632H27.6614H115.636H203.61H348.722H391.449C393.878 0.70632 396.214 1.63662 397.979 3.30605L419.403 23.5801C421.353 25.4252 423.936 26.4534 426.62 26.4534H575.46H590.401C595.648 26.4534 599.901 30.7067 599.901 35.9534V43.5864C599.901 46.5131 598.552 49.2765 596.245 51.0767L588.978 56.7455C586.428 58.7352 584.937 61.7895 584.937 65.0243V115.188C584.937 118.24 586.264 121.14 588.573 123.135L596.611 130.077C598.7 131.881 599.901 134.511 599.901 137.272C599.901 142.519 595.647 146.783 590.401 146.783H200.198C197.317 146.783 194.563 147.966 192.581 150.056L179.903 163.418C178.109 165.308 175.618 166.379 173.012 166.379H12.7202C7.4735 166.379 3.22021 162.126 3.22021 156.879V136.983C3.22021 134.379 4.28904 131.889 6.17681 130.096L13.5567 123.084C15.6432 121.102 16.8245 118.35 16.8245 115.472V64.7384C16.8245 61.6753 15.4869 58.7649 13.1624 56.7701L6.53357 51.0817C4.43041 49.2769 3.22021 46.6437 3.22021 43.8723V10.0831C3.22021 4.80566 7.52156 0.539735 12.7988 0.58339L27.6573 0.706303Z"
+            stroke="{{color}}" />
+        <path
+            d="M0.906494 54.168C0.906494 52.4697 2.88955 51.5443 4.19117 52.6352L13.7954 60.6845C14.2489 61.0645 14.5108 61.6257 14.5108 62.2173V116.586C14.5108 117.154 14.2695 117.695 13.847 118.074L4.24275 126.698C2.95519 127.854 0.906494 126.941 0.906494 125.21V54.168Z"
+            fill="{{color}}" />
+        <path
+            d="M601.309 54.168C601.309 52.4697 599.326 51.5443 598.024 52.6352L588.42 60.6845C587.966 61.0645 587.704 61.6257 587.704 62.2173V116.586C587.704 117.154 587.946 117.695 588.368 118.074L597.972 126.698C599.26 127.854 601.309 126.941 601.309 125.21V54.168Z"
+            fill="{{color}}" />
+        <path
+            d="M257.241 152.404C257.523 152.12 257.906 151.961 258.305 151.961H278.164C279.497 151.961 280.168 153.571 279.228 154.518L268.79 165.029C268.508 165.313 268.125 165.472 267.725 165.472H247.867C246.533 165.472 245.863 163.862 246.803 162.915L257.241 152.404Z"
+            stroke="{{color}}" />
+        <path
+            d="M228.219 152.404C228.5 152.12 228.883 151.961 229.283 151.961H249.141C250.475 151.961 251.145 153.571 250.206 154.518L239.767 165.029C239.486 165.313 239.103 165.472 238.703 165.472H218.845C217.511 165.472 216.841 163.862 217.78 162.915L228.219 152.404Z"
+            stroke="{{color}}" />
+        <path
+            d="M199.196 152.404C199.478 152.12 199.861 151.961 200.261 151.961H220.119C221.453 151.961 222.123 153.571 221.183 154.518L210.745 165.029C210.463 165.313 210.08 165.472 209.68 165.472H189.822C188.488 165.472 187.818 163.862 188.758 162.915L199.196 152.404Z"
+            fill="{{color}}" stroke="{{color}}" />
+        {{#critical}}
+        <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M37.3664 24.2459L31.1855 12.8047C30.4134 11.4094 28.9445 10.5433 27.3498 10.5433C25.7551 10.5433 24.2862 11.4094 23.5142 12.8047L17.2347 24.235C16.4969 25.5925 16.5283 27.2382 17.3172 28.5666C18.1062 29.895 19.5362 30.71 21.0813 30.7117H33.5088C35.0525 30.7118 36.4824 29.8998 37.2734 28.5741C38.0643 27.2484 38.0996 25.6044 37.3664 24.2459ZM26.4074 17.9335C26.4074 17.4796 26.7753 17.1116 27.2293 17.1116C27.6832 17.1116 28.0512 17.4796 28.0512 17.9335V21.3199C28.0512 21.7738 27.6832 22.1418 27.2293 22.1418C26.7753 22.1418 26.4074 21.7738 26.4074 21.3199V17.9335ZM27.2402 25.3309C27.6942 25.3309 28.0622 24.9629 28.0622 24.5089L28.0512 24.498C28.0512 24.0501 27.6881 23.687 27.2402 23.687C26.7888 23.6929 26.4242 24.0575 26.4183 24.5089C26.4183 24.9629 26.7863 25.3309 27.2402 25.3309Z"
+            fill="white" />
+        {{/critical}}
+        {{#warning}}
+        <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M17.6104 19.2688C17.6104 13.8647 21.9912 9.48376 27.3954 9.48376H29.2721C34.6762 9.48376 39.0571 13.8647 39.0571 19.2688V21.1455C39.0571 26.5496 34.6762 30.9305 29.2721 30.9305H27.3953C21.9912 30.9305 17.6104 26.5496 17.6104 21.1455V19.2688ZM28.3393 24.3004C27.8853 24.3004 27.5173 23.9324 27.5173 23.4785V20.0812C27.5173 19.6272 27.8853 19.2592 28.3393 19.2592C28.7932 19.2592 29.1612 19.6272 29.1612 20.0812V23.5004C29.1437 23.9433 28.7825 24.2949 28.3393 24.3004ZM27.5173 17.429C27.5173 17.883 27.8853 18.2509 28.3393 18.2509C28.7825 18.2455 29.1437 17.8938 29.1612 17.4509V17.0454C29.1612 16.5915 28.7932 16.2235 28.3393 16.2235C27.8853 16.2235 27.5173 16.5915 27.5173 17.0454V17.429Z"
+            fill="white" />
+        {{/warning}}
+        <g>
+            <text x="48" y="26" fill="white" font-size="13">{{statusText}}</text>
+        </g>
+    </svg>
+</div>
+<div class="content" onscrollend="monkshu_env.components['notif-comp'].scrollHandler(this)">
+    {{#head1}}
+    <div class="frame">
+        <div class="child head">{{head1}}</div>
+        <div class="child long">{{long1}}</div>
+        <div class="child short">{{long1}}</div>
     </div>
-</body>
+    {{/head1}}
+    {{#head2}}
+    <div class="frame">
+        <div class="child head">{{head2}}</div>
+        <div class="child long">{{long2}}</div>
+        <div class="child short">{{long2}}</div>
+    </div>
+    {{/head2}}
+    {{#head3}}
+    <div class="frame">
+        <div class="child head">{{head3}}</div>
+        <div class="child long">{{long3}}</div>
+        <div class="child short">{{long3}}</div>
+    </div>
+    {{/head3}}
+</div>
