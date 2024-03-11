@@ -1,338 +1,197 @@
 <!-- 
 (C) 2020 TekMonks. All rights reserved.
 -->
-<style>
-
-</style>
-
 <!doctype html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="expires" content="-1">
+    <title>Notifications</title>
     <script type="module">
-        import {notif_comp} from "./components/notif-comp/notif-comp.mjs"; 
-        import {all_notifs} from "./components/all-notifs/all-notifs.mjs"; 
-        import {language} from "./js/language.mjs"; window.language=language;
         import {main} from "./js/main.mjs"; window.main = main;
     </script>
-    <title>{{pageTitle}}</title>
-    {{{css}}}
 </head>
 <style>
     body{
         background: url(./img/MonkvissionBackground.png); background-size: cover; width: 100%; height: 100%; background-repeat: no-repeat;
         overflow: hidden;
-        }
-    .font{
         font-family: 'ubuntu';
         color: #FFFFFF;
         font-weight: 400;
     }
-    .termsPrivacy{
-        font-family: 'ubuntu';
-        color: #FFFFFF;
-        font-size: 10px;
+    #backBtn{
+        cursor: pointer;
         position: absolute;
-        bottom: 4em;
-        left:10em;
-        line-height: 0.5em;
+        top: 1em;
+        left: 1em;
     }
-    /* CSS rules for screens with a maximum width of 1000 pixels */
-    @media only screen and (min-width: 1000px) and (max-width:1500px){
-        .profile-menu-img{
-            position: absolute;
-            top: 1.85em;
-            height: 30px;
-            width: 30px;
-            border-radius: 50%;
-            right: 2.7em;
-            border: 1px solid #FFFFFF;
-        }
-        .profile-menu-container{
-            height:10em;
-            position: absolute;
-            right: 1em;
-            top:0.5em;
-        }
-        .profile-menu-input{
-            background-color: transparent;
-            box-sizing: border-box;
-            width: 22em;
-            height: 1.8em;
-            border: 1px solid #FFFFFF;
-            position: absolute;
-            top: 5em;
-            right: 8.5em;
-            border-radius: 3px;
-            padding-left: 1em;
-            font-size: 10px;
-            color:#FFFFFF
-        }
-        .profile-menu-search{
-            position:absolute;right: 6em;top: 3em;width: 11px;
-        }
-        .profile-menu-text{
-            position:absolute;top: 2.5em;right: 8.2em;font-size: 10px;
-        }
-        .profile-menu-container{
-            height: 6em;position: absolute;right: 1em;top:0.5em;
-        }
-        .notification-container{
-            position: absolute;
-            left: 4em;
-            top: 4em;
-            width: 80%;
-        }
-        .notification-header{
-            font-size: 1.5em;
-        }
-        .footer-img{
-            height: 5em;
-            position: absolute;
-            bottom:1em;
-            left: 1em;
-        }
-     
+    #mainc{
+        position: absolute;
+        bottom: 1em;
+        left: 2em;
+        display: flex;
+        height: 5em;
+        flex-flow: row nowrap;
+        justify-content: space-around;
     }
-    @media only screen and (min-width: 1501px) and (max-width:2000px){
-        .profile-menu-container{
-            height:10em;
-            position: absolute;
-            right: 1em;
-            top:0.5em;
-        }
-        .profile-menu-img{
-            position: absolute;
-            top: 2.8em;
-            height: 50px;
-            width: 50px;
-            border-radius: 50%;
-            right: 3.9em;
-            border: 1px solid #FFFFFF;
-        }
-        .profile-menu-text{
-            position:absolute;
-            top:2em;
-            right:8em;
-        }
-        .profile-menu-input{
-            background-color: transparent;
-            box-sizing: border-box;
-            width: 28em;
-            height: 2em;
-            border: 1px solid #FFFFFF;
-            position: absolute;
-            top: 5.5em;
-            right: 10em;
-            border-radius: 7px;
-            padding-left: 1em;
-            color:#FFFFFF;
-        }
-        .profile-menu-search{
-            position:absolute;
-            right:9em;
-            top:4.8em;
-        }
-        .notification-container{
-            position: absolute;
-            left: 6em;
-            top: 6em;
-            width: 80%;
-        }
-        .footer-img{
-            height: 5em;
-            position: absolute;
-            bottom:1em;
-            left: 1em;
-        }
-
+    #mainc>img{
+        width: 22%;
     }
-    @media only screen and (min-width: 2001px) and (max-width:2500px){
-        .profile-menu-container{
-            height:10em;
-            position: absolute;
-            right: 1em;
-            top:0.5em;
-        }
-        .profile-menu-img{
-            position: absolute;
-            top: 2.8em;
-            height: 50px;
-            width: 50px;
-            border-radius: 50%;
-            right: 3.9em;
-            border: 1px solid #FFFFFF;
-        }
-        .profile-menu-text{
-            position:absolute;
-            top:2em;
-            right:8em;
-        }
-        .profile-menu-input{
-            background-color: transparent;
-            box-sizing: border-box;
-            width: 28em;
-            height: 2em;
-            border: 1px solid #FFFFFF;
-            position: absolute;
-            top: 5.5em;
-            right: 10em;
-            border-radius: 7px;
-            padding-left: 1em;
-            color:#FFFFFF;
-        }
-        .profile-menu-search{
-            position:absolute;
-            right:9em;
-            top:4.8em;
-        }
-        .notification-container{
-            position: absolute;
-            left: 6em;
-            top: 6em;
-            width: 80%;
-        }
-        .footer-img{
-            height: 5em;
-            position: absolute;
-            bottom:1em;
-            left: 1em;
-        }
-
+    #secc{
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+        padding: 1.2rem;
     }
-    @media only screen and (min-width: 2501px) and (max-width:3000px){
-        .profile-menu-container{
-            height:10em;
-            position: absolute;
-            right: 1em;
-            top:0.5em;
-        }
-        .profile-menu-img{
-            position: absolute;
-            top: 2.8em;
-            height: 50px;
-            width: 50px;
-            border-radius: 50%;
-            right: 3.9em;
-            border: 1px solid #FFFFFF;
-        }
-        .profile-menu-text{
-            position:absolute;
-            top:2em;
-            right:8em;
-        }
-        .profile-menu-input{
-            background-color: transparent;
-            box-sizing: border-box;
-            width: 28em;
-            height: 2em;
-            border: 1px solid #FFFFFF;
-            position: absolute;
-            top: 5.5em;
-            right: 10em;
-            border-radius: 7px;
-            padding-left: 1em;
-            color:#FFFFFF;
-        }
-        .profile-menu-search{
-            position:absolute;
-            right:9em;
-            top:4.8em;
-        }
-        .notification-container{
-            position: absolute;
-            left: 6em;
-            top: 6em;
-            width: 80%;
-        }
-        .footer-img{
-            height: 5em;
-            position: absolute;
-            bottom:1em;
-            left: 1em;
-        }
-
+    #secc>p{
+        margin: 0
     }
-    @media only screen and (min-width: 3001px){
-        .profile-menu-container{
-            height:10em;
-            position: absolute;
-            right: 1em;
-            top:0.5em;
-        }
-        .profile-menu-img{
-            position: absolute;
-            top: 2.8em;
-            height: 50px;
-            width: 50px;
-            border-radius: 50%;
-            right: 3.9em;
-            border: 1px solid #FFFFFF;
-        }
-        .profile-menu-text{
-            position:absolute;
-            top:2em;
-            right:8em;
-        }
-        .profile-menu-input{
-            background-color: transparent;
-            box-sizing: border-box;
-            width: 28em;
-            height: 2em;
-            border: 1px solid #FFFFFF;
-            position: absolute;
-            top: 5.5em;
-            right: 10em;
-            border-radius: 7px;
-            padding-left: 1em;
-            color:#FFFFFF;
-        }
-        .profile-menu-search{
-            position:absolute;
-            right:9em;
-            top:4.8em;
-        }
-        .notification-container{
-            position: absolute;
-            left: 6em;
-            top: 6em;
-            width: 80%;
-        }
-        .footer-img{
-            height: 5em;
-            position: absolute;
-            bottom:1em;
-            left: 1em;
+    #secc p:nth-child(2){
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        text-transform: capitalize;
+        font-size: small;
+    }
+    #pc{
+        position: absolute;
+        width: 40%;
+        right: 0%;
+    }
+    #rc{
+        position: absolute;
+        width: 40%;
+        height: 77%;
+        right: 10%;
+        top: 20%;
+    }
+    #lc, #rc, #mrc{
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    #up>img{
+        transform: rotate(90deg);
+        transition: all 0.2s ease-out;
+    }
+    #mrc{
+        margin: 0.5rem 0;
+        overflow: hidden scroll;
+        border-radius: 1.5rem;
+    }
+    notif-comp{
+        margin: 0.5rem;
+        scroll-snap-align: start;
+    }
+    #down>img{
+        transform: rotate(-90deg);
+    }
+    #up, #down{
+        display: flex;
+        align-items: center;
+        transition: all 0.5s ease-out;
+    }
+    .hideScroll{
+        scrollbar-width: none;
+        /* Chrome, Safari, Edge: */
+        &::-webkit-scrollbar {
+            display: none;
         }
     }
-   
-
+    #down{
+        margin-top: auto;
+    }
+    #up{
+        margin-top: 0;
+    }
+    .hide{
+        opacity: 0;
+        transform: translateX(30%);
+    }
+    #lc{
+        position: absolute;
+        width: 40%;
+        left: 5%;
+        top: 15%;
+        height: 70%;
+    }
+    #lc>h2{
+        height: 5%;
+        margin: 0;
+    }
+    #lcsub{
+        height: 90%;
+        overflow: hidden scroll;
+        scroll-behavior: smooth;
+    }
 </style>
 <body>
+    <div id="pc">
+        <profile-comp></profile-comp>
+    </div>
+    <div id="lc">
+        <h2>NOTIFICATIONS</h2>
+        <div id="lcsub" class="hideScroll">
+            <notif-comp id="1" data-status-text="CRITICAL" data-head1="(OS Metric) Status of Node/Host" data-head2="(OS Metric) Status of Node/Host" data-head3="(OS Metric) Status of Node/Host" data-critical="true" data-color="red" data-long1="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short1="Email sent to: johndoe@mail.com" data-long2="Torem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short2="Email sent to: johndoe2@mail.com" data-long3="Morem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short3="Email sent to: johndoe3@mail.com"></notif-comp>
+            <notif-comp id="2" data-status-text="WARNING" data-head1="(OS Metric) Status of Node/Host" data-head2="(OS Metric) Status of Node/Host" data-head3="(OS Metric) Status of Node/Host" data-warning="true" data-color="yellow" data-long1="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short1="Email sent to: abhinav@mail.com" data-long2="Torem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short2="Email sent to: abhinav2@mail.com" data-long3="Morem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short3="Email sent to: abhinav3@mail.com"></notif-comp>
+            <notif-comp id="3" data-status-text="CRITICAL" data-head1="(OS Metric) Status of Node/Host" data-head2="(OS Metric) Status of Node/Host" data-head3="(OS Metric) Status of Node/Host" data-critical="true" data-color="red" data-long1="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short1="Email sent to: abhinav@mail.com" data-long2="Torem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short2="Email sent to: abhinav2@mail.com" data-long3="Morem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short3="Email sent to: abhinav3@mail.com"></notif-comp>
+            <notif-comp id="4" data-status-text="CRITICAL" data-head1="(OS Metric) Status of Node/Host" data-head2="(OS Metric) Status of Node/Host" data-head3="(OS Metric) Status of Node/Host" data-critical="true" data-color="red" data-long1="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short1="Email sent to: abhinav@mail.com" data-long2="Torem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short2="Email sent to: abhinav2@mail.com" data-long3="Morem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short3="Email sent to: abhinav3@mail.com"></notif-comp>
+        </div>
+    </div>
+    <div id="rc">
+        <div id="up">
+            <img src="./img/arrow_left.svg" height="35" width="35">
+        </div>
+        <div id="mrc" onscrollend="containerScrollHandler(this)" class="hideScroll">
+            <notif-comp id="first" data-status-text="System Notification (Today)" data-head1="(OS Metric) Status of Node/Host" data-head2="(OS Metric) Status of Node/Host" data-head3="(OS Metric) Status of Node/Host" data-system="true" data-color="white" data-long1="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short1="Email sent to: johndoe@mail.com" data-long2="Torem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short2="Email sent to: johndoe2@mail.com" data-long3="Morem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short3="Email sent to: johndoe3@mail.com"></notif-comp>
 
-<div id="container">
-    <img src="./img/arrow_left.svg" height="35" width="35" style="margin-top: 1em;margin-left:1em;" onclick="main.loadMain()">
-    <div class="profile-menu">
-        <img class="profile-menu-container" src="./img/top_right_component.svg">
-        <img class="profile-menu-img" src="./img/man1.jpg" onclick="monkshu_env.components['all-notifs'].loadProfile()">
-        <p class="font profile-menu-text" >Hello Rohan!</p>
-        <input class="profile-menu-input" type="text" placeholder="Search" >
-        <img class="profile-menu-search" src="./img/search_icon.svg" height="18" width="18" >
-        
+            <notif-comp id="second" data-status-text="System Notification (Today)" data-head1="(OS Metric) Status of Node/Host" data-head2="(OS Metric) Status of Node/Host" data-head3="(OS Metric) Status of Node/Host" data-system="true" data-color="white" data-long1="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short1="Email sent to: abhinav@mail.com" data-long2="Torem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short2="Email sent to: abhinav2@mail.com" data-long3="Morem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short3="Email sent to: abhinav3@mail.com"></notif-comp>
+
+            <notif-comp id="third" data-status-text="System Notification (Today)" data-head1="(OS Metric) Status of Node/Host" data-head2="(OS Metric) Status of Node/Host" data-head3="(OS Metric) Status of Node/Host" data-system="true" data-color="white" data-long1="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short1="Email sent to: abhinav@mail.com" data-long2="Torem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short2="Email sent to: abhinav2@mail.com" data-long3="Morem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short3="Email sent to: abhinav3@mail.com"></notif-comp>
+            <notif-comp id="fourth" data-status-text="System Notification (Today)" data-head1="(OS Metric) Status of Node/Host" data-head2="(OS Metric) Status of Node/Host" data-head3="(OS Metric) Status of Node/Host" data-system="true" data-color="white" data-long1="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short1="Email sent to: abhinav@mail.com" data-long2="Torem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short2="Email sent to: abhinav2@mail.com" data-long3="Morem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short3="Email sent to: abhinav3@mail.com"></notif-comp>
+
+            <notif-comp id="fifth" data-status-text="System Notification (Today)" data-head1="(OS Metric) Status of Node/Host" data-head2="(OS Metric) Status of Node/Host" data-head3="(OS Metric) Status of Node/Host" data-system="true" data-color="white" data-long1="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short1="Email sent to: abhinav@mail.com" data-long2="Torem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short2="Email sent to: abhinav2@mail.com" data-long3="Morem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short3="Email sent to: abhinav3@mail.com"></notif-comp>
+            <notif-comp id="sixth" data-status-text="System Notification (Today)" data-head1="(OS Metric) Status of Node/Host" data-head2="(OS Metric) Status of Node/Host" data-head3="(OS Metric) Status of Node/Host" data-system="true" data-color="white" data-long1="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short1="Email sent to: abhinav@mail.com" data-long2="Torem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short2="Email sent to: abhinav2@mail.com" data-long3="Morem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short3="Email sent to: abhinav3@mail.com"></notif-comp>
+
+            <notif-comp id="seventh" data-status-text="System Notification (Today)" data-head1="(OS Metric) Status of Node/Host" data-head2="(OS Metric) Status of Node/Host" data-head3="(OS Metric) Status of Node/Host" data-system="true" data-color="white" data-long1="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short1="Email sent to: abhinav@mail.com" data-long2="Torem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short2="Email sent to: abhinav2@mail.com" data-long3="Morem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis nisl libero. Maecenas tempus erat pharetra nisl maximus tincidunt at quis massa. Vivamus ullamcorper ut ligula ut rutrum." data-short3="Email sent to: abhinav3@mail.com"></notif-comp>
+        </div>
+        <div id="down">
+            <img src="./img/arrow_left.svg" height="35" width="35">
+        </div>
     </div>
-    <div class="notification-container">
-        <h1 class="font notification-header">NOTIFICATIONS</h1>
-        <all-notifs></all-notifs>
-    </div>
-    <img src="./img/full-white_tekmonks.png" class="footer-img">
-	<div class="termsPrivacy">
-        <p style="white-space:pre;">©2023 - TekMonks  |   All right reserved</p>
-		<p><a href="" style="color:#505D68;">TERMS AND CONDITIONS</a>   <a href="" style="color:#505D68;padding-left: 1em;">PRIVACY POLICY</a></p>
+    <img id="backBtn" src="./img/arrow_left.svg" height="35" width="35" onclick="main.loadMain()">
+	<div id="mainc">
+        <img src="./img/full-white_tekmonks.png">
+        <div id="secc">
+            <p style="white-space:pre;">©2023 - TekMonks  |   All right reserved</p>
+            <p>
+                <span>
+                    <a href="" style="color:#505D68;">TERMS AND CONDITIONS</a>
+                </span>
+                <span>
+                    <a href="" style="color:#505D68;padding-left: 1em;">PRIVACY POLICY</a></p>
+                </span>
+        </div>
 		
 	</div>
 </div>
 </body>
+<script>
+    function containerScrollHandler(c){
+        const { scrollTop, scrollHeight, clientHeight } = c;
+        const e = ["up", "down"].map(id => document.getElementById(id));
+        if (scrollTop === 0) {
+            setVis(e[0]); setVis(e[1], true);     
+        } else if (scrollTop + clientHeight >= scrollHeight) {
+            setVis(e[0], 1); setVis(e[1]);
+        }
+        else{
+            setVis(e[0], 1); setVis(e[1], 1);
+        }
+    }
+    function setVis(e, vis=false){
+        vis? e.classList.remove('hide') : e.classList.add('hide');
+    }
+</script>
 </html>
     
